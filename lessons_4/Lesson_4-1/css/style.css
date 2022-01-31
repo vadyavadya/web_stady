@@ -1,0 +1,208 @@
+/* ========== Что сделаю ============= */
+/* 
+1. Подключу через css гугл fonts  шрифт и 3 начертания 1 из них italic
+	1.1 подключим в html другой шрифт(Подключил и проверил если нету 
+	400 то используется минимальное значение по умолчанию 
+	и в случае указание значения font-weight того которого нет
+	используется ближайшее меньшее)
+2. Скачаю шрифт так же 2 начертания и italick,
+переведу из ttf в woff  и woff2
+3. Поэксперементировать со шрифтом
+	для загоовка пожирнее и побольше
+	для параграфа обычный
+	что нить с курсивом
+	h1 одним семейством шрифта h2 другим размер и начртания разнве
+	сравню oblique с italic
+4. Ну покрасим текст
+5. Использую text-align (выовню строчные объекты)
+	center - Выравнивание текста по центру.
+	justify - Выравнивание по ширине, что означает 
+	одновременное выравнивание по левому и правому краю. 
+	Чтобы произвести это действие браузер в этом случае 
+	добавляет пробелы между словами.
+	left - Выравнивание текста по левому краю. 
+	right - Выравнивание текста по правому краю.
+6. использую text-decoration
+	line-through - Создает перечеркнутый текст.
+	overline - Линия проходит над текстом.
+	underline - Устанавливает подчеркнутый текст. 
+	none - Отменяет все эффекты, в том числе и подчеркивания у ссылок, которое задано по умолчанию.
+7. Сделаю две тени 
+8. поигрть с синей и белыой тенью.
+9. text-transform
+	uppercase
+	undercase
+	capitalase
+10. line heigh
+	сделаю в относительных единицач с разным размером шрифта
+	и в пикселях тоже с разным размером шрифта
+11. Пролбуем text-indent
+12. Пролбуем letter-spacing
+13. Пролбуем white-space nowrap
+14. Пролбуем word-spacing
+
+ */
+
+/* &display=swap */
+
+@import "null.css";
+
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200;400;700;900&display=swap");
+
+/* 
+заметил что transfonter.org делает и css файл что очень прикольно
+но сделаю сам и сверюсь
+*/
+
+@font-face {
+	font-family: "Merriweather";
+	src: url("../fonts/Merriweather-Regular.woff2") format("woff2"),
+		url("../fonts/Merriweather-Regular.woff") format("woff");
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+@font-face {
+	font-family: "Merriweather";
+	src: url("../fonts/Merriweather-Italic.woff2") format("woff2"),
+		url("../fonts/Merriweather-Italic.woff") format("woff");
+	font-weight: 400;
+	font-style: italic;
+	font-display: swap;
+}
+@font-face {
+	font-family: "Merriweather";
+	src: url("../fonts/Merriweather-Bold.woff2") format("woff2"), url("../fonts/Merriweather-Bold.woff") format("woff");
+	font-weight: 700;
+	font-style: normal;
+	font-display: swap;
+}
+@font-face {
+	font-family: "Merriweather";
+	src: url("../fonts/Merriweather-Black.woff2") format("woff2"),
+		url("../fonts/Merriweather-Black.woff") format("woff");
+	font-weight: 900;
+	font-style: normal;
+	font-display: swap;
+}
+
+body {
+	font-family: "Merriweather", serif;
+}
+a {
+	color: tomato;
+	text-decoration: green wavy underline;
+}
+
+.header {
+	font-family: "Roboto", sans-serif;
+}
+
+.title-main {
+	font-weight: 900;
+}
+.menu {
+	font-weight: 500;
+}
+.link {
+	font-family: "Nunito", sans-serif;
+	font-weight: 400;
+}
+
+.title-two {
+	font-weight: 900;
+}
+.title-three {
+	font-weight: 700;
+}
+
+/* 
+!	Блин italic и oblique взаимо используются если нет одного, но он указан
+!	то используется другой, типо есть italic но указываем oblique то будет
+!	italic, но при указании  oblique если нет его и нет italic то искуственно
+!	наклонится шрифт!! 
+*/
+.span-italic {
+	font-style: italic;
+	color: rgba(165, 42, 42, 0.541);
+}
+.p-oblique {
+	font-style: oblique;
+}
+
+.p-center {
+	text-align: center;
+}
+.ta-left {
+	text-align: left;
+}
+.ta-center {
+	text-align: center;
+}
+.ta-right {
+	text-align: right;
+}
+.ta-justify {
+	text-align: justify;
+}
+.td-overline {
+	text-decoration: overline;
+}
+.td-line-through {
+	text-decoration: line-through;
+}
+.td-underline {
+	text-decoration: underline;
+}
+.lh-2{
+	line-height: 2;
+}
+.shadow {
+	text-shadow: 5px 5px 2px #000;
+}
+
+/* Оказывается дублирование добавляет насыщенность */
+.shadow-bw {
+	text-shadow: 0px 0px 3px rgb(0, 0, 0), 
+	0px 0px 6px rgb(132, 0, 255),
+	0px 0px 6px rgb(132, 0, 255),
+	0px 0px 6px rgb(132, 0, 255),
+	0px 0px 6px rgb(132, 0, 255);
+	color: white;
+}
+.shadow-bw-t {
+	text-shadow: 0px 0px 3px rgb(0, 0, 0), 
+	0px 0px 6px rgb(132, 0, 255);
+	color: white;
+}
+.tt-upper {
+	text-transform: uppercase;
+}
+.tt-lower {
+	text-transform: lowercase;
+}
+.tt-cap {
+	text-transform: capitalize;
+}
+.lh-2-fz-14 {
+	line-height: 2;
+	font-size: 14px;
+}
+
+.lh-12px-fz-16 {
+	line-height: 12px;
+	font-size: 16px;
+}
+.ws-nowrap{
+	white-space: nowrap;
+}
+
+.ident {
+	text-indent: 25px;
+}
+.ls-5 {
+	letter-spacing: 5px;
+}
+.ws-45 {
+	word-spacing: 45px;
+}
