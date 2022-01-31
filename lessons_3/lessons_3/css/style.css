@@ -1,0 +1,114 @@
+@import "null.css";
+
+/* обратимся к селектору класса */
+.class-a {
+	color: blanchedalmond;
+}
+/* Уточнение - класа круче тега подтвержденно */
+
+/* обратимся по id */
+#id-a {
+	color: blueviolet;
+}
+/* Доказанно id круче класса и тем более тега */
+
+/* Проверим главнее ли тот кто ниже */
+.paragraph {
+	color: brown;
+}
+.paragraph {
+	color: burlywood;
+}
+/* да кто ниже тот главнее */
+
+/* провыерим важна ли последовательност в атрибуте класс */
+.text {
+	color: chartreuse;
+}
+/* И нет не важна! */
+
+/* проверим уточнение класса */
+div.text-div {
+	color: forestgreen;
+}
+/* несомненно круче чем просто клас или див */
+
+/* Проверим уточнение  */
+div p {
+	color: darkturquoise;
+}
+
+/* Ясно понятно оно работает */
+
+.text-div {
+	color: grey;
+}
+
+/* что круче 2 класса или тег.клас */
+.text-img.img-text {
+	color: indianred;
+}
+p.text-img {
+	color: indigo;
+}
+/* встреча двух класов естесвено круче */
+
+/* дописал третий класс он не мешает  тем двум*/
+.third-class {
+	color: aliceblue;
+}
+
+/* покрасим клас в класе  и пребьем все остальные цвета*/
+.paragraph .span {
+	color: burlywood;
+}
+
+/* Покрасим спан в параграфе */
+.paragraph span {
+	color: coral;
+}
+
+/* покрасим воженные теги */
+p span {
+	color: blueviolet;
+}
+
+/* Используем комплкный селектор */
+.brasser,
+.brasser-carbon {
+	color: crimson;
+}
+
+/* селектор аттрибута */
+[class*="cat-"] {
+	color: darkorange;
+}
+
+/* обратимся к первому уровню вложенности  
+со списками как то странно работает*/
+.refracter > .braser {
+	color: darkorchid;
+}
+
+/* обратисмся к диву за целестроном */
+.celestron + div {
+	color: darkslategray;
+}
+/* обратимся  ко всм елементам за made*/
+.made ~ div {
+	color: floralwhite;
+}
+
+/* обратимся к селектору тега ереместим их в них как самых слабых
+по сравнению с классами но сильных при равнозначности т.к. они ниже */
+a {
+	color: red;
+}
+
+p {
+	color: deeppink;
+}
+
+div {
+	color: deeppink;
+}
