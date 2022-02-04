@@ -15,29 +15,29 @@ padding-left в px
 	5.3 отрицательный делаем
 6. Паддин а внутри блок с мерджином
 7. Ширина делаю 2 блока 1 блок вмещает контент 2 нет
-	6.1 Конкретная и высота 
+	6.1 Конкретная ширина 
 	6.2 относительная ширина max
-	6.3 относительная ширина и высота min 
+	6.3 относительная ширина min
 8.  Высота делаю 2 блока 1 блок вмещает контент 2 нет
-	6.1 Конкретная и высота 
+	6.1 Конкретная высота 
 	6.2 относительная Высота max
-	6.3 относительная Высота и высота min 
+	6.3 относительная Высота min 
 9. Выровним 
 	7.1 по центру сделаем
 	7.2 справа
 10. Схлопывание мерджин.
 11. сделаем для блока box-sizing:content-box; и padding
-12. Сделаем with  и margin Увидим что марджин не работает
+12. Сделаем with 100% и margin Увидим что марджин не работает
 13. Oveflow
-	11.0 visible
-	11.1 hiden
-	11.2 scroll
-	11.3 auto
+	13.0 visible
+	13.1 hiden
+	13.2 scroll
+	13.3 auto
 14. display
-	12.1 делаем див строчным
-	12.2 сделаем спан блочным
-	12.3 несколько спанов блочными
-	12.4 поэксперементировать с inline-block
+	14.1 делаем див строчным
+	14.2 сделаем спан блочным
+	14.3 несколько спанов блочными
+	14.4 поэксперементировать с inline-block
 15. Влияние паддинга на картинку
 
  */
@@ -88,6 +88,14 @@ img {
 	font-size: 45px;
 	font-weight: 700;
 	margin: 20px 0 20px 30px;
+}
+.footer {
+	font-size: 16px;
+}
+.p-fo {
+	margin: 40px auto;
+	width: 40%;
+	text-align: center;
 }
 /* 1 ================================================================ */
 .padding-long-t {
@@ -171,4 +179,136 @@ img {
 }
 /* 6 ================================================================ */
 
+.margin-padding {
+	margin: 10px;
+	padding: 40px;
+}
+
 /* 7 ================================================================ */
+.width-400 {
+	width: 400px;
+}
+
+.width-800 {
+	width: 800px;
+	margin: 0px 0px 40px 0px;
+}
+
+.max-width-1000 {
+	max-width: 1000px;
+	margin: 0px 0px 40px 0px;
+}
+.min-width-200 {
+	min-width: 400px;
+	margin: 0px 0px 40px 0px;
+}
+
+/* 8 ================================================================ */
+
+.heigh-fix-29 {
+	height: 29px;
+	margin: 0px 0px 20px 0px;
+}
+.heigh-fix-200 {
+	height: 200px;
+	margin: 0 0 40px 0;
+}
+.div-heigh {
+	height: 400px;
+	margin: 0px 0px 40px 0px;
+}
+.heigh-proc {
+	height: 10%;
+}
+
+.max-heigh-20 {
+	max-height: 20px;
+	margin: 0 0 20px 0;
+}
+.max-heigh-200 {
+	max-height: 200px;
+	margin: 0 0 40px 0;
+}
+
+.min-heigh-20 {
+	min-height: 40px;
+}
+.min-heigh-200 {
+	min-height: 200px;
+}
+/* 9 ================================================================ */
+.allign-centr {
+	width: 400px;
+	margin: 0 auto 10px auto;
+}
+.allign-righ {
+	width: 400px;
+	margin: 0 80px 10px auto;
+}
+
+/* 10 ================================================================ */
+.hlop1 {
+	margin: 0 0 10px 0;
+}
+.hlop2 {
+	margin: 20px 0px;
+}
+/* 11 ================================================================ */
+.bz-cb {
+	box-sizing: content-box;
+	width: 500px;
+	padding: 10px 40px;
+	margin: 0px 0px 40px 0px;
+}
+/* 12 ================================================================ */
+/* width: 100% + margin слева не уходяьт за границы!!!  а справа уходят. */
+.widt-and-marg {
+	width: 100%;
+	margin: 40px;
+}
+/* 13 ================================================================ */
+.overflow-v {
+	height: 100px;
+	width: 200px;
+	margin: 0 auto 10px 0;
+	overflow: visible;
+}
+.overflow-h {
+	height: 100px;
+	width: 200px;
+	margin: 0 auto 10px 200px;
+	overflow: hidden;
+}
+/* В планшетном режиме scoll низу не появляется */
+.overflow-sc {
+	height: 100px;
+	width: 240px;
+	margin: 0 auto 10px 400px;
+	overflow: scroll;
+}
+.overflow-au {
+	height: 100px;
+	width: 240px;
+	margin: 0 auto 10px 600px;
+	overflow: auto;
+}
+
+/* 14 ================================================================ */
+.display-in {
+	display: inline;
+}
+.display-block {
+	display: block;
+	margin: 40px;
+}
+.display-in-bl {
+	display: inline-block;
+	width: 200px;
+	text-align: center;
+	margin: 0 0 10px 0;
+}
+/* 15 ================================================================ */
+/* о хоспади ну естественно */
+.img-padding {
+	padding: 40px;
+}
