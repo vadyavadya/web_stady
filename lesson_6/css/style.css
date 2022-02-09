@@ -1,0 +1,168 @@
+/* &display=swap */
+@import "null.css";
+/* ================================================================ */
+.wrapper {
+	min-height: 100%;
+	overflow: hidden;
+}
+/* ================================================================ */
+
+.block {
+	background-color: rgb(122, 149, 107);
+	/* padding: 15px; */
+}
+.block-two {
+	background-color: #77608d;
+}
+.block-three {
+	background-color: #794f45;
+}
+
+.inline {
+	background-color: #77608d;
+}
+.inline-block {
+	max-width: 200px;
+}
+
+/* СВОЙСТВА ОФОРМЛЕНИЯ БЛОКОВ */
+
+/* BORDER - граница */
+
+.block {
+	/* 
+	Анатомия:
+	свойство: толщина стиль цвет;
+	*/
+	/* 
+	Стиль:
+	solid - прямая
+	dotted - точки
+	dashed - пунктир
+	double - двойная
+	*/
+
+	/* Свойства сторон */
+	/* 
+	border-top: ;
+	border-right: ;
+	border-bottom: ;
+	border-left: ;
+	*/
+
+	/* Универсальное свойство 
+	(для всех сторон сразу) 
+	*/
+	/*
+	border: 10px solid #000;
+	border-top: none;
+	*/
+}
+
+.inline {
+	/*
+	border-bottom: 2px dotted green;
+	line-height: 125%;
+	*/
+}
+.inline-block {
+	/*
+	border: 2px dotted green;
+	*/
+}
+
+/* border-radius - граница */
+/*
+Устанавливает радиус скругления уголков блока.
+*/
+
+/*
+border-radius: верхний-левый верхний-правый нижний-правый нижний-левый; 
+
+Круг:
+border-radius: 50%;
+*/
+
+.block {
+	/*
+	padding: 20px;
+	border-radius: 20px;
+	*/
+}
+.inline {
+	/* border-radius: 20px; */
+}
+.inline-block {
+}
+.image {
+	/*
+	border-radius: 50%;
+	width: 100px;
+	height: 100px;
+	overflow: hidden;
+	*/
+}
+
+/* outline - обводка 
+Универсальное свойство, одновременно устанавливающее цвет, 
+стиль и толщину внешней границы на всех четырех сторонах элемента. 
+*/
+
+.block {
+	/* outline: 10px dashed #000; */
+}
+.inline-block {
+	/* outline: 10px dashed #000; */
+}
+.inline {
+	/* outline: 5px dashed #000; */
+}
+
+/* box-shadow - Добавляет тень к элементу. */
+/* Анатомия
+box-shadow: сдвиг_по_гориз сдвиг_по_верт радиус(размытие) расстояние(размер) цвет
+*/
+
+/*
+Можно добавить много теней. 
+Можно добавить внутренную тень. 
+На тень влияет свойство border-radius.
+*/
+
+.block {
+	/* width: 300px; */
+	/* margin: 0px 0px 30px 0px; */
+	/* box-shadow: 10px 10px 10px 10px #000; */
+	/* inset - внутрення тень*/
+	/* box-shadow: inset 0px 0px 10px 0px #000, 0 0 10px 0 red; */
+	/* border-radius: 10px; */
+}
+
+/* opacity - Определяет уровень прозрачности элемента.
+	от 0 до 1
+ */
+
+.block {
+	/* opacity: 0.5; */
+}
+
+/* visibility - устанавливает враимодействие с объектом */
+
+.block {
+	/* visibility: hidden; */
+}
+.block-two {
+	/* opacity: 0; */
+}
+.block-three {
+	/* display: none; */
+}
+
+.button {
+	display: inline-block;
+	background-color: green;
+	padding: 10px 20px;
+	color: #fff;
+	border-radius: 10px;
+	box-shadow: 0 5px 8px 0 rgb(3, 75, 3);
+}
