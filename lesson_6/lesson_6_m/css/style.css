@@ -4,15 +4,23 @@
 
 @font-face {
 	font-family: "Circular Std";
-	src: url("CircularStd-Bold.woff2") format("woff2"), url("CircularStd-Bold.woff") format("woff");
+	src: url("../fonts/CircularStd-Bold.woff2") format("woff2"), url("../fonts/CircularStd-Bold.woff") format("woff");
 	font-weight: 700;
 	font-style: normal;
 	font-display: swap;
 }
 @font-face {
 	font-family: "Circular Std";
-	src: url("CircularStd-Book.woff2") format("woff2"), url("CircularStd-Book.woff") format("woff");
+	src: url("../fonts/CircularStd-Book.woff2") format("woff2"), url("../fonts/CircularStd-Book.woff") format("woff");
 	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+@font-face {
+	font-family: "Circular Std";
+	src: url("../fonts/CircularStd-Medium.woff2") format("woff2"),
+		url("../fonts/CircularStd-Medium.woff") format("woff");
+	font-weight: 500;
 	font-style: normal;
 	font-display: swap;
 }
@@ -36,10 +44,11 @@ body {
 	margin: 140px 0 20px 0;
 	font-size: 65px;
 	line-height: 1.26;
-	font-weight: 400;
+	font-weight: 500;
 	text-align: center;
 	color: #313131;
 }
+
 .header-text {
 	max-width: 750px;
 	margin: 0 auto 224px auto;
