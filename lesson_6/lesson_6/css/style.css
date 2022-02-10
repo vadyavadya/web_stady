@@ -1,0 +1,182 @@
+/* &display=swap */
+
+@import "null.css";
+
+@import url("https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+Antique:wght@400;700;900&display=swap");
+
+/* ================================================================ */
+.wrapper {
+	min-height: 100%;
+	overflow: hidden;
+}
+/* ================================================================ */
+body {
+	font-family: "Zen Kaku Gothic Antique", serif;
+	font-size: 20px;
+}
+p,
+img {
+	margin: 20px;
+}
+.header {
+	text-align: center;
+}
+.header-title {
+	font-weight: 900;
+	font-size: 56px;
+}
+.header-text {
+	font-weight: 700;
+}
+.nav {
+	display: inline-block;
+}
+.link {
+	color: rgb(165, 42, 42);
+	border-bottom: 2px solid rgb(165, 42, 42);
+}
+.main-title {
+	font-weight: 700;
+	font-size: 36px;
+}
+.title-text {
+	font-style: oblique;
+}
+.img-text {
+	text-align: center;
+}
+.autor {
+	text-shadow: 0 0 10px gold;
+	text-shadow: 0 0 10px gold;
+	text-shadow: 0 0 10px gold;
+
+	color: rgb(156, 156, 156);
+}
+
+/* ================================================================ */
+/* ЧТО ДЕЛАЕМ */
+/* ================================================================ */
+/* 1) BORDER  */
+
+/* 1.1) 4 блока	сделаем по отдельности top right bottom left */
+.border-top {
+	border-top: 1px solid #000;
+}
+.border-right {
+	border-right: 1px solid #000;
+}
+.border-bottom {
+	border-bottom: 1px solid #000;
+}
+.border-left {
+	border-left: 1px solid #000;
+}
+/* 1.2) 1 блок	униварсальное свойставо */
+.border-univers {
+	border: 1px solid #000;
+}
+/* 1.3) 4 блока	Стили solid, dotted, dashed, double */
+.border-univers-solid {
+	border: 1px solid #000;
+}
+.border-univers-dottets {
+	border: 10px dotted #000;
+}
+.border-univers-dashed {
+	border: 10px dashed #000;
+}
+.border-univers-double {
+	border: 10px double #000;
+}
+/* 1.4) 1 блок	3 стороны одинаковы одну другу */
+.border-3-1 {
+	border: 10px dashed red;
+	border-bottom: 10px solid blue;
+}
+/* 1.5) 1 блок 	со строчным обектом */
+.border-inline {
+	display: inline;
+	border: 10px solid #000;
+	line-height: 3;
+}
+/* ================================================================ */
+/* 2) border-radius */
+/* 2.1) 1 блок	все разный сделаем универсальным свойством*/
+.border-radius-un {
+	border-radius: 10px 40px 20px 50px;
+	overflow: hidden;
+	box-shadow: inset 0px 0px 10px 10px blueviolet;
+}
+/* 2.2) 1 блок	сложный сделаем чере / */
+.border-radius-hard {
+	border-radius: 49% 51% 22% 78% / 14% 15% 85% 86%;
+	box-shadow: inset 0px 0px 10px 10px blueviolet;
+	overflow: hidden;
+}
+/* 2.3) 1 блок	все одинаковые коротка запись */
+.border-radius-standart {
+	border-radius: 30px;
+	box-shadow: inset 0px 0px 10px 10px blueviolet;
+	overflow: hidden;
+}
+/* 2.4) сдеаем круглую картинку */
+.img-crug {
+	overflow: hidden;
+	width: 300px;
+	height: 300px;
+	border-radius: 50%;
+}
+.img-crug img {
+	margin: 0px 0px 0px 0px;
+}
+/* ================================================================ */
+/* 3) outline */
+/* 3.1) сделаем для блока */
+.outline {
+	outline: 2px solid #000;
+}
+.outline-auto {
+	outline: auto;
+}
+/* 3.2) сделаем 2 блока рядом большой размер */
+.outline-big {
+	outline: 50px dashed #f09;
+	margin: 0px 0px 0px 0px;
+}
+/* Выделения друг с другом вазаимодействуют */
+
+/* ================================================================ */
+/* 4) box-shadow */
+/* 4.1) внешнюю сделаем тень для блоа и для букв!) */
+.shadow {
+	box-shadow: 200px -200px 20px 100px #111;
+	text-shadow: 200px -200px 3px #fff;
+	width: 50%;
+	margin: 400px auto;
+}
+/* 4.2) внутренню */
+.shadow-inset {
+	box-shadow: inset 0px 0px 10px 10px blueviolet;
+}
+/* ================================================================ */
+/* 5) opacity */
+/* 5.1) сделаем 100 50 0 */
+.opacity-100 {
+	opacity: 1;
+}
+.opacity-50 {
+	opacity: 0.5;
+}
+.opacity-0 {
+	opacity: 0;
+}
+/* ================================================================ */
+/* 6) visibility */
+/* 6.1) 1 видимы один скроем */
+.visible-v {
+	visibility: visible;
+}
+.visible-h {
+	visibility: hidden;
+}
+/* ================================================================ */

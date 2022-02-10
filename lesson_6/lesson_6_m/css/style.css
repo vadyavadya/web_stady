@@ -1,0 +1,78 @@
+/* &display=swap */
+
+@import "null.css";
+
+@font-face {
+	font-family: "Circular Std";
+	src: url("CircularStd-Bold.woff2") format("woff2"), url("CircularStd-Bold.woff") format("woff");
+	font-weight: 700;
+	font-style: normal;
+	font-display: swap;
+}
+@font-face {
+	font-family: "Circular Std";
+	src: url("CircularStd-Book.woff2") format("woff2"), url("CircularStd-Book.woff") format("woff");
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+
+/* ================================================================ */
+.wrapper {
+	min-height: 100%;
+	overflow: hidden;
+}
+/* ================================================================ */
+body {
+	font-family: "Circular Std", sans-serif;
+	font-size: 18px;
+	color: #5f5f5f;
+}
+.header {
+	max-width: 1020px;
+	margin: 0px auto;
+}
+.header-title {
+	margin: 140px 0 20px 0;
+	font-size: 65px;
+	line-height: 1.26;
+	font-weight: 400;
+	text-align: center;
+	color: #313131;
+}
+.header-text {
+	max-width: 750px;
+	margin: 0 auto 224px auto;
+	font-size: 20px;
+	line-height: 1.25;
+	text-align: center;
+}
+.block {
+	max-width: 1020px;
+	margin: 0px auto;
+}
+.maim-title {
+	margin: 0 0 20px 0;
+	font-size: 34px;
+	font-weight: 700;
+	line-height: 1.3;
+	color: #313131;
+	opacity: 0.88;
+}
+.paragraph {
+	margin: 0 0 60px 0;
+	line-height: 1.5;
+	max-width: 508px;
+}
+.name-trainer {
+	margin: 0px 0px 5px 0px;
+	line-height: 1.3;
+	font-weight: 700;
+	color: #313131;
+	opacity: 0.88;
+}
+.position {
+	margin: 0px 0px 100px 0px;
+	line-height: 1.8;
+	color: #b8b8b8;
+}
