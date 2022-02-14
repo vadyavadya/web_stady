@@ -7,8 +7,8 @@
 }
 /* ================================================================ */
 body {
-	color: azure;
-	background: black;
+	/* color: azure; */
+	/* background: black; */
 }
 header {
 	margin: 40px auto;
@@ -28,6 +28,7 @@ header {
 	display: inline-block;
 }
 .link {
+	outline: 10px dotted orange;
 }
 .title {
 	font-size: 26px;
@@ -61,7 +62,7 @@ main * {
 
 /* 3) градинтик сделаем */
 .bi-grad {
-	background-image: radial-gradient(circle, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+	background-image: radial-gradient(circle, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%);
 }
 /* 4) repeat */
 /* repeat */
@@ -162,18 +163,57 @@ main * {
 	background-repeat: no-repeat;
 	background-position: auto 20px;
 }
-
+.bc-position-nr-px-otr {
+	background-image: url("../img/mercury_pos.jpg");
+	background-repeat: no-repeat;
+	background-position: -30% -20%;
+}
 /* 6) background-size  */
+.bg-size {
+	background: url("../img/period-vrashhenie-planety-merkurij-po-orbite-vokrug-solncza.jpg") no-repeat;
+}
 /* в процентах 1 Значения */
+.bg-size-one-znach {
+	background: url("../img/period-vrashhenie-planety-merkurij-po-orbite-vokrug-solncza.jpg") center no-repeat;
+	background-size: 80%;
+}
 /* в процентах 2 Значения */
+.bg-size-two-znach {
+	background: url("../img/period-vrashhenie-planety-merkurij-po-orbite-vokrug-solncza.jpg") center no-repeat;
+	background-size: 80% 90%;
+}
+.bg-size-two-znach-auto {
+	background: url("../img/period-vrashhenie-planety-merkurij-po-orbite-vokrug-solncza.jpg") center no-repeat;
+	background-size: auto 90%;
+}
+.bg-size-pad {
+	background: url("../img/period-vrashhenie-planety-merkurij-po-orbite-vokrug-solncza.jpg") top / auto 400px no-repeat;
+	padding-top: 400px;
+}
 /* в пикселях */
 /* словами  */
 /* conteine */
+.bg-size-contein {
+	background: url("../img/period-vrashhenie-planety-merkurij-po-orbite-vokrug-solncza.jpg") right bottom no-repeat;
+	background-size: contain;
+}
 /* cover */
+.bg-size-cover {
+	background: url("../img/period-vrashhenie-planety-merkurij-po-orbite-vokrug-solncza.jpg") center no-repeat;
+	background-size: cover;
+}
 
 /* 7) background-attachment */
 /* scroll */
 /* fixed */
+.bg-attachmant {
+	background: url("../img/trk-mrekury.jpg") no-repeat;
+}
+.bg-attachmant-scroll {
+	background: url("../img/trk-mrekury.jpg") no-repeat;
+	background-attachment: fixed;
+}
+
 /* 8) унивеслальное  */
 
 /* мульти картинка */
