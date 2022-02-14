@@ -161,7 +161,7 @@ main * {
 .bc-position-nr-px-3 {
 	background-image: url("../img/mercury_pos.jpg");
 	background-repeat: no-repeat;
-	background-position: auto 20px;
+	/* background-position: auto 20px; */
 }
 .bc-position-nr-px-otr {
 	background-image: url("../img/mercury_pos.jpg");
