@@ -1,0 +1,75 @@
+background
+
+
+
+    /* Цвет фона */
+	background-color: red;
+	/* Установка фонового изображения */
+	background-image: url("../img/ava.png");
+	/* Установка цветового градиента */
+	/* background-image: linear-gradient(to bottom, rgba(236, 232, 157, 1) 0%, rgba(94, 83, 115, 1) 50%, rgba(24, 181, 164, 1) 100%); */
+	/* Управление повторением изображения (no-repeat, repeat-x, repeat-y, repeat, space, round, space repeat)*/
+	background-repeat: no-repeat;
+	/* Позиция изображения (словестные или , цифры прценты или жесткие)*/
+	background-position: 0 0;
+	/* Размер изображения (ширина высота (200px auto)) (Значения: contein-рястянуто по наименьшему размеру блока, cover - пропорциональтно занимает весь блок (еще и position center и огонь))*/
+	background-size: auto;
+	/* Фиксация изображения scroll, fixed */
+	background-attachment: scroll;
+
+
+
+
+	/* Универсальное свойство */
+	/* background: red url("../img/ava.png") 0 0 / cover no-repeat; */
+
+	/* background: цвет картина или градиент позиция / размер повторение фиксация , 
+    мультикартинка мжно несеолько разных чем ближе к свойству тем выше картинка,...; */
+
+
+
+
+
+
+
+
+
+1) background-color
+2) background-image
+    без текста
+    с текстом
+3) градинтик сделаем
+4) repeat
+    repeat
+    no-repeat
+    repet-x
+    repeat-y
+    space
+    round
+5) background-position
+    словами одно
+    словами два слова
+    в процентах 1 Значения
+    в процентах 2 Значения
+    в пикселях
+
+6) background-size 
+    в процентах 1 Значения
+    в процентах 2 Значения
+    в пикселях
+    словами 
+    conteiner
+    cover
+
+7) background-attachment
+    scroll
+    fixed
+8) унивеслальное 
+
+    мульти картинка
+
+
+
+
+
+    

@@ -6,47 +6,174 @@
 	overflow: hidden;
 }
 /* ================================================================ */
+body {
+	color: azure;
+	background: black;
+}
+header {
+	margin: 40px auto;
+	max-width: 90%;
+	background: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%),
+		url("../img/header.jpg") center / cover;
+	padding: 10px 50px;
+}
+.title-header {
+	font-size: 56px;
+	font-weight: 900;
+}
+.paragrph-heder {
+	font-size: 20px;
+}
+.nav {
+	display: inline-block;
+}
+.link {
+}
+.title {
+	font-size: 26px;
+	font-weight: 700;
+	margin: 0px 0px 20px 20px;
+}
+main {
+	padding: 5%;
+}
+main * {
+	margin: 40px 0;
+}
+.subtitle {
+	border-bottom: 3px solid #fff;
+	margin: 0px 0px 40px 20px;
+	padding: 0 0 20px 0;
+	max-width: 90%;
+}
 
-.block {
-	/* Цвет фона */
-	background-color: red;
-	/* Установка фонового изображения */
-	background-image: url("../img/ava.png");
-	/* Установка цветового градиента */
-	/* background-image: linear-gradient(to bottom, rgba(236, 232, 157, 1) 0%, rgba(94, 83, 115, 1) 50%, rgba(24, 181, 164, 1) 100%); */
-	/* Управление повторением изображения */
+/* 1) background-color */
+
+.bc {
+	background-color: #999;
+}
+
+/* 2) background-image - вторую не витдно она за первой но если но репит то видно */
+.bi {
+	background-image: url("../img/Mercury.jpg"), url("../img/Mercury2.jpg");
+	/* background-repeat: no-repeat; */
+}
+
+/* 3) градинтик сделаем */
+.bi-grad {
+	background-image: radial-gradient(circle, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+}
+/* 4) repeat */
+/* repeat */
+.backrep {
+	background-image: url("../img/mercury_sun.jpg");
+	background-size: 300px;
+}
+/* no-repeat */
+.back-no-rep {
+	background-image: url("../img/mercury_sun.jpg");
+	background-size: 300px;
 	background-repeat: no-repeat;
-	/* Позиция изображения */
-	background-position: 0 0;
-	/* Размер изображения */
-	background-size: auto;
-	/* Фиксация изображения */
-	background-attachment: scroll;
-
-	/* Универсальное свойство */
-	/* background: red url("../img/ava.png") 0 0 / cover no-repeat; */
-
-	/* background: цвет картина или градиент позиция / размер повторение фиксация */
+}
+/* repet-x */
+.back-rep-x {
+	background-image: url("../img/mercury_sun.jpg");
+	background-size: 300px;
+	background-repeat: repeat-x;
+}
+/* repeat-y */
+.back-rep-y {
+	background-image: url("../img/mercury_sun.jpg");
+	background-size: 300px;
+	background-repeat: repeat-y;
+}
+/* space */
+.back-rep-space {
+	background-image: url("../img/mercury_sun.jpg");
+	background-size: 300px;
+	background-repeat: space;
+}
+/* round */
+.back-rep-round {
+	background-image: url("../img/mercury_sun.jpg");
+	background-size: 300px;
+	background-repeat: round;
+	background-color: #fff;
+}
+/* 5) background-position */
+/* словами одно */
+.bc-position {
+	background-image: url("../img/mercury_pos.jpg");
+	background-position: 10px 10px;
+}
+.bc-position-nr {
+	background-image: url("../img/mercury_pos.jpg");
+	background-position: 100px 10px;
+	background-repeat: no-repeat;
+}
+.bc-position-nr-centr {
+	background-image: url("../img/mercury_pos.jpg");
+	background-position: center;
+	background-repeat: no-repeat;
+}
+.bc-position-nr-top {
+	background-image: url("../img/mercury_pos.jpg");
+	background-repeat: no-repeat;
+	background-position: top;
+}
+.bc-position-nr-right {
+	background-image: url("../img/mercury_pos.jpg");
+	background-repeat: no-repeat;
+	background-position: right;
+}
+/* словами два слова */
+.bc-position-nr-right-bot {
+	background-image: url("../img/mercury_pos.jpg");
+	background-repeat: no-repeat;
+	background-position: right bottom;
+}
+/* в процентах 2 Значения */
+.bc-position-nr-proc {
+	background-image: url("../img/mercury_pos.jpg");
+	background-repeat: no-repeat;
+	background-position: 10% 50%;
+}
+/* в процентах 1 Значения */
+.bc-position-nr-proc-2 {
+	background-image: url("../img/mercury_pos.jpg");
+	background-repeat: no-repeat;
+	background-position: 10%;
 }
 
-.list {
+/* в пикселях */
+.bc-position-nr-px {
+	background-image: url("../img/mercury_pos.jpg");
+	background-repeat: no-repeat;
+	background-position: 200px;
 }
-.item-list {
-	background: url("../img/list.svg") 0 0 / auto no-repeat;
-	padding: 0px 0px 0px 25px;
-	margin: 0px 0px 5px 0px;
-	/* text-indent: 25px; */
+.bc-position-nr-px-2 {
+	background-image: url("../img/mercury_pos.jpg");
+	background-repeat: no-repeat;
+	background-position: 20px;
+}
+/* не работает(( */
+.bc-position-nr-px-3 {
+	background-image: url("../img/mercury_pos.jpg");
+	background-repeat: no-repeat;
+	background-position: auto 20px;
 }
 
-.sub-list {
-	margin: 10px 0;
-}
-.item-sub-list {
-	background: url("../img/ava.png") 0 0 / 15px no-repeat;
-	padding: 0px 0px 0px 25px;
-	margin: 0px 0px 5px 0px;
-}
+/* 6) background-size  */
+/* в процентах 1 Значения */
+/* в процентах 2 Значения */
+/* в пикселях */
+/* словами  */
+/* conteine */
+/* cover */
 
-.some-block {
-	background: linear-gradient(180deg, rgba(131, 58, 180, 0) 0%, rgba(255, 255, 255, 1) 100%), url("../img/01.png") center / cover no-repeat;
-}
+/* 7) background-attachment */
+/* scroll */
+/* fixed */
+/* 8) унивеслальное  */
+
+/* мульти картинка */
