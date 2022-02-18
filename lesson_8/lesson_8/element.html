@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/style.css">
+	<title>Lesson 8 - Курс Зима 2022 Псевдо классы и псевдо элементы</title>
+</head>
+
+<body>
+	<div class="wrapper">
+		<header class="header" id="header">
+			<div class="div-header">
+				<div class="logo">Шапочка</div>
+				<ul>
+					<li><a href="index.html">Home</a></li>
+					<li><a href="sost.html">Псевдоклассы состояния</a></li>
+					<li><a href="position.html">Псевдоклассы положения</a></li>
+					<li><a href="element.html">Псевдоэлементы</a></li>
+				</ul>
+			</div>
+		</header>
+		<main>
+
+			<h1 style="text-transform: uppercase;">Псевдоэлементы</h1>
+
+			<div class="conteiner">
+
+
+				<div class="buttom">
+					<a href="#first-line">Псевдоэлемент ::first-line</a>
+				</div>
+
+				<div class="buttom">
+					<a href="#first-letter">Псевдоэлемент ::first-letter</a>
+				</div>
+
+				<div class="buttom">
+					<a href="#befor-after">Псевдоэлементы ::before и ::after </a>
+				</div>
+
+				<div class="buttom">
+					<a href="#">Свернуть</a>
+				</div>
+				<div id="first-line" class="div-hidden">
+					<div class="exemple-1">
+						<div class="text">
+							Покрасим первую линию
+						</div>
+						<div class="consol">
+							conteiner p::first-line {
+							color: aqua;
+							}
+						</div>
+						<div class="conteiner-ex-1">
+							<h3>Котейнер с параграфом</h3>
+							<div class="content-p">
+								<p><span class="bold">Я параграф</span> Voluptate consectetur duis incididunt ea aliquip laboris excepteur nisi velit laborum id consequat exercitation. Eu dolor cupidatat ex quis occaecat voluptate non in nisi ut minim. In ullamco mollit culpa enim pariatur. Laborum qui est consectetur aute Lorem occaecat veniam ut mollit amet in eu. Aliquip do in ullamco sit non excepteur Lorem do nostrud aliqua commodo reprehenderit anim. Aliqua et ad voluptate magna ipsum nostrud aliquip quis reprehenderit ea. Ullamco aliquip ea id consectetur ut amet incididunt quis sunt eu consectetur amet.</p>
+							</div>
+						</div>
+						<div class="conteiner-ex-2">
+							<h3>Котейнер с параграфом</h3>
+							<div class="content-p">
+								<p><span class="bold">Я параграф</span> Voluptate consectetur duis incididunt ea aliquip laboris excepteur nisi velit laborum id consequat exercitation. Eu dolor cupidatat ex quis occaecat voluptate non in nisi ut minim. In ullamco mollit culpa enim pariatur.</p>
+							</div>
+						</div>
+					</div>
+
+				</div>
+
+				<div id="first-letter" class="div-hidden">
+					<div class="exemple-1">
+						<div class="text">
+							Покрасим первую линию
+						</div>
+						<div class="consol">
+							conteiner p::first-letter {
+							color: aqua;
+							}
+						</div>
+						<div class="conteiner-ex-1">
+							<h3>Котейнер с параграфом</h3>
+							<div class="content-p">
+								<p><span class="bold">Я параграф</span> Voluptate consectetur duis incididunt ea aliquip laboris excepteur nisi velit laborum id consequat exercitation. Eu dolor cupidatat ex quis occaecat voluptate non in nisi ut minim. In ullamco mollit culpa enim pariatur. Laborum qui est consectetur aute Lorem occaecat veniam ut mollit amet in eu. Aliquip do in ullamco sit non excepteur Lorem do nostrud aliqua commodo reprehenderit anim. Aliqua et ad voluptate magna ipsum nostrud aliquip quis reprehenderit ea. Ullamco aliquip ea id consectetur ut amet incididunt quis sunt eu consectetur amet.</p>
+							</div>
+						</div>
+						<div class="conteiner-ex-2">
+							<h3>Котейнер с параграфом</h3>
+							<div class="content-p">
+								<p><span class="bold">Я параграф</span> Voluptate consectetur duis incididunt ea aliquip laboris excepteur nisi velit laborum id consequat exercitation. Eu dolor cupidatat ex quis occaecat voluptate non in nisi ut minim. In ullamco mollit culpa enim pariatur.</p>
+							</div>
+						</div>
+					</div>
+
+				</div>
+
+				<div id="befor-after" class="div-hidden">
+					<div class="exemple-1">
+						<div class="text">
+							Строчный befor и after
+						</div>
+						<div class="consol">
+							conteiner p::before {
+							content: 'Я before!!! ';
+							color: red;
+							} <br>
+							conteiner p::after {
+							content: 'Я after!!!';
+							color: red;
+							}
+						</div>
+						<div class="conteiner-ex-all">
+							<!-- <h3>Котейнер с параграфом</h3> -->
+							<div class="content-p">
+								<p><span class="bold">Я параграф</span> Voluptate consectetur duis incididunt ea aliquip laboris excepteur nisi velit laborum id consequat exercitation. Eu dolor cupidatat ex quis occaecat voluptate non in nisi ut minim. In ullamco mollit culpa enim pariatur. Laborum qui est consectetur aute Lorem occaecat veniam ut mollit amet in eu. Aliquip do in ullamco sit non excepteur Lorem do nostrud aliqua commodo reprehenderit anim. Aliqua et ad voluptate magna ipsum nostrud aliquip quis reprehenderit ea. Ullamco aliquip ea id consectetur ut amet incididunt quis sunt eu consectetur amet.</p>
+							</div>
+						</div>
+					</div>
+					<div class="exemple-2">
+						<div class="text">
+							Блочные befor и after
+						</div>
+						<div class="consol">
+							conteiner p::before {
+								display:block;
+							content: 'Я before!!! ';
+							color: red;
+							} <br>
+							conteiner p::after {
+								display:block;
+							content: 'Я after!!!';
+							color: red;
+							}
+						</div>
+						<div class="conteiner-ex-all">
+							<!-- <h3>Котейнер с параграфом</h3> -->
+							<div class="content-p">
+								<p><span class="bold">Я параграф</span> Voluptate consectetur duis incididunt ea aliquip laboris excepteur nisi velit laborum id consequat exercitation. Eu dolor cupidatat ex quis occaecat voluptate non in nisi ut minim. In ullamco mollit culpa enim pariatur. Laborum qui est consectetur aute Lorem occaecat veniam ut mollit amet in eu. Aliquip do in ullamco sit non excepteur Lorem do nostrud aliqua commodo reprehenderit anim. Aliqua et ad voluptate magna ipsum nostrud aliquip quis reprehenderit ea. Ullamco aliquip ea id consectetur ut amet incididunt quis sunt eu consectetur amet.</p>
+							</div>
+						</div>
+					</div>
+
+				</div>
+
+			</div>
+
+		</main>
+		<footer></footer>
+	</div>
+</body>
+
+</html>

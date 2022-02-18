@@ -1,0 +1,100 @@
+/* &display=swap */
+@import "null.css";
+
+@import url("https://fonts.googleapis.com/css?family=Lato:400,700,900&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Taviraj:500&display=swap");
+
+.wrapper {
+	min-height: 100%;
+	overflow: hidden;
+}
+.online-curs {
+	font-family: "Lato", serif;
+	font-size: 16px;
+	line-height: 1.6;
+	font-weight: 400;
+	color: #424551;
+	max-width: 390px;
+	margin: 40px auto;
+}
+
+[class*="title"] {
+	color: #1e212c;
+}
+
+.text-title {
+	font-weight: bold;
+	line-height: 1.5;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	color: #1e212c;
+	margin: 0px 0px 8px 0px;
+}
+.title {
+	font-weight: 900;
+	font-size: 46px;
+	line-height: 1.3;
+	margin: 0px 0px 40px 0px;
+}
+li {
+	margin: 0px 0px 12px 0px;
+	padding-left: 32px;
+}
+li::before {
+	content: "";
+	background: url("../img/Vector.svg") 0 5px no-repeat;
+	display: inline-block;
+	margin: 0px 16px 0px -32px;
+	min-height: 21px;
+	min-width: 16px;
+}
+li:hover {
+	background: rgb(230, 230, 230);
+	border-radius: 10px;
+}
+ul {
+	margin: 0px 0px 22px 0px;
+}
+.button {
+	display: inline-block;
+	font-weight: bold;
+	font-size: 14px;
+	line-height: 3;
+	letter-spacing: 0.5px;
+	color: #ffffff;
+	text-align: center;
+	min-height: 44px;
+	min-width: 160px;
+	background: linear-gradient(55.95deg, #ff3f3a 0%, #f75e05 100%);
+	border-radius: 4px;
+}
+
+.button:hover {
+	background: linear-gradient(55.95deg, #fa554f 0%, #fa803a 100%);
+}
+.button:active {
+	box-shadow: inset 0px 0px 5px #000;
+}
+
+.matoa {
+	font-family: "Taviraj", sans-serif;
+	max-width: 390px;
+	margin: 0px auto;
+}
+.matoa p {
+	font-size: 36px;
+	font-weight: 500;
+	line-height: 1.1;
+	letter-spacing: 0.02em;
+	color: #333333;
+	display: inline-block;
+	margin: 0px 0px 30px 0px;
+}
+.matoa p::after {
+	content: "";
+	height: 1px;
+	width: 50%;
+	background: #000;
+	display: block;
+	margin: 16px 0px 0px 0px;
+}

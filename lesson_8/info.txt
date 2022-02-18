@@ -1,0 +1,344 @@
+/* Псевдоклассы */
+
+/*
+Анатомия:
+селектор:псевдокласс{
+	стили учитывая псевдокласс
+}
+
+Вложенность
+селектор:псевдокласс селектор{
+	стили учитывая псевдокласс
+}
+*/
+
+/* Псевдоклассы состояния */
+
+/*
+:hover
+Срабатывает при наведении на элемент, 
+часто применяется применяется как для ссылок так
+и для любого другого элемента.
+*/
+.link-example:hover {
+	margin: 1px 0px 0px 0px;
+	background-color: rgb(3, 151, 3);
+	box-shadow: 0 4px 0 0 #000;
+}
+/*
+.text-example {
+	padding: 15px;
+}
+.text-example:hover {
+	background-color: #eee;
+}
+*/
+
+/*
+:active
+Срабатывает при нажатии на элемент. 
+В основном применяется к ссылкам и кнопкам.
+*/
+.link-example:active {
+	margin: 4px 0px 0px 0px;
+	box-shadow: 0 0px 0 0 #000, inset 0 0px 5px 0 #000;
+}
+
+/*
+:visited
+Срабатывает для посещенных ссылок
+*/
+.link-example:visited {
+	background-color: #666;
+}
+/*
+Замечание: Из-за причин приватности, 
+браузеры строго ограничивают стили, которые вы 
+можете применить к элементу, используя этот псевдо-класс:
+ только color, background-color, border-color,
+  border-bottom-color, border-left-color, border-right-color,
+   border-top-color, outline-color, column-rule-color, 
+	fill и stroke. Заметьте также, что альфа-канал будет 
+	игнорироваться: будет использоваться альфа-канал, 
+	используемый для непосещённых ссылок вместо него 
+	(но если прозрачность - 0, то в этот случае 
+	игнорируется весь цвет, и один из используемых 
+	стилей для непосещённых ссылок).
+*/
+
+/*
+:focus
+Срабатывает при получении элементом фокуса. 
+Часто применяется к елементам форм и прочим интерактивным 
+объектам
+*/
+.link-example:focus {
+	/* outline: 5px dotted green; */
+}
+
+/*
+:target
+Срабатывает когда элемент является объектом 
+на который ссылаются
+*/
+.text-example:target {
+	/* display: block; */
+}
+
+/* ===================================== */
+
+/* Псевдоклассы положения в коде */
+
+.text-block p {
+	background-color: #7a956b;
+	padding: 15px;
+}
+
+/* Убераем последний отступ */
+.text-block p:not(:last-child) {
+	margin: 0px 0px 20px 0px;
+}
+
+/*
+.text-block p {
+	margin: 0px 0px 20px 0px;
+}
+.text-block p:last-child {
+	margin-bottom: 0;
+}
+*/
+
+/*
+:first-child
+:first-of-type
+Обращение к первому элементу в блоке
+*/
+.text-block p:first-child {
+	/* background-color: #794f45; */
+}
+
+/* Любой первый элемент */
+/*
+.text-block *:first-child {
+	background-color: #794f45;
+}
+*/
+.text-block p:first-of-type {
+	/* background-color: #794f45; */
+}
+
+/*
+:last-child
+:last-of-type
+Обращение к последнему элементу в блоке
+*/
+
+/* Любой последний элемент */
+/*
+.text-block *:last-child {
+	background-color: #794f45;
+}
+*/
+
+.text-block p:last-child {
+	/* background-color: #794f45; */
+}
+.text-block p:last-of-type {
+	/* background-color: #794f45; */
+}
+
+/*
+:nth-child(порядковый номер элемента)
+Обращение к конкретным элементам в блоке
+Информация: https://developer.mozilla.org/ru/docs/Web/CSS/:nth-child
+*/
+
+.text-block p:nth-child(3),
+.text-block p:nth-child(2) {
+	/* background-color: #77608d; */
+}
+
+/* Ко всем нечетным */
+.text-block p:nth-child(odd) {
+	/* background-color: #77608d; */
+}
+/* Ко всем четным */
+.text-block p:nth-child(even) {
+	/* background-color: #77608d; */
+}
+/* Каждый третий */
+.text-block p:nth-child(3n) {
+	/* background-color: #77608d; */
+}
+/* Каждый третий начиная с четвертого */
+.text-block p:nth-child(3n + 4) {
+	/* background-color: #77608d; */
+}
+
+/*
+Нужно обратиться к первому <P>
+внутри родителя
+*/
+.text-block *:first-child {
+	/* background-color: #794f45; */
+}
+.text-block p:first-of-type {
+	/* background-color: #77608d; */
+}
+.text-block p:nth-child(1) {
+	/* background-color: #794f45; */
+}
+
+/*
+:nth-of-type() 
+Обращение к конкретным элементам в блоке по типу
+*/
+.text-block p:nth-of-type(odd) {
+	/* background-color: #77608d; */
+}
+
+/*
+:not(селектор/псевдокласс) исключение
+*/
+.text-block p:not(.text) {
+	/* background-color: #794f45; */
+}
+
+/* Хорошая практика */
+
+.block {
+	background-color: #794f45;
+	padding: 15px;
+	color: #fff;
+}
+/* Убрать отступ у любого последнего объекта */
+.block > *:last-child {
+	margin-bottom: 0;
+}
+
+.title-block {
+	font-size: 30px;
+	margin: 0px 0px 10px 0px;
+}
+.text-block {
+	line-height: 130%;
+	margin: 0px 0px 20px 0px;
+}
+.link-block {
+	color: yellow;
+	display: inline-block;
+	margin: 0px 0px 15px 0px;
+}
+
+/*===============================================*/
+
+/* Псевдоэлементы */
+
+.pseudo {
+	background-color: #7a956b;
+	padding: 30px;
+}
+/*
+Анатомия
+селектор::псевдоэлемент{
+	стили
+}
+*/
+
+/*
+Псевдоэлемент ::first-line задает стиль 
+первой строки текста
+*/
+.text-pseudo::first-line {
+	/* color: #fff; */
+}
+
+/*
+Псевдоэлемент ::first-letter определяет стиль 
+первого символа в тексте элемента, 
+*/
+.text-pseudo::first-letter {
+	/* color: #fff; */
+}
+
+/* Добавление контента до 
+и после содержимого объекта 
+
+!!!ВАЖНО!!!
+1) ::before и ::after НЕ работают 
+без параметра content:"";
+2) ::before и ::after - СТРОЧНЫЕ!!!
+*/
+.text-pseudo::before {
+	/* content: "Я before"; */
+}
+.text-pseudo::after {
+	/* content: " а я after"; */
+}
+
+/* Пример */
+
+.list-pseudo li {
+	padding: 0px 0px 0px 30px;
+}
+.list-pseudo li::before {
+	content: "";
+	width: 20px;
+	height: 20px;
+	display: inline-block;
+	margin: 0px 10px 0px -30px;
+	background: url("../img/logo.png") 0 0 / 20px no-repeat;
+	transition: all 0.3s ease 0s;
+}
+.list-pseudo li:hover::before {
+	transform: rotate(360deg) scale(1.3);
+}
+
+/* Синтаксис записи псевдоэлемента и псевдокласса */
+/*
+селектор:псевдокласс::спевдоэлемент
+*/
+
+.title {
+	margin: 0px 0px 20px 0px;
+	display: inline-block;
+	font-size: 30px;
+	font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+.title::after {
+	content: "";
+	display: block;
+	height: 2px;
+	width: 30%;
+	margin: 5px 0px 0px 0px;
+	background-color: #000;
+}
+
+.num-list {
+	counter-reset: item;
+}
+.num-list li::before {
+	counter-increment: item;
+	content: "(" counter(item) ")";
+	margin: 0px 10px 0px 0px;
+	color: red;
+	font-size: 40px;
+}
+
+.num-list li:hover + li {
+	color: red;
+}
+
+/* Пример с visibility: hidden; */
+.object {
+}
+.block-object {
+	background-color: #77608d;
+	padding: 15px;
+}
+.object:hover .block-object {
+	visibility: hidden;
+}
+
+/* Отключает взаиможествие с курсором */
+/* pointer-events: none; */
