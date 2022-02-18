@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Lesson 8 - Курс Зима 2022 Псевдо классы и псевдо элементы</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <header class="header" id="header">
+            <div class="div-header">
+                <div class="logo">Шапочка</div>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="sost.html">Псевдоклассы состояния</a></li>
+                    <li><a href="position.html">Псевдоклассы положения</a></li>
+                    <li><a href="element.html">Псевдоэлементы</a></li>
+                </ul>
+            </div>
+        </header>
+        <main>
+            <h1>Пвсевдоклассы положения</h1>
+
+
+
+            <div class="conteiner">
+                <div class="buttom">
+                    <a href="#first-child">Пвесдокласс : ferst-child</a>
+                </div>
+                <div id="first-child" class="div-hidden">
+                    <div class="exemple-1">
+                        <div class="text">
+                            Пример использования с атрибутом "p"
+                        </div>
+                        <div class="consol">
+                            conteiner p:first-child {
+                            background-color: rgb(165, 114, 91);
+                            }
+                        </div>
+                        <div class="conteiner-ex">
+                            <h3>Котейнер с параграфами</h3>
+                            <div class="content-p">
+                                <p><span class="bold">Я параграф</span> Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                <p><span class="bold">Я параграф</span> Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                <p><span class="bold">Я параграф</span> Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                <p><span class="bold">Я параграф</span> Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                <p><span class="bold">Я параграф</span> Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                            </div>
+                        </div>
+                        <div class="conteiner-ex">
+                            <h3>Контейнер с дивами и параграфами</h3>
+                            <div class="content-div-p">
+                                <div><span class="bold">Я DIV</span> Elit adipisicing laborum voluptate ipsum nostrud in ex.</div>
+                                <p><span class="bold">Я параграф</span> Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                <div><span class="bold">Я DIV</span> Elit adipisicing laborum voluptate ipsum nostrud in ex.</div>
+                                <p><span class="bold">Я параграф</span> Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                <div><span class="bold">Я DIV</span> Elit adipisicing laborum voluptate ipsum nostrud in ex.</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="exemple-2">
+                        <div class="text">
+                            Пример использования с универсальным атрибутом " * " еще залетели и спаны :)
+                        </div>
+                        <div class="consol">
+                            conteiner *:first-child {
+                            background-color: rgb(165, 114, 91);
+                            }
+                        </div>
+                        <div class="conteiner-ex">
+                            <h3>Котейнер с параграфами</h3>
+                            <div class="content-p">
+                                <p><span class="bold">Я параграф</span> Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                <p><span class="bold">Я параграф</span> Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                <p><span class="bold">Я параграф</span> Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                <p><span class="bold">Я параграф</span> Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                <p><span class="bold">Я параграф</span> Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                            </div>
+                        </div>
+                        <div class="conteiner-ex">
+                            <h3>Контейнер с дивами и параграфами</h3>
+                            <div class="content-div-p">
+                                <div><span class="bold">Я DIV</span> Elit adipisicing laborum voluptate ipsum nostrud in ex.</div>
+                                <p><span class="bold">Я параграф</span> Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                <div><span class="bold">Я DIV</span> Elit adipisicing laborum voluptate ipsum nostrud in ex.</div>
+                                <p><span class="bold">Я параграф</span> Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                <div><span class="bold">Я DIV</span> Elit adipisicing laborum voluptate ipsum nostrud in ex.</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="exemple-3">
+                        <div class="text">
+                            Пример использования с универсальным атрибутом " * " первой вложенности
+                        </div>
+                        <div class="consol">
+                            conteiner &gt *:first-child {
+                            background-color: rgb(165, 114, 91);
+                            }
+                        </div>
+                        <div class="conteiner-ex">
+                            <h3>Котейнер с параграфами</h3>
+                            <div class="content-p">
+                                <p><span class="bold">Я параграф</span> Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                <p><span class="bold">Я параграф</span> Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                <p><span class="bold">Я параграф</span> Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                <p><span class="bold">Я параграф</span> Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                <p><span class="bold">Я параграф</span> Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                            </div>
+                        </div>
+                        <div class="conteiner-ex">
+                            <h3>Контейнер с дивами и параграфами</h3>
+                            <div class="content-div-p">
+                                <div><span class="bold">Я DIV</span> Elit adipisicing laborum voluptate ipsum nostrud in ex.</div>
+                                <p><span class="bold">Я параграф</span> Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                <div><span class="bold">Я DIV</span> Elit adipisicing laborum voluptate ipsum nostrud in ex.</div>
+                                <p><span class="bold">Я параграф</span> Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                <div><span class="bold">Я DIV</span> Elit adipisicing laborum voluptate ipsum nostrud in ex.</div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div class="conteiner">
+                <div class="buttom">
+                    <a href="#first-of-type">Пвесдокласс : first-of-type</a>
+                </div>
+                <div id="first-of-type" class="div-hidden">
+                    <div class="exemple-1">
+                        <div class="text">
+                            Пример использования с атрибутом "p"
+                        </div>
+                        <div class="consol">
+                            conteiner p:first-of-type {
+                            background-color: rgb(165, 114, 91);
+                            }
+                        </div>
+                        <div class="conteiner-ex">
+                            <h3>Котейнер с параграфами</h3>
+                            <div class="content-p">
+                                <p><span class="bold">Я параграф</span> Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                <p><span class="bold">Я параграф</span> Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                <p><span class="bold">Я параграф</span> Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                <p><span class="bold">Я параграф</span> Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                <p><span class="bold">Я параграф</span> Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                            </div>
+                        </div>
+                        <div class="conteiner-ex">
+                            <h3>Контейнер с дивами и параграфами</h3>
+                            <div class="content-div-p">
+                                <div><span class="bold">Я DIV</span> Elit adipisicing laborum voluptate ipsum nostrud in ex.</div>
+                                <p><span class="bold">Я параграф</span> Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                <div><span class="bold">Я DIV</span> Elit adipisicing laborum voluptate ipsum nostrud in ex.</div>
+                                <p><span class="bold">Я параграф</span> Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                <div><span class="bold">Я DIV</span> Elit adipisicing laborum voluptate ipsum nostrud in ex.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="conteiner">
+                <div class="buttom">
+                    <a href="#last-child">Пвесдокласс : last-child</a>
+                </div>
+                <div id="last-child" class="div-hidden">
+                    <div class="exemple-1">
+                        <div class="text">
+                            Пример использования с атрибутом "p"
+                        </div>
+                        <div class="consol">
+                            conteiner p:last-child {
+                            background-color: rgb(165, 114, 91);
+                            }
+                        </div>
+                        <div class="conteiner-ex">
+                            <h3>Котейнер с параграфами</h3>
+                            <div class="content-p">
+                                <p><span class="bold">Я параграф</span> Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                <p><span class="bold">Я параграф</span> Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                <p><span class="bold">Я параграф</span> Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                <p><span class="bold">Я параграф</span> Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                <p><span class="bold">Я параграф</span> Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                            </div>
+                        </div>
+                        <div class="conteiner-ex">
+                            <h3>Контейнер с дивами и параграфами</h3>
+                            <div class="content-div-p">
+                                <div><span class="bold">Я DIV</span> Elit adipisicing laborum voluptate ipsum nostrud in ex.</div>
+                                <p><span class="bold">Я параграф</span> Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                <div><span class="bold">Я DIV</span> Elit adipisicing laborum voluptate ipsum nostrud in ex.</div>
+                                <p><span class="bold">Я параграф</span> Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                <div><span class="bold">Я DIV</span> Elit adipisicing laborum voluptate ipsum nostrud in ex.</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="exemple-2">
+                        <div class="text">
+                            Пример использования с универсальным атрибутом " * " еще залетели и спаны :)
+                        </div>
+                        <div class="consol">
+                            conteiner *:last-child {
+                            background-color: rgb(165, 114, 91);
+                            }
+                        </div>
+                        <div class="conteiner-ex">
+                            <h3>Котейнер с параграфами</h3>
+                            <div class="content-p">
+                                <p><span class="bold">Я параграф</span> Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                <p><span class="bold">Я параграф</span> Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                <p><span class="bold">Я параграф</span> Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                <p><span class="bold">Я параграф</span> Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                <p><span class="bold">Я параграф</span> Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                            </div>
+                        </div>
+                        <div class="conteiner-ex">
+                            <h3>Контейнер с дивами и параграфами</h3>
+                            <div class="content-div-p">
+                                <div><span class="bold">Я DIV</span> Elit adipisicing laborum voluptate ipsum nostrud in ex.</div>
+                                <p><span class="bold">Я параграф</span> Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                <div><span class="bold">Я DIV</span> Elit adipisicing laborum voluptate ipsum nostrud in ex.</div>
+                                <p><span class="bold">Я параграф</span> Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                <div><span class="bold">Я DIV</span> Elit adipisicing laborum voluptate ipsum nostrud in ex.</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="exemple-3">
+                        <div class="text">
+                            Пример использования с универсальным атрибутом " * " первой вложенности
+                        </div>
+                        <div class="consol">
+                            conteiner &gt *:last-child {
+                            background-color: rgb(165, 114, 91);
+                            }
+                        </div>
+                        <div class="conteiner-ex">
+                            <h3>Котейнер с параграфами</h3>
+                            <div class="content-p">
+                                <p><span class="bold">Я параграф</span> Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                <p><span class="bold">Я параграф</span> Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                <p><span class="bold">Я параграф</span> Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                <p><span class="bold">Я параграф</span> Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                <p><span class="bold">Я параграф</span> Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                            </div>
+                        </div>
+                        <div class="conteiner-ex">
+                            <h3>Контейнер с дивами и параграфами</h3>
+                            <div class="content-div-p">
+                                <div><span class="bold">Я DIV</span> Elit adipisicing laborum voluptate ipsum nostrud in ex.</div>
+                                <p><span class="bold">Я параграф</span> Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                <div><span class="bold">Я DIV</span> Elit adipisicing laborum voluptate ipsum nostrud in ex.</div>
+                                <p><span class="bold">Я параграф</span> Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                <div><span class="bold">Я DIV</span> Elit adipisicing laborum voluptate ipsum nostrud in ex.</div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div class="conteiner">
+                <div class="buttom">
+                    <a href="#last-of-type">Пвесдокласс : last-of-type</a>
+                </div>
+                <div id="last-of-type" class="div-hidden">
+                    <div class="exemple-1">
+                        <div class="text">
+                            Пример использования с атрибутом "p"
+                        </div>
+                        <div class="consol">
+                            conteiner p:last-of-type {
+                            background-color: rgb(165, 114, 91);
+                            }
+                        </div>
+                        <div class="conteiner-ex">
+                            <h3>Котейнер с параграфами</h3>
+                            <div class="content-p">
+                                <p><span class="bold">Я параграф</span> Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                <p><span class="bold">Я параграф</span> Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                <p><span class="bold">Я параграф</span> Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                <p><span class="bold">Я параграф</span> Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                <p><span class="bold">Я параграф</span> Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                            </div>
+                        </div>
+                        <div class="conteiner-ex">
+                            <h3>Контейнер с дивами и параграфами</h3>
+                            <div class="content-div-p">
+                                <div><span class="bold">Я DIV</span> Elit adipisicing laborum voluptate ipsum nostrud in ex.</div>
+                                <p><span class="bold">Я параграф</span> Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                <div><span class="bold">Я DIV</span> Elit adipisicing laborum voluptate ipsum nostrud in ex.</div>
+                                <p><span class="bold">Я параграф</span> Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                <div><span class="bold">Я DIV</span> Elit adipisicing laborum voluptate ipsum nostrud in ex.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="conteiner">
+                <div class="buttom">
+                    <a href="#nth-child-2">Пвесдокласс : nth-child</a>
+                </div>
+                <div id="nth-child-2" class="div-hidden">
+                    <div class="exemple-1">
+                        <div class="text">
+                            Пример использования с атрибутом "p"
+                        </div>
+                        <div class="consol">
+                            conteiner p:nth-child(2), conteiner p:nth-child(3){
+                            background-color: rgb(165, 114, 91);
+                            }
+                        </div>
+                        <div class="conteiner-ex">
+                            <h3>Котейнер с параграфами</h3>
+                            <div class="content-p">
+                                <p><span class="bold">Я параграф</span> Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                <p><span class="bold">Я параграф</span> Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                <p><span class="bold">Я параграф</span> Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                <p><span class="bold">Я параграф</span> Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                <p><span class="bold">Я параграф</span> Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                            </div>
+                        </div>
+                        <div class="conteiner-ex">
+                            <h3>Контейнер с дивами и параграфами</h3>
+                            <div class="content-div-p">
+                                <div><span class="bold">Я DIV</span> Elit adipisicing laborum voluptate ipsum nostrud in ex.</div>
+                                <p><span class="bold">Я параграф</span> Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                <div><span class="bold">Я DIV</span> Elit adipisicing laborum voluptate ipsum nostrud in ex.</div>
+                                <p><span class="bold">Я параграф</span> Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                <div><span class="bold">Я DIV</span> Elit adipisicing laborum voluptate ipsum nostrud in ex.</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="exemple-2">
+                        <div class="text">
+                            Пример использования с универсальным атрибутом " * " еще залетели и спаны :)
+                        </div>
+                        <div class="consol">
+                            conteiner *:nth-child(2), conteiner *:nth-child(3) {
+                            background-color: rgb(165, 114, 91);
+                            }
+                        </div>
+                        <div class="conteiner-ex">
+                            <h3>Котейнер с параграфами</h3>
+                            <div class="content-p">
+                                <p><span class="bold">Я параграф</span> Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                <p><span class="bold">Я параграф</span> Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                <p><span class="bold">Я параграф</span> Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                <p><span class="bold">Я параграф</span> Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                <p><span class="bold">Я параграф</span> Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                            </div>
+                        </div>
+                        <div class="conteiner-ex">
+                            <h3>Контейнер с дивами и параграфами</h3>
+                            <div class="content-div-p">
+                                <div><span class="bold">Я DIV</span> Elit adipisicing laborum voluptate ipsum nostrud in ex.</div>
+                                <p><span class="bold">Я параграф</span> Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                <div><span class="bold">Я DIV</span> Elit adipisicing laborum voluptate ipsum nostrud in ex.</div>
+                                <p><span class="bold">Я параграф</span> Lorem <span><span>Я вторая вложенность</span></span> ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                <div><span class="bold">Я DIV</span> Elit adipisicing laborum voluptate ipsum nostrud in ex.</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="exemple-3">
+                        <div class="text">
+                            Пример использования с универсальным атрибутом " * " первой вложенности
+                        </div>
+                        <div class="consol">
+                            conteiner &gt *:nth-child(2), conteiner &gt *:nth-child(3) {
+                            background-color: rgb(165, 114, 91);
+                            }
+                        </div>
+                        <div class="conteiner-ex">
+                            <h3>Котейнер с параграфами</h3>
+                            <div class="content-p">
+                                <p><span class="bold">Я параграф</span> Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                <p><span class="bold">Я параграф</span> Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                <p><span class="bold">Я параграф</span> Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                <p><span class="bold">Я параграф</span> Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                <p><span class="bold">Я параграф</span> Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                            </div>
+                        </div>
+                        <div class="conteiner-ex">
+                            <h3>Контейнер с дивами и параграфами</h3>
+                            <div class="content-div-p">
+                                <div><span class="bold">Я DIV</span> Elit adipisicing laborum voluptate ipsum nostrud in ex.</div>
+                                <p><span class="bold">Я параграф</span> Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                <div><span class="bold">Я DIV</span> Elit adipisicing laborum voluptate ipsum nostrud in ex.</div>
+                                <p><span class="bold">Я параграф</span> Lorem <span><span>Я вторая вложенность</span></span> ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                <div><span class="bold">Я DIV</span> Elit adipisicing laborum voluptate ipsum nostrud in ex.</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="exemple-4">
+                        <div class="text">
+                            Пример использования с универсальным атрибутом " * " первой вложенности покрасим нечетные
+                        </div>
+                        <div class="consol">
+                            conteiner &gt *:nth-child(odd) {
+                            background-color: rgb(165, 114, 91);
+                            }
+                        </div>
+                        <div class="conteiner-ex">
+                            <h3>Котейнер с параграфами</h3>
+                            <div class="content-p">
+                                <p><span class="bold">Я параграф</span> Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                <p><span class="bold">Я параграф</span> Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                <p><span class="bold">Я параграф</span> Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                <p><span class="bold">Я параграф</span> Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                <p><span class="bold">Я параграф</span> Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                            </div>
+                        </div>
+                        <div class="conteiner-ex">
+                            <h3>Контейнер с дивами и параграфами</h3>
+                            <div class="content-div-p">
+                                <div><span class="bold">Я DIV</span> Elit adipisicing laborum voluptate ipsum nostrud in ex.</div>
+                                <p><span class="bold">Я параграф</span> Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                <div><span class="bold">Я DIV</span> Elit adipisicing laborum voluptate ipsum nostrud in ex.</div>
+                                <p><span class="bold">Я параграф</span> Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                <div><span class="bold">Я DIV</span> Elit adipisicing laborum voluptate ipsum nostrud in ex.</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="exemple-5">
+                        <div class="text">
+                            Пример использования с универсальным атрибутом " * " первой вложенности покрасим четные
+                        </div>
+                        <div class="consol">
+                            conteiner &gt *:nth-child(even) {
+                            background-color: rgb(165, 114, 91);
+                            }
+                        </div>
+                        <div class="conteiner-ex">
+                            <h3>Котейнер с параграфами</h3>
+                            <div class="content-p">
+                                <p><span class="bold">Я параграф</span> Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                <p><span class="bold">Я параграф</span> Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                <p><span class="bold">Я параграф</span> Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                <p><span class="bold">Я параграф</span> Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                <p><span class="bold">Я параграф</span> Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                            </div>
+                        </div>
+                        <div class="conteiner-ex">
+                            <h3>Контейнер с дивами и параграфами</h3>
+                            <div class="content-div-p">
+                                <div><span class="bold">Я DIV</span> Elit adipisicing laborum voluptate ipsum nostrud in ex.</div>
+                                <p><span class="bold">Я параграф</span> Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                <div><span class="bold">Я DIV</span> Elit adipisicing laborum voluptate ipsum nostrud in ex.</div>
+                                <p><span class="bold">Я параграф</span> Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                <div><span class="bold">Я DIV</span> Elit adipisicing laborum voluptate ipsum nostrud in ex.</div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div class="conteiner">
+                <div class="buttom">
+                    <a href="#nth-of-type">Пвесдокласс : nth-of-type</a>
+                </div>
+                <div id="nth-of-type" class="div-hidden">
+                    <div class="exemple-1">
+                        <div class="text">
+                            Пример использования с атрибутом "p"
+                        </div>
+                        <div class="consol">
+                            conteiner p:nth-of-type (2),
+                            conteiner p:nth-of-type (3) {
+                            background-color: rgb(165, 114, 91);
+                            }
+                        </div>
+                        <div class="conteiner-ex">
+                            <h3>Котейнер с параграфами</h3>
+                            <div class="content-p">
+                                <p><span class="bold">Я параграф</span> Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                <p><span class="bold">Я параграф</span> Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                <p><span class="bold">Я параграф</span> Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                <p><span class="bold">Я параграф</span> Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                <p><span class="bold">Я параграф</span> Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                            </div>
+                        </div>
+                        <div class="conteiner-ex">
+                            <h3>Контейнер с дивами и параграфами</h3>
+                            <div class="content-div-p">
+                                <div><span class="bold">Я DIV</span> Elit adipisicing laborum voluptate ipsum nostrud in ex.</div>
+                                <p><span class="bold">Я параграф</span> Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                <div><span class="bold">Я DIV</span> Elit adipisicing laborum voluptate ipsum nostrud in ex.</div>
+                                <p><span class="bold">Я параграф</span> Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                <div><span class="bold">Я DIV</span> Elit adipisicing laborum voluptate ipsum nostrud in ex.</div>
+                                <p><span class="bold">Я параграф</span> Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="buttom">
+                <a href="#">Свернуть</a>
+            </div>
+
+
+
+        </main>
+        <footer></footer>
+    </div>
+</body>
+
+</html>

@@ -15,21 +15,101 @@
 			<div class="div-header">
 				<div class="logo">Шапочка</div>
 				<ul>
-					<li><a href="">Home</a></li>
-					<li><a href="">Псевдоклассы состояния</a></li>
-					<li><a href="">Псевдоклассы положения</a></li>
-					<li><a href="">Псевдоэлементы</a></li>
+					<li><a href="index.html">Home</a></li>
+					<li><a href="sost.html">Псевдоклассы состояния</a></li>
+					<li><a href="position.html">Псевдоклассы положения</a></li>
+					<li><a href="element.html">Псевдоэлементы</a></li>
 				</ul>
 			</div>
 		</header>
 		<main>
-			<div class="conteiner">
-				<h1>Псевдклассы</h1>
-				<ol>
-					<li><a href="">Псевдоклассы состояния</a></li>
-					<li><a href="">Псевдоклассы положения</a></li>
-					<li><a href="">Псевдоэлементы</a></li>
-				</ol>
+			<h1>Псевдклассы состояния</h1>
+			<div class="block">
+				<h2 id="zero-class">Без псевдоклассов состояния</h2>
+
+				<div class="content">
+					<div class="link">
+						<a href="#">Я ссылка</a>
+					</div>
+					<div class="paragraph">
+						<p>
+							Я Параграф In consectetur pariatur sint ad laborum fugiat esse anim reprehenderit tempor esse do. Deserunt ex occaecat in sunt culpa dolore elit non aliquip aliqua labore esse mollit. Enim proident pariatur fugiat consectetur deserunt amet magna et.
+						</p>
+					</div>
+				</div>
+			</div>
+			<div class="block">
+				<h2 id="hover-title">Пвсевдокласс :hover. Срабатывает при наведении</h2>
+
+				<div class="content">
+					<div class="link">
+						<a class="link-h" href="#">Я ссылка</a>
+					</div>
+					<div class="paragraph">
+						<p class="paragraph-h">
+							Я Параграф In consectetur pariatur sint ad laborum fugiat esse anim reprehenderit tempor esse do. Deserunt ex occaecat in sunt culpa dolore elit non aliquip aliqua labore esse mollit. Enim proident pariatur fugiat consectetur deserunt amet magna et.
+						</p>
+					</div>
+				</div>
+			</div>
+			<div class="block">
+				<h2 id="active-title">Пвсевдокласс :active. Срабатывает при нажатии</h2>
+
+				<div class="content">
+					<div class="link">
+						<a class="link-a" href="#">Я ссылка</a>
+					</div>
+					<div class="paragraph">
+						<p class="paragraph-a">
+							Я Параграф In consectetur pariatur sint ad laborum fugiat esse anim reprehenderit tempor esse do. Deserunt ex occaecat in sunt culpa dolore elit non aliquip aliqua labore esse mollit. Enim proident pariatur fugiat consectetur deserunt amet magna et.
+						</p>
+					</div>
+				</div>
+			</div>
+			<div class="block">
+				<h2>Пвсевдокласс :visited. Срабатывает для посещеных сылок</h2>
+
+				<div class="content">
+					<div class="link">
+						<a class="link-v" target="_blank" href="https://developer.mozilla.org/ru/docs/Web/CSS/:visited">Я ссылка.</a>
+						На https://developer.mozilla.org/ru/docs/Web/CSS/:visited
+					</div>
+					<div class="paragraph">
+						<p class="paragraph-v">
+							Я Параграф In consectetur pariatur sint ad laborum fugiat esse anim reprehenderit tempor esse do. Deserunt ex occaecat in sunt culpa dolore elit non aliquip aliqua labore esse mollit. Enim proident pariatur fugiat consectetur deserunt amet magna et.
+						</p>
+					</div>
+				</div>
+			</div>
+			<div class="block">
+				<h2>Пвсевдокласс :focus. Срабатывает при получении фокуса(нажать мышкой или Tab дойти)</h2>
+
+				<div class="content">
+					<div class="link">
+						<a id="focus-title" class="link-f" href="#focus-title">Я ссылка</a>
+					</div>
+					<div class="paragraph">
+						<p tabindex="10" class="paragraph-f">
+							Я Параграф In consectetur pariatur sint ad laborum fugiat esse anim reprehenderit tempor esse do. Deserunt ex occaecat in sunt culpa dolore elit non aliquip aliqua labore esse mollit. Enim proident pariatur fugiat consectetur deserunt amet magna et.
+						</p>
+					</div>
+				</div>
+			</div>
+			<div class="block">
+				<h2 id="target-title-block">Пвсевдокласс :target. Срабатывает когда на обект ссылаются</h2>
+				<a class="buttom" href="#link-t">На ссылку</a>
+				<a class="buttom" href="#paragraph-t">На парграф</a>
+				<a class="buttom" href="#target-title-block">Снять</a>
+				<div class="content">
+					<div class="link">
+						<a id="link-t" class="link-t" href="#target-title-block">Я ссылка</a>
+					</div>
+					<div class="paragraph">
+						<p id="paragraph-t" class="paragraph-t">
+							Я Параграф In consectetur pariatur sint ad laborum fugiat esse anim reprehenderit tempor esse do. Deserunt ex occaecat in sunt culpa dolore elit non aliquip aliqua labore esse mollit. Enim proident pariatur fugiat consectetur deserunt amet magna et.
+						</p>
+					</div>
+				</div>
 			</div>
 		</main>
 		<footer></footer>
