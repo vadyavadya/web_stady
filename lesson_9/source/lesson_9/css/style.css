@@ -1,0 +1,26 @@
+/* &display=swap */
+@import "null.css";
+/* ================================================================ */
+.wrapper {
+	min-height: 100%;
+	overflow: hidden;
+}
+/* ================================================================ */
+
+.list li {
+	padding: 0px 0px 0px 32px;
+	/* 
+	font-size: 10px;
+	min-height: 16px;
+	background: url("../img/list.svg") 0 0 no-repeat;
+	 */
+}
+
+.list li::before {
+	content: "";
+	width: 16px;
+	height: 16px;
+	margin: 0px 16px -2px -32px;
+	display: inline-block;
+	background: url("../img/list.svg") center no-repeat;
+}
