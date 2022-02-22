@@ -1,0 +1,5 @@
+Вставка через pictures
+<picture>
+	<source srcset="img/01.webp" type="image/webp">
+	<img src="img/01.png" alt="Image">
+</picture>
