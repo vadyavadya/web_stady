@@ -1,0 +1,95 @@
+/* &display=swap */
+@import "null.css";
+/* ================================================================ */
+.wrapper {
+	min-height: 100%;
+	overflow: hidden;
+}
+/* ================================================================ */
+
+[class*="__container"] {
+	margin: 0px auto;
+	max-width: 1024px;
+}
+
+.button {
+}
+
+.latest-posts {
+}
+.latest-posts__link {
+	display: inline-block;
+	margin: 0px 20px 20px 0px;
+}
+
+.content-header {
+}
+.content-header_center {
+	text-align: center;
+}
+.content-header__sub-title {
+	text-transform: uppercase;
+	font-size: 14px;
+	margin: 0px 0px 10px 0px;
+}
+.content-header__title {
+	font-size: 50px;
+}
+
+.contacts {
+}
+.contacts__link {
+	color: blue;
+	font-size: 14px;
+	text-decoration: underline;
+}
+.contacts__link_red {
+	color: red;
+}
+
+/* Модификатор */
+.block-header {
+	/* НЕ можем */
+	/* margin: 0px 0px 20px 0px; */
+}
+.block-header_margin {
+	/* можем */
+	margin: 0px 0px 20px 0px;
+}
+
+/* Микс */
+.who-we-are {
+}
+.who-we-are__block-header {
+	/* можем */
+	margin: 0px 0px 20px 0px;
+}
+.block-header {
+	/* НЕ можем */
+	/* margin: 0px 0px 20px 0px; */
+}
+
+.contacts {
+}
+.contacts__block-header {
+	/* можем */
+	margin: 0px 0px 30px 0px;
+}
+
+.body-contacts__image img {
+}
+
+.text p {
+	font-size: 14px;
+	line-height: 120%;
+}
+
+.contacts {
+}
+.contacts__container {
+}
+.about-us {
+}
+.about-us__container {
+	max-width: 1224px;
+}
