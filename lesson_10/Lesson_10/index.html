@@ -1,468 +1,251 @@
 <!DOCTYPE html>
 <html lang="ru">
-	<head>
-		<meta charset="UTF-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link rel="stylesheet" href="css/style.css">
-		<title>Lesson 10 - Курс Зима 2022</title>
-	</head>
-	<body>
-		<div class="wrapper">
-			<header></header>
-			<main class="page">
-				<!-- Б.Э.М. -->
 
-				<!-- Блок -->
-				<!-- 
-				НЕЗАВИСИМЫЙ объект.
-				НЕ влияет на окружение (внешние объекты).
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/style.css">
+	<title>Lesson 10 - Курс Зима 2022</title>
+</head>
 
-				Имя класса БЭМ блока:
-				1) Имя должно соответствовать 
-					содержанию либо конструкции
-					Отвечать на вопрос "Что это?"
-				2) Английский язык (Латиница)
-				3) Нижний регистр
-				4) Если слов несколько, разделяем дефисом (-).
-				5) НИКАКОЙ ИЕРАРХИИ!!!
+<body>
+	<div class="wrapper">
+		<header></header>
+		<main class="page">
 
-				Мы можем вкладывать 
-				сколько угодно БЭМ блоков друг в друга,
-				также БЭМ блоки можно вкладывать в БЭМ элементы
-				-->
-
-				<div class="text">
-					<a href="" class="button">Тут текст</a>
-				</div>
-
-				<div class="latest-posts">
-					<!-- НЕ верно (Попытка иерархии) -->
-					<div class="latest-posts-container">
-
-					</div>
-					<!-- Может быть -->
-					<div class="container-latest-posts">
-
-					</div>
-					<!-- Лучший варик (но, есть нюансы) -->
-					<div class="container">
-
-					</div>
-				</div>
-
-				<!-- Элемент -->
-				<!-- 
-				ЗАВИСИМЫЙ объект от своего БЭМ блока
-				ВСЕГДА находится внутри своего БЭМ блока
-				МОЖЕТ влиять на окружение (внешние объекты)
-
-				Имя класса БЭМ элемента:
-				0) Всегда начинается с имени 
-				первого родительского БЭМ блока и отделяется 
-					двумя нижними подчеркиваниями (__)
-				1) Имя должно соответствовать 
-					содержанию либо конструкции.
-					Отвечать на вопрос "Что это?"
-				2) Английский язык (Латиница)
-				3) Нижний регистр
-				4) Если слов несколько, разделяем дефисом (-).
-				5) НИКАКОЙ ИЕРАРХИИ!!!
-
-				БЭМ элементы можно вкладивать в другие 
-				БЭМ элементы своего БЭМ блока
-				-->
-
-				<div class="latest-posts">
-					<a href="" class="latest-posts__link"></a>
-				</div>
-
-				<div class="latest-posts">
-					<div class="container">
-						<a href="" class="container__link"></a>
-					</div>
-				</div>
-
-				<div class="latest-posts">
-					<div class="latest-posts__container">
-						<a href="" class="latest-posts__link"></a>
-					</div>
-				</div>
-
-
-				<div class="contacts">
-					<div class="contacts__container">
-						<div class="about-us">
-							<a href="" class="about-us__link"></a>
+			<div class="enjoy-studing">
+				<div class="enjoy-studing__conteiner">
+					<div class="header">
+						<div class="header__logo logo">
+							<img class="logo__create" src="#" alt="">
+							<img class="logo__x" src="#" alt="">
 						</div>
-						<a href="" class="contacts__link"></a>
+						<nav class="header__nav">
+							<div class="header__item"></div>
+							<div class="header__item"></div>
+							<div class="header__item"></div>
+							<div class="header__item"></div>
+						</nav>
+						<a class="header__button button" href="#"></a>
+						<div class="login">
+							<a class="login__link" href="#">
+								<div class="login__icon"></div>
+								<div class="login__text"></div>
+							</a>
+						</div>
+					</div>
+					<div class="enjoy-studing__content">
+						<div class="play-video">
+							<a class="play-video__link" href="#">
+								<img class="play-video__icon" src="#" alt="">
+							</a>
+							<div class="play-video__text"></div>
+						</div>
+						<div class="enjoy-studing__text"></div>
+						<a class="enjoy-studing__button  button  button_outline" href="#"></a>
+						<a class="enjoy-studing__button button" href="#"></a>
+						<img class="enjoy-studing__img" src="#" alt="Девушка за компьютерным столом">
+						<div class="enjoy-studing__footer">
+							<div class="statistic">
+								<div class="statistic__number"></div>
+								<div class="statistic__text"> </div>
+							</div>
+							<div class="statistic">
+								<div class="statistic__number"></div>
+								<div class="statistic__text"></div>
+							</div>
+							<div class="statistic">
+								<div class="statistic__number"></div>
+								<div class="statistic__text"></div>
+							</div>
+							<div class="statistic">
+								<div class="statistic__number"></div>
+								<div class="statistic__text"></div>
+							</div>
+						</div>
 					</div>
 				</div>
-
-				<!-- Модификатор -->
-				<!-- 
-				Позволяет вносить отличия 
-				для БЭМ блока либо БЭМ элемента
-
-				Имя класса БЭМ модификатора:
-				0) Добавляется как еще один класс
-				для БЭМ блока или БЭМ элемента.
-				Начинается с полного имени БЭМ блока или БЭМ элемента и отделяется 
-					одним нижними подчеркиванием (_)
-				1) Имя должно соответствовать 
-					вносимым модификациям. Отвечать на вопрос "какой? что изменяем?"
-				2) Английский язык (Латиница)
-				3) Нижний регистр
-				4) Если слов несколько, разделяем дефисом (-).
-				5) НИКАКОЙ ИЕРАРХИИ!!!
-				-->
-
-				<div class="content-header">
-					<div class="content-header__sub-title"></div>
-					<h2 class="content-header__title"></h2>
-				</div>
-
-				<div class="content-header">
-					<div class="content-header__sub-title"></div>
-					<h2 class="content-header__title"></h2>
-				</div>
-
-				<!-- Модификатор для блока -->
-				<!-- Этот по центру -->
-				<div class="content-header content-header_center">
-					<div class="content-header__sub-title"></div>
-					<h2 class="content-header__title"></h2>
-				</div>
+			</div>
 
 
-				<!-- Модификатор для элемента -->
-				<div class="contacts">
-					<a href="" class="contacts__link"></a>
-					<a href="" class="contacts__link contacts__link_red contacts__link_font-size"></a>
-					<a href="" class="contacts__link contacts__link_font-size"></a>
-				</div>
 
-
-				<!-- Примеры -->
+			<div class="why-createx">
 
 				<div class="who-we-are">
-					<div class="who-we-are__container">
-						<div class="who-we-are__image">
-							<img src="img/01.png" alt="">
+					<div class="who-we-are__img">
+						<img class="who-we-are__picture" src="#" alt="Улыбающаяся девушка за компьютером">
+					</div>
+					<div class="who-we-are__text">
+						<div class="block-title">
+							<div class="block-title__subtitle"></div>
+							<h2 class="block-title__title"></h2>
 						</div>
-						<div class="who-we-are__content">
-							<div class="block-header block-header_margin">
-								<div class="block-header__sub-title"></div>
-								<h2 class="block-header__title"></h2>
+						<ul class="who-we-are__list">
+							<li class="who-we-are__item"></li>
+							<li class="who-we-are__item"></li>
+							<li class="who-we-are__item"></li>
+							<li class="who-we-are__item"></li>
+							<li class="who-we-are__item"></li>
+							<li class="who-we-are__item"></li>
+						</ul>
+						<a class="who-we-are__button button" href=""></a>
+					</div>
+				</div>
+
+				<div class="ready-to-learn">
+					<div class="block-title">
+						<div class="block-title__subtitle"></div>
+						<h2 class="block-title__title"></h2>
+					</div>
+					<a class="ready-to-learn__button button button_outline"></a>
+					<div class="course-card">
+						<a class="course-card__link" href="#">
+							<div class="course-card__conteiner">
+								<img class="course-card__img" src="#" alt="Марккетолог">
+								<div class="course-card__direction course-card__direction_marketing"></div>
+								<div class="course-card__theme"></div>
+								<div class="course-card__info"></div>
 							</div>
-							<ul class="list">
-								<li class="list__item"></li>
-								<li class="list__item"></li>
-								<li class="list__item"></li>
-								<li class="list__item"></li>
-								<li class="list__item"></li>
-							</ul>
-							<a href="" class="button"></a>
-						</div>
+						</a>
 					</div>
-				</div>
-
-
-				<!-- Микс -->
-				<!-- 
-				Смесь БЭМ блока и БЭМ элемента 
-				для одного объекта.
-				При этом БЭМ элемент может
-				выступать в роли БЭМ модификатора
-				-->
-
-
-				<!-- Микс в роли модификатора -->
-
-				<div class="who-we-are">
-					<div class="who-we-are__container">
-						<div class="who-we-are__image">
-							<img src="img/01.png" alt="">
-						</div>
-						<div class="who-we-are__content">
-							<!-- МИКС! -->
-							<div class="who-we-are__block-header block-header">
-								<div class="block-header__sub-title"></div>
-								<h2 class="block-header__title"></h2>
+					<div class="course-card">
+						<a class="course-card__link" href="#">
+							<div class="course-card__conteiner">
+								<img class="course-card__img" src="#" alt="Менеджмент">
+								<div class="course-card__direction course-card__direction_management"></div>
+								<div class="course-card__theme"></div>
+								<div class="course-card__info"></div>
 							</div>
-							<ul class="list">
-								<li class="list__item"></li>
-								<li class="list__item"></li>
-								<li class="list__item"></li>
-								<li class="list__item"></li>
-								<li class="list__item"></li>
-							</ul>
-							<a href="" class="button"></a>
-						</div>
+						</a>
 					</div>
-				</div>
-				<div class="contacts">
-					<div class="contacts__block-header block-header">
-						<div class="block-header__sub-title"></div>
-						<h2 class="block-header__title"></h2>
-					</div>
-				</div>
-
-
-				<!-- Микс в роли высвобождения имен -->
-
-				<div class="about-us">
-					<div class="about-us__container">
-						<div class="about-us__items">
-							<div class="about-us__item item-about-us">
-								<a href="" class="item-about-us__link"></a>
+					<div class="course-card">
+						<a class="course-card__link" href="#">
+							<div class="course-card__conteiner">
+								<img class="course-card__img" src="#" alt="H&R recruting">
+								<div class="course-card__direction course-card__direction_hr-recruting"></div>
+								<div class="course-card__theme"></div>
+								<div class="course-card__info"></div>
 							</div>
-						</div>
-						<a href="" class="about-us__link">Я ссылка</a>
+						</a>
 					</div>
-				</div>
-
-
-				<!-- ============================ Правильно / неправильно =================================== -->
-
-
-				<!-- неправильно (слова разделяем -) -->
-				<div class="aboutus">
-					<a href="" class="aboutus__link"></a>
-				</div>
-
-				<!-- правильно (слова разделяем -) -->
-				<div class="about-us">
-					<a href="" class="about-us__link"></a>
-				</div>
-
-				<!-- ------------------------------------------ -->
-
-
-				<!-- неправильно (элемент НЕ в своем блоке) -->
-				<div class="contacts">
-					<div class="contacts__container">
-						<div class="about-us">
-							<a href="" class="contacts__link"></a>
-						</div>
-					</div>
-				</div>
-
-				<!-- правильно (элемент в своем блоке) -->
-				<div class="contacts">
-					<div class="contacts__container">
-						<div class="about-us">
-							<a href="" class="about-us__link"></a>
-						</div>
-					</div>
-				</div>
-
-				<!-- ------------------------------------------ -->
-
-				<!-- неправильно (элемент несуществующего блока) -->
-				<div class="subscribe">
-					<div class="subscribe__form">
-						<div class="form__item"></div>
-					</div>
-				</div>
-
-				<!-- правильно (элемент своего блока) -->
-				<div class="subscribe">
-					<div class="subscribe__form">
-						<div class="subscribe__item"></div>
-					</div>
-				</div>
-
-
-				<!-- ------------------------------------------ -->
-
-				<!-- правильно -->
-				<div class="object">
-					<div class="object__container">
-						<div class="object__row">
-							<div class="object__column">
-								<div class="object__item">
-									<div class="object__image"></div>
-									<div class="object__body">
-										<div class="object__text"></div>
-										<!-- Это отдельный блок -->
-										<a href="" class="link"></a>
-									</div>
-								</div>
+					<div class="course-card">
+						<a class="course-card__link" href="#">
+							<div class="course-card__conteiner">
+								<img class="course-card__img" src="#" alt="Маркетолог">
+								<div class="course-card__direction course-card__direction_marketing"></div>
+								<div class="course-card__theme"></div>
+								<div class="course-card__info"></div>
 							</div>
+						</a>
+					</div>
+					<div class="course-card">
+						<a class="course-card__link" href="#">
+							<div class="course-card__conteiner">
+								<img class="course-card__img" src="#" alt="Менеджмент">
+								<div class="course-card__direction course-card__direction_management"></div>
+								<div class="course-card__theme"></div>
+								<div class="course-card__info"></div>
+							</div>
+						</a>
+					</div>
+					<div class="course-card">
+						<a class="course-card__link" href="#">
+							<div class="course-card__conteiner">
+								<img class="course-card__img" src="#" alt="Дизайнер">
+								<div class="course-card__direction course-card____direction_design"></div>
+								<div class="course-card__theme"></div>
+								<div class="course-card__info"></div>
+							</div>
+						</a>
+					</div>
+
+				</div>
+
+				<div class="benefits">
+					<div class="block-title block-title_center">
+						<div class="block-title__subtitle"></div>
+						<h2 class="block-title__title"></h2>
+					</div>
+					<div class="benefits__tabs tabs">
+						<div class="tabs__elem tab">
+							<a class="tab__link" href="#">
+								<div class="tab__icon"></div>
+								<div class="tab__text"></div>
+							</a>
 						</div>
-						<!-- Это отдельный блок -->
-						<div class="items">
-							<div class="items__item"></div>
+						<div class="tabs__elem tab">
+							<a class="tab__link" href="#">
+								<div class="tab__icon"></div>
+								<div class="tab__text"></div>
+							</a>
 						</div>
-					</div>
-				</div>
-
-
-				<!-- ------------------------------------------ -->
-
-				<!-- правильно -->
-				<a href="" class="link">
-					<div class="link__text"></div>
-					<div class="link__title"></div>
-				</a>
-
-				<!-- ------------------------------------------ -->
-
-				<!-- не совсем правильно -->
-				<div class="contacts">
-					<div class="contacts__container">
-						<div class="contacts__body body-contacts">
-							<div class="body-contacts__column">
-								<div class="body-contacts__picture">
-									<img src="img/01.png" alt="Картинка">
-								</div>
-							</div>
-							<div class="body-contacts__column">
-								<div class="body-contacts__picture">
-									<img src="img/01.png" alt="Картинка">
-								</div>
-							</div>
+						<div class="tabs__elem tab">
+							<a class="tab__link" href="#">
+								<div class="tab__icon"></div>
+								<div class="tab__text"></div>
+							</a>
 						</div>
-					</div>
-				</div>
-
-				<!-- правильно -->
-				<div class="contacts">
-					<div class="contacts__container">
-						<div class="contacts__body body-contacts">
-							<div class="body-contacts__column">
-								<div class="body-contacts__picture">
-									<img class="body-contacts__image" src="img/01.png" alt="Картинка">
-								</div>
-							</div>
-							<div class="body-contacts__column">
-								<div class="body-contacts__picture">
-									<img class="body-contacts__image" src="img/01.png" alt="Картинка">
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<!-- ------------------------------------------ -->
-
-				<!-- неправильно (не имеет смысла) но это не точно)) -->
-				<div class="about-us contacts">
-				</div>
-
-
-				<!-- ------------------------------------------ -->
-
-
-				<!-- неправильно (попытка иерархии) -->
-				<div class="contacts">
-					<div class="contacts__title contacts-title">
-						<div class="contacts-title__item"></div>
-					</div>
-				</div>
-
-				<!-- нормально (если не собираемся переиспользовать блок title-contacts) -->
-				<div class="contacts">
-					<div class="contacts__title title-contacts">
-						<div class="title-contacts__item"></div>
-					</div>
-				</div>
-
-				<!-- совсем хорошо -->
-				<div class="contacts">
-					<div class="contacts__title title">
-						<div class="title__item"></div>
-					</div>
-				</div>
-
-
-				<!-- ------------------------------------------ -->
-
-				<!-- Что по CMS? -->
-
-				<div class="text">
-					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus vero a unde totam quidem, veritatis doloribus sit. Consequatur officia quidem amet blanditiis nobis laborum obcaecati a maxime autem. Unde, sunt?</p>
-					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus vero a unde totam quidem, veritatis doloribus sit. Consequatur officia quidem amet blanditiis nobis laborum obcaecati a maxime autem. Unde, sunt?</p>
-					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus vero a unde totam quidem, veritatis doloribus sit. Consequatur officia quidem amet blanditiis nobis laborum obcaecati a maxime autem. Unde, sunt?</p>
-					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus vero a unde totam quidem, veritatis doloribus sit. Consequatur officia quidem amet blanditiis nobis laborum obcaecati a maxime autem. Unde, sunt?</p>
-					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus vero a unde totam quidem, veritatis doloribus sit. Consequatur officia quidem amet blanditiis nobis laborum obcaecati a maxime autem. Unde, sunt?</p>
-					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus vero a unde totam quidem, veritatis doloribus sit. Consequatur officia quidem amet blanditiis nobis laborum obcaecati a maxime autem. Unde, sunt?</p>
-					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus vero a unde totam quidem, veritatis doloribus sit. Consequatur officia quidem amet blanditiis nobis laborum obcaecati a maxime autem. Unde, sunt?</p>
-					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus vero a unde totam quidem, veritatis doloribus sit. Consequatur officia quidem amet blanditiis nobis laborum obcaecati a maxime autem. Unde, sunt?</p>
-					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus vero a unde totam quidem, veritatis doloribus sit. Consequatur officia quidem amet blanditiis nobis laborum obcaecati a maxime autem. Unde, sunt?</p>
-					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus vero a unde totam quidem, veritatis doloribus sit. Consequatur officia quidem amet blanditiis nobis laborum obcaecati a maxime autem. Unde, sunt?</p>
-					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus vero a unde totam quidem, veritatis doloribus sit. Consequatur officia quidem amet blanditiis nobis laborum obcaecati a maxime autem. Unde, sunt?</p>
-					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus vero a unde totam quidem, veritatis doloribus sit. Consequatur officia quidem amet blanditiis nobis laborum obcaecati a maxime autem. Unde, sunt?</p>
-					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus vero a unde totam quidem, veritatis doloribus sit. Consequatur officia quidem amet blanditiis nobis laborum obcaecati a maxime autem. Unde, sunt?</p>
-				</div>
-
-
-				<!-- ------------------------------------------ -->
-
-				<!-- Контейнер и селектор класса -->
-
-				<div class="contacts">
-					<div class="contacts__container">
-						container
-					</div>
-				</div>
-
-				<div class="about-us">
-					<div class="about-us__container">
-						container
-					</div>
-				</div>
-
-
-				<!-- Пример из макета -->
-
-				<div class="our-events">
-					<div class="our-events__container">
-						<div class="our-events__header block-header">
-							<div class="block-header__sub-title"></div>
-							<h2 class="block-header__title"></h2>
-						</div>
-						<div class="our-events__items">
-							<div class="our-events__item item-our-events">
-								<div class="item-our-events__date date-item-our-events">
-									<div class="date-item-our-events__day"></div>
-									<div class="date-item-our-events__month"></div>
-									<div class="date-item-our-events__time"></div>
-								</div>
-								<div class="item-our-events__body"></div>
-								<a href="" class="item-our-events__button button"></a>
-							</div>
-							<div class="our-events__item item-our-events">
-								<div class="item-our-events__date date-item-our-events">
-									<div class="date-item-our-events__day"></div>
-									<div class="date-item-our-events__month"></div>
-									<div class="date-item-our-events__time"></div>
-								</div>
-								<div class="item-our-events__body"></div>
-								<a href="" class="item-our-events__button button"></a>
-							</div>
-							<div class="our-events__item item-our-events">
-								<div class="item-our-events__date date-item-our-events">
-									<div class="date-item-our-events__day"></div>
-									<div class="date-item-our-events__month"></div>
-									<div class="date-item-our-events__time"></div>
-								</div>
-								<div class="item-our-events__body"></div>
-								<a href="" class="item-our-events__button button"></a>
-							</div>
-						</div>
-						<div class="our-events__footer footer-our-events">
-							<div class="footer-our-events__text"></div>
-							<a href="" class="footer-our-events__button button"></a>
+						<div class="tabs__elem tab">
+							<a class="tab__link" href="#">
+								<div class="tab__icon"></div>
+								<div class="tab__text"></div>
+							</a>
 						</div>
 					</div>
+					<div class="benefits__content">
+						<div class="benefits__title"></div>
+						<div class="benefits__text"></div>
+						<img class="benefits__img" src="#" alt="Земляне проходят курс">
+					</div>
 				</div>
 
+			</div>
 
-			</main>
-			<footer>
-			</footer>
-		</div>
-	</body>
+
+			<div class="our-events">
+				<div class="our-events__conteiner">
+					<div class="block-title block-title_center">
+						<div class="block-title__subtitle"></div>
+						<h2 class="block-title__title"></h2>
+					</div>
+					<div class="our-events__cards block-events">
+						<div class="block-events__card card-event">
+							<div class="card-event__day"></div>
+							<div class="card-event__mounth"></div>
+							<div class="card-event__time"></div>
+							<div class="card-event__description"></div>
+							<div class="card-event__form"></div>
+							<a class="card-event__link"></a>
+						</div>
+						<div class="block-events__card card-event">
+							<div class="card-event__day"></div>
+							<div class="card-event__mounth"></div>
+							<div class="card-event__time"></div>
+							<div class="card-event__description"></div>
+							<div class="card-event__form"></div>
+							<a class="card-event__link"></a>
+						</div>
+						<div class="block-events__card card-event">
+							<div class="card-event__day"></div>
+							<div class="card-event__mounth"></div>
+							<div class="card-event__time"></div>
+							<div class="card-event__description"></div>
+							<div class="card-event__form"></div>
+							<a class="card-event__link"></a>
+						</div>
+
+					</div>
+					<div class="our-events__text"></div>
+					<a class="our-events__button button"></a>
+				</div>
+			</div>
+
+
+		</main>
+		<footer>
+		</footer>
+	</div>
+</body>
+
 </html>
