@@ -1,4 +1,4 @@
-lesson 2  - Строительные и строчные блоки
+﻿lesson 2  - Строительные и строчные блоки
 lesson 3  - начало с css анатомия подключение
 lesson 4  - шрифты подключение и css свойства (Figma)? поису шрифтов, подключение, font-family, font-size, font-style, font-weight, color, text-align, text-decoration, text-shadow, text-transform, line-height, text-indent, letter-spacing, white-space, word-spacing
 lesson 5  - отступы, ШИРИНЫ И ВЫСОТЫ, Метод вычисления общего размера, УПРАВЛЕНИЕ ПЕРЕИЗБЫТКОМ КОНТЕНТА, УПРАВЛЕНИЕ ТИПОМ ОБЪЕКТА, padding,  margin, (max-min)width, (max-min)height, box-sizing, overflow, display
