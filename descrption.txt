@@ -4,6 +4,6 @@ lesson 4  - шрифты подключение и css свойства (Figma)?
 lesson 5  - отступы, ШИРИНЫ И ВЫСОТЫ, Метод вычисления общего размера, УПРАВЛЕНИЕ ПЕРЕИЗБЫТКОМ КОНТЕНТА, УПРАВЛЕНИЕ ТИПОМ ОБЪЕКТА, padding,  margin, (max-min)width, (max-min)height, box-sizing, overflow, display
 lesson 6  - СВОЙСТВА ОФОРМЛЕНИЯ БЛОКОВ, BORDER, border-radius,outline,box-shadow, opacity, visibility.
 lesson 7  - background
-lesson 8  - формат изображений
-lesson 9  - Псевдоклассы и псевдоэлементы
+lesson 8  - Псевдоклассы и псевдоэлементы
+lesson 9  - формат изображений
 lesson 10 - БЕМ

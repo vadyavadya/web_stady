@@ -1,0 +1,1167 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/style.css">
+	<title>Lesson 10 - Курс Зима 2022</title>
+</head>
+
+<body>
+	<div class="wrapper">
+
+		<header id="header" class="header">
+
+		</header>
+		<main id="main" class="main">
+			<div class="main__flex-container-propertis flex-container-propertis">
+				<div id="flex-container-propertis" class="flex-container-propertis__title">Параметры flex контейнера. </div>
+				<!-- <a class="flex-container-propertis__link" href="#flex-container-propertis__parametrs">Раскрыть</a>
+				<a class="flex-container-propertis__link" href="#main">Скрыть</a> -->
+				<div id="flex-container-propertis__parametrs" class="flex-container-propertis__parametrs">
+					<div class="flex-container-propertis__exemple exemple">
+						<div class="exemple__title">display:</div>
+						<div class="exemple__links">
+							<a class="exemple__link" href="#f-c-p-d-1">flex</a>
+							<a class="exemple__link" href="#f-c-p-d-2">inline-flex</a>
+
+							<a class="exemple__link" href="#flex-container-propertis">Скрыть</a>
+						</div>
+						<div id="f-c-p-d-1" class="exemple__item block">
+							<div class="block__text">
+								Сделаем просто <br> display:flex;
+							</div>
+							<div class="block__flex-container flex-container">
+								<div class="flex-container__row">
+									<div class="flex-container__item">1</div>
+								</div>
+								<div class="flex-container__row">
+									<div class="flex-container__item">2</div>
+								</div>
+								<div class="flex-container__row">
+									<div class="flex-container__item">3</div>
+								</div>
+								<div class="block">
+									<div class="block__text">
+										Вложенный блок блочный
+									</div>
+									<div class="block__block-container block-container">
+										<div class="block-container__row">
+											<div class="block-container__item">1</div>
+										</div>
+										<div class="block-container__row">
+											<div class="block-container__item">2</div>
+										</div>
+										<div class="block-container__row">
+											<div class="block-container__item">3</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div id="f-c-p-d-2" class="exemple__item block">
+							<div class="block__text">
+								Сделаем просто<br> display:inline-flex;
+							</div>
+							<div class="block__flex-container flex-container flex-container_inline-flex">
+								<div class="flex-container__row">
+									<div class="flex-container__item">1</div>
+								</div>
+								<div class="flex-container__row">
+									<div class="flex-container__item">2</div>
+								</div>
+								<div class="flex-container__row">
+									<div class="flex-container__item">3</div>
+								</div>
+								<div class="block">
+									<div class="block__text">
+										Вложенный блок блочный
+									</div>
+									<div class="block__block-container block-container">
+										<div class="block-container__row">
+											<div class="block-container__item">1</div>
+										</div>
+										<div class="block-container__row">
+											<div class="block-container__item">2</div>
+										</div>
+										<div class="block-container__row">
+											<div class="block-container__item">3</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="flex-container-propertis__exemple exemple">
+						<div class="exemple__title">justify-content:</div>
+						<div class="exemple__links">
+							<a class="exemple__link" href="#f-c-p-jc-1">flex-start</a>
+							<a class="exemple__link" href="#f-c-p-jc-2">flex-end</a>
+							<a class="exemple__link" href="#f-c-p-jc-3">centr</a>
+							<a class="exemple__link" href="#f-c-p-jc-4">space-between</a>
+							<a class="exemple__link" href="#f-c-p-jc-5">space-around</a>
+
+							<a class="exemple__link" href="#flex-container-propertis">Скрыть</a>
+						</div>
+						<div id="f-c-p-jc-1" class="exemple__item block">
+							<div class="block__text">
+								Посмотрим на положения по горезонтальной осb <br>
+								display:flex;<br>
+								justify-content: flex-start;
+							</div>
+							<div class="block__flex-container flex-container flex-container_flex-start">
+								<div class="flex-container__row">
+									<div class="flex-container__item">1</div>
+								</div>
+								<div class="flex-container__row">
+									<div class="flex-container__item">2</div>
+								</div>
+								<div class="flex-container__row">
+									<div class="flex-container__item">3</div>
+								</div>
+								<div class="block">
+									<div class="block__text">
+										Вложенный блок блочный
+									</div>
+									<div class="block__block-container block-container">
+										<div class="block-container__row">
+											<div class="block-container__item">1</div>
+										</div>
+										<div class="block-container__row">
+											<div class="block-container__item">2</div>
+										</div>
+										<div class="block-container__row">
+											<div class="block-container__item">3</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div id="f-c-p-jc-2" class="exemple__item block">
+							<div class="block__text">
+								Посмотрим на положения по горезонтальной оси<br>
+								display:flex;<br>
+								justify-content: flex-end;
+							</div>
+							<div class="block__flex-container flex-container flex-container_flex-end">
+								<div class="flex-container__row">
+									<div class="flex-container__item">1</div>
+								</div>
+								<div class="flex-container__row">
+									<div class="flex-container__item">2</div>
+								</div>
+								<div class="flex-container__row">
+									<div class="flex-container__item">3</div>
+								</div>
+								<div class="block">
+									<div class="block__text">
+										Вложенный блок блочный
+									</div>
+									<div class="block__block-container block-container">
+										<div class="block-container__row">
+											<div class="block-container__item">1</div>
+										</div>
+										<div class="block-container__row">
+											<div class="block-container__item">2</div>
+										</div>
+										<div class="block-container__row">
+											<div class="block-container__item">3</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div id="f-c-p-jc-3" class="exemple__item block">
+							<div class="block__text">
+								Посмотрим на положения по горезонтальной оси <br>
+								display:flex;<br>
+								justify-content: center;
+							</div>
+							<div class="block__flex-container flex-container flex-container_center">
+								<div class="flex-container__row">
+									<div class="flex-container__item">1</div>
+								</div>
+								<div class="flex-container__row">
+									<div class="flex-container__item">2</div>
+								</div>
+								<div class="flex-container__row">
+									<div class="flex-container__item">3</div>
+								</div>
+								<div class="block">
+									<div class="block__text">
+										Вложенный блок блочный
+									</div>
+									<div class="block__block-container block-container">
+										<div class="block-container__row">
+											<div class="block-container__item">1</div>
+										</div>
+										<div class="block-container__row">
+											<div class="block-container__item">2</div>
+										</div>
+										<div class="block-container__row">
+											<div class="block-container__item">3</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div id="f-c-p-jc-4" class="exemple__item block">
+							<div class="block__text">
+								Посмотрим на положения по горезонтальной оси <br>
+								display:flex;<br>
+								justify-content: space-between;
+							</div>
+							<div class="block__flex-container flex-container flex-container_space-between">
+								<div class="flex-container__row">
+									<div class="flex-container__item">1</div>
+								</div>
+								<div class="flex-container__row">
+									<div class="flex-container__item">2</div>
+								</div>
+								<div class="flex-container__row">
+									<div class="flex-container__item">3</div>
+								</div>
+								<div class="block">
+									<div class="block__text">
+										Вложенный блок блочный
+									</div>
+									<div class="block__block-container block-container">
+										<div class="block-container__row">
+											<div class="block-container__item">1</div>
+										</div>
+										<div class="block-container__row">
+											<div class="block-container__item">2</div>
+										</div>
+										<div class="block-container__row">
+											<div class="block-container__item">3</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div id="f-c-p-jc-5" class="exemple__item block">
+							<div class="block__text">
+								Посмотрим на положения по горезонтальной оси <br>
+								display:flex;<br>
+								justify-content: space-around;
+							</div>
+							<div class="block__flex-container flex-container flex-container_space-around">
+								<div class="flex-container__row">
+									<div class="flex-container__item">1</div>
+								</div>
+								<div class="flex-container__row">
+									<div class="flex-container__item">2</div>
+								</div>
+								<div class="flex-container__row">
+									<div class="flex-container__item">3</div>
+								</div>
+								<div class="block">
+									<div class="block__text">
+										Вложенный блок блочный
+									</div>
+									<div class="block__block-container block-container">
+										<div class="block-container__row">
+											<div class="block-container__item">1</div>
+										</div>
+										<div class="block-container__row">
+											<div class="block-container__item">2</div>
+										</div>
+										<div class="block-container__row">
+											<div class="block-container__item">3</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+					<div class="flex-container-propertis__exemple exemple">
+						<div class="exemple__title">align-item:</div>
+						<div class="exemple__links">
+							<a class="exemple__link" href="#f-c-p-ai-1">stretch</a>
+							<a class="exemple__link" href="#f-c-p-ai-2">flex-start</a>
+							<a class="exemple__link" href="#f-c-p-ai-3">flex-end</a>
+							<a class="exemple__link" href="#f-c-p-ai-4">center</a>
+							<a class="exemple__link" href="#f-c-p-ai-5">baseline</a>
+
+
+							<a class="exemple__link" href="#flex-container-propertis">Скрыть</a>
+						</div>
+						<div id="f-c-p-ai-1" class="exemple__item block">
+							<div class="block__text">
+								Выравнивание по вертикали элементы подстраиваются под высоту самого высокого<br>
+								display:flex;<br>
+								align-items:strach;
+							</div>
+							<div class="block__flex-container flex-container flex-container_ai-strach">
+								<div class="flex-container__row">
+									<div class="flex-container__item">1</div>
+								</div>
+								<div class="flex-container__row">
+									<div class="flex-container__item">2</div>
+								</div>
+								<div class="flex-container__row">
+									<div class="flex-container__item">3</div>
+								</div>
+								<div class="block">
+									<div class="block__text">
+										Вложенный блок блочный
+									</div>
+									<div class="block__block-container block-container">
+										<div class="block-container__row">
+											<div class="block-container__item">1</div>
+										</div>
+										<div class="block-container__row">
+											<div class="block-container__item">2</div>
+										</div>
+										<div class="block-container__row">
+											<div class="block-container__item">3</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div id="f-c-p-ai-2" class="exemple__item block">
+							<div class="block__text">
+								Выравнивание по вертикали прижмет элементы вверх<br>
+								display:flex;<br>
+								align-items:flex-start;
+							</div>
+							<div class="block__flex-container flex-container flex-container_ai-flex-start">
+								<div class="flex-container__row">
+									<div class="flex-container__item">1</div>
+								</div>
+								<div class="flex-container__row">
+									<div class="flex-container__item">2</div>
+								</div>
+								<div class="flex-container__row">
+									<div class="flex-container__item">3</div>
+								</div>
+								<div class="block">
+									<div class="block__text">
+										Вложенный блок блочный
+									</div>
+									<div class="block__block-container block-container">
+										<div class="block-container__row">
+											<div class="block-container__item">1</div>
+										</div>
+										<div class="block-container__row">
+											<div class="block-container__item">2</div>
+										</div>
+										<div class="block-container__row">
+											<div class="block-container__item">3</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div id="f-c-p-ai-3" class="exemple__item block">
+							<div class="block__text">
+								Выравнивание по вертикали прижмет элементы вниз<br>
+								display:flex;<br>
+								align-items:flex-end;
+							</div>
+							<div class="block__flex-container flex-container flex-container_ai-flex-end">
+								<div class="flex-container__row">
+									<div class="flex-container__item">1</div>
+								</div>
+								<div class="flex-container__row">
+									<div class="flex-container__item">2</div>
+								</div>
+								<div class="flex-container__row">
+									<div class="flex-container__item">3</div>
+								</div>
+								<div class="block">
+									<div class="block__text">
+										Вложенный блок блочный
+									</div>
+									<div class="block__block-container block-container">
+										<div class="block-container__row">
+											<div class="block-container__item">1</div>
+										</div>
+										<div class="block-container__row">
+											<div class="block-container__item">2</div>
+										</div>
+										<div class="block-container__row">
+											<div class="block-container__item">3</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div id="f-c-p-ai-4" class="exemple__item block">
+							<div class="block__text">
+								Выравнивание по вертикали по ценру контейнера<br>
+								display:flex;<br>
+								align-items:center;
+							</div>
+							<div class="block__flex-container flex-container flex-container_ai-center">
+								<div class="flex-container__row">
+									<div class="flex-container__item">1</div>
+								</div>
+								<div class="flex-container__row">
+									<div class="flex-container__item">2</div>
+								</div>
+								<div class="flex-container__row">
+									<div class="flex-container__item">3</div>
+								</div>
+								<div class="block">
+									<div class="block__text">
+										Вложенный блок блочный
+									</div>
+									<div class="block__block-container block-container">
+										<div class="block-container__row">
+											<div class="block-container__item">1</div>
+										</div>
+										<div class="block-container__row">
+											<div class="block-container__item">2</div>
+										</div>
+										<div class="block-container__row">
+											<div class="block-container__item">3</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div id="f-c-p-ai-5" class="exemple__item block">
+							<div class="block__text">
+								Выравнивание по вертикали по ценру базовой линии<br>
+								display:flex;<br>
+								align-items:baseline;
+							</div>
+							<div class="block__flex-container flex-container flex-container_ai-baseline">
+								<div class="flex-container__row">
+									<div class="flex-container__item">1</div>
+								</div>
+								<div class="flex-container__row">
+									<div class="flex-container__item">2</div>
+								</div>
+								<div class="flex-container__row">
+									<div class="flex-container__item">3</div>
+								</div>
+								<div class="block">
+									<div class="block__text">
+										Вложенный блок блочный
+									</div>
+									<div class="block__block-container block-container">
+										<div class="block-container__row">
+											<div class="block-container__item">1</div>
+										</div>
+										<div class="block-container__row">
+											<div class="block-container__item">2</div>
+										</div>
+										<div class="block-container__row">
+											<div class="block-container__item">3</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="flex-container-propertis__exemple exemple">
+						<div class="exemple__title">flex-wrap:</div>
+						<div class="exemple__links">
+							<a class="exemple__link" href="#f-c-p-w-1">nowrap</a>
+							<a class="exemple__link" href="#f-c-p-w-2">wrap</a>
+							<a class="exemple__link" href="#f-c-p-w-3">wrap-revers</a>
+
+							<a class="exemple__link" href="#flex-container-propertis">Скрыть</a>
+						</div>
+						<div id="f-c-p-w-1" class="exemple__item block">
+							<div class="block__text">
+								flex-wrap перенос элементов<br>
+								display:flex;<br>
+								flex-wrap:nowrap;
+							</div>
+							<div class="block__flex-container flex-container flex-container_fw-nowrap">
+								<div class="flex-container__row">
+									<div class="flex-container__item">1</div>
+								</div>
+								<div class="flex-container__row">
+									<div class="flex-container__item">2</div>
+								</div>
+								<div class="flex-container__row">
+									<div class="flex-container__item">3</div>
+								</div>
+								<div class="block">
+									<div class="block__text">
+										Вложенный блок блочный
+									</div>
+									<div class="block__block-container block-container">
+										<div class="block-container__row">
+											<div class="block-container__item">1</div>
+										</div>
+										<div class="block-container__row">
+											<div class="block-container__item">2</div>
+										</div>
+										<div class="block-container__row">
+											<div class="block-container__item">3</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div id="f-c-p-w-2" class="exemple__item block">
+							<div class="block__text">
+								flex-wrap перенос элементов<br>
+								display:flex;<br>
+								flex-wrap:wrap;
+							</div>
+							<div class="block__flex-container flex-container flex-container_fw-wrap">
+								<div class="flex-container__row">
+									<div class="flex-container__item">1</div>
+								</div>
+								<div class="flex-container__row">
+									<div class="flex-container__item">2</div>
+								</div>
+								<div class="flex-container__row">
+									<div class="flex-container__item">3</div>
+								</div>
+								<div class="block">
+									<div class="block__text">
+										Вложенный блок блочный
+									</div>
+									<div class="block__block-container block-container">
+										<div class="block-container__row">
+											<div class="block-container__item">1</div>
+										</div>
+										<div class="block-container__row">
+											<div class="block-container__item">2</div>
+										</div>
+										<div class="block-container__row">
+											<div class="block-container__item">3</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div id="f-c-p-w-3" class="exemple__item block">
+							<div class="block__text">
+								flex-wrap перенос элементов<br>
+								display:flex;<br>
+								flex-wrap:wrap-revers;
+							</div>
+							<div class="block__flex-container flex-container flex-container_fw-wrap-revers">
+								<div class="flex-container__row">
+									<div class="flex-container__item">1</div>
+								</div>
+								<div class="flex-container__row">
+									<div class="flex-container__item">2</div>
+								</div>
+								<div class="flex-container__row">
+									<div class="flex-container__item">3</div>
+								</div>
+								<div class="block">
+									<div class="block__text">
+										Вложенный блок блочный
+									</div>
+									<div class="block__block-container block-container">
+										<div class="block-container__row">
+											<div class="block-container__item">1</div>
+										</div>
+										<div class="block-container__row">
+											<div class="block-container__item">2</div>
+										</div>
+										<div class="block-container__row">
+											<div class="block-container__item">3</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+			<div id="flex-item" class="main__flex-item-propertis flex-item-propertis">
+
+				<div class="flex-item-propertis__title">Параметры элемента flex контейнера.</div>
+				<!-- <a class="flex-item-propertis__link" href="#flex-item-propertis__parametrs">Раскрыть</a>
+				<a class="flex-item-propertis__link" href="#main">Скрыть</a> -->
+				<div id="flex-item-propertis__parametrs" class="flex-item-propertis__parametrs">
+
+					<div class="flex-item-propertis__exemple exemple">
+						<div class="exemple__title">align-self</div>
+						<div class="exemple__links">
+							<a class="exemple__link" href="#f-i-p-as-1">strech первый</a>
+							<a class="exemple__link" href="#f-i-p-as-2">strech третий</a>
+							<a class="exemple__link" href="#f-i-p-as-3">flex-start третий</a>
+							<a class="exemple__link" href="#f-i-p-as-4">flex-end третий</a>
+							<a class="exemple__link" href="#f-i-p-as-5">center третий</a>
+							<a class="exemple__link" href="#f-i-p-as-6">baseline третий</a>
+
+							<a class="exemple__link" href="#flex-item">Скрыть</a>
+						</div>
+						<div id="f-i-p-as-1" class="exemple__item block">
+							<div class="block__text">
+								display:flex;<br>
+								align-item:flex_start;<br>
+								В первой колонке<br>
+								align-self:strach;
+							</div>
+							<div class="block__flex-container flex-container flex-container_ai-flex-start">
+								<div class="flex-container__row flex-container__row_as-strech">
+									<div class="flex-container__item">1</div>
+								</div>
+								<div class="flex-container__row">
+									<div class="flex-container__item">2</div>
+								</div>
+								<div class="flex-container__row">
+									<div class="flex-container__item">3</div>
+								</div>
+								<div class="block">
+									<div class="block__text">
+										Вложенный блок блочный
+									</div>
+									<div class="block__block-container block-container">
+										<div class="block-container__row">
+											<div class="block-container__item">1</div>
+										</div>
+										<div class="block-container__row">
+											<div class="block-container__item">2</div>
+										</div>
+										<div class="block-container__row">
+											<div class="block-container__item">3</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+						</div>
+						<div id="f-i-p-as-2" class="exemple__item block">
+							<div class="block__text">
+								display:flex;<br>
+								align-item:flex_start;<br>
+								В третий колонке<br>
+								align-self:strach;
+							</div>
+							<div class="block__flex-container flex-container flex-container_ai-flex-start">
+								<div class="flex-container__row">
+									<div class="flex-container__item">1</div>
+								</div>
+								<div class="flex-container__row">
+									<div class="flex-container__item">2</div>
+								</div>
+								<div class="flex-container__row flex-container__row_as-strech">
+									<div class="flex-container__item">3</div>
+								</div>
+								<div class="block">
+									<div class="block__text">
+										Вложенный блок блочный
+									</div>
+									<div class="block__block-container block-container">
+										<div class="block-container__row">
+											<div class="block-container__item">1</div>
+										</div>
+										<div class="block-container__row">
+											<div class="block-container__item">2</div>
+										</div>
+										<div class="block-container__row">
+											<div class="block-container__item">3</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+						</div>
+						<div id="f-i-p-as-3" class="exemple__item block">
+							<div class="block__text">
+								display:flex;<br>
+								align-item:strech;<br>
+								В третий колонке<br>
+								align-self:start;
+							</div>
+							<div class="block__flex-container flex-container">
+								<div class="flex-container__row">
+									<div class="flex-container__item">1</div>
+								</div>
+								<div class="flex-container__row">
+									<div class="flex-container__item">2</div>
+								</div>
+								<div class="flex-container__row flex-container__row_as-start">
+									<div class="flex-container__item">3</div>
+								</div>
+								<div class="block">
+									<div class="block__text">
+										Вложенный блок блочный
+									</div>
+									<div class="block__block-container block-container">
+										<div class="block-container__row">
+											<div class="block-container__item">1</div>
+										</div>
+										<div class="block-container__row">
+											<div class="block-container__item">2</div>
+										</div>
+										<div class="block-container__row">
+											<div class="block-container__item">3</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+						</div>
+						<div id="f-i-p-as-4" class="exemple__item block">
+							<div class="block__text">
+								display:flex;<br>
+								align-item:strech;<br>
+								В третий колонке<br>
+								align-self:flex-end;
+							</div>
+							<div class="block__flex-container flex-container">
+								<div class="flex-container__row">
+									<div class="flex-container__item">1</div>
+								</div>
+								<div class="flex-container__row">
+									<div class="flex-container__item">2</div>
+								</div>
+								<div class="flex-container__row flex-container__row_as-end">
+									<div class="flex-container__item">3</div>
+								</div>
+								<div class="block">
+									<div class="block__text">
+										Вложенный блок блочный
+									</div>
+									<div class="block__block-container block-container">
+										<div class="block-container__row">
+											<div class="block-container__item">1</div>
+										</div>
+										<div class="block-container__row">
+											<div class="block-container__item">2</div>
+										</div>
+										<div class="block-container__row">
+											<div class="block-container__item">3</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+						</div>
+						<div id="f-i-p-as-5" class="exemple__item block">
+							<div class="block__text">
+								display:flex;<br>
+								align-item:strech;<br>
+								В третий колонке<br>
+								align-self:center;
+							</div>
+							<div class="block__flex-container flex-container">
+								<div class="flex-container__row">
+									<div class="flex-container__item">1</div>
+								</div>
+								<div class="flex-container__row">
+									<div class="flex-container__item">2</div>
+								</div>
+								<div class="flex-container__row flex-container__row_as-center">
+									<div class="flex-container__item">3</div>
+								</div>
+								<div class="block">
+									<div class="block__text">
+										Вложенный блок блочный
+									</div>
+									<div class="block__block-container block-container">
+										<div class="block-container__row">
+											<div class="block-container__item">1</div>
+										</div>
+										<div class="block-container__row">
+											<div class="block-container__item">2</div>
+										</div>
+										<div class="block-container__row">
+											<div class="block-container__item">3</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+						</div>
+						<div id="f-i-p-as-6" class="exemple__item block">
+							<div class="block__text">
+								display:flex;<br>
+								align-item:strech;<br>
+								В третий колонке<br>
+								align-self:baseline;
+							</div>
+							<div class="block__flex-container flex-container">
+								<div class="flex-container__row">
+									<div class="flex-container__item">1</div>
+								</div>
+								<div class="flex-container__row">
+									<div class="flex-container__item">2</div>
+								</div>
+								<div class="flex-container__row flex-container__row_as-baseline">
+									<div class="flex-container__item">3</div>
+								</div>
+								<div class="block">
+									<div class="block__text">
+										Вложенный блок блочный
+									</div>
+									<div class="block__block-container block-container">
+										<div class="block-container__row">
+											<div class="block-container__item">1</div>
+										</div>
+										<div class="block-container__row">
+											<div class="block-container__item">2</div>
+										</div>
+										<div class="block-container__row">
+											<div class="block-container__item">3</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+
+					<div class="flex-item-propertis__exemple exemple">
+						<div class="exemple__title">order</div>
+						<div class="exemple__links">
+							<a class="exemple__link" href="#f-i-p-o-1">без ордер</a>
+							<a class="exemple__link" href="#f-i-p-o-2">order в порядке 2413</a>
+
+							<a class="exemple__link" href="#flex-item">Скрыть</a>
+						</div>
+						<div id="f-i-p-o-1" class="exemple__item block">
+							<div class="block__text">
+								display:flex;<br>
+							</div>
+							<div class="block__flex-container flex-container">
+								<div class="flex-container__row">
+									<div class="flex-container__item">1</div>
+								</div>
+								<div class="flex-container__row">
+									<div class="flex-container__item">2</div>
+								</div>
+								<div class="flex-container__row">
+									<div class="flex-container__item">3</div>
+								</div>
+								<div class="block">
+									<div class="block__text">
+										Вложенный блок блочный
+									</div>
+									<div class="block__block-container block-container">
+										<div class="block-container__row">
+											<div class="block-container__item">1</div>
+										</div>
+										<div class="block-container__row">
+											<div class="block-container__item">2</div>
+										</div>
+										<div class="block-container__row">
+											<div class="block-container__item">3</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+						</div>
+						<div id="f-i-p-o-2" class="exemple__item block">
+							<div class="block__text">
+								display:flex;<br>
+								Добавил модификатор блоку ордер 2 и КАЖДОЙ колонке добавлю модификатор соответствущий
+							</div>
+							<div class="block__flex-container flex-container">
+								<div class="flex-container__row flex-container__row_order-3">
+									<div class="flex-container__item">1</div>
+								</div>
+								<div class="flex-container__row flex-container__row_order-1">
+									<div class="flex-container__item">2</div>
+								</div>
+								<div class="flex-container__row  flex-container__row_order-4">
+									<div class="flex-container__item">3</div>
+								</div>
+								<div class="block block_flex-order-2">
+									<div class="block__text">
+										Вложенный блок блочный
+									</div>
+									<div class="block__block-container block-container">
+										<div class="block-container__row">
+											<div class="block-container__item">1</div>
+										</div>
+										<div class="block-container__row">
+											<div class="block-container__item">2</div>
+										</div>
+										<div class="block-container__row">
+											<div class="block-container__item">3</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+						</div>
+
+					</div>
+
+					<div class="flex-item-propertis__exemple exemple">
+						<div class="exemple__title">Размер flex элемента</div>
+						<div class="exemple__links">
+							<a class="exemple__link" href="#f-i-p-pos-1">flex-basis</a>
+							<a class="exemple__link" href="#f-i-p-pos-2">flex-grow</a>
+							<a class="exemple__link" href="#f-i-p-pos-3">flex-shrink;</a>
+							<a class="exemple__link" href="#f-i-p-pos-4">flex</a>
+
+
+							<a class="exemple__link" href="#flex-item">Скрыть</a>
+						</div>
+						<div id="f-i-p-pos-1" class="exemple__item block">
+							<div class="block__text">
+								Зададим второму элементу ширину базовую 200 а остальные по умолчанию <br>
+								В итоге если задать только flex-basis то элемент будет не больше базового значения но уменьшится он может
+							</div>
+							<div class="block__flex-container flex-container">
+								<div class="flex-container__row">
+									<div class="flex-container__item">1 увеличим текст что бы побольше было</div>
+								</div>
+								<div class="flex-container__row flex-container__row_fb-200">
+									<div class="flex-container__item">2 Этот элемент ограничен 200px увеличим текст что бы побольше было</div>
+								</div>
+								<div class="flex-container__row">
+									<div class="flex-container__item">3 увеличим текст что бы побольше было </div>
+								</div>
+								<div class="block">
+									<div class="block__text">
+										Вложенный блок блочный
+									</div>
+									<div class="block__block-container block-container">
+										<div class="block-container__row">
+											<div class="block-container__item">1</div>
+										</div>
+										<div class="block-container__row">
+											<div class="block-container__item">2</div>
+										</div>
+										<div class="block-container__row">
+											<div class="block-container__item">3</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="block__flex-container flex-container">
+								<div class="flex-container__row">
+									<div class="flex-container__item">1 увеличим текст что бы побольше было</div>
+								</div>
+								<div class="flex-container__row flex-container__row_fb-200">
+									<div class="flex-container__item">2 Этот элемент ограничен 200px увеличим текст что бы побольше было</div>
+								</div>
+								<div class="flex-container__row">
+									<div class="flex-container__item">3 увеличим текст что бы побольше было этот элемент ни чем не ограничен и строка перейдет на новую когда дойдет до концы контейнера</div>
+								</div>
+								<div class="block">
+									<div class="block__text">
+										Вложенный блок блочный
+									</div>
+									<div class="block__block-container block-container">
+										<div class="block-container__row">
+											<div class="block-container__item">1</div>
+										</div>
+										<div class="block-container__row">
+											<div class="block-container__item">2</div>
+										</div>
+										<div class="block-container__row">
+											<div class="block-container__item">3</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+						</div>
+
+						<div id="f-i-p-pos-2" class="exemple__item block">
+							<div class="block__text">
+								Зададим второму элементу ширину базовую 200 и резрешим увеличиваться а остальные по умолчанию <br>
+							</div>
+							<div class="block__flex-container flex-container">
+								<div class="flex-container__row">
+									<div class="flex-container__item">1 </div>
+								</div>
+								<div class="flex-container__row flex-container__row_fb-200 flex-container__row_fg-1">
+									<div class="flex-container__item">2 Этот элемент базово 200px</div>
+								</div>
+								<div class="flex-container__row">
+									<div class="flex-container__item">3 </div>
+								</div>
+								<div class="block">
+									<div class="block__text">
+										Вложенный блок блочный
+									</div>
+									<div class="block__block-container block-container">
+										<div class="block-container__row">
+											<div class="block-container__item">1</div>
+										</div>
+										<div class="block-container__row">
+											<div class="block-container__item">2</div>
+										</div>
+										<div class="block-container__row">
+											<div class="block-container__item">3</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="block__flex-container flex-container">
+								<div class="flex-container__row">
+									<div class="flex-container__item">1 увеличим текст что бы побольше было</div>
+								</div>
+								<div class="flex-container__row flex-container__row_fb-200 flex-container__row_fg-1">
+									<div class="flex-container__item">2 Этот элемент базово 200px увеличим текст что бы побольше было</div>
+								</div>
+								<div class="flex-container__row">
+									<div class="flex-container__item">3 увеличим текст что бы побольше было </div>
+								</div>
+								<div class="block">
+									<div class="block__text">
+										Вложенный блок блочный
+									</div>
+									<div class="block__block-container block-container">
+										<div class="block-container__row">
+											<div class="block-container__item">1</div>
+										</div>
+										<div class="block-container__row">
+											<div class="block-container__item">2</div>
+										</div>
+										<div class="block-container__row">
+											<div class="block-container__item">3</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+						</div>
+						<div id="f-i-p-pos-3" class="exemple__item block">
+							<div class="block__text">
+								Зададим второму элементу ширину базовую 200 и запретим уменьшаться а остальные по умолчанию <br>
+							</div>
+							<div class="block__flex-container flex-container">
+								<div class="flex-container__row">
+									<div class="flex-container__item">1 </div>
+								</div>
+								<div class="flex-container__row flex-container__row_fb-200 flex-container__row_fsh-0">
+									<div class="flex-container__item">2 Этот элемент базово 200px</div>
+								</div>
+								<div class="flex-container__row">
+									<div class="flex-container__item">3 </div>
+								</div>
+								<div class="block">
+									<div class="block__text">
+										Вложенный блок блочный
+									</div>
+									<div class="block__block-container block-container">
+										<div class="block-container__row">
+											<div class="block-container__item">1</div>
+										</div>
+										<div class="block-container__row">
+											<div class="block-container__item">2</div>
+										</div>
+										<div class="block-container__row">
+											<div class="block-container__item">3</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="block__flex-container flex-container">
+								<div class="flex-container__row">
+									<div class="flex-container__item">1 увеличим текст что бы побольше было</div>
+								</div>
+								<div class="flex-container__row flex-container__row_fb-200 flex-container__row_fsh-0">
+									<div class="flex-container__item">2 Этот элемент базово 200px увеличим текст что бы побольше было</div>
+								</div>
+								<div class="flex-container__row">
+									<div class="flex-container__item">3 увеличим текст что бы побольше было </div>
+								</div>
+								<div class="block">
+									<div class="block__text">
+										Вложенный блок блочный
+									</div>
+									<div class="block__block-container block-container">
+										<div class="block-container__row">
+											<div class="block-container__item">1</div>
+										</div>
+										<div class="block-container__row">
+											<div class="block-container__item">2</div>
+										</div>
+										<div class="block-container__row">
+											<div class="block-container__item">3</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+						</div>
+
+						<div id="f-i-p-pos-4" class="exemple__item block">
+							<div class="block__text">
+								Зададим через универсальное значение второму элементу ширину базовую 200 и запретим уменьшаться но разрешим увеличиваться а остальные по умолчанию <br>
+								flex: 1 0 200px
+							</div>
+							<div class="block__flex-container flex-container">
+								<div class="flex-container__row">
+									<div class="flex-container__item">1 </div>
+								</div>
+								<div class="flex-container__row flex-container__row_f-1-0-200">
+									<div class="flex-container__item">2 Этот элемент базово 200px</div>
+								</div>
+								<div class="flex-container__row">
+									<div class="flex-container__item">3 </div>
+								</div>
+								<div class="block">
+									<div class="block__text">
+										Вложенный блок блочный
+									</div>
+									<div class="block__block-container block-container">
+										<div class="block-container__row">
+											<div class="block-container__item">1</div>
+										</div>
+										<div class="block-container__row">
+											<div class="block-container__item">2</div>
+										</div>
+										<div class="block-container__row">
+											<div class="block-container__item">3</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="block__flex-container flex-container">
+								<div class="flex-container__row">
+									<div class="flex-container__item">1 увеличим текст что бы побольше было</div>
+								</div>
+								<div class="flex-container__row flex-container__row_f-1-0-200">
+									<div class="flex-container__item">2 Этот элемент базово 200px увеличим текст что бы побольше было</div>
+								</div>
+								<div class="flex-container__row">
+									<div class="flex-container__item">3 увеличим текст что бы побольше было </div>
+								</div>
+								<div class="block">
+									<div class="block__text">
+										Вложенный блок блочный
+									</div>
+									<div class="block__block-container block-container">
+										<div class="block-container__row">
+											<div class="block-container__item">1</div>
+										</div>
+										<div class="block-container__row">
+											<div class="block-container__item">2</div>
+										</div>
+										<div class="block-container__row">
+											<div class="block-container__item">3</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+						</div>
+
+					</div>
+
+
+
+				</div>
+
+			</div>
+
+		</main>
+		<footer class="footer">
+
+		</footer>
+
+	</div>
+
+</body>
+
+</html>
