@@ -15,11 +15,10 @@
 		<header id="header" class="header">
 
 		</header>
+
 		<main id="main" class="main">
 			<div class="main__flex-container-propertis flex-container-propertis">
 				<div id="flex-container-propertis" class="flex-container-propertis__title">Параметры flex контейнера. </div>
-				<!-- <a class="flex-container-propertis__link" href="#flex-container-propertis__parametrs">Раскрыть</a>
-				<a class="flex-container-propertis__link" href="#main">Скрыть</a> -->
 				<div id="flex-container-propertis__parametrs" class="flex-container-propertis__parametrs">
 					<div class="flex-container-propertis__exemple exemple">
 						<div class="exemple__title">display:</div>
@@ -572,17 +571,84 @@
 							</div>
 						</div>
 					</div>
+					<div class="flex-container-propertis__exemple exemple">
+						<div class="exemple__title">Установка основной оси</div>
+						<div class="exemple__links">
+							<a class="exemple__link" href="#f-i-p-fd-1">flex-direction</a>
 
+
+							<a class="exemple__link" href="#flex-item">Скрыть</a>
+						</div>
+						<div id="f-i-p-fd-1" class="exemple__item block">
+							<div class="block__text">
+								Зададим второму элементу flex-direction:column; а остальные по умолчанию <br>
+								В итоге если задать только flex-basis то элемент будет не больше базового значения но уменьшится он может
+							</div>
+							<div class="block__flex-container flex-container  flex-container_fd-c flex-container_ai-flex-start">
+								<div class="flex-container__row">
+									<div class="flex-container__item">1 увеличим текст что бы побольше было</div>
+								</div>
+								<div class="flex-container__row">
+									<div class="flex-container__item">2 Этот элемент ограничен 200px увеличим текст что бы побольше было</div>
+								</div>
+								<div class="flex-container__row">
+									<div class="flex-container__item">3 увеличим текст что бы побольше было </div>
+								</div>
+								<div class="block flex-container__row_fd-c">
+									<div class="block__text">
+										Вложенный блок блочный
+									</div>
+									<div class="block__block-container block-container">
+										<div class="block-container__row">
+											<div class="block-container__item">1</div>
+										</div>
+										<div class="block-container__row">
+											<div class="block-container__item">2</div>
+										</div>
+										<div class="block-container__row">
+											<div class="block-container__item">3</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="block__flex-container flex-container">
+								<div class="flex-container__row">
+									<div class="flex-container__item">1 увеличим текст что бы побольше было</div>
+								</div>
+								<div class="flex-container__row flex-container__row_fd-c">
+									<div class="flex-container__item">2 Этот элемент ограничен 200px увеличим текст что бы побольше было</div>
+								</div>
+								<div class="flex-container__row">
+									<div class="flex-container__item">3 увеличим текст что бы побольше было этот элемент ни чем не ограничен и строка перейдет на новую когда дойдет до концы контейнера</div>
+								</div>
+								<div class="block">
+									<div class="block__text">
+										Вложенный блок блочный
+									</div>
+									<div class="block__block-container block-container">
+										<div class="block-container__row">
+											<div class="block-container__item">1</div>
+										</div>
+										<div class="block-container__row">
+											<div class="block-container__item">2</div>
+										</div>
+										<div class="block-container__row">
+											<div class="block-container__item">3</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+						</div>
+
+
+					</div>
 				</div>
 			</div>
 
 			<div id="flex-item" class="main__flex-item-propertis flex-item-propertis">
-
 				<div class="flex-item-propertis__title">Параметры элемента flex контейнера.</div>
-				<!-- <a class="flex-item-propertis__link" href="#flex-item-propertis__parametrs">Раскрыть</a>
-				<a class="flex-item-propertis__link" href="#main">Скрыть</a> -->
 				<div id="flex-item-propertis__parametrs" class="flex-item-propertis__parametrs">
-
 					<div class="flex-item-propertis__exemple exemple">
 						<div class="exemple__title">align-self</div>
 						<div class="exemple__links">
@@ -812,7 +878,6 @@
 
 						</div>
 					</div>
-
 					<div class="flex-item-propertis__exemple exemple">
 						<div class="exemple__title">order</div>
 						<div class="exemple__links">
@@ -890,13 +955,12 @@
 						</div>
 
 					</div>
-
 					<div class="flex-item-propertis__exemple exemple">
 						<div class="exemple__title">Размер flex элемента</div>
 						<div class="exemple__links">
 							<a class="exemple__link" href="#f-i-p-pos-1">flex-basis</a>
 							<a class="exemple__link" href="#f-i-p-pos-2">flex-grow</a>
-							<a class="exemple__link" href="#f-i-p-pos-3">flex-shrink;</a>
+							<a class="exemple__link" href="#f-i-p-pos-3">flex-shrink</a>
 							<a class="exemple__link" href="#f-i-p-pos-4">flex</a>
 
 
@@ -1148,20 +1212,16 @@
 						</div>
 
 					</div>
-
-
-
 				</div>
-
 			</div>
 
 		</main>
+
 		<footer class="footer">
 
 		</footer>
 
 	</div>
-
 </body>
 
 </html>

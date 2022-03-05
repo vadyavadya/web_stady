@@ -26,7 +26,6 @@
     padding: 10px;
     background-color: rgba(0, 0, 0, 0.103);
     &__title {
-        // margin: 0px 0px 10px 0px;
         display: inline-block;
         margin-bottom: 10px;
     }
@@ -39,8 +38,10 @@
     background: rgb(173, 173, 173);
     padding: 10px;
     border-radius: 10px;
+    line-height: 2;
     &__title {
         display: inline-block;
+        line-height: 2;
     }
     &__links {
         display: inline-block;
@@ -51,12 +52,15 @@
         padding: 6px;
         border-radius: 10px;
         color: white;
+        line-height: 1;
         &:focus {
             background: rgb(243, 132, 247);
         }
+        &:hover {
+            background: rgb(252, 200, 104);
+        }
     }
     &__item {
-        // margin: 10px 0px 0px 0px;
         display: none;
         &:target {
             display: block;
@@ -68,13 +72,13 @@
     border: 1px solid rgb(255, 165, 0);
     border-radius: 20px;
     background: rgb(218, 218, 218);
+    line-height: 1;
     &__flex-container {
         display: flex;
         &:not(:last-child) {
             margin: 0px 0px 10px 0px;
         }
     }
-
     &__text {
         margin-bottom: 10px;
     }
@@ -95,45 +99,9 @@
 }
 
 .flex-container {
-    &__row {
-        &_as-strech {
-            align-self: stretch;
-        }
-        &_as-start {
-            align-self: flex-start;
-        }
-        &_as-end {
-            align-self: flex-end;
-        }
-        &_as-center {
-            align-self: center;
-        }
-        &_as-baseline {
-            align-self: baseline;
-        }
-        &_order-1 {
-            order: 1;
-        }
-        &_order-3 {
-            order: 3;
-        }
-        &_order-4 {
-            order: 4;
-        }
-        &_fb-200 {
-            flex-basis: 200px;
-        }
-        &_fg-1 {
-            flex-grow: 1;
-        }
-        &_fsh-0 {
-            flex-shrink: 0;
-        }
-        &_f-1-0-200 {
-            flex: 1 0 200px;
-        }
-    }
-
+    // *:not(:last-child) {
+    //     margin: 0px 10px 10px 0px;
+    // }
     &_inline-flex {
         display: inline-flex;
     }
@@ -175,5 +143,49 @@
     }
     &_fw-wrap-revers {
         flex-wrap: wrap-reverse;
+    }
+    &_fd-c {
+        flex-direction: column;
+    }
+    &__row {
+        &_as-strech {
+            align-self: stretch;
+        }
+        &_as-start {
+            align-self: flex-start;
+        }
+        &_as-end {
+            align-self: flex-end;
+        }
+        &_as-center {
+            align-self: center;
+        }
+        &_as-baseline {
+            align-self: baseline;
+        }
+        &_order-1 {
+            order: 1;
+        }
+        &_order-3 {
+            order: 3;
+        }
+        &_order-4 {
+            order: 4;
+        }
+        &_fb-200 {
+            flex-basis: 200px;
+        }
+        &_fg-1 {
+            flex-grow: 1;
+        }
+        &_fsh-0 {
+            flex-shrink: 0;
+        }
+        &_f-1-0-200 {
+            flex: 1 0 200px;
+        }
+        &_fd-c {
+            flex-direction: column;
+        }
     }
 }
