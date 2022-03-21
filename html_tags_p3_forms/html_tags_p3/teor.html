@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Теги часть 3 form</title>
+    <style>
+        span {
+            background-color: yellow;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- сперва создаем тег form как карзина для всех инпутов-->
+    <!--! action="#" Заглушка иначе ошибка будет -->
+    <form action="#" method="post" enctype="multipart/form-data">
+        <div><input type="text" name="username" value="" /></div>
+        <div><input type="text" placeholder="Полдпиши поле" name="username" value="" /></div>
+        <div><input disabled type="text" name="username" value="" /></div>
+        <div><input tabindex="1" type="text" name="username" value="" /></div>
+        <div><input type="password" name="userpass" value="" /></div>
+        <div>
+            <p>
+                <input type="radio" name="beer" value="lagrer" checked> Светлое
+            </p>
+            <p>
+                <input type="radio" name="beer" value="darck"> Темное
+            </p>
+        </div>
+        <br>
+
+        <div>
+            <p><input type="radio" tabindex="2" name="beer2" value="lagrer"> Светлое</p>
+            <p><input type="radio" tabindex="2" name="beer2" value="darck" checked> Темное</p>
+        </div>
+        <br>
+        <div>
+            <p><input type="checkbox" name="car" value="yes"> Наличие авто</p>
+            <p><input type="checkbox" name="car2" value="yes" checked> Наличие авто2</p>
+            <p><input type="checkbox" name="car3" value="yes"> Наличие авто3</p>
+        </div>
+        <br>
+        <div>
+            <p><input type="file" name="foto"></p>
+        </div>
+        <br>
+        <div>
+            <textarea name="text" placeholder="Полдпиши поле"></textarea>
+        </div>
+        <br>
+        <div>
+            <select name="color">
+                <option value="red">Красный</option>
+                <option selected value="yelou">Желтый</option>
+                <option value="blue">Голубой</option>
+            </select>
+        </div>
+        <br>
+        <div>
+            <select name="color" multiple>
+                <option value="red">Красный</option>
+                <option value="yelou">Желтый</option>
+                <option value="blue">Голубой</option>
+            </select>
+        </div>
+
+        <br>
+        <div>
+            <button type="submit">Отправить</button>
+            <button type="reset">Очистить</button>
+        </div>
+    </form>
+</body>
+
+</html>
