@@ -1,0 +1,89 @@
+@import "null";
+
+/* ================================================================ */
+.wrapper {
+    height: 1px;
+    min-height: 100%;
+
+    overflow: hidden;
+}
+/* ================================================================ */
+main {
+}
+.about-us {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+
+    &__header {
+        // position: fixed;
+        // top: 0;
+    }
+
+    &__main {
+        flex: 1 1 auto;
+    }
+}
+[class*="__container"] {
+    max-width: 1230px;
+    margin: 0px auto;
+}
+.header {
+    &__conteiner {
+    }
+
+    &__logo {
+    }
+
+    &__nav {
+    }
+
+    &__list {
+    }
+
+    &__button {
+    }
+
+    &__login {
+    }
+}
+.logo {
+}
+.button {
+}
+.login {
+    &__img {
+    }
+
+    &__text {
+    }
+}
+.main {
+    &__container {
+    }
+
+    &__content {
+    }
+
+    &__text {
+    }
+
+    &__paragraph {
+        &_bold {
+        }
+    }
+
+    &__img {
+    }
+}
+.about-as {
+    &__footer {
+    }
+}
+.footer {
+    &__logo {
+    }
+
+    &__text {
+    }
+}
