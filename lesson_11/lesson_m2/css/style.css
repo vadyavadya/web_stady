@@ -70,11 +70,12 @@ body {
 	line-height: 1.5;
 	letter-spacing: 0.15px;
 	max-width: 90%;
+	margin-bottom: -60px;
 }
 .where-we-are__img {
 	position: relative;
 	max-width: 92%;
-	top: 54px;
+	top: 114px;
 }
 .block-img::before {
 	display: block;

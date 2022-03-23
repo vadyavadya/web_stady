@@ -1,0 +1,77 @@
+/* &display=swap */
+@import "null.css";
+
+@import url(https://fonts.googleapis.com/css?family=Roboto:300,regular,700,900&display=swap);
+/* ================================================================ */
+.wrapper {
+	min-height: 100%;
+	/* overflow: hidden; */
+}
+/* ================================================================ */
+
+body {
+	font-family: Roboto, sans-serif;
+	color: #f5f5f5;
+}
+.page__who-we-are {
+	margin: 0px auto;
+	max-width: 1440px;
+}
+.who-we-are {
+	padding-top: 140px;
+	padding-bottom: 200px;
+	background: #f5f5f5 url("../img/bd-image.jpg") 0 -580px no-repeat;
+}
+.who-we-are__container {
+	background: #5d62b5 url("../img/block-bg-img.svg") bottom -150px left 10px no-repeat;
+	border-radius: 40px;
+	max-width: 1020px;
+	margin: 0px auto;
+	padding-top: 9.5%;
+	padding-left: 8.5%;
+	padding-bottom: 21%;
+	position: relative;
+}
+.who-we-are__decore {
+	position: absolute;
+	top: -110px;
+	right: -75px;
+}
+.who-we-are__subtitle {
+	font-weight: 700;
+	font-size: 12px;
+	line-height: 2;
+	letter-spacing: 2.5px;
+	text-transform: uppercase;
+	padding-left: 32px;
+	background: url("../img/icon-nav/chevron_left_24px.svg") 0 2px no-repeat,
+		url("../img/icon-nav/icon/navigation/chevron_right_24px.svg") 9px 3px no-repeat;
+	margin-bottom: 33px;
+}
+.who-we-are__title {
+	max-width: 80%;
+	font-weight: 900;
+	font-size: 36px;
+	line-height: 1.17;
+	margin-bottom: 36px;
+	color: #fff;
+}
+.who-we-are__text {
+	font-weight: 300;
+	font-size: 16px;
+	line-height: 1.5;
+	letter-spacing: 0.15px;
+	margin-bottom: 54px;
+	max-width: 90%;
+}
+.who-we-are__img {
+	position: absolute;
+	filter: drop-shadow(0px 8px 16px rgba(38, 38, 38, 0.24)) drop-shadow(0px 16px 24px rgba(38, 38, 38, 0.2));
+	border-radius: 40px;
+	overflow: hidden;
+	max-width: 82.8%;
+}
+
+.who-we-are__img img {
+	width: 100%;
+}

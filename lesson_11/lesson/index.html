@@ -18,30 +18,36 @@
 				<li>item 1</li>
 				<li>item 2</li>
 				<li>item 3</li>
-				<li><a class="button" href="#popup">Нажми сюда</a></li>
+				<li><a class="button" href="#popup">Popup</a></li>
+				<li><a class="button" href="../lesson_m2/index.html">Макет</a></li>
+
 			</ul>
 		</header>
 		<div id="popup" class="popup">
 			<div class="popup__close button"><a href="#header">Крестик</a></div>
-			<div class="popup__conteiner">
+			<div class="popup__container">
 				<div class="popup__blue"></div>
 				<div class="popup__yelow"></div>
 			</div>
 		</div>
 		<main class="main">
-			<div class="main__conteiner">
-
-				<div class="main__paragraph main__paragraph_relative"> <span class="mono">position:relative; top: 30px; left:50px;</span> Я первый параграф в первом блоке</div>
-				<div class="main__paragraph main__paragraph_absolute"> <span class="mono">position:absolute; top: 60px; left:50px;</span> Я второй параграф В основном блоке.</div>
+			<div class="main__container">
+				<div class="main__paragraph main__paragraph_relative">
+					<div class="note"><span class="mono">position:relative; top: 30px; left:50px;</span></div> Я первый параграф в первом блоке
+				</div>
+				<div class="main__paragraph main__paragraph_absolute">
+					<div class="note"><span class="mono">position:absolute; top: 60px; left:50px;</span></div> Я второй параграф В основном блоке.
+				</div>
 				<div class="main__paragraph">Consectetur aliquip proident ad labore nostrud duis. Quis aliquip consectetur in est culpa eu ut quis. Commodo est in aliqua Lorem veniam non pariatur do nisi.</div>
-				<div class="main__conteiner main__conteiner_reletive">
-					<span class="mono">position:reletive;</span>
-					<div class="main__paragraph  main__paragraph_absolute">Я во втором блоке первый параграф <span class="mono">position:absolute; top: 60px; left:50px;</span></div>
+				<div class="main__container main__container_reletive">
+					<div class="note"><span class="mono">position:reletive;</span></div>
+					<div class="main__paragraph  main__paragraph_absolute">Я во втором блоке первый параграф <div class="note"><span class="mono">position:absolute; top: 60px; left:50px;</span></div>
+					</div>
 					<div class="main__paragraph">Sunt eiusmod reprehenderit duis excepteur Lorem ut officia voluptate. Cupidatat exercitation aute deserunt deserunt velit. Irure sint cupidatat excepteur occaecat magna reprehenderit ullamco nostrud dolore. Nisi consectetur irure ea esse officia eu qui. Nulla nisi mollit ex duis consectetur cillum ad laboris commodo aliqua fugiat ad. Eiusmod sunt id proident quis nostrud excepteur ipsum exercitation incididunt qui ut. Consectetur aliquip proident ad labore nostrud duis. Quis aliquip consectetur in est culpa eu ut quis. Commodo est in aliqua Lorem veniam non pariatur do nisi.</div>
 					<div class="main__subtitle">Блок 1 смотрим стики</div>
-					<div class="main__paragraph ">Consectetur aliquip proident ad labore nostrud duis. Sint et in id velit mollit ex ut veniam nostrud mollit exercitation commodo ipsum anim. Ad nisi minim dolore elit. Do fugiat ut nostrud aliquip fugiat ex laborum. Quis aliquip consectetur in est culpa eu ut quis. Commodo est in aliqua Lorem veniam non pariatur do nisi.</div>
-					<div class="main__paragraph">Consectetur aliquip proident ad labore nostrud duis. Quis aliquip consectetur in est culpa eu ut quis. Commodo est in aliqua Lorem veniam non pariatur do nisi.</div>
-					<div class="main__paragraph">Consectetur aliquip proident ad labore nostrud duis. Quis aliquip consectetur in est culpa eu ut quis. Commodo est in aliqua Lorem veniam non pariatur do nisi.</div>
+					<div class="main__paragraph">Consectetur aliquip proident ad labore nostrud duis. Sint et in id velit mollit ex ut veniam nostrud mollit exercitation commodo ipsum anim. Ad nisi minim dolore elit. Do fugiat ut nostrud aliquip fugiat ex laborum. Quis aliquip consectetur in est culpa eu ut quis. Commodo est in aliqua Lorem veniam non pariatur do nisi.</div>
+					<div class="main__paragraph"> Consectetur aliquip proident ad labore nostrud duis. Quis aliquip consectetur in est culpa eu ut quis. Commodo est in aliqua Lorem veniam non pariatur do nisi.</div>
+					<div class="main__paragraph"> Consectetur aliquip proident ad labore nostrud duis. Quis aliquip consectetur in est culpa eu ut quis. Commodo est in aliqua Lorem veniam non pariatur do nisi.</div>
 					<div class="main__paragraph">Consectetur aliquip proident ad labore nostrud duis. Quis aliquip consectetur in est culpa eu ut quis. Commodo est in aliqua Lorem veniam non pariatur do nisi.</div>
 					<div class="main__subtitle">Блок 2 смотрим стики</div>
 					<div class="main__paragraph">Anim dolore ipsum enim dolor culpa incididunt excepteur quis dolore est nostrud aliquip sunt. Culpa fugiat veniam minim nostrud id labore enim cupidatat est. Id nisi labore exercitation labore consequat veniam ex duis nulla veniam. Ea consequat sint ea aute consectetur duis duis cillum amet cupidatat et tempor voluptate esse. Ad reprehenderit laborum id eu non irure.</div>
@@ -85,13 +91,64 @@
 				<div class="main__paragraph">Reprehenderit id excepteur eiusmod et aliquip occaecat excepteur nostrud anim officia est ea in Lorem. Anim nostrud labore incididunt non Lorem ullamco laboris cillum dolore. Incididunt ad excepteur commodo et incididunt Lorem duis voluptate. Ex quis labore ullamco excepteur deserunt nisi minim Lorem ipsum laboris laboris ea.</div>
 			</div>
 
+			<div class="main__container main__container_heigh_50">
+				<div class="main__paragraph main__paragraph_absolute_0_0">Я блок с абсолютом где должен быть первый блок</div>
+				<div class="main__paragraph main__paragraph_heigh_50_proc">Я первый блок 1000% от высоты родителя </div>
+			</div>
+			<div class="main__container">
+				<div class="note"><span class="mono">Наедем друг на друга мерджинами</span></div>
+				<p class="main__paragraph main__paragraph_margin_-20">Я ПЕРВЫЙ</p>
+				<p class="main__paragraph main__paragraph_margin_-20">Я ВТОРОЙ</p>
+				<p class="main__paragraph main__paragraph_margin_-20">Я ТРЕТИЙ</p>
+			</div>
+			<div class="main__container">
+				<div class="note"><span class="mono">Наедем друг на друга мерджинами, второй блок relative</span></div>
+				<p class="main__paragraph main__paragraph_margin_-20">Я ПЕРВЫЙ</p>
+				<p class="main__paragraph main__paragraph_margin_-20 main__container_reletive">Я ВТОРОЙ</p>
+				<p class="main__paragraph main__paragraph_margin_-20">Я ТРЕТИЙ</p>
+			</div>
+			<div class="main__container">
+				<div class="note"><span class="mono">Наедем друг на друга мерджинами, все relative</span></div>
+				<p class="main__paragraph main__paragraph_margin_-20 main__container_reletive">Я ПЕРВЫЙ</p>
+				<p class="main__paragraph main__paragraph_margin_-20 main__container_reletive">Я ВТОРОЙ</p>
+				<p class="main__paragraph main__paragraph_margin_-20 main__container_reletive">Я ТРЕТИЙ</p>
+			</div>
+			<div class="main__container">
+				<span class="mono">Наедем друг на друга мерджинами, все relative второй z-index-2</span>
+				<p class="main__paragraph main__paragraph_margin_-20 main__container_reletive">Я ПЕРВЫЙ</p>
+				<p class="main__paragraph main__paragraph_margin_-20 main__container_reletive main__paragraph_z-index_2">Я ВТОРОЙ</p>
+				<p class="main__paragraph main__paragraph_margin_-20 main__container_reletive">Я ТРЕТИЙ</p>
+			</div>
+			<div class="main__container">
+				<div class="note"><span class="mono">Наедем друг на друга мерджинами, все relative второй z-index-2, а первому и третиму добавим спан и индекс 2</span></div>
+				<p class="main__paragraph main__paragraph_margin_-20 main__container_reletive">НЕ в спане <span class="main__line main__line_z-index_2">Я первый в спане</span></p>
+				<p class="main__paragraph main__paragraph_margin_-20 main__container_reletive main__paragraph_z-index_2">Я ВТОРОЙ</p>
+				<p class="main__paragraph main__paragraph_margin_-20 main__container_reletive">НЕ в спане<span class="main__line main__line_z-index_2">Я ТРЕТИЙ в спане</span></p>
+			</div>
+			<div class="main__container">
+				<div class="note"><span class="mono">Наедем друг на друга мерджинами, все relative второй z-index-2, а первому и третиму добавим спан и индекс 10</span></div>
+				<p class="main__paragraph main__paragraph_margin_-20 main__container_reletive">НЕ в спане <span class="main__line main__line_z-index_10">Я первый в спане</span></p>
+				<p class="main__paragraph main__paragraph_margin_-20 main__container_reletive main__paragraph_z-index_2">Я ВТОРОЙ</p>
+				<p class="main__paragraph main__paragraph_margin_-20 main__container_reletive">НЕ в спане<span class="main__line main__line_z-index_10">Я ТРЕТИЙ в спане</span></p>
+			</div>
+			<div class="main__container main__container_reletive main__container_slice_reletive">
+				<div class="note"><span class="mono">Контейнер relative. Надвинем элементы друг на друга</span></div>
+				<p class="main__paragraph main__container_reletive ">НЕ в спане <span class="main__line main__line_z-index_10">Я первый в спане</span></p>
+				<p class="main__paragraph main__container_reletive  main__paragraph_z-index_2">Я ВТОРОЙ</p>
+				<p class="main__paragraph main__container_reletive">НЕ в спане<span class="main__line main__line_z-index_10">Я ТРЕТИЙ в спане</span></p>
+			</div>
+			<div class="main__container main__container_reletive main__container_slice_absolud">
+				<div class="note"><span class="mono">Контейнер relative. Надвинем элементы друг на друга через абсолют</span></div>
+				<p class="main__paragraph main__container_reletive ">НЕ в спане <span class="main__line main__line_z-index_10">Я первый в спане</span></p>
+				<p class="main__paragraph main__container_reletive  main__paragraph_z-index_2">Я ВТОРОЙ</p>
+				<p class="main__paragraph main__container_reletive">НЕ в спане<span class="main__line main__line_z-index_10">Я ТРЕТИЙ в спане</span></p>
+			</div>
 
 
 		</main>
 		<footer class="footer">
 			<div class="footer__text">Это подвал</div>
 		</footer>
-		<div class="focus">Я хочу быть во весь </div>
 	</div>
 
 </body>
