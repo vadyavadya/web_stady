@@ -81,7 +81,7 @@
 	right: 150px;
 }
 .vaz__wheel_right {
-	left: 1188px;
+	left: 1205px;
 	transform: rotateY(180deg);
 }
 .vaz__bumper-low {
@@ -145,7 +145,7 @@
 .vaz__compound_rifht {
 	transform: skew(0, 33deg);
 	top: 752px;
-	left: 1284px;
+	left: 1293px;
 }
 .vaz__body {
 	position: absolute;
@@ -186,6 +186,28 @@
 	left: -2px;
 	border-radius: 0 0 190px 190px;
 }
+.body__fastening-bumper {
+	background-color: rgb(214, 214, 214);
+	width: 1087px;
+	height: 282px;
+	position: absolute;
+	top: 385px;
+	left: -2px;
+	border-radius: 0 0 90px 90px;
+	border-bottom: 10px dotted black;
+}
+.body__ovelis {
+	width: 70px;
+	height: 70px;
+	border-radius: 50%;
+	background: #000;
+	position: absolute;
+	top: 697px;
+	left: 174px;
+}
+.body__ovelis_right {
+	left: 810px;
+}
 .dody__corrector {
 	background-color: rgb(247, 247, 255);
 	border-right: 5px solid black;
@@ -218,7 +240,7 @@
 	/* overflow: hidden; */
 }
 .windshoe__glass {
-	background: rgba(0, 0, 0, 0.7) url("../img/chrome_rXvhdNi3ES.png") 356px 10px / 50% no-repeat;
+	background: rgba(0, 0, 0, 0.7);
 	width: 100%;
 	height: 100%;
 	position: absolute;
@@ -227,6 +249,9 @@
 	left: 0px;
 	transform: rotateX(15deg);
 	overflow: hidden;
+}
+.windshoe:active .windshoe__glass {
+	background: rgba(0, 0, 0, 0.7) url("../img/chrome_rXvhdNi3ES.png") 356px 10px / 50% no-repeat;
 }
 .windshoe__oreol {
 	/* background-color: rgba(0, 0, 0, 0.7); */
@@ -254,12 +279,417 @@
 	left: 458px;
 }
 .vaz__cover-hood {
-	width: 840px;
-	height: 98px;
+	width: 801px;
+	height: 100px;
+	position: absolute;
+	top: 383px;
+	left: 366px;
+}
+.vaz__hood {
+	width: 801px;
+	height: 100px;
+	position: absolute;
+	top: 383px;
+	left: 366px;
+}
+.cover-hood__container {
+	perspective: 1200px;
+}
+
+.cover-hood {
+}
+.cover-hood__container {
+	perspective: 1200px;
+}
+.cover-hood__elem {
+	position: relative;
+	width: 841px;
+	height: 267px;
 	border: 6px solid #000;
 	border-top: 0px;
+	transform-origin: 0px 0px;
+	transform: rotateX(69deg);
+	background-color: rgb(214, 214, 214);
+}
+.cover-hood_decor {
+	width: 356px;
+	height: 258px;
 	position: absolute;
-	top: 381px;
-	left: 353px;
-	border-radius: 2% 1% 0 0/ 50% 30% 0 0;
+	top: 6px;
+	left: 231px;
+	box-shadow: inset 1px 0px 10px black;
+}
+.cover-hood__elem_bacground_black {
+	background-color: #000;
+}
+.vaz__cover-hood:active .cover-hood__elem {
+	transform: rotateX(180deg);
+	backface-visibility: visible;
+	background: rgb(65, 65, 65);
+}
+
+.vaz__rearview-mirror {
+	width: 159px;
+	height: 116px;
+	position: absolute;
+	top: 249px;
+	left: 183px;
+}
+.rearview-mirror {
+}
+.rearview-mirror__base {
+	width: 136px;
+	height: 100px;
+	position: absolute;
+	top: 13px;
+	left: 0px;
+	background: linear-gradient(9deg, rgba(2, 0, 36, 1) 0%, rgba(138, 138, 138, 1) 84%, rgba(20, 20, 20, 1) 100%);
+	border-radius: 30% 40% 1% 50% / 50% 20% 10% 30%;
+}
+.rearview-mirror__compound {
+	width: 27px;
+	height: 26px;
+	position: absolute;
+	top: 87px;
+	left: 131px;
+	background: linear-gradient(9deg, rgba(2, 0, 36, 1) 0%, rgba(138, 138, 138, 1) 84%, rgba(20, 20, 20, 1) 100%);
+	border-radius: 30% 40% 1% 50% / 50% 20% 10% 30%;
+}
+.vaz__rearview-mirror_right {
+	left: 1235px;
+	transform: rotateY(180deg);
+}
+.background-right {
+	background: linear-gradient(351deg, rgba(2, 0, 36, 1) 0%, rgba(138, 138, 138, 1) 84%, rgba(20, 20, 20, 1) 100%);
+}
+.vaz__radiator-screen {
+	width: 728px;
+	height: 145px;
+	overflow: hidden;
+	position: absolute;
+	top: 517px;
+	left: 415px;
+	border-radius: 20px;
+}
+.radiator-screen {
+}
+.radiator-screen__cell {
+	width: 104px;
+	height: 145px;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	border: 20px solid black;
+	border-right: 0px;
+	background-color: rgb(131, 131, 131);
+}
+.radiator-screen__cell_position_2 {
+	left: 105px;
+}
+.radiator-screen__cell_position_3 {
+	left: 209px;
+}
+.radiator-screen__cell_position_4 {
+	left: 313px;
+}
+
+.radiator-screen__cell_position_5 {
+	left: 417px;
+}
+
+.radiator-screen__cell_position_6 {
+	left: 521px;
+}
+
+.radiator-screen__cell_position_7 {
+	left: 625px;
+}
+
+.radiator-screen__cell_end {
+	border-right: 20px solid black;
+}
+.vaz__headlamp {
+	width: 173px;
+	height: 167px;
+	position: absolute;
+	top: 495px;
+	left: 282px;
+}
+.headlamp {
+}
+.headlamp__body {
+	position: absolute;
+	border: 10px solid black;
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+	background: rgb(243, 243, 243);
+}
+.headlamp__background {
+	position: absolute;
+	border: 8px solid black;
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+	background: rgb(243, 243, 243);
+	transform: scale(0.9);
+	z-index: 10;
+}
+.headlamp__body:hover .headlamp__background,
+.headlamp__body:hover .headlamp__lamp {
+	background: rgb(231, 252, 43);
+}
+.headlamp__lamp {
+	z-index: 11;
+	position: absolute;
+	border: 8px solid black;
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+	background: rgb(243, 243, 243);
+	transform: scale(0.15);
+}
+
+.headlamp__glass {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+	transform: scale(0.8);
+	/* From https://css.glass */
+	background: rgba(255, 255, 255, 0.23);
+	/* border-radius: 16px; */
+	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+	backdrop-filter: blur(3.8px);
+	-webkit-backdrop-filter: blur(3.8px);
+	border: 1px solid rgba(255, 255, 255, 0.31);
+	z-index: 20;
+}
+.vaz__headlamp_right {
+	left: 1114px;
+}
+.annotation_swich {
+	display: inline-block;
+}
+
+.vaz__shaggy-grandmother-lamp {
+}
+.bg-lamp {
+}
+.bg-lamp__container {
+	position: absolute;
+	top: 488px;
+	left: 280px;
+	width: 1021px;
+	height: 182px;
+	z-index: 1;
+	/* background-color: blueviolet; */
+}
+.bg-lamp__container:target {
+	z-index: 14;
+}
+.bg-lamp__background {
+	position: absolute;
+	top: 5px;
+	left: 2px;
+	width: 173px;
+	height: 167px;
+	position: absolute;
+	border: 8px solid black;
+	border-radius: 50%;
+	background: rgb(231, 252, 43);
+	transform: scale(0.8);
+	z-index: 14;
+}
+.bg-lamp__lamp {
+	z-index: 15;
+	position: absolute;
+	border: 8px solid black;
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+	background: rgb(231, 252, 43);
+	transform: scale(0.15);
+}
+.bg-lamp-right {
+	left: 833px;
+}
+.vaz__turning {
+	width: 100px;
+	height: 55px;
+	position: absolute;
+	top: 666px;
+	left: 312px;
+	border: 10px solid rgb(0, 0, 0);
+	background-color: rgb(189, 177, 127);
+}
+.vaz__turning:hover {
+	background-color: rgb(178, 149, 34);
+}
+.vaz__turning_right {
+	left: 1153px;
+}
+.vaz__interculler {
+	width: 679px;
+	height: 321px;
+	position: absolute;
+	top: 521px;
+	left: 445px;
+	/* background-color: #000; */
+}
+.interculler {
+}
+.interculler__start {
+	width: 62px;
+	height: 49px;
+	position: absolute;
+	top: 105px;
+	left: 10px;
+	background-color: rgb(26, 224, 250);
+	border: 4px solid black;
+	border-radius: 0% 0% 1% 50% / 0% 0% 10% 50%;
+}
+.interculler__in {
+}
+.interculler__grid {
+	width: 402px;
+	height: 211px;
+	position: absolute;
+	top: 78px;
+	left: 133px;
+	background-color: rgb(153, 153, 153);
+	border: 4px solid black;
+}
+
+.inin__start {
+	width: 67px;
+	height: 48px;
+	position: absolute;
+	top: 106px;
+	left: 71px;
+	border: 4px solid black;
+	background-color: rgb(153, 153, 153);
+}
+.inin__item-1 {
+	width: 53px;
+	height: 45px;
+	position: absolute;
+	top: 88px;
+	left: 109px;
+	border-left: 4px solid black;
+	background-color: rgb(153, 153, 153);
+	transform: rotate(45deg);
+}
+.inin__item-2 {
+	width: 25px;
+	height: 140px;
+	position: absolute;
+	top: 147px;
+	left: 116px;
+	background-color: rgb(153, 153, 153);
+	transform: rotate(-10deg);
+	border-left: 4px solid black;
+}
+
+.interculler__cell {
+	height: 10px;
+	width: 100%;
+	border: 1px solid black;
+}
+.inin_out {
+	position: absolute;
+	left: 665px;
+	top: 0px;
+	transform: rotateY(180deg);
+}
+.interculler__pipe-out {
+	position: absolute;
+	top: 14px;
+}
+.pipe-out {
+	/* position: relative; */
+}
+.pipe-out__start {
+	width: 16px;
+	height: 50px;
+	position: absolute;
+	top: 90px;
+	left: 591px;
+	background-color: rgb(26, 224, 250);
+	border: 4px solid black;
+	border-right: 0px;
+	/* border-radius: 0% 0% 1% 50% / 0% 0% 10% 50%; */
+}
+.pipe-out__center {
+	width: 50px;
+	height: 95px;
+	position: absolute;
+	top: 46px;
+	left: 606px;
+	background-color: rgb(26, 224, 250);
+	border: 4px solid black;
+	border-left: 0px;
+	border-radius: 0% 0% 100% 00% / 0% 0% 100% 0%;
+}
+.vaz__license-plate {
+	position: absolute;
+	top: 830px;
+	left: 607px;
+	padding: 10px 40px;
+	font-weight: 700;
+	text-transform: uppercase;
+	font-size: 46px;
+	border: 6px solid black;
+	border-radius: 15px;
+	background-color: aliceblue;
+}
+.swich {
+	border: 2px solid black;
+}
+.swich_text {
+	font-size: 22px;
+	text-align: center;
+}
+.swich__button {
+	padding: 10px;
+	display: inline-block;
+	background: rgb(232, 126, 126);
+}
+.swich__button_of {
+	color: white;
+	background: rgb(9, 6, 6);
+}
+.vaz__annotation {
+	position: absolute;
+	top: 10px;
+	left: -500px;
+	max-width: 500px;
+}
+.annotation {
+	font-size: 24px;
+	border: 4px dashed red;
+	padding: 30px;
+}
+.annotation__text p {
+	text-align: center;
+	margin-bottom: 20px;
+	font-weight: 700;
+}
+.annotation__list {
+	text-align: left;
+}
+.annotation__list *:not(:last-child) {
+	margin-bottom: 10px;
+}
+.annotation__sublist {
+}
+.annotation_swich {
+}
+.swich {
+}
+.swich_text {
+}
+.swich__button {
+}
+.swich__button_of {
 }
