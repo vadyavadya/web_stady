@@ -1,0 +1,90 @@
+/* &display=swap */
+@import url(https://fonts.googleapis.com/css?family=Roboto:700,900&display=swap);
+@import "null.css";
+/* ================================================================ */
+.wrapper {
+	min-height: 100%;
+	overflow: hidden;
+}
+/* ================================================================ */
+.car-repair {
+	font-family: Roboto;
+	color: #fff;
+}
+.car-repair__our-impact {
+	margin: 100px auto 0px;
+}
+.our-impact {
+	background: #29c3be;
+}
+
+.our-impact__header {
+	max-width: 1090px;
+	margin: 0px auto;
+	display: flex;
+	align-items: flex-end;
+	position: relative;
+	top: -70px;
+	/* justify-content: center; */
+}
+.our-impact__title {
+	flex: 0 1 41%;
+}
+.b-title {
+}
+.b-title__subtitle {
+	padding-left: 32px;
+	background: url("../img/icon/subtitle-icon.svg") 0px -2px no-repeat;
+	font-weight: 700;
+	font-size: 12px;
+	line-height: 2;
+	letter-spacing: 2.5px;
+	text-transform: uppercase;
+	margin-bottom: 31.77px;
+}
+.b-title__title {
+	font-weight: 900;
+	font-size: 36px;
+	line-height: 1.1666;
+}
+.our-impact__row-img {
+	/* background: #29c3be url("../img/main/our-impact/bg-img.svg") left 100% top 0 no-repeat; */
+	flex: 1 1 59%;
+}
+.our-impact__row-img::before {
+	content: "";
+	width: 100%;
+	height: 100%;
+	background: url("../img/main/our-impact/bg-img.svg") 0 0 no-repeat;
+}
+
+.our-impact__img {
+	/* background: #29c3be url("../img/main/our-impact/bg-img.svg") left 100% top 0 no-repeat; */
+	border-radius: 40px;
+	overflow: hidden;
+	max-width: 498px;
+	margin: 0px auto;
+
+	/* margin: 0px auto; */
+
+	/* position: relative; */
+	/* top: -70px; */
+}
+
+.our-impact__img img {
+	width: 100%;
+}
+.our-impact__main {
+}
+.our-impact__column {
+}
+.statistic {
+}
+.statistic__img {
+}
+.statistic__text {
+}
+.statistic__number {
+}
+.statistic__word {
+}
