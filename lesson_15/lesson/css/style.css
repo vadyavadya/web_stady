@@ -121,8 +121,17 @@ body {
 	border-radius: 20px;
 	background: #FFFFFF;
 	padding: 50px 43px;
-
+	justify-content: flex-end;
 }
+
+.card_services_color_aaa {
+	background: #aaa;
+}
+
+.card_services_color_888 {
+	background: #888;
+}
+
 
 .card_services:hover {
 	box-shadow: 0px 8px 16px rgba(38, 38, 38, 0.24), 0px 16px 24px rgba(38, 38, 38, 0.2);
@@ -130,20 +139,29 @@ body {
 }
 
 .card__icon {
-	flex: 0 0 63px;
+	max-width: 63px;
+}
+
+.card__icon_promise {
+	flex: 0 0 auto;
 	align-self: flex-start;
 }
 
-.card__icon_align_center {
-	align-self: center;
+.card__icon_services {
+	flex: 0 0 63px;
+	margin-bottom: 33px;
+	/* max-height: 63px; */
+	overflow: hidden;
 }
 
+.card__icon_services img {
+	width: 100%;
+}
 
 .card__img {
 	flex: 0 0 63px;
-}
-
-.card__img_margin-bottom_33 {
+	width: 100%;
+	background: transparent center center / contain no-repeat;
 	margin-bottom: 33px;
 }
 
@@ -151,6 +169,7 @@ body {
 
 .card__body_align_center {
 	text-align: center;
+	flex: 1 1 auto;
 }
 
 .card__title {
@@ -253,6 +272,7 @@ body {
 .impact__title {
 	flex: 1 1 45%;
 	padding: 30px 0px 0px 0px;
+	z-index: 1;
 }
 
 
@@ -267,7 +287,7 @@ body {
 .impact__img::before {
 	content: "";
 	width: 124%;
-	height: 124%;
+	height: 1000%;
 	background: url("../img/main/our-impact/bg-img.svg") top right / 100% no-repeat;
 	display: block;
 	position: absolute;
@@ -289,10 +309,11 @@ body {
 	justify-content: space-between;
 	flex-wrap: wrap;
 	gap: 10px;
+	position: relative;
 }
 
 .impact__item {
-	flex: 1 1 auto;
+	flex: 1 1 237px;
 }
 
 .statistic {
@@ -300,7 +321,10 @@ body {
 }
 
 .statistic__img {
+	flex: 1 1 auto;
 	margin-right: 12px;
+	max-width: 76px;
+	align-self: start;
 }
 
 .statistic__body {}

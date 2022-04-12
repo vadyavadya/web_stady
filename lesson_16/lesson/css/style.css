@@ -1,0 +1,37 @@
+/* &display=swap */
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,500,700,900&display=swap");
+@import "null.css";
+
+/* ================================================================ */
+.wrapper {
+	min-height: 100%;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+}
+
+/* ================================================================ */
+body {
+	font-family: Roboto;
+	background: #F5F5F5;
+}
+
+.header {
+	height: 40px;
+	background: rgb(88, 141, 201);
+}
+
+.main {
+	flex: 1 1 auto;
+}
+
+.footer {
+	height: 40px;
+	background: rgb(46, 112, 76);
+}
+
+[class*='__container'] {
+	max-width: 1050px;
+	margin: 0px auto;
+	padding: 0px 15px;
+}
