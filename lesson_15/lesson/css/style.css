@@ -177,7 +177,7 @@ body {
 
 .services::before {
 	content: '';
-	background: url(../img/main/serviсes/bg2.svg) no-repeat;
+	background: url(../img/main/services/bg2.svg) no-repeat;
 	position: absolute;
 	transform: translate(212px, -656px);
 	top: 0;
