@@ -2131,7 +2131,7 @@ animation-play-state: running; (paused)
 
 
 
-=============================Flex=============================
+============================= Flex =============================
 
 
 display:flex;
@@ -2188,7 +2188,7 @@ align-content
 gap: row-gap, column-gap; 
 задаёт отступы между столбцами и строками, а не вдоль края контейнера сетки. Является сокращением для свойств row-gap и column-gap.
 10px 10% и т.д.
-/* ================================================================ */
+/* ----------------------------------------------------------------- */
 
 Свойства для флекс элементов
 
@@ -2213,3 +2213,62 @@ flex-shrink:; - возможность уменьшаться в размере 
 Унивирсальное свойство
 flex: flex-grow flex-shrink flex-basis
 flex: 0 1 auto;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+==================================== form ====================================
+form - это корзина куда мы складываем значения
+<form action="#"></form>
+action - куда отправлять форму вроде как бек делает.
+
+input
+    type тип (text, number, tel, email, date, datetime-local, checkbox, radio, file, password, range(ползунок))
+    disabled - сделать не активным
+    autocomplete="off" - отключить автозаполнение
+    required - сделать обязательным для заполнения
+    checked - значение по умолчанию (для radio и не только)
+    placeholder - надпись на фоне
+    name - обязательное значение имя переменной
+    value - значение
+    tabindex - значение при нажати tab(-1 поле не учавствует в табуляции)
+    multiple - выбрать несколько файлов
+    accept - задать расширение для файлов, для выбора файлов, для удобства пользователя (accept=".jpg, .png")
+
+select выпадающий список
+<select name="select">
+            <option selected value="1">Пункт №1</option>
+            <option value="2">Пункт №2</option>
+            <option value="3">Пункт №3</option>
+            <option value="4">Пункт №4</option>
+</select>
+    selected - атрибут по умолчанию
+    multiply - zthtp ctr выбрать несколько значений
+
+button - кнопка
+    type - (reset, submit)
+
+
+lable - подпись к полю
+пример связанных полей for связывается с id
+<label for="input_01">Я подпись к полю</label>
+<input id="input_01" placeholder="Строка" name="string" value="" type="text">
+
+textarea 
+интересное свойство:
+    resize (none, vertical, horizontal)

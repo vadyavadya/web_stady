@@ -14,119 +14,170 @@
 
     <header class="header">Я шапка</header>
     <main class="main">
-<!-- action - получатель данных формы -->
-				<!-- 
-					method - метод передачи данных 
-					get - значение по умолчанию, 
-					данные передаются в адресной строке
-					post - данные передаются скрытно
-					enctype - тип данных. 
-					(для передачи фалов, указываем multipart/form-data)
-				-->
-				<form class="main__form form" action="#">
-					<div class="form__line">
-						<!-- <label for="username" class="form__label">Введите имя</label> -->
-						<input id="username" placeholder="Введите имя" autocomplete="off" type="text" name="username" class="form__input">
-					</div>
-					<div class="form__line">
-						<div class="checkbox">
-							<input id="car" autocomplete="off" type="checkbox" name="car" class="checkbox__input">
-							<label for="car" class="checkbox__label">Автомобиль?</label>
-						</div>
-					</div>
-					<div class="form__line">
-						<div class="switcher">
-							<input id="switcher" autocomplete="off" type="checkbox" name="switcher" class="switcher__input">
-							<label for="switcher" class="switcher__label"></label>
-						</div>
-					</div>
-					<div class="form__line">
-						<div class="radiobuttons">
-							<div class="radiobuttons__item">
-								<input id="color_1" autocomplete="off" type="radio" name="color" class="radiobuttons__input">
-								<label for="color_1" class="radiobuttons__label">Зеленый</label>
-							</div>
-							<div class="radiobuttons__item">
-								<input id="color_2" autocomplete="off" type="radio" name="color" class="radiobuttons__input">
-								<label for="color_2" class="radiobuttons__label">Красный</label>
-							</div>
-						</div>
-					</div>
-					<div class="form__line">
-						<div class="file">
-							<input id="file_1" class="file__input" type="file">
-							<label for="file_1" class="file__label">Выбрать файл</label>
-						</div>
-					</div>
-					<div class="form__line">
-						<select name="select" class="form__select">
-							<option value="1" selected>Пункт №1</option>
-							<option value="2">Пункт №2</option>
-							<option value="3">Пункт №3</option>
-							<option value="4">Пункт №4</option>
-						</select>
-					</div>
-					<div class="form__line">
-						<textarea autocomplete="off" name="text" class="form__textarea"></textarea>
-					</div>
-					<button type="submit" class="form__button">Отправить</button>
-				</form>
+      <div class="main__appointment appointment">
+        <div class="appointment__container">
+          <form action="#" class="appointment__form ">
+            <div class="form-appointment">
+              <h2 class="form-appointment__title">Make an appointment</h2>
+              <div class="form-appointment__block-input b-inputs">
+                <input type="text" class="form-appointment__item  form-appointment__input" name="username" placeholder="Name">
+                <input type="email" class="form-appointment__item form-appointment__input" email="useremail" placeholder="Email">
+                <input type="tel" class="form-appointment__item form-appointment__input" email="usertel" placeholder="Phone Number">
+                <input type="text" class="form-appointment__item form-appointment__input" email="select-service" placeholder="Select Service">
+              </div>
+              <textarea class="form-appointment__input form-appointment__input_textarea" placeholder="Tell us about your puppers include his/her name" name="comment" id=""></textarea>
+              <div class="form-appointment__button">
+                <button class=" button" type="submit">Make an Appointment</button>
+              </div>
+            </div>
+          </form>
+          <div class="appointment__stat">
+            <div class="appointment__subtitle">Maxime placeat facere possimus omnis </div>
+            <div class="appointment__number">5,700+</div>
+            <div class="appointment__signature">customers served</div>
+          </div>
+        </div>
 
+      </div>
+      <div class="main__shopping-cart shopping-cart">
+        <div class="shopping-cart__container">
+          <div class="shopping-cart__summary summary">
+            <h3 class="summary__title">Summary</h3>
+            <form class="summary__form" action="#">
+              <div class="summary__section section">
+                <h3 class="section__title">Estimate Shipping and Tax</h3>
+                <p class="section__text">Enter your destination to get a shipping estimate.</p>
+                <div class="section__inputs b-inputs">
+                  <div class="b-inputs__item">
+                    <label class="b-inputs__label label" for="country">Country</label>
+                    <select class="b-inputs__input input" name="user-country" id="country">
+                      <option value="1">Australia</option>
+                      <option value="2">Austria</option>
+                      <option value="3">Azerbaijan</option>
+                    </select>
+                  </div>
+                  <label class="b-inputs__label label" for="country">Country</label>
+                  <select class="b-inputs__input input" name="user-country" id="country">
+                    <option value="1">Australia</option>
+                    <option value="2">Austria</option>
+                    <option value="3">Azerbaijan</option>
+                  </select>
+                  <label class="b-inputs__label label" for="state">State/Province</label>
+                  <input class="b-inputs__input input" type="text" name="state" id="state">
+                  <label class="b-inputs__label label" for="zip">Zip/Postal Code</label>
+                  <input class="b-inputs__input input" type="text" name="zip" id="zip">
+                </div>
+                <div class="section__checkbox b-checks">
+                  <div class="b-checks__title label">Standard Rate</div>
+                  <div class="b-checks__checkbox block-check">
+                    <input class="block-check__input" type="radio" name="delivery" id="standart-rate">
+                    <label class="block-check__label" for="standart-rate">Price may vary depending on the item/destination. Shop Staff will contact you. $21.00</label>
+                  </div>
+                  <div class="block-check__title label">Pickup from store</div>
+                  <div class="b-checks__checkbox block-check">
+                    <input class="block-check__input" type="radio" name="delivery" id="pickup">
+                    <label class="block-check__label" for="pickup">1234 Street Adress City Address, 1234 $0.00</label>
+                  </div>
+                </div>
+              </div>
+              <form class="summary__form" action="">
+                <div class="summary__section section">
+                  <h3 class="section__title">Apply Discount Code</h3>
+                  <div class="section__inputs b-inputs">
+                    <label class="b-inputs__label label" for="discount-code">Enter discount code</label>
+                    <input class="b-inputs__input input" type="text" name="discount-code" placeholder="Enter Discount code" id="discount-code">
+                  </div>
+                  <button class="section__discont-button" type="submit">Apply Discount</button>
+                </div>
+              </form>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="main__login login">
+        <div class="login__container">
+          <form class="login__registered registered">
+            <h3 class="registered__title">Registered Customers</h3>
+            <p class="registered__text">If you have an account, sign in with your email address.</p>
+            <div class="registered__inputs b-inputs">
+              <label class="b-inputs__label label label_requred" for="user-email">Email</label>
+              <input class="b-inputs__input input" type="email" required name="user-email" id="user-email" placeholder="Your Email">
+              <label class="b-inputs__label label label_requred" for="user-pass">Password</label>
+              <input class="b-inputs__input input" type="password" required name="user-pass" id="user-pass" placeholder="Your Password">
+            </div>
+            <div class="registered__buttons b-buttons">
+              <button class="b-buttons__sign" type="submit">Sign In</button>
+              <a class="b-buttons__forgot" href="#">Forgot Your Password?</a>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="main__checkout checkout">
+        <div class="checkout__container">
+          <div class="checkout__addres">
+            <form class="address" action="#">
 
+              <h2 class="address__title"> Shipping Address </h2>
+              <div class="address__inputs b-inputs">
+                <div class="b-inputs__container">
+                  <label class="b-inputs__label label label_requred" for="user-email-addres">Email Address</label>
+                  <input class="b-inputs__input input" type="email" required name="user-email-addres" id="user-email-addres">
+                  <p class="b-inputs__text">You can create an account after checkout.</p>
+                  <label class="b-inputs__label label label_requred" for="first-name">First Name</label>
+                  <input class="b-inputs__input input" type="text" required name="first-name" id="first-name">
+                  <label class="b-inputs__label label label_requred" for="last-name">Last Name</label>
+                  <input class="b-inputs__input input" type="text" required name="last-name" id="last-name">
+                  <label class="b-inputs__label label label_requred" for="company">Company</label>
+                  <input class="b-inputs__input input" type="text" required name="company" id="company">
+                  <label class="b-inputs__label label label_requred" for="street-address">Street Address</label>
+                  <input class="b-inputs__input input" type="text" required name="street-address" id="street-address">
+                  <input class="b-inputs__input input" type="text" required name="street-address-2" id="street-address-2">
+                  <label class="b-inputs__label label label_requred" for="city">City</label>
+                  <input class="b-inputs__input input" type="text" required name="city" id="city">
+                  <label class="b-inputs__label label label_requred" for="province">State/Province</label>
+                  <select class="b-inputs__input input" name="province" id="province">
+                    <option selected value="1">Please, select a region, state or province</option>
+                    <option value="2">Australia</option>
+                    <option value="3">Austria</option>
+                    <option value="4">Azerbaijan</option>
+                  </select>
+                  <label class="b-inputs__label label label_requred" for="postal-code">Zip/Postal Code</label>
+                  <input class="b-inputs__input input" type="text" required name="postal-code" id="postal-code">
+                  <label class="b-inputs__label label label_requred" for="country-s">Country</label>
+                  <select class="b-inputs__input input" name="user-country" id="country-s">
+                    <option value="1">Australia</option>
+                    <option value="2">Austria</option>
+                    <option value="3">Azerbaijan</option>
+                  </select>
+                  <label class="b-inputs__label label label_requred" for="phone-number">Phone Number</label>
+                  <input class="b-inputs__input input" type="tel" required name="phone-number" id="phone-number">
+                </div>
+              </div>
+              <div class="address__checkbox b-checks">
+                <div class="b-checks-container">
+                  <div class="b-checks__title label">Standard Rate</div>
+                  <div class="b-checks__checkbox block-check">
+                    <input class="block-check__input" type="radio" name="add-delivery" id="standart-rate-add">
+                    <label class="block-check__label" for="standart-rate-add">Price may vary depending on the item/destination. Shop Staff will contact you. $21.00</label>
+                    <div class="block-check__price">$21.00</div>
+                  </div>
+                  <div class="block-check__title label">Pickup from store</div>
+                  <div class="b-checks__checkbox block-check">
+                    <input class="block-check__input" type="radio" name="add-delivery" id="pickup-add">
+                    <label class="block-check__label" for="pickup-add">1234 Street Adress City Address, 1234 $0.00</label>
+                    <div class="block-check__price">$0.00</div>
+                  </div>
+                </div>
+              </div>
+              <div class="addres__buttons b-buttons">
+                <button class="b-buttons__sign  b-buttons__sign_min-with-210" type="submit">Next</button>
+              </div>
+            </form>
+          </div>
+          <div class="checkout__order-summary"></div>
+        </div>
+      </div>
 
-				<form action="#">
-					<!-- Ввод данных -->
-					<label for="input_01">Я подпись к полю</label>
-					<input tabindex="-1" id="input_01" autocomplete="off" required placeholder="Строка" name="string" value="" type="text">
-					<!-- Ввод данных - число -->
-					<input autocomplete="off" required placeholder="Число" name="number" value="" type="number">
-					<!-- Ввод данных - телефон -->
-					<input tabindex="3" autocomplete="off" required placeholder="Номер телефона" name="phone" value="" type="tel">
-					<!-- Ввод данных - почта -->
-					<input autocomplete="off" required placeholder="Почта" name="email" value="" type="email">
-					<!-- Ввод данных - календарь -->
-					<input autocomplete="off" required placeholder="Календарь" name="datetime" value="" type="datetime-local">
-					<div>
-						<!-- Ввод данных - выбор И-множественный выбор (чекбокс) -->
-						<input checked autocomplete="off" required name="check" value="" type="checkbox"> Есть авто?
-					</div>
-					<div>
-						<!-- Ввод данных - выбор ИЛИ-единичный выбор (радиокнопка) -->
-						<input checked autocomplete="off" required name="gender" value="m" type="radio"> М
-						<input autocomplete="off" required name="gender" value="f" type="radio"> Ж
-					</div>
-					<div>
-						<!-- Ввод данных - выбор ИЛИ-единичный выбор (радиокнопка) -->
-						<input checked autocomplete="off" required name="color" value="red" type="radio"> red
-						<input autocomplete="off" required name="color" value="blue" type="radio"> blue
-					</div>
-					<div>
-						<!-- Ввод данных - прикрепить файл -->
-						<input autocomplete="off" accept=".jpg, .png" multiple required name="file" type="file">
-					</div>
-					<div>
-						<!-- Ввод данных - пароль -->
-						<input autocomplete="off" required placeholder="Пароль" name="pass" value="" type="password">
-					</div>
-					<div>
-						<!-- Ввод данных - ползунок -->
-						<input autocomplete="off" name="range" value="" type="range">
-					</div>
-					<!-- Ввод данных - многострочный -->
-					<textarea tabindex="4" name="text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere reiciendis maxime, tempora quidem illo et porro nostrum perferendis, optio earum commodi non consequatur impedit unde quasi soluta. Ut, fugiat laboriosam.</textarea>
-					<div>
-						<!-- Ввод данных - выпадающий список -->
-						<select name="select">
-							<option value="1">Пункт №1</option>
-							<option value="2">Пункт №2</option>
-							<option value="3">Пункт №3</option>
-							<option value="4">Пункт №4</option>
-						</select>
-					</div>
-					<div>
-						<button type="submit">Я кнопка</button>
-					</div>
-				</form>
     </main>
     <footer class="footer"></footer>
 
