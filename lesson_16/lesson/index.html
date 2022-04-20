@@ -21,11 +21,11 @@
               <h2 class="form-appointment__title">Make an appointment</h2>
               <div class="form-appointment__block-input b-inputs">
                 <input type="text" class="form-appointment__item  form-appointment__input" name="username" placeholder="Name">
-                <input type="email" class="form-appointment__item form-appointment__input" email="useremail" placeholder="Email">
-                <input type="tel" class="form-appointment__item form-appointment__input" email="usertel" placeholder="Phone Number">
-                <input type="text" class="form-appointment__item form-appointment__input" email="select-service" placeholder="Select Service">
+                <input type="email" class="form-appointment__item form-appointment__input" name="useremail" placeholder="Email">
+                <input type="tel" class="form-appointment__item form-appointment__input" name="usertel" placeholder="Phone Number">
+                <input type="text" class="form-appointment__item form-appointment__input" name="select-service" placeholder="Select Service">
               </div>
-              <textarea class="form-appointment__input form-appointment__input_textarea" placeholder="Tell us about your puppers include his/her name" name="comment" id=""></textarea>
+              <textarea class="form-appointment__input form-appointment__input_textarea" placeholder="Tell us about your puppers include his/her name" name="comment" id="comment"></textarea>
               <div class="form-appointment__button">
                 <button class=" button" type="submit">Make an Appointment</button>
               </div>
@@ -57,7 +57,7 @@
                     </select>
                   </div>
                   <label class="b-inputs__label label" for="country">Country</label>
-                  <select class="b-inputs__input input" name="user-country" id="country">
+                  <select class="b-inputs__input input" name="user-country" id="country-2">
                     <option value="1">Australia</option>
                     <option value="2">Austria</option>
                     <option value="3">Azerbaijan</option>
@@ -80,16 +80,16 @@
                   </div>
                 </div>
               </div>
-              <form class="summary__form" action="">
-                <div class="summary__section section">
-                  <h3 class="section__title">Apply Discount Code</h3>
-                  <div class="section__inputs b-inputs">
-                    <label class="b-inputs__label label" for="discount-code">Enter discount code</label>
-                    <input class="b-inputs__input input" type="text" name="discount-code" placeholder="Enter Discount code" id="discount-code">
-                  </div>
-                  <button class="section__discont-button" type="submit">Apply Discount</button>
+
+              <div class="summary__section section">
+                <h3 class="section__title">Apply Discount Code</h3>
+                <div class="section__inputs b-inputs">
+                  <label class="b-inputs__label label" for="discount-code">Enter discount code</label>
+                  <input class="b-inputs__input input" type="text" name="discount-code" placeholder="Enter Discount code" id="discount-code">
                 </div>
-              </form>
+                <button class="section__discont-button" type="submit">Apply Discount</button>
+              </div>
+
             </form>
           </div>
         </div>
