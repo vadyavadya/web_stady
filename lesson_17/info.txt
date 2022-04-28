@@ -9,3 +9,35 @@
 /* Условные мобилки */
 @media (max-width: 767.98px) {
 }
+
+
+Для подстройка картинки внутри блочно-строчного или блочного элемета 
+Примнр:
+HTML:
+<div class="block">
+    <a class="block__picture" href="#">
+        <img src="img/001.png" alt="" class="block__img">
+    </a>
+</div>
+----------------------------
+CSS:
+
+.block{
+    display: flex;
+    и т.д.
+}
+.block__picture {
+    position: reletive;
+    padding: 0px 0px 74.29% 0px
+}
+.block__img {
+    object-fit: cover;
+    object-position: crnter;
+
+    position: absolute;
+    top: 0;
+    left:0;
+    width: 100%;
+    heigh: 100%;
+
+}
