@@ -372,6 +372,13 @@ body {
 		flex-direction: column;
 		align-items: center;
 		// gap: 16px;
+		transition: all 0.3s ease;
+		&:hover {
+			transform: scale(1.1);
+			border: 1px solid #1a1a1a;
+			background: rgba(0, 0, 0, 0.197);
+			border-radius: 6px;
+		}
 	}
 
 	// .contact__icon
@@ -569,16 +576,10 @@ body {
 }
 .cards-dishes {
 	display: flex;
-	// gap: 12px;
-	// justify-content: space-between;
 	flex-wrap: wrap;
 	row-gap: 30px;
 	justify-content: center;
 	margin: 0px -15px;
-
-	// .cards-dishes__card
-
-	// .cards-dishes__img
 
 	&__img {
 		position: relative;
@@ -695,6 +696,13 @@ body {
 
 	&__button {
 	}
+	&__star {
+	}
+	&__star_dis {
+	}
+	&__star_active {
+		display: none;
+	}
 	&__card {
 		flex: 0 1 33.333%;
 		padding: 0px 15px;
@@ -702,8 +710,13 @@ body {
 
 		// flex: 1 1 31.5%;
 		&:hover {
-			.cards-dishes__stars svg g rect {
-				fill: #f9ad3d;
+			.cards-dishes__star {
+				&_dis {
+					display: none;
+				}
+				&_active {
+					display: block;
+				}
 			}
 			.button {
 				background: #34c759;
@@ -718,6 +731,7 @@ body {
 				}
 			}
 		}
+
 		@media (max-width: 1110.98px) {
 			.cards-dishes__body {
 				padding: 15px;

@@ -432,6 +432,18 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.contact__item:hover {
+  -webkit-transform: scale(1.1);
+      -ms-transform: scale(1.1);
+          transform: scale(1.1);
+  border: 1px solid #1a1a1a;
+  background: rgba(0, 0, 0, 0.197);
+  border-radius: 6px;
 }
 
 .contact__icon {
@@ -775,6 +787,10 @@ body {
   color: #b3b3b3;
 }
 
+.cards-dishes__star_active {
+  display: none;
+}
+
 .cards-dishes__card {
   -webkit-box-flex: 0;
       -ms-flex: 0 1 33.333%;
@@ -782,8 +798,12 @@ body {
   padding: 0px 15px;
 }
 
-.cards-dishes__card:hover .cards-dishes__stars svg g rect {
-  fill: #f9ad3d;
+.cards-dishes__card:hover .cards-dishes__star_dis {
+  display: none;
+}
+
+.cards-dishes__card:hover .cards-dishes__star_active {
+  display: block;
 }
 
 .cards-dishes__card:hover .button {
