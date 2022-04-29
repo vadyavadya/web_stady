@@ -6,5 +6,5 @@ dist/
 Source/
 version.json
 undefined
-**/*.zip
+# **/*.zip
 **/*.rar
