@@ -1,0 +1,19 @@
+﻿Установка прокси
+npm config set proxy "http://sergeev_vs:sergeev**4@sib-prx-001.sib.evraz.com:3128"
+
+Установка gulp
+npm install --global gulp-cli
+
+ИнициализациЯ настроек проекта
+npm init
+
+Установка пакета "например" ( https://www.npmjs.com ) тут пакеты
+npm i <Имя пакета> -D
+npm i gulp -D
+
+Установить все пакеты из файла package.json
+npm i
+
+Запуск сборки
+npm run <выбираем режи>
+npm run dev
