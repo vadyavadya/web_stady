@@ -1,4 +1,52 @@
 //====================================================================================================
+.header {
+	// .header__job-time
+
+	&__job-time {
+	}
+}
+.job-time {
+	// .job-time__short
+
+	&__short {
+	}
+
+	// .job-time__info
+
+	&__info {
+		background: #ffffff;
+		border: 1px solid rgba(0, 0, 0, 0.2);
+		box-sizing: border-box;
+		/* Shadow 1 */
+
+		box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.14);
+	}
+
+	// .job-time__open
+
+	&__open {
+		padding-left: 50px;
+		background: url("../img/job-time/bx_bx-time.svg") no-repeat;
+	}
+
+	// .job-time__text
+
+	&__text {
+		font-size: 12px;
+		line-height: 1.4;
+	}
+
+	// .job-time__time
+
+	&__time {
+	}
+	&__grey {
+	}
+}
+.grey {
+}
+.bold {
+}
 
 //====================================================================================================
 
