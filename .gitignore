@@ -3,8 +3,9 @@ package-lock.json
 # .gitignore
 node_modules/
 dist/
-Source/
+# Source/
 version.json
 undefined
-# **/*.zip
+*.zip
+!*esson*_*.zip
 **/*.rar
