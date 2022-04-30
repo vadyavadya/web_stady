@@ -21,6 +21,7 @@ import "../scss/style.scss";
 /* Динамический адаптив */
 // import "./libs/dynamic_adapt.js";
 
+
 /* Форматирование чисел */
 // import './libs/wNumb.min.js';
 
