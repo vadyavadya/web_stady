@@ -1,17 +1,22 @@
 ﻿lesson 2  - Строительные и строчные блоки
-lesson 3  - начало с css анатомия подключение
-lesson 4  - шрифты подключение и css свойства (Figma)? поису шрифтов, подключение, font-family, font-size, font-style, font-weight, color, text-align, text-decoration, text-shadow, text-transform, line-height, text-indent, letter-spacing, white-space, word-spacing
-lesson 5  - отступы, ШИРИНЫ И ВЫСОТЫ, Метод вычисления общего размера, УПРАВЛЕНИЕ ПЕРЕИЗБЫТКОМ КОНТЕНТА, УПРАВЛЕНИЕ ТИПОМ ОБЪЕКТА, padding,  margin, (max-min)width, (max-min)height, box-sizing, overflow, display
-lesson 6  - СВОЙСТВА ОФОРМЛЕНИЯ БЛОКОВ, BORDER, border-radius,outline,box-shadow, opacity, visibility.
-lesson 7  - background
-lesson 8  - Псевдоклассы и псевдоэлементы
+= CSS = - lesson 3 - начало с css анатомия подключение
+= Шрифты = - lesson 4  - шрифты подключение и css свойства (Figma)? поису шрифтов, подключение, font-family, font-size, font-style, font-weight, color, text-align, text-decoration, text-shadow, text-transform, line-height, text-indent, letter-spacing, white-space, word-spacing
+= Отступы, Ширины.. = - lesson 5  - отступы, ШИРИНЫ И ВЫСОТЫ, Метод вычисления общего размера, УПРАВЛЕНИЕ ПЕРЕИЗБЫТКОМ КОНТЕНТА, УПРАВЛЕНИЕ ТИПОМ ОБЪЕКТА, padding,  margin, (max-min)width, (max-min)height, box-sizing, overflow, display
+= Оформление блоков = - lesson 6  - СВОЙСТВА ОФОРМЛЕНИЯ БЛОКОВ, BORDER, border-radius,outline,box-shadow, opacity, visibility.
+= background = - lesson 7  - background
+= Псевдоклассы и псевдоэлементы = - lesson 8  - Псевдоклассы и псевдоэлементы
 lesson 9  - формат изображений
-lesson 10 - БЕМ
-
-meta - теги
-lesson 11 - position
-lesson 12 - flex
-lesson 13 - adaptive
+= БЭМ = - lesson 10 - БЕМ
+= SCSS = - про SCSS
+= META = - мета теги
+= position = - позиционирование
+= adaptive = - теги для адапива
+= Селекторы атрибутов = про селекторы атрибутов
+= transform = - свойство transform
+= Анимация = - про анимацию
+= Flex = - флексы
+= form = - формы
+= gulp = - начало работы с gulp
 
 
 ======================= CSS =======================
