@@ -1,11 +1,4 @@
-flsStartTemplate/
-package-lock.json
-# .gitignore
 node_modules/
-# dist/
-# Source/
-version.json
-undefined
 *.zip
-!*esson*_*.zip
 **/*.rar
+!*esson*_*.zip
