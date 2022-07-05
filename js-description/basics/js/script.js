@@ -111,6 +111,7 @@ if (listItems.length) {
 } */
 
 // Получаем первый объект
+
 // const list = document.querySelector('.list');
 // * Проверяем один объект
 /* if (list) {
@@ -194,3 +195,5 @@ btn.setdata.sanchesOne;
 // * Проверка наличия атрибута element.hasAttribute('data-sanches')
 // * Получить значение атрибута element.getAttribute('data-sanches')
 // * Задать значение атрибута element.setAttribute('data-sanches')
+
+

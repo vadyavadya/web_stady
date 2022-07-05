@@ -41,11 +41,14 @@ console.log(myForm2.elements.inputCheck);
 console.log(myForm2.elements.radioBut); 
 */
 
+/* 
 const inputCheck = myForm2.elements.inputCheck;
 const inputTextArea = myForm2.elements.textInputForm2;
 const inputRadio = myForm2.elements.radioBut;
 const inputCheckbox = document.forms.myForm.elements.inputCheck;
 const inputSelect = myForm2.elements.inputSelect;
+ */
+
 // console.log(inputCheck.form);
 // inputTextArea.value = `строка`;
 // console.log(inputTextArea.value);
@@ -61,11 +64,82 @@ console.log(inputCheckbox.checked);
  */
 // inputRadio[0].checked = false;
 
+/* 
 console.log(inputSelect.options);
 console.log(inputSelect.value);
 console.log(inputSelect.selectedIndex);
 let newOption = new Option("100", "5", true, true)
 inputSelect.append(newOption)
+ */
+
+const myForm = document.forms.myForm;
+console.log(myForm);
+const textInput = myForm.elements.textInputForm1;
+console.log(textInput);
+const suggestTextInput = document.querySelector(".box-form__signature");
+textInput.addEventListener("focus", function () {
+	textInput.placeholder = "";
+	suggestTextInput.innerHTML = "";
+});
+textInput.addEventListener("blur", function () {
+	textInput.placeholder = "Здесь текст";
+	if (textInput.value == '1') {
+		suggestTextInput.innerHTML = "Вы ввели 1"
+	}
+});
+
+const texAreaInput = myForm.elements.textInputForm2;
+
+setTimeout(() => {
+	texAreaInput.focus();
+}, 3000);
+
+textInput.addEventListener("change", () => {
+	console.log("Сработало change text");
+
+});
+
+const selectInput = myForm.elements.inputSelect;
+const checkBoxInput = myForm.elements.inputCheck;
+
+selectInput.addEventListener("change", () => {
+	console.log("Сработало change select");
+});
+checkBoxInput.addEventListener("change", () => {
+	console.log("Сработало change check");
+});
+
+
+/*
+document.addEventListener("click", () => {
+	console.log(document.activeElement);
+})
+*/
+
+// console.log(document.activeElement)
+
+
+/* textInput.addEventListener("input", () => {
+	console.log(`value: ${textInput.value}`);
+}); */
+
+/*
+textInput.addEventListener("copy", function (event) {
+	console.log(`Копируем`);
+});
+textInput.addEventListener("paste", function (event) {
+	console.log(`Вставляем`);
+});
+textInput.addEventListener("cut", function (event) {
+	console.log(`Вырезаем`);
+});
+ */
+
+/* texAreaInput.addEventListener("paste", function (event) {
+	console.log(`Нельзя вставить`);
+	event.preventDefault();
+});
+ */
 
 
 
@@ -486,7 +560,7 @@ mainFormFile.addEventListener("change", function (e) {
 
 //---------------------
 
-// Событие input
+// * Событие input
 /*
 Событие input срабатывает каждый раз при изменении значения.
 В отличие от событий клавиатуры, оно работает
@@ -522,6 +596,7 @@ mainFormInput.addEventListener("cut", function (event) {
 	console.log(`Вырезаем`);
 });
 */
+// * Блокируем вставку
 /*
 mainFormInput.addEventListener("paste", function (event) {
 	console.log(`Нельзя вставить`);

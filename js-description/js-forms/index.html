@@ -65,7 +65,8 @@
 				<div class="box-form__column">
 					<div class="box-form__item">
 						<label class="box-form__label_title" for="textInputForm1">Введите текст</label>
-						<input class="box-form__text-input" type="text" name="textInputForm1" id="textInputForm1" placeholder="Введите текст..">
+						<input class="box-form__text-input" autocomplete="off" type="text" name="textInputForm1" id="textInputForm1" placeholder="Введите текст..">
+						<div class="box-form__signature"></div>
 					</div>
 					<div class="box-form__item">
 						<label for="textInputForm2" class="box-form__label_title">Поле для ввода</label>
@@ -82,7 +83,7 @@
 						<label class="box-form__label_signatur" for="radio-but-2">Выбор 2</label>
 					</div>
 					<div class="box-form__item">
-						<input checked type="checkbox" name="inputCheck" value="email" id="inputCheck">
+						<input tabindex="-1" checked type="checkbox" name="inputCheck" value="email" id="inputCheck">
 						<label class="box-form__label_signatur" for="inputCheck">Чек бокс</label>
 					</div>
 					<div class="box-form__item">

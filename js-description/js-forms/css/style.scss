@@ -140,6 +140,7 @@ button:hover {
 .box-form {
     display: flex;
     flex-wrap: wrap;
+    position: relative;
 
     // .box-form__column
 
@@ -177,12 +178,29 @@ button:hover {
         border: 1px solid #000;
         border-radius: 6px;
         color: #fff;
+        outline: none;
+        transition: box-shadow 0.9s ease, border 1.5s ease;
+        // transition: all 0.3s ease;
         &:focus {
-            outline: 2px dotted rgb(231, 231, 0);
+            box-shadow: 0 0 10px #fff;
             border: 1px solid rgb(255, 255, 255);
+        }
+        &:focus {
+            &::placeholder {
+                opacity: 0;
+            }
+        }
+        &::placeholder {
+            opacity: 1;
+            transition: all 0.9s linear;
         }
     }
 
+    &__signature {
+        top: 19px;
+        color: red;
+        background: rgb(82, 44, 44);
+    }
     // .box-form__selecte
 
     &__selecte {

@@ -166,6 +166,7 @@ button:hover {
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+  position: relative;
 }
 
 .box-form__column {
@@ -189,11 +190,68 @@ button:hover {
   border: 1px solid #000;
   border-radius: 6px;
   color: #fff;
+  outline: none;
+  -webkit-transition: border 1.5s ease, -webkit-box-shadow 0.9s ease;
+  transition: border 1.5s ease, -webkit-box-shadow 0.9s ease;
+  -o-transition: box-shadow 0.9s ease, border 1.5s ease;
+  transition: box-shadow 0.9s ease, border 1.5s ease;
+  transition: box-shadow 0.9s ease, border 1.5s ease, -webkit-box-shadow 0.9s ease;
 }
 
 .box-form__text-input:focus {
-  outline: 2px dotted #e7e700;
+  -webkit-box-shadow: 0 0 10px #fff;
+          box-shadow: 0 0 10px #fff;
   border: 1px solid white;
+}
+
+.box-form__text-input:focus::-webkit-input-placeholder {
+  opacity: 0;
+}
+
+.box-form__text-input:focus:-ms-input-placeholder {
+  opacity: 0;
+}
+
+.box-form__text-input:focus::-ms-input-placeholder {
+  opacity: 0;
+}
+
+.box-form__text-input:focus::placeholder {
+  opacity: 0;
+}
+
+.box-form__text-input::-webkit-input-placeholder {
+  opacity: 1;
+  -webkit-transition: all 0.9s linear;
+  -o-transition: all 0.9s linear;
+  transition: all 0.9s linear;
+}
+
+.box-form__text-input:-ms-input-placeholder {
+  opacity: 1;
+  -webkit-transition: all 0.9s linear;
+  -o-transition: all 0.9s linear;
+  transition: all 0.9s linear;
+}
+
+.box-form__text-input::-ms-input-placeholder {
+  opacity: 1;
+  -webkit-transition: all 0.9s linear;
+  -o-transition: all 0.9s linear;
+  transition: all 0.9s linear;
+}
+
+.box-form__text-input::placeholder {
+  opacity: 1;
+  -webkit-transition: all 0.9s linear;
+  -o-transition: all 0.9s linear;
+  transition: all 0.9s linear;
+}
+
+.box-form__signature {
+  top: 19px;
+  color: red;
+  background: #522c2c;
 }
 
 .box-form__selecte {
