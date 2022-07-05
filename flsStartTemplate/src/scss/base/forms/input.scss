@@ -7,18 +7,16 @@ textarea {
 	-webkit-appearance: none;
 	-moz-appearance: none;
 	appearance: none;
-	&:focus {
-		outline: none;
-	}
 }
 .input {
 	border-radius: 0 !important;
 	width: 100%;
 	display: block;
 	padding: 0px 20px;
-	&._focus {
+	border: 1px solid #eee;
+	&._form-focus {
 	}
-	&._error {
+	&._form-error {
 	}
 }
 textarea.input {

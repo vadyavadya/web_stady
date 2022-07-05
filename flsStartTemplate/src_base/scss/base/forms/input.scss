@@ -14,9 +14,9 @@ textarea {
 	display: block;
 	padding: 0px 20px;
 	border: 1px solid #eee;
-	&._focus {
+	&._form-focus {
 	}
-	&._error {
+	&._form-error {
 	}
 }
 textarea.input {

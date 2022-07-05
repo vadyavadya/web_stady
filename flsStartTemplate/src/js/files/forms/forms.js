@@ -1,31 +1,25 @@
-// Импорт функционала ==============================================================================================================================================================================================================================================================================================================================
+// Подключение функционала "Чертогов Фрилансера"
+// Подключение списка активных модулей
+import { flsModules } from "../modules.js";
 // Вспомогательные функции
-import { isMobile, _slideUp, _slideDown, _slideToggle } from "../functions.js";
-// Модуль попапа
-// import { popupItem } from "../popups.js";
+import { isMobile, _slideUp, _slideDown, _slideToggle, FLS } from "../functions.js";
 // Модуль прокрутки к блоку
 import { gotoBlock } from "../scroll/gotoblock.js";
-// Класс select
-import { SelectConstructor } from "../../libs/select.js";
-//==============================================================================================================================================================================================================================================================================================================================
+//================================================================================================================================================================================================================================================================================================================================
 
 /*
-Чтобы поле участвовало в валидации добавляем атрибут data-required
-Особые проверки:
-data-required="email" - вадидация E-mail
-
-Чтобы поле валидировалось при потере фокуса, 
-к атрибуту data-required добавляем атрибут data-validate
-
-Чтобы вывести текст ошибки, нужно указать его в атрибуте data-error
+Документация: https://template.fls.guru/template-docs/rabota-s-formami.html
 */
 
 // Работа с полями формы. Добавление классов, работа с placeholder
-export function formFieldsInit() {
+export function formFieldsInit(options = { viewPass: false, autoHeight: false }) {
+	// Если включено, добавляем функционал "скрыть плейсходлер при фокусе"
 	const formFields = document.querySelectorAll('input[placeholder],textarea[placeholder]');
 	if (formFields.length) {
 		formFields.forEach(formField => {
-			formField.dataset.placeholder = formField.placeholder;
+			if (!formField.hasAttribute('data-placeholder-nohide')) {
+				formField.dataset.placeholder = formField.placeholder;
+			}
 		});
 	}
 	document.body.addEventListener("focusin", function (e) {
@@ -34,9 +28,10 @@ export function formFieldsInit() {
 			if (targetElement.dataset.placeholder) {
 				targetElement.placeholder = '';
 			}
-			targetElement.classList.add('_focus');
-			targetElement.parentElement.classList.add('_focus');
-
+			if (!targetElement.hasAttribute('data-no-focus-classes')) {
+				targetElement.classList.add('_form-focus');
+				targetElement.parentElement.classList.add('_form-focus');
+			}
 			formValidate.removeError(targetElement);
 		}
 	});
@@ -46,15 +41,49 @@ export function formFieldsInit() {
 			if (targetElement.dataset.placeholder) {
 				targetElement.placeholder = targetElement.dataset.placeholder;
 			}
-			targetElement.classList.remove('_focus');
-			targetElement.parentElement.classList.remove('_focus');
-
+			if (!targetElement.hasAttribute('data-no-focus-classes')) {
+				targetElement.classList.remove('_form-focus');
+				targetElement.parentElement.classList.remove('_form-focus');
+			}
 			// Моментальная валидация
 			if (targetElement.hasAttribute('data-validate')) {
 				formValidate.validateInput(targetElement);
 			}
 		}
 	});
+	// Если включено, добавляем функционал "Показать пароль"
+	if (options.viewPass) {
+		document.addEventListener("click", function (e) {
+			let targetElement = e.target;
+			if (targetElement.closest('[class*="__viewpass"]')) {
+				let inputType = targetElement.classList.contains('_viewpass-active') ? "password" : "text";
+				targetElement.parentElement.querySelector('input').setAttribute("type", inputType);
+				targetElement.classList.toggle('_viewpass-active');
+			}
+		});
+	}
+	// Если включено, добавляем функционал "Автовысота"
+	if (options.autoHeight) {
+		const textareas = document.querySelectorAll('textarea[data-autoheight]');
+		if (textareas.length) {
+			textareas.forEach(textarea => {
+				const startHeight = textarea.hasAttribute('data-autoheight-min') ?
+					Number(textarea.dataset.autoheightMin) : Number(textarea.offsetHeight);
+				const maxHeight = textarea.hasAttribute('data-autoheight-max') ?
+					Number(textarea.dataset.autoheightMax) : Infinity;
+				setHeight(textarea, Math.min(startHeight, maxHeight))
+				textarea.addEventListener('input', () => {
+					if (textarea.scrollHeight > startHeight) {
+						textarea.style.height = `auto`;
+						setHeight(textarea, Math.min(Math.max(textarea.scrollHeight, startHeight), maxHeight));
+					}
+				});
+			});
+			function setHeight(textarea, height) {
+				textarea.style.height = `${height}px`;
+			}
+		}
+	}
 }
 // Валидация форм
 export let formValidate = {
@@ -63,7 +92,7 @@ export let formValidate = {
 		let formRequiredItems = form.querySelectorAll('*[data-required]');
 		if (formRequiredItems.length) {
 			formRequiredItems.forEach(formRequiredItem => {
-				if (formRequiredItem.offsetParent !== null || formRequiredItem.tagName === "SELECT") {
+				if ((formRequiredItem.offsetParent !== null || formRequiredItem.tagName === "SELECT") && !formRequiredItem.disabled) {
 					error += this.validateInput(formRequiredItem);
 				}
 			});
@@ -84,7 +113,7 @@ export let formValidate = {
 			this.addError(formRequiredItem);
 			error++;
 		} else {
-			if (!formRequiredItem.value) {
+			if (!formRequiredItem.value.trim()) {
 				this.addError(formRequiredItem);
 				error++;
 			} else {
@@ -110,50 +139,57 @@ export let formValidate = {
 		}
 	},
 	formClean(form) {
-		let inputs = form.querySelectorAll('input,textarea');
-		for (let index = 0; index < inputs.length; index++) {
-			const el = inputs[index];
-			el.parentElement.classList.remove('_focus');
-			el.classList.remove('_focus');
-			el.value = el.dataset.placeholder;
-		}
-		let checkboxes = form.querySelectorAll('.checkbox__input');
-		if (checkboxes.length > 0) {
-			for (let index = 0; index < checkboxes.length; index++) {
-				const checkbox = checkboxes[index];
-				checkbox.checked = false;
+		form.reset();
+		setTimeout(() => {
+			let inputs = form.querySelectorAll('input,textarea');
+			for (let index = 0; index < inputs.length; index++) {
+				const el = inputs[index];
+				el.parentElement.classList.remove('_form-focus');
+				el.classList.remove('_form-focus');
+				formValidate.removeError(el);
 			}
-		}
-		let selects = form.querySelectorAll('select');
-		if (selects.length > 0) {
-			for (let index = 0; index < selects.length; index++) {
-				const select = selects[index];
+			let checkboxes = form.querySelectorAll('.checkbox__input');
+			if (checkboxes.length > 0) {
+				for (let index = 0; index < checkboxes.length; index++) {
+					const checkbox = checkboxes[index];
+					checkbox.checked = false;
+				}
 			}
-		}
+			if (flsModules.select) {
+				let selects = form.querySelectorAll('.select');
+				if (selects.length) {
+					for (let index = 0; index < selects.length; index++) {
+						const select = selects[index].querySelector('select');
+						flsModules.select.selectBuild(select);
+					}
+				}
+			}
+		}, 0);
 	},
 	emailTest(formRequiredItem) {
 		return !/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,8})+$/.test(formRequiredItem.value);
 	}
 }
 /* Отправка форм */
-export function formSubmit(validate) {
+export function formSubmit() {
 	const forms = document.forms;
 	if (forms.length) {
 		for (const form of forms) {
-			form.addEventListener('submit', formSubmitAction);
+			form.addEventListener('submit', function (e) {
+				const form = e.target;
+				formSubmitAction(form, e);
+			});
+			form.addEventListener('reset', function (e) {
+				const form = e.target;
+				formValidate.formClean(form);
+			});
 		}
 	}
-	function formSubmitAction(e) {
-		const form = e.target;
-		formSubmitItem(form, e);
-	}
-	async function formSubmitItem(form, e) {
-		const error = validate ? formValidate.getErrors(form) : 0;
+	async function formSubmitAction(form, e) {
+		const error = !form.hasAttribute('data-no-validate') ? formValidate.getErrors(form) : 0;
 		if (error === 0) {
-			const message = form.getAttribute('data-message');
 			const ajax = form.hasAttribute('data-ajax');
-			//SendForm
-			if (ajax) {
+			if (ajax) { // Если режим ajax
 				e.preventDefault();
 				const formAction = form.getAttribute('action') ? form.getAttribute('action').trim() : '#';
 				const formMethod = form.getAttribute('method') ? form.getAttribute('method').trim() : 'GET';
@@ -167,24 +203,14 @@ export function formSubmit(validate) {
 				if (response.ok) {
 					let responseResult = await response.json();
 					form.classList.remove('_sending');
-					if (message) {
-						// Нужно подключить зависимость
-						popupItem.open(`#${message}`);
-					}
-					formValidate.formClean(form);
+					formSent(form, responseResult);
 				} else {
 					alert("Ошибка");
 					form.classList.remove('_sending');
 				}
-			}
-			// If test
-			if (form.hasAttribute('data-test')) {
+			} else if (form.hasAttribute('data-dev')) {	// Если режим разработки
 				e.preventDefault();
-				if (message) {
-					// Нужно подключить зависимость
-					popupItem.open(`#${message}`);
-				}
-				formValidate.formClean(form);
+				formSent(form);
 			}
 		} else {
 			e.preventDefault();
@@ -192,41 +218,56 @@ export function formSubmit(validate) {
 			if (formError && form.hasAttribute('data-goto-error')) {
 				gotoBlock(formError, true, 1000);
 			}
-
 		}
 	}
-}
-// Модуль работы с select 
-export function formSelect(logging) {
-	const selectModule = new SelectConstructor({
-		logging: logging
-	});
-	return selectModule;
-}
-/* Модуь формы "показать пароль" */
-export function formViewpass() {
-	document.addEventListener("click", function (e) {
-		let targetElement = e.target;
-		if (targetElement.closest('[class*="__viewpass"]')) {
-			let inputType = targetElement.classList.contains('active') ? "password" : "text";
-			targetElement.parentElement.querySelector('input').setAttribute("type", inputType);
-			targetElement.classList.toggle('active');
-		}
-	});
+	// Действия после отправки формы
+	function formSent(form, responseResult = ``) {
+		// Создаем событие отправки формы
+		document.dispatchEvent(new CustomEvent("formSent", {
+			detail: {
+				form: form
+			}
+		}));
+		// Показываем попап, если подключен модуль попапов 
+		// и для формы указана настройка
+		setTimeout(() => {
+			if (flsModules.popup) {
+				const popup = form.dataset.popupMessage;
+				popup ? flsModules.popup.open(popup) : null;
+			}
+		}, 0);
+		// Очищаем форму
+		formValidate.formClean(form);
+		// Сообщаем в консоль
+		formLogging(`Форма отправлена!`);
+	}
+	function formLogging(message) {
+		FLS(`[Формы]: ${message}`);
+	}
 }
 /* Модуь формы "колличество" */
 export function formQuantity() {
 	document.addEventListener("click", function (e) {
 		let targetElement = e.target;
-		if (targetElement.closest('.quantity__button')) {
-			let value = parseInt(targetElement.closest('.quantity').querySelector('input').value);
-			if (targetElement.classList.contains('quantity__button_plus')) {
+		if (targetElement.closest('[data-quantity-plus]') || targetElement.closest('[data-quantity-minus]')) {
+			const valueElement = targetElement.closest('[data-quantity]').querySelector('[data-quantity-value]');
+			let value = parseInt(valueElement.value);
+			if (targetElement.hasAttribute('data-quantity-plus')) {
 				value++;
+				if (+valueElement.dataset.quantityMax && +valueElement.dataset.quantityMax < value) {
+					value = valueElement.dataset.quantityMax;
+				}
 			} else {
 				--value;
-				if (value < 1) value = 1;
+				if (+valueElement.dataset.quantityMin) {
+					if (+valueElement.dataset.quantityMin > value) {
+						value = valueElement.dataset.quantityMin;
+					}
+				} else if (value < 1) {
+					value = 1;
+				}
 			}
-			targetElement.closest('.quantity').querySelector('input').value = value;
+			targetElement.closest('[data-quantity]').querySelector('[data-quantity-value]').value = value;
 		}
 	});
 }

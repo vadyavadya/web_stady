@@ -26,7 +26,7 @@
 		"scope": "html",
 		"prefix": "tabs",
 		"body": [
-			"<div data-tabs class=\"tabs\">\n\t<nav data-tabs-titles class=\"tabs__navigation\">\n\t\t<button type=\"submit\" class=\"tabs__title _tab-active\">Таб №1</button>\n\t\t<button type=\"submit\" class=\"tabs__title\">Таб №2</button>\n\t\t<button type=\"submit\" class=\"tabs__title\">Таб №3</button>\n\t</nav>\n\t<div data-tabs-body class=\"tabs__content\">\n\t\t<div class=\"tabs__body\">\n\t\t\t1 Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore odio exercitationem, excepturi similique nulla, voluptatem reprehenderit neque a minima eaque tenetur? Quos fugit voluptate enim quo sed, minima error molestias!\n\t\t</div>\n\t\t<div class=\"tabs__body\">\n\t\t\t2 Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore odio exercitationem, excepturi similique nulla, voluptatem reprehenderit neque a minima eaque tenetur? Quos fugit voluptate enim quo sed, minima error molestias!\n\t\t</div>\n\t\t<div class=\"tabs__body\">\n\t\t\t3 Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore odio exercitationem, excepturi similique nulla, voluptatem reprehenderit neque a minima eaque tenetur? Quos fugit voluptate enim quo sed, minima error molestias!\n\t\t</div>\n\t</div>\n</div>"
+			"<div data-tabs class=\"${1:tabs}\">\n\t<nav data-tabs-titles class=\"${1:tabs}__navigation\">\n\t\t<button type=\"button\" class=\"${1:tabs}__title _tab-active\">Таб №1</button>\n\t\t<button type=\"button\" class=\"${1:tabs}__title\">Таб №2</button>\n\t\t<button type=\"button\" class=\"${1:tabs}__title\">Таб №3</button>\n\t</nav>\n\t<div data-tabs-body class=\"${1:tabs}__content\">\n\t\t<div class=\"${1:tabs}__body\">\n\t\t\tСодержимое первого таба\n\t\t</div>\n\t\t<div class=\"${1:tabs}__body\">\n\t\t\tСодержимое второго таба\n\t\t</div>\n\t\t<div class=\"${1:tabs}__body\">\n\t\t\tСодержимое третьего таба\n\t\t</div>\n\t</div>\n</div>"
 		],
 		"description": "Добавляет базовый HTML код табов"
 	},
@@ -34,7 +34,7 @@
 		"scope": "html",
 		"prefix": "showmore",
 		"body": [
-			"<div data-showmore class=\"${1:block}\">\n\t<div data-showmore-content class=\"${1:block}__content\"></div>\n\t<button data-showmore-button type=\"button\" class=\"${1:block}__more\"><span>Показать еще</span><span>Скыть</span></button>\n</div>"
+			"<div data-showmore class=\"${1:block}\">\n\t<div data-showmore-content class=\"${1:block}__content\"></div>\n\t<button hidden data-showmore-button type=\"button\" class=\"${1:block}__more\"><span>Показать еще</span><span>Скыть</span></button>\n</div>"
 		],
 		"description": "Добавляет базовый HTML код блока 'показать еще'"
 	},
@@ -42,14 +42,22 @@
 		"scope": "html",
 		"prefix": "swiper",
 		"body": [
-			"<div class=\"${1:имя блока}__slider\">\n\t<div class=\"${1:имя блока}__swiper\">\n\t\t<div class=\"${1:имя блока}__slide\"></div>\n\t</div>\n</div>"
+			"<div class=\"${1:имя-блока}__slider swiper\">\n\t<div class=\"${1:имя-блока}__wrapper swiper-wrapper\">\n\t\t<div class=\"${1:имя-блока}__slide swiper-slide\"></div>\n\t</div>\n</div>"
+		],
+		"description": "Добавляет базовый HTML код слайдера Swiper"
+	},
+	"Swiper Full": {
+		"scope": "html",
+		"prefix": "swiperfull",
+		"body": [
+			"<!-- Оболочка слайдера -->\n<div class=\"${1:имя-блока}__slider swiper\">\n\t<!-- Двигающееся часть слайдера -->\n\t<div class=\"${1:имя-блока}__wrapper swiper-wrapper\">\n\t\t<!-- Слайд -->\n\t\t<div class=\"${1:имя-блока}__slide swiper-slide\"></div>\n\t</div>\n\t<!-- Если нужна пагинация -->\n\t<div class=\"swiper-pagination\"></div>\n\t<!-- Если нужна навигация (влево/вправо) -->\n\t<button type=\"button\" class=\"swiper-button-prev\"></button>\n\t<button type=\"button\" class=\"swiper-button-next\"></button>\n\t<!-- Если нужен скролбар -->\n\t<div class=\"swiper-scrollbar\"></div>\n</div>"
 		],
 		"description": "Добавляет базовый HTML код слайдера Swiper"
 	},
 	"Quantity": {
 		"scope": "html",
 		"prefix": "quantity",
-		"body": "<div class=\"quantity\">\n\t<button type=\"button\" class=\"quantity__button quantity__button_plus\"></button>\n\t<div class=\"quantity__input\">\n\t\t<input autocomplete=\"off\" type=\"text\" name=\"form[]\" value=\"1\">\n\t</div>\n\t<button type=\"button\" class=\"quantity__button quantity__button_minus\"></button>\n</div>",
+		"body": "<div data-quantity class=\"quantity\">\n\t<button data-quantity-plus type=\"button\" class=\"quantity__button quantity__button_plus\"></button>\n\t<div class=\"quantity__input\">\n\t\t<input data-quantity-value autocomplete=\"off\" type=\"text\" name=\"form[]\" value=\"1\">\n\t</div>\n\t<button data-quantity-minus type=\"button\" class=\"quantity__button quantity__button_minus\"></button>\n</div>",
 		"description": "Добавняет HTML формы с кол-вом"
 	},
 	"Add tooltip": {
@@ -80,7 +88,7 @@
 		"scope": "html",
 		"prefix": "ibg",
 		"body": [
-			"<div class=\"${1:имя блока}__image-ibg\"><img src=\"@img$2\" alt=\"\"></div>"
+			"<div class=\"${1:имя блока}__image-ibg\"><img data-src=\"@img$2\" alt=\"\"></div>"
 		],
 		"description": "Добавляет объект с картинкой и классом IBG"
 	},
@@ -88,7 +96,7 @@
 		"scope": "html",
 		"prefix": "ibga",
 		"body": [
-			"<a href=\"\" class=\"${1:имя блока}__image-ibg\"><img src=\"@img$2\" alt=\"\"></a>"
+			"<a href=\"\" class=\"${1:имя блока}__image-ibg\"><img data-src=\"@img$2\" alt=\"\"></a>"
 		],
 		"description": "Добавляет ссылку с картинкой и классом IBG"
 	},
@@ -110,7 +118,7 @@
 		"body": [
 			"@include adaptiveValue(\"${1:font-size}\", $2, $3);"
 		],
-		"description": "Адаптивное свойство: CSS-свойство, начальное значение, конечное значение, ширина начальная, ширина конечная"
+		"description": "Адаптивное свойство (clamp): CSS-свойство, начальное значение, конечное значение, ширина начальная, ширина конечная"
 	},
 	"EM": {
 		"scope": "scss",
@@ -160,10 +168,34 @@
 		],
 		"description": "Деление чисел"
 	},
+	"Width with REM": {
+		"scope": "scss",
+		"prefix": "w",
+		"body": "width: rem($1);",
+		"description": "Добавляет width c переводом в REM"
+	},
+	"Height with REM": {
+		"scope": "scss",
+		"prefix": "h",
+		"body": "height: rem($1);",
+		"description": "Добавляет height c переводом в REM"
+	},
+	"Margin bottom with REM": {
+		"scope": "scss",
+		"prefix": "mb",
+		"body": "margin-bottom: rem($1);",
+		"description": "Добавляет нижний отступ c переводом в REM"
+	},
+	"Margin top with REM": {
+		"scope": "scss",
+		"prefix": "mt",
+		"body": "margin-top: rem($1);",
+		"description": "Добавляет верхний отступ c переводом в REM"
+	},
 	"Margin bottom with EM": {
 		"scope": "scss",
 		"prefix": "mbe",
-		"body": "margin-bottom: math.div($1, $2) + em;",
+		"body": "margin-bottom: em($1, $2);",
 		"description": "Добавляет нижний отступ c переводом в EM"
 	},
 	"Margin Bottom not last-child": {
@@ -212,6 +244,12 @@
 		"scope": "scss",
 		"prefix": "mw",
 		"body": "max-width: rem($1);",
+		"description": "Максимальная ширина"
+	},
+	"Form Email": {
+		"scope": "html",
+		"prefix": "formemail",
+		"body": "<form action=\"files/sendmail/sendmail.php\" method=\"POST\">\n\t<input type=\"text\" name=\"form[email]\" data-error=\"Error\" placeholder=\"E-mail\" class=\"input\">\n\t<button type=\"submit\" class=\"button\">Send</button>\n</form>",
 		"description": "Максимальная ширина"
 	},
 	"@media max": {
@@ -276,143 +314,122 @@
 		],
 		"description": "z-index"
 	},
-	"avv": {
-		"prefix": "avv",
+	"fbpp": {
+		"prefix": "fbpp",
 		"body": [
-			"@include adaptivValueWH(\"$1\", $2, $3);"
+			"flex: 0 0 percent($1, $2);"
 		],
-		"description": "adaptivValueWH"
+		"description": "fbpp"
 	},
-	"pi": {
-		"prefix": "pi",
-		"body": [
-			"@include adaptiv-value(\"padding\", 60, 20, 0);"
-		],
-		"description": "padding"
-	},
-	"pil": {
-		"prefix": "pil",
-		"body": [
-			"@include adaptiv-value(\"padding-left\", 60, 20, 0);"
-		],
-		"description": "padding"
-	},
-	"pir": {
-		"prefix": "pir",
-		"body": [
-			"@include adaptiv-value(\"padding-right\", 60, 20, 0);"
-		],
-		"description": "padding"
-	},
-	"pit": {
-		"prefix": "pit",
-		"body": [
-			"@include adaptiv-value(\"padding-top\", 60, 20, 0);"
-		],
-		"description": "padding"
-	},
-	"pib": {
-		"prefix": "pib",
-		"body": [
-			"@include adaptiv-value(\"padding-bottom\", 60, 20, 0);"
-		],
-		"description": "padding"
-	},
-	"pp": {
+	"Padding": {
+		"scope": "scss,css",
 		"prefix": "pp",
 		"body": [
-			"padding: 0px 0px 0px 0px;"
+			"padding: rem(0) rem(0) rem(0) rem(0);"
 		],
 		"description": "padding"
 	},
-	"ppp": {
+	"Padding left and right": {
+		"scope": "scss,css",
 		"prefix": "ppp",
 		"body": [
-			"padding: 0px $1px;"
+			"padding: 0 rem($1);"
 		],
-		"description": "padding2"
+		"description": "Padding left and right"
 	},
-	"ppt": {
+	"Padding top": {
+		"scope": "scss,css",
 		"prefix": "ppt",
 		"body": [
-			"padding: $1px 0px 0px 0px;"
+			"padding-top: rem($1);"
 		],
 		"description": "padding top"
 	},
-	"ppb": {
+	"Padding bottom": {
+		"scope": "scss,css",
 		"prefix": "ppb",
 		"body": [
-			"padding: 0px 0px $1px 0px;"
+			"padding-bottom: rem($1);"
 		],
 		"description": "padding bottom"
 	},
-	"ppl": {
+	"Padding left": {
+		"scope": "scss,css",
 		"prefix": "ppl",
 		"body": [
-			"padding: 0px 0px 0px $1px;"
+			"padding-left: rem($1);"
 		],
 		"description": "padding left"
 	},
-	"ppr": {
+	"Padding right": {
+		"scope": "scss,css",
 		"prefix": "ppr",
 		"body": [
-			"padding: 0px $1px 0px 0px;"
+			"padding-right: rem($1);"
 		],
 		"description": "padding right"
 	},
-	"mm": {
+	"Margin": {
+		"scope": "scss,css",
 		"prefix": "mm",
 		"body": [
-			"margin: 0px 0px 0px 0px;"
+			"margin: rem(0) rem(0) rem(0) rem(0);"
 		],
 		"description": "margin"
 	},
-	"mr": {
+	"Margin to right": {
+		"scope": "scss,css",
 		"prefix": "mr",
 		"body": [
-			"margin: 0px 0px 0px auto;"
+			"margin: 0 0 0 auto;"
 		],
 		"description": "margin"
 	},
-	"mmm": {
+	"Margin left and right": {
+		"scope": "scss,css",
 		"prefix": "mmm",
 		"body": [
-			"margin: 0px $1px;"
+			"margin: 0px rem($1);"
 		],
-		"description": "margin2"
+		"description": "margin left and right"
 	},
-	"mmt": {
+	"Margin top": {
+		"scope": "scss,css",
 		"prefix": "mmt",
 		"body": [
-			"margin: $1px 0px 0px 0px;"
+			"margin-top: rem($1);"
 		],
 		"description": "margin top"
 	},
-	"mmb": {
+	"Margin bottom": {
+		"scope": "scss,css",
 		"prefix": "mmb",
 		"body": [
-			"margin: 0px 0px $1px 0px;"
+			"margin-bottom: rem($1);"
 		],
 		"description": "margin bottom"
 	},
-	"mml": {
+	"Margin left": {
+		"scope": "scss,css",
 		"prefix": "mml",
 		"body": [
-			"margin: 0px 0px 0px $1px;"
+			"margin-left: rem($1);"
 		],
 		"description": "margin left"
 	},
-	"mmr": {
+	"Margin right": {
+		"scope": "scss,css",
 		"prefix": "mmr",
 		"body": [
-			"margin: 0px $1px 0px 0px;"
+			"margin-right: rem($1);"
 		],
 		"description": "margin right"
 	},
-	"mu": {
+	"Margin 0 auto": {
+		"scope": "scss,css",
 		"prefix": "mu",
 		"body": [
-			"margin: 0px auto;"
+			"margin: 0 auto;"
 		],
 		"description": "margin center"
 	},
@@ -872,12 +889,12 @@
 	},
 	"Select": {
 		"prefix": "sel",
-		"body": "<select name=\"form[]\" class=\"form\">\n\t<option value=\"1\" selected>Пункт №1</option>\n\t<option value=\"2\">Пункт №2</option>\n\t<option value=\"3\">Пункт №3</option>\n\t<option value=\"4\">Пункт №4</option>\n</select>",
+		"body": "<select name=\"form[]\" data-class-modif=\"form\">\n\t<option value=\"1\" selected>Пункт №1</option>\n\t<option value=\"2\">Пункт №2</option>\n\t<option value=\"3\">Пункт №3</option>\n\t<option value=\"4\">Пункт №4</option>\n</select>",
 		"description": "sel"
 	},
 	"Radio buttons": {
 		"prefix": "opt",
-		"body": "<div class=\"options\">\n\t<div class=\"options__item\">\n\t\t<input hidden id=\"o_1\" class=\"options__input\" checked type=\"radio\" value=\"1\" name=\"option\">\n\t\t<label for=\"o_1\" class=\"options__label\"><span class=\"options__text\">${1:Текст}</span></label>\n\t</div>\n\t<div class=\"options__item\">\n\t\t<input hidden id=\"o_2\" class=\"options__input\" type=\"radio\" value=\"2\" name=\"option\">\n\t\t<label for=\"o_2\" class=\"options__label\"><span class=\"options__text\">${2:Текст}</span></label>\n\t</div>\n</div>",
+		"body": "<div class=\"options\">\n\t<div class=\"options__item\">\n\t\t<input id=\"o_1\" class=\"options__input\" checked type=\"radio\" value=\"1\" name=\"option\">\n\t\t<label for=\"o_1\" class=\"options__label\"><span class=\"options__text\">${1:Текст}</span></label>\n\t</div>\n\t<div class=\"options__item\">\n\t\t<input id=\"o_2\" class=\"options__input\" type=\"radio\" value=\"2\" name=\"option\">\n\t\t<label for=\"o_2\" class=\"options__label\"><span class=\"options__text\">${2:Текст}</span></label>\n\t</div>\n</div>",
 		"description": ""
 	},
 	"CheckBox": {
@@ -912,13 +929,18 @@
 	},
 	"logo": {
 		"prefix": "logo",
-		"body": "<a href=\"\" class=\"header__logo\"><img src=\"../img/logo.svg\" alt=\"\"></a>",
+		"body": "<a href=\"\" class=\"header__logo\"><img data-src=\"../img/logo.svg\" alt=\"\"></a>",
 		"description": "logo"
 	},
 	"Image": {
 		"prefix": "img",
 		"body": "<img src=\"@img$0\" alt=\"\">",
 		"description": "img"
+	},
+	"Image Lazy": {
+		"prefix": "imgl",
+		"body": "<img data-src=\"@img$0\" alt=\"\">",
+		"description": "img lazy load"
 	},
 	/*
 	"Image": {

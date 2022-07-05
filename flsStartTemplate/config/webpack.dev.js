@@ -51,10 +51,21 @@ const config = {
 		static: paths.build,
 		open: true,
 		compress: true,
-		port: 8080,
+		port: 'auto',
 		hot: true,
+		host: 'local-ip', // localhost
+
+		// Расскоментировать на слабом ПК
+		// (в режиме разработчика, папка с результаттом будет создаваться на диске)
+		/*
+		devMiddleware: {
+			writeToDisk: true,
+		},
+		*/
+
 		watchFiles: [
 			`${paths.src}/**/*.html`,
+			`${paths.src}/**/*.pug`,
 			`${paths.src}/**/*.htm`,
 			`${paths.src}/img/**/*.*`
 		],

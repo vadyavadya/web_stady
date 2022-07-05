@@ -1,42 +1,25 @@
 // Подключение функционала "Чертогов Фрилансера"
+// Подключение списка активных модулей
+import { flsModules } from "../modules.js";
 // Вспомогательные функции
 import { isMobile, _slideUp, _slideDown, _slideToggle, FLS } from "../functions.js";
 // Модуль прокрутки к блоку
 import { gotoBlock } from "../scroll/gotoblock.js";
-// Класс select
-import { SelectConstructor } from "../../libs/select.js";
-// Класс масок
-import { InputMask } from "../../libs/inputmask.js";
-//==============================================================================================================================================================================================================================================================================================================================
-// Объект модулей форм для экспорта
-export const formsModules = {
-	inputMaskModule: null,
-	selectModule: null
-}
 //================================================================================================================================================================================================================================================================================================================================
 
 /*
-Чтобы поле участвовало в валидации добавляем атрибут data-required
-Особые проверки:
-data-required="email" - вадидация E-mail
-
-Чтобы поле валидировалось при потере фокуса, 
-к атрибуту data-required добавляем атрибут data-validate
-
-Чтобы вывести текст ошибки, нужно указать его в атрибуте data-error
-
-data-popup-message - указываем селектор попапа который нужно показать после отправки формы (режимы data-ajax или data-dev) ! необходимо подключить функционал попапов в app.js
-data-ajax - отправляем данные формы AJAX запросом по адресу указанному в action методом указанным в method
-data-dev - режим разработчика - эмитируем отправку формы
-data-goto-error - прокрутить страницу к ошибке
+Документация: https://template.fls.guru/template-docs/rabota-s-formami.html
 */
 
 // Работа с полями формы. Добавление классов, работа с placeholder
-export function formFieldsInit() {
+export function formFieldsInit(options = { viewPass: false, autoHeight: false }) {
+	// Если включено, добавляем функционал "скрыть плейсходлер при фокусе"
 	const formFields = document.querySelectorAll('input[placeholder],textarea[placeholder]');
 	if (formFields.length) {
 		formFields.forEach(formField => {
-			formField.dataset.placeholder = formField.placeholder;
+			if (!formField.hasAttribute('data-placeholder-nohide')) {
+				formField.dataset.placeholder = formField.placeholder;
+			}
 		});
 	}
 	document.body.addEventListener("focusin", function (e) {
@@ -45,9 +28,10 @@ export function formFieldsInit() {
 			if (targetElement.dataset.placeholder) {
 				targetElement.placeholder = '';
 			}
-			targetElement.classList.add('_form-focus');
-			targetElement.parentElement.classList.add('_form-focus');
-
+			if (!targetElement.hasAttribute('data-no-focus-classes')) {
+				targetElement.classList.add('_form-focus');
+				targetElement.parentElement.classList.add('_form-focus');
+			}
 			formValidate.removeError(targetElement);
 		}
 	});
@@ -57,15 +41,49 @@ export function formFieldsInit() {
 			if (targetElement.dataset.placeholder) {
 				targetElement.placeholder = targetElement.dataset.placeholder;
 			}
-			targetElement.classList.remove('_form-focus');
-			targetElement.parentElement.classList.remove('_form-focus');
-
+			if (!targetElement.hasAttribute('data-no-focus-classes')) {
+				targetElement.classList.remove('_form-focus');
+				targetElement.parentElement.classList.remove('_form-focus');
+			}
 			// Моментальная валидация
 			if (targetElement.hasAttribute('data-validate')) {
 				formValidate.validateInput(targetElement);
 			}
 		}
 	});
+	// Если включено, добавляем функционал "Показать пароль"
+	if (options.viewPass) {
+		document.addEventListener("click", function (e) {
+			let targetElement = e.target;
+			if (targetElement.closest('[class*="__viewpass"]')) {
+				let inputType = targetElement.classList.contains('_viewpass-active') ? "password" : "text";
+				targetElement.parentElement.querySelector('input').setAttribute("type", inputType);
+				targetElement.classList.toggle('_viewpass-active');
+			}
+		});
+	}
+	// Если включено, добавляем функционал "Автовысота"
+	if (options.autoHeight) {
+		const textareas = document.querySelectorAll('textarea[data-autoheight]');
+		if (textareas.length) {
+			textareas.forEach(textarea => {
+				const startHeight = textarea.hasAttribute('data-autoheight-min') ?
+					Number(textarea.dataset.autoheightMin) : Number(textarea.offsetHeight);
+				const maxHeight = textarea.hasAttribute('data-autoheight-max') ?
+					Number(textarea.dataset.autoheightMax) : Infinity;
+				setHeight(textarea, Math.min(startHeight, maxHeight))
+				textarea.addEventListener('input', () => {
+					if (textarea.scrollHeight > startHeight) {
+						textarea.style.height = `auto`;
+						setHeight(textarea, Math.min(Math.max(textarea.scrollHeight, startHeight), maxHeight));
+					}
+				});
+			});
+			function setHeight(textarea, height) {
+				textarea.style.height = `${height}px`;
+			}
+		}
+	}
 }
 // Валидация форм
 export let formValidate = {
@@ -95,7 +113,7 @@ export let formValidate = {
 			this.addError(formRequiredItem);
 			error++;
 		} else {
-			if (!formRequiredItem.value) {
+			if (!formRequiredItem.value.trim()) {
 				this.addError(formRequiredItem);
 				error++;
 			} else {
@@ -129,7 +147,6 @@ export let formValidate = {
 				el.parentElement.classList.remove('_form-focus');
 				el.classList.remove('_form-focus');
 				formValidate.removeError(el);
-				el.value = el.dataset.placeholder;
 			}
 			let checkboxes = form.querySelectorAll('.checkbox__input');
 			if (checkboxes.length > 0) {
@@ -138,12 +155,12 @@ export let formValidate = {
 					checkbox.checked = false;
 				}
 			}
-			if (formsModules.selectModule) {
+			if (flsModules.select) {
 				let selects = form.querySelectorAll('.select');
 				if (selects.length) {
 					for (let index = 0; index < selects.length; index++) {
 						const select = selects[index].querySelector('select');
-						formsModules.selectModule.selectBuild(select);
+						flsModules.select.selectBuild(select);
 					}
 				}
 			}
@@ -154,7 +171,7 @@ export let formValidate = {
 	}
 }
 /* Отправка форм */
-export function formSubmit(validate) {
+export function formSubmit() {
 	const forms = document.forms;
 	if (forms.length) {
 		for (const form of forms) {
@@ -169,7 +186,7 @@ export function formSubmit(validate) {
 		}
 	}
 	async function formSubmitAction(form, e) {
-		const error = validate ? formValidate.getErrors(form) : 0;
+		const error = !form.hasAttribute('data-no-validate') ? formValidate.getErrors(form) : 0;
 		if (error === 0) {
 			const ajax = form.hasAttribute('data-ajax');
 			if (ajax) { // Если режим ajax
@@ -186,7 +203,7 @@ export function formSubmit(validate) {
 				if (response.ok) {
 					let responseResult = await response.json();
 					form.classList.remove('_sending');
-					formSent(form);
+					formSent(form, responseResult);
 				} else {
 					alert("Ошибка");
 					form.classList.remove('_sending');
@@ -204,13 +221,21 @@ export function formSubmit(validate) {
 		}
 	}
 	// Действия после отправки формы
-	function formSent(form) {
+	function formSent(form, responseResult = ``) {
 		// Создаем событие отправки формы
 		document.dispatchEvent(new CustomEvent("formSent", {
 			detail: {
 				form: form
 			}
 		}));
+		// Показываем попап, если подключен модуль попапов 
+		// и для формы указана настройка
+		setTimeout(() => {
+			if (flsModules.popup) {
+				const popup = form.dataset.popupMessage;
+				popup ? flsModules.popup.open(popup) : null;
+			}
+		}, 0);
 		// Очищаем форму
 		formValidate.formClean(form);
 		// Сообщаем в консоль
@@ -220,40 +245,29 @@ export function formSubmit(validate) {
 		FLS(`[Формы]: ${message}`);
 	}
 }
-/* Маски для полей (в работе) */
-export function formMasks(logging) {
-	formsModules.inputMaskModule = new InputMask({
-		logging: logging
-	});
-}
-/* Модуль работы с select */
-export function formSelect() {
-	formsModules.selectModule = new SelectConstructor({});
-}
-/* Модуь формы "показать пароль" */
-export function formViewpass() {
-	document.addEventListener("click", function (e) {
-		let targetElement = e.target;
-		if (targetElement.closest('[class*="__viewpass"]')) {
-			let inputType = targetElement.classList.contains('active') ? "password" : "text";
-			targetElement.parentElement.querySelector('input').setAttribute("type", inputType);
-			targetElement.classList.toggle('active');
-		}
-	});
-}
 /* Модуь формы "колличество" */
 export function formQuantity() {
 	document.addEventListener("click", function (e) {
 		let targetElement = e.target;
-		if (targetElement.closest('.quantity__button')) {
-			let value = parseInt(targetElement.closest('.quantity').querySelector('input').value);
-			if (targetElement.classList.contains('quantity__button_plus')) {
+		if (targetElement.closest('[data-quantity-plus]') || targetElement.closest('[data-quantity-minus]')) {
+			const valueElement = targetElement.closest('[data-quantity]').querySelector('[data-quantity-value]');
+			let value = parseInt(valueElement.value);
+			if (targetElement.hasAttribute('data-quantity-plus')) {
 				value++;
+				if (+valueElement.dataset.quantityMax && +valueElement.dataset.quantityMax < value) {
+					value = valueElement.dataset.quantityMax;
+				}
 			} else {
 				--value;
-				if (value < 1) value = 1;
+				if (+valueElement.dataset.quantityMin) {
+					if (+valueElement.dataset.quantityMin > value) {
+						value = valueElement.dataset.quantityMin;
+					}
+				} else if (value < 1) {
+					value = 1;
+				}
 			}
-			targetElement.closest('.quantity').querySelector('input').value = value;
+			targetElement.closest('[data-quantity]').querySelector('[data-quantity-value]').value = value;
 		}
 	});
 }
