@@ -5,25 +5,25 @@
 	&__container {
 		// .header__container_wide
 		&_wide {
-			height: 121px;
+			@include adaptiveValue("min-height", 121, 50);
 			display: flex;
 			align-items: center;
 			gap: 12px;
 		}
 	}
 	// .header__logo
-
+	&__column {
+		flex-grow: 0;
+		flex-shrink: 0;
+		@include adaptiveValue("flex-basis", 400, 310, 1680, 1199, 1);
+	}
 	&__logo {
-		flex: 1 1 20%;
 		@extend %ffcu;
 		font-weight: 700;
-		font-size: 44px;
 		line-height: 1.3;
 		letter-spacing: 0.04em;
 		text-transform: uppercase;
-		@media (max-width: em(1680)) {
-			@include adaptiveValue("font-size", 44, 24);
-		}
+		@include adaptiveValue("font-size", 44, 24, 1680, 767.98, 1);
 	}
 	// .header__menu
 	&__menu {
@@ -31,9 +31,8 @@
 	}
 	// .header__auth
 	&__auth {
-		flex: 1 1 20%;
 	}
-	@media (max-width: 1199.98px) {
+	@media (max-width: 999.98px) {
 		&__logo {
 			flex: 0 1 auto;
 		}
@@ -54,10 +53,12 @@
 	}
 	// .menu__body
 	&__body {
-		@media (max-width: 1199.98px) {
-			position: absolute;
-			top: -100%;
-			display: block;
+		@media (max-width: 999.98px) {
+			position: fixed;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: -100%;
 		}
 	}
 	// .menu__list
@@ -65,8 +66,9 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		gap: 32px;
 		flex-wrap: wrap;
+		row-gap: 5px;
+		@include adaptiveValue("column-gap", 32, 15, 1330, 768, 1);
 	}
 	// .menu__item
 	&__item {
@@ -87,6 +89,7 @@
 .auth-header {
 	display: flex;
 	gap: 12px;
+	@include adaptiveValue("gap", 50, 10, 1680, 523, 1);
 	justify-content: flex-end;
 	flex-wrap: wrap;
 	// .auth-header__item
@@ -102,16 +105,13 @@
 			color: #dcca87;
 		}
 		&:not(:last-child) {
-			@media (min-width: em(1680)) {
-				margin-right: 50px;
-				&::after {
-					content: "";
-					display: block;
-					width: 2px;
-					height: 57px;
-					background: radial-gradient(50% 50% at 100% 50%, #ffffff 58.85%, rgba(255, 255, 255, 0) 100%);
-					margin-left: 50px;
-				}
+			&::after {
+				content: "";
+				display: block;
+				width: 2px;
+				height: 57px;
+				background: radial-gradient(50% 50% at 100% 50%, #ffffff 58.85%, rgba(255, 255, 255, 0) 100%);
+				@include adaptiveValue("margin-left", 50, 10, 1680, 523, 1);
 			}
 		}
 	}
@@ -122,7 +122,7 @@
 
 .icon-menu {
 	display: none;
-	@media (max-width: 1199.98px) {
+	@media (max-width: 999.98px) {
 		display: block;
 		position: relative;
 		width: rem(30);
