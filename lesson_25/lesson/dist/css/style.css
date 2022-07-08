@@ -3,14 +3,6 @@
 @charset "UTF-8";
 
 @font-face {
-  font-family: CormorantUpright;
-  font-display: swap;
-  src: url("../fonts/CormorantUpright-Regular.woff2") format("woff2"), url("../fonts/CormorantUpright-Regular.woff") format("woff");
-  font-weight: 400;
-  font-style: normal;
-}
-
-@font-face {
   font-family: icons;
   font-display: swap;
   src: url("../fonts/icons.woff2") format("woff2"), url("../fonts/icons.woff") format("woff");
@@ -23,6 +15,14 @@
   font-display: swap;
   src: url("../fonts/CormorantUpright-Bold.woff2") format("woff2"), url("../fonts/CormorantUpright-Bold.woff") format("woff");
   font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: CormorantUpright;
+  font-display: swap;
+  src: url("../fonts/CormorantUpright-Regular.woff2") format("woff2"), url("../fonts/CormorantUpright-Regular.woff") format("woff");
+  font-weight: 400;
   font-style: normal;
 }
 
@@ -93,7 +93,7 @@ body {
 }
 
 body {
-  color: #aaaaaa;
+  color: #aaa;
   line-height: 1;
   font-family: "Open Sans", sans-serif;
   font-size: 1rem;
@@ -188,7 +188,7 @@ body {
 */
 
 [class*=__container] {
-  max-width: 81.25rem;
+  max-width: 73.125rem;
   -webkit-box-sizing: content-box;
           box-sizing: content-box;
   margin: 0 auto;
@@ -343,15 +343,15 @@ body {
 }
 
 @media (max-width: 105em) {
-@supports (font-size: clamp( 1.5rem , 1.103960396rem  +  1.9801980198vw , 2.75rem )) {
+@supports (font-size: clamp( 1.5rem , 1.0454545455rem  +  2.2727272727vw , 2.75rem )) {
     .header__logo {
-      font-size: clamp( 1.5rem , 1.103960396rem  +  1.9801980198vw , 2.75rem );
+      font-size: clamp( 1.5rem , 1.0454545455rem  +  2.2727272727vw , 2.75rem );
     }
 }
 
-@supports not (font-size: clamp( 1.5rem , 1.103960396rem  +  1.9801980198vw , 2.75rem )) {
+@supports not (font-size: clamp( 1.5rem , 1.0454545455rem  +  2.2727272727vw , 2.75rem )) {
     .header__logo {
-      font-size: calc(1.5rem + 1.25 * (100vw - 20rem) / 63.125);
+      font-size: calc(1.5rem + 1.25 * (100vw - 20rem) / 55);
     }
 }
 }
