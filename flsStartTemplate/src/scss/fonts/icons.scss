@@ -14,3 +14,22 @@
 		display: block;
 	}
 }
+
+._icon-facebook:before {
+	content: "\e900";
+}
+._icon-inst:before {
+	content: "\e901";
+}
+._icon-twit:before {
+	content: "\e905";
+}
+._icon-quote:before {
+	content: "\e902";
+}
+._icon-select-arrow:before {
+	content: "\e903";
+}
+._icon-spoon:before {
+	content: "\e904";
+}
