@@ -2,11 +2,11 @@
 // Для подключения/отключения стилей конкретного єлемента формы смотри base/forms/forms.scss
 @import "base/forms/forms";
 
-// Стили попапов
-// @import "base/popup";
-
 // Стили спойлеров
 // @import "base/spollers";
+
+// Стили попапов
+// @import "base/popup";
 
 // Стили табов
 // @import "base/tabs";
@@ -18,10 +18,7 @@
 // @import "base/showmore";
 
 // Стили для полноэкранного блока
-// @import "base/fullscgit sreen";
-
-// Стили для липкого блока
-// @import "base/sticky";
+@import "base/fullscreen";
 
 // Стили для отзывчивых картинок (IBG)
 // Сниппет (HTML): ibg (div c картинкой и классами)
@@ -125,6 +122,6 @@
 		display: none;
 	}
 }
-%ffcu {
+%cuf {
 	font-family: CormorantUpright;
 }

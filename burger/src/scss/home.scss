@@ -1,0 +1,36 @@
+//====================================================================================================
+.page {
+    padding-top: rem(110);
+    background: #333;
+    color: #ddd;
+    // .page__section
+    &__section {
+        padding: 20px;
+        margin-bottom: 20px;
+        // .page__section_1
+        &_1 {
+            background-color: #794f45;
+        }
+        // .page__section_2
+        &_2 {
+            background-color: #77608d;
+        }
+        // .page__section_3
+        &_3 {
+            background-color: #7a956b;
+        }
+    }
+    // .page__title
+    &__title {
+        font-size: rem(32);
+        margin-bottom: rem(20);
+    }
+    // .page__text
+    &__text {
+        p {
+            margin-bottom: rem(12);
+        }
+    }
+}
+
+//====================================================================================================
