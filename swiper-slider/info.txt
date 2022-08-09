@@ -1,0 +1,28 @@
+1) для swiper есть сниппет swiper короткий swiperfull полный
+2) в app.js подключаем слайдера "import "./files/sliders.js";"
+3) в js/files/sliders.js идет настройка слайера
+    пагинация славйдера с номером страницы 
+    // Пагинация
+			pagination: {
+				el: '.swiper-pagination',
+				clickable: true,
+				// Динамические буллеты
+				dynamicBullets: true,
+				// Кастом булеты
+				renderBullet: function (index, className) {
+					return '<span class="' + className + '">' + (index + 1) + '</span>';
+				}
+			},
+    
+    Пагинация фракции типо 1\3
+// Пагинация
+			pagination: {
+				el: '.swiper-pagination',
+				type: 'fraction',
+				renderFraction: function (currentClass, totalClass) {
+					return 'Фото <span class="' + currentClass + '"></span>'
+						+ ' из '
+						+ '<span class="' + totalClass + ' "></span>'
+
+				},
+			},

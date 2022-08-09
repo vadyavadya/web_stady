@@ -1,0 +1,23 @@
+//<BUTTONS (a.btn+tab)>
+// Снипет (HTML): btn
+
+.button {
+	display: inline-flex;
+	padding: 0px 0px;
+	@media (any-hover: hover) {
+		&:hover {
+			background-color: $colorCalicioHover;
+		}
+	}
+	&._fw {
+		width: 100%;
+	}
+	@extend %ffcu;
+	font-weight: 700;
+	font-size: rem(16);
+	line-height: 1.75;
+	letter-spacing: 0.04em;
+	color: $colorBg;
+	padding: rem(8) rem(32);
+	background-color: $colorCalicio;
+}

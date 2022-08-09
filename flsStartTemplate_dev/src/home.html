@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ru">
+@@include('html/_head.htm',{
+"title":"Главная"
+})
+
+<body>
+	<div class="wrapper">
+		@@include('html/_header.htm',{})
+		<main class="page">
+			<div data-fullscreen class="page__main">
+				<div class="page__container page__container_wide">
+					<nav class="page__hashtag hashtag">
+						<ul class="hashtag__list">
+							<li class="hashtag__item"><a href="" class="link">#Gericht</a></li>
+							<li class="hashtag__item"><a href="" class="link">#Bar</a></li>
+						</ul>
+					</nav>
+					<div class="page__slider swiper-main swiper swiper-main__container">
+						<div class="swiper-main__wrapper swiper-wrapper">
+							<div class="swiper-main__slide swiper-slide">
+								<div class="swiper-main__content">
+									<div class="swiper-main__title tile tile_left">
+										<h2 class="tile__subtitle">Chase the new Flavour</h2>
+										<h1 class="tile__title tile__title_big  _icon-spoon">The key to Fine dining</h1>
+									</div>
+									<p class="swiper-main__text text">
+										Sit tellus lobortis sed senectus vivamus molestie. Condimentum volutpat morbi facilisis quam scelerisque sapien. Et, penatibus aliquam amet tellus
+									</p>
+									<a class="swiper-main__button button">Explore Menu</a>
+								</div>
+								<div class="swiper-main__image-ibg">
+									<img src="@img/01.jpg" alt="Фото еды">
+								</div>
+							</div>
+							<div class="swiper-main__slide swiper-slide">
+								<div class="swiper-main__content">
+									<div class="swiper-main__title tile tile_left">
+										<h2 class="tile__subtitle">subtitle 2</h2>
+										<h1 class="tile__title tile__title_big  _icon-spoon">Title 2</h1>
+									</div>
+									<p class="swiper-main__text text">
+										Anim est consectetur ea ea reprehenderit nostrud veniam est adipisicing et qui fugiat proident. Cupidatat nulla eu est qui deserunt cillum elit. Culpa veniam consequat ad nostrud dolore tempor.
+									</p>
+									<a class="swiper-main__button button">Explore Menu</a>
+								</div>
+								<div class="swiper-main__image-ibg">
+									<img src="@img/02.jpg" alt="Фото еды">
+								</div>
+							</div>
+							<div class="swiper-main__slide swiper-slide">
+								<div class="swiper-main__content">
+									<div class="swiper-main__title tile tile_left">
+										<h2 class="tile__subtitle">subtitle 3</h2>
+										<h1 class="tile__title tile__title_big  _icon-spoon">title 3</h1>
+									</div>
+									<p class="swiper-main__text text">
+										Id sit dolor laboris est commodo minim fugiat et eiusmod laborum ex culpa dolore ipsum. Est culpa mollit in amet incididunt dolor sunt et nulla et amet consectetur ad. Labore occaecat sit laboris dolor. Anim velit consectetur minim ullamco anim incididunt ullamco. Labore laboris magna reprehenderit mollit officia cillum ullamco Lorem nostrud excepteur non eiusmod voluptate enim. Duis aliqua nulla nisi adipisicing reprehenderit fugiat occaecat.
+									</p>
+									<a class="swiper-main__button button">Explore Menu</a>
+								</div>
+								<div class="swiper-main__image-ibg">
+									<img src="@img/03.jpg" alt="Фото еды">
+								</div>
+							</div>
+							<div class="swiper-main__pagination"></div>
+						</div>
+					</div>
+					<button class="page__scroll scroll">Scroll</button>
+				</div>
+			</div>
+		</main>
+		@@include('html/_footer.htm',{})
+	</div>
+	@@include('html/_popup.htm',{})
+	@@include('html/_js.htm',{})
+</body>
+
+</html>
