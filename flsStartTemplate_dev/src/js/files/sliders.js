@@ -37,7 +37,7 @@ function initSliders() {
 			observeParents: true,
 			slidesPerView: 1,
 			spaceBetween: 48,
-			// autoHeight: true,
+			autoHeight: true,
 			speed: 800,
 
 			//touchRatio: 0,
@@ -45,12 +45,12 @@ function initSliders() {
 			loop: true,
 			//preloadImages: false,
 			//lazy: true,
-
-			autoplay: {
-				delay: 3000,
-				disableOnInteraction: false,
-			},
-
+			/* 
+						autoplay: {
+							delay: 3000,
+							disableOnInteraction: false,
+						},
+			 */
 			/*
 			// Эффекты
 			effect: 'fade',

@@ -1,16 +1,25 @@
 //====================================================================================================
 .page {
     &__main {
-        @include adaptiveValue("padding-top", 171, 100);
+        @include adaptiveValue("padding-top", 121, 50);
         @include adaptiveValue("padding-bottom", 50, 10);
+        height: 100%;
         display: flex;
     }
     // .page__container
     &__container {
+        min-width: 0;
+        position: relative;
+        // прибавляю слева и справа отступы для блоков hashtag and scrol
+        max-width: rem($maxWidthContainer) + rem(124);
+        padding: 0 rem(62) 0 rem(32);
         // .page__container_wide
         &_wide {
             flex: 1 1 auto;
             position: relative;
+            display: flex;
+            max-width: rem(1680);
+            min-width: 0;
         }
     }
     // .page__hashtag
@@ -21,13 +30,55 @@
         height: 100%;
     }
     // .page__slider
-    &__slider {
+    &__swiper {
         height: 100%;
+        width: 100%;
     }
     &__scroll {
         position: absolute;
         bottom: 0;
         right: 15px;
+    }
+    @media (max-width: $tablet) {
+        // .page__container
+        &__container {
+            padding: rem($containerPadding);
+            // page__container_wide
+            &_wide {
+                padding: 0;
+                // flex-direction: column;
+            }
+        }
+        &__hashtag {
+            // position: static;
+            height: auto;
+            width: 100%;
+        }
+        .hashtag {
+            &__list {
+                display: flex;
+                gap: 12px;
+                justify-content: center;
+            }
+            &__item {
+                writing-mode: horizontal-tb;
+                transform: rotate(0deg);
+                margin-bottom: 0 !important;
+            }
+        }
+        &__scroll {
+            display: none;
+        }
+    }
+    @media (max-width: $mobileSmall) {
+        &__hashtag {
+            display: none !important;
+        }
+        &__container {
+            &_wide {
+                padding: 0;
+            }
+        }
     }
 }
 .hashtag {
@@ -59,9 +110,7 @@
 }
 .swiper-main {
     position: relative;
-    // .swiper-main__container
-    &__container {
-    }
+
     // .swiper-main__wrapper
     &__wrapper {
         height: 100%;
@@ -73,17 +122,39 @@
         display: flex;
         justify-content: space-between;
         gap: 24px;
-        padding: 60px 0px 90px;
+        padding-top: 34px;
+        @include adaptiveValue("padding-bottom", 90, 60, 1170+124, 899, 1);
+        // padding-left: 34px;
+        // @include adaptiveValue("padding-top", 34, );
         padding-right: 24px;
+        @media (max-width: $mobile) {
+            flex-direction: column;
+            gap: 48px;
+            padding: 0;
+        }
+        @media (max-width: $mobileSmall) {
+        }
     }
     // .swiper-main__content
     &__content {
         z-index: 2;
         flex: 0 1 50%;
         max-width: 450px;
+        @media (max-width: $mobile) {
+            max-width: 100%;
+            flex: 1 1 auto;
+        }
     }
     // .swiper-main__title
     &__title {
+        &.title {
+            .title__title {
+                @include adaptiveValue("font-size", 90, 40, 1352, $minWidth, 1);
+            }
+            .title__subtitle {
+                @include adaptiveValue("font-size", 32, 24, 1352, $minWidth, 1);
+            }
+        }
         &:not(:last-child) {
             margin-bottom: rem(32);
         }
@@ -104,6 +175,8 @@
         height: 100%;
         position: relative;
         max-height: 736px;
+        min-height: 150px;
+        width: 100%;
         flex: 0 1 50%;
         transition: all 0.3s ease 0s;
         img {
@@ -141,6 +214,13 @@
                     bottom: -34px;
                     left: -34px;
                 }
+            }
+        }
+        @media (max-width: $mobile) {
+            flex: 1 1 auto;
+            &::before,
+            &::after {
+                display: none;
             }
         }
     }

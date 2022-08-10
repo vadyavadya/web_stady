@@ -158,13 +158,13 @@
 .link {
 }
 
-.tile {
+.title {
 	text-align: center;
 	@extend %ffcu;
 	&_left {
 		text-align: left;
 	}
-	// .tile__subtitle
+	// .title__subtitle
 	&__subtitle {
 		font-weight: 700;
 		font-size: 23px;
@@ -177,7 +177,7 @@
 			margin-bottom: rem(8);
 		}
 	}
-	// .tile__title
+	// .title__title
 	&__title {
 		font-weight: 600;
 		font-size: rem(64);
