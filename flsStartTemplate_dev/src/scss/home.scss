@@ -58,6 +58,7 @@
     }
 }
 .swiper-main {
+    position: relative;
     // .swiper-main__container
     &__container {
     }
@@ -72,7 +73,7 @@
         display: flex;
         justify-content: space-between;
         gap: 24px;
-        padding: 60px 0px;
+        padding: 60px 0px 90px;
         padding-right: 24px;
     }
     // .swiper-main__content
@@ -145,6 +146,59 @@
     }
     // .swiper-main__pagination
     &__pagination {
+        position: absolute;
+        bottom: 2px;
+        text-align: center;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+        .swiper-pagination-bullet {
+            @extend %ffcu;
+            font-weight: 600;
+            font-size: rem(16);
+            line-height: 1.75;
+            letter-spacing: 0.04em;
+            text-transform: capitalize;
+            font-feature-settings: "tnum" on, "lnum" on;
+            color: $colorWhite;
+            opacity: 0.9;
+            transition: all 0.3s ease 0s;
+            display: flex;
+            align-items: center;
+
+            &::after,
+            &::before {
+                content: "";
+                width: 0;
+                height: 1px;
+                background: $colorCalicio;
+                transition: all 0.3s ease 0s;
+            }
+            &-active {
+                opacity: 1;
+                &:not(:last-child) {
+                    &::after {
+                        content: "";
+                        width: rem(16);
+                        margin-left: 8px;
+                        height: 1px;
+                        background: $colorCalicio;
+                        vertical-align: middle;
+                    }
+                }
+                &:last-child {
+                    &::before {
+                        content: "";
+                        width: rem(16);
+                        margin-right: 8px;
+                        height: 1px;
+                        background: $colorCalicio;
+                        vertical-align: middle;
+                    }
+                }
+            }
+        }
     }
 }
 .swiper-wrapper {

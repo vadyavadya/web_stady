@@ -244,6 +244,7 @@ body {
      object-fit: contain;
 }
 
+.swiper-main__pagination .swiper-pagination-bullet,
 .header__logo,
 .tile,
 .scroll,
@@ -597,6 +598,10 @@ body {
   margin-bottom: 2.5rem;
 }
 
+.swiper-main {
+  position: relative;
+}
+
 .swiper-main__wrapper {
   height: 100%;
 }
@@ -613,7 +618,7 @@ body {
       -ms-flex-pack: justify;
           justify-content: space-between;
   gap: 24px;
-  padding: 60px 0px;
+  padding: 60px 0px 90px;
   padding-right: 24px;
 }
 
@@ -678,6 +683,74 @@ body {
 .swiper-main__image-ibg::after {
   bottom: -24px;
   left: -24px;
+}
+
+.swiper-main__pagination {
+  position: absolute;
+  bottom: 2px;
+  text-align: center;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 8px;
+}
+
+.swiper-main__pagination .swiper-pagination-bullet {
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 1.75;
+  letter-spacing: 0.04em;
+  text-transform: capitalize;
+  -webkit-font-feature-settings: "tnum" on, "lnum" on;
+          font-feature-settings: "tnum" on, "lnum" on;
+  color: #fff;
+  opacity: 0.9;
+  -webkit-transition: all 0.3s ease 0s;
+  -o-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.swiper-main__pagination .swiper-pagination-bullet::after,
+.swiper-main__pagination .swiper-pagination-bullet::before {
+  content: "";
+  width: 0;
+  height: 1px;
+  background: #dcca87;
+  -webkit-transition: all 0.3s ease 0s;
+  -o-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+}
+
+.swiper-main__pagination .swiper-pagination-bullet-active {
+  opacity: 1;
+}
+
+.swiper-main__pagination .swiper-pagination-bullet-active:not(:last-child)::after {
+  content: "";
+  width: 1rem;
+  margin-left: 8px;
+  height: 1px;
+  background: #dcca87;
+  vertical-align: middle;
+}
+
+.swiper-main__pagination .swiper-pagination-bullet-active:last-child::before {
+  content: "";
+  width: 1rem;
+  margin-right: 8px;
+  height: 1px;
+  background: #dcca87;
+  vertical-align: middle;
 }
 
 .swiper {
