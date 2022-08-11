@@ -167,7 +167,7 @@
 	// .title__subtitle
 	&__subtitle {
 		font-weight: 700;
-		font-size: 23px;
+		@include adaptiveValue("font-size", 32, 24, 1352, $minWidth, 1);
 		line-height: 1.3;
 		letter-spacing: 0.04em;
 		text-transform: capitalize;
@@ -180,19 +180,44 @@
 	// .title__title
 	&__title {
 		font-weight: 600;
-		font-size: rem(64);
+		@include adaptiveValue("font-size", 64, 40, 1352, $minWidth, 1);
 		line-height: 1.3;
 		letter-spacing: 0.03em;
 		text-transform: capitalize;
 		font-feature-settings: "tnum" on, "lnum" on;
 		color: $colorCalicio;
 		&_big {
-			font-size: rem(90);
+			@include adaptiveValue("font-size", 90, 40, 1352, $minWidth, 1);
 		}
-		&::before {
-			font-size: rem(10);
-			&:not(:last-child) {
-				margin-bottom: rem(8);
+		&_upper-spoon {
+			&::before {
+				@extend %ic;
+				display: block;
+				content: "\e904";
+				font-size: rem(14);
+				&:not(:last-child) {
+					margin-bottom: rem(8);
+				}
+			}
+		}
+		&_under-spoon {
+			&::after {
+				@extend %ic;
+				display: block;
+				content: "\e904";
+				font-size: rem(14);
+				&:not(:last-child) {
+					margin-bottom: rem(8);
+				}
+			}
+		}
+		&_under-spoon_180 {
+			&::after {
+				transform: rotate(180deg);
+				text-align: left;
+				@media (max-width: $mobile) {
+					text-align: center;
+				}
 			}
 		}
 	}

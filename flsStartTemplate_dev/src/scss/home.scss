@@ -19,6 +19,7 @@
             position: relative;
             display: flex;
             max-width: rem(1680);
+            padding: 0 rem(math.div($containerPadding, 2));
             min-width: 0;
         }
     }
@@ -42,7 +43,7 @@
     @media (max-width: $tablet) {
         // .page__container
         &__container {
-            padding: rem($containerPadding);
+            padding: rem(math.div($containerPadding, 2));
             // page__container_wide
             &_wide {
                 padding: 0;
@@ -53,6 +54,7 @@
             // position: static;
             height: auto;
             width: 100%;
+            top: -16px;
         }
         .hashtag {
             &__list {
@@ -131,6 +133,7 @@
             flex-direction: column;
             gap: 48px;
             padding: 0;
+            padding-bottom: rem(16);
         }
         @media (max-width: $mobileSmall) {
         }
@@ -147,14 +150,6 @@
     }
     // .swiper-main__title
     &__title {
-        &.title {
-            .title__title {
-                @include adaptiveValue("font-size", 90, 40, 1352, $minWidth, 1);
-            }
-            .title__subtitle {
-                @include adaptiveValue("font-size", 32, 24, 1352, $minWidth, 1);
-            }
-        }
         &:not(:last-child) {
             margin-bottom: rem(32);
         }
@@ -281,16 +276,105 @@
         }
     }
 }
-.swiper-wrapper {
-}
-.swiper-slide {
-}
 
-.text {
+.page {
+    // .page__restorant-home-about
+    &__restorant-home-about {
+    }
 }
-.button {
-}
-.scroll {
+.restorant-home-about {
+    position: relative;
+    background: linear-gradient(180deg, rgba(4, 4, 4, 0.5046393557422969) 0%, rgba(4, 4, 4, 0.4962359943977591) 100%),
+        url("@img/restoran-home/about-us/bg.jpg") center / cover no-repeat;
+    &::before {
+        content: "G";
+        font-size: rem(700);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: #272727;
+    }
+    // .restorant-home-about__container
+    &__container {
+        position: relative;
+        z-index: 2;
+    }
+    // .restorant-home-about__content
+    &__content {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        gap: 24px;
+        justify-content: space-between;
+    }
+    // .restorant-home-about__abut-us
+    &__abut-us {
+        max-width: 523px;
+        *:not(:last-child) {
+            margin-bottom: 32px;
+        }
+        text-align: right;
+    }
+    // .restorant-home-about__title
+    &__title {
+        text-align: right;
+        &_left {
+            text-align: left;
+        }
+    }
+    // .restorant-home-about__text
+    &__text {
+        line-height: 175%;
+        letter-spacing: 0.04em;
+    }
+    // restorant-home-about__image-ibg
+    &__image-ibg {
+        width: 94px;
+        height: 653px;
+        flex: 0 0 auto;
+
+        img {
+            object-fit: contain;
+        }
+    }
+    // restorant-home-about__image_horizont
+    &__image_horizont {
+        display: none;
+    }
+    // .restorant-home-about__our-histori
+    &__our-histori {
+        max-width: 523px;
+        *:not(:last-child) {
+            margin-bottom: 32px;
+        }
+    }
+    // .restorant-home-about__button
+    &__button {
+    }
+    @media (max-width: $mobile) {
+        &__content {
+            flex-direction: column;
+        }
+        &__abut-us,
+        &__our-histori,
+        &__title {
+            text-align: center !important;
+            &::after {
+                // text-align: center;
+            }
+        }
+        &__image-ibg {
+            display: none;
+        }
+        &__image_horizont {
+            display: block;
+            width: 100%;
+            img {
+                width: 100%;
+            }
+        }
+    }
 }
 
 //====================================================================================================

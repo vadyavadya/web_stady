@@ -34,6 +34,8 @@
   font-style: normal;
 }
 
+.title__title_under-spoon::after,
+.title__title_upper-spoon::before,
 [class*=_icon-]:before {
   font-family: "icons";
   font-style: normal;
@@ -188,7 +190,7 @@ body {
 */
 
 [class*=__container] {
-  max-width: 73.125rem;
+  max-width: 79.375rem;
   -webkit-box-sizing: content-box;
           box-sizing: content-box;
   margin: 0 auto;
@@ -285,7 +287,6 @@ body {
 
 .title__subtitle {
   font-weight: 700;
-  font-size: 23px;
   line-height: 1.3;
   letter-spacing: 0.04em;
   text-transform: capitalize;
@@ -294,13 +295,26 @@ body {
   color: #fff;
 }
 
+@supports (font-size: clamp( 1.5rem , 1.3449612403rem  +  0.7751937984vw , 2rem )) {
+  .title__subtitle {
+    font-size: clamp( 1.5rem , 1.3449612403rem  +  0.7751937984vw , 2rem );
+  }
+}
+
+@supports not (font-size: clamp( 1.5rem , 1.3449612403rem  +  0.7751937984vw , 2rem )) {
+  .title__subtitle {
+    font-size: calc(
+			1.5rem + 0.5 * (100vw - 20rem) / 64.5
+		);
+  }
+}
+
 .title__subtitle:not(:last-child) {
   margin-bottom: 0.5rem;
 }
 
 .title__title {
   font-weight: 600;
-  font-size: 4rem;
   line-height: 1.3;
   letter-spacing: 0.03em;
   text-transform: capitalize;
@@ -309,16 +323,59 @@ body {
   color: #dcca87;
 }
 
-.title__title_big {
-  font-size: 5.625rem;
+@supports (font-size: clamp( 2.5rem , 2.0348837209rem  +  2.3255813953vw , 4rem )) {
+  .title__title {
+    font-size: clamp( 2.5rem , 2.0348837209rem  +  2.3255813953vw , 4rem );
+  }
 }
 
-.title__title::before {
-  font-size: 0.625rem;
+@supports not (font-size: clamp( 2.5rem , 2.0348837209rem  +  2.3255813953vw , 4rem )) {
+  .title__title {
+    font-size: calc(
+			2.5rem + 1.5 * (100vw - 20rem) / 64.5
+		);
+  }
 }
 
-.title__title::before:not(:last-child) {
+@supports (font-size: clamp( 2.5rem , 1.5310077519rem  +  4.8449612403vw , 5.625rem )) {
+  .title__title_big {
+    font-size: clamp( 2.5rem , 1.5310077519rem  +  4.8449612403vw , 5.625rem );
+  }
+}
+
+@supports not (font-size: clamp( 2.5rem , 1.5310077519rem  +  4.8449612403vw , 5.625rem )) {
+  .title__title_big {
+    font-size: calc(
+			2.5rem + 3.125 * (100vw - 20rem) / 64.5
+		);
+  }
+}
+
+.title__title_upper-spoon::before {
+  display: block;
+  content: "\e904";
+  font-size: 0.875rem;
+}
+
+.title__title_upper-spoon::before:not(:last-child) {
   margin-bottom: 0.5rem;
+}
+
+.title__title_under-spoon::after {
+  display: block;
+  content: "\e904";
+  font-size: 0.875rem;
+}
+
+.title__title_under-spoon::after:not(:last-child) {
+  margin-bottom: 0.5rem;
+}
+
+.title__title_under-spoon_180::after {
+  -webkit-transform: rotate(180deg);
+      -ms-transform: rotate(180deg);
+          transform: rotate(180deg);
+  text-align: left;
 }
 
 .header {
@@ -342,16 +399,16 @@ body {
   background: linear-gradient(180deg, rgb(0, 0, 0) 0%, rgb(0, 0, 0) 59%, rgba(0, 0, 0, 0.0592612045) 100%);
 }
 
-@supports (min-height: clamp( 3.125rem , 1.5113636364rem  +  8.0681818182vw , 7.5625rem )) {
+@supports (min-height: clamp( 3.125rem , 1.6760204082rem  +  7.2448979592vw , 7.5625rem )) {
   .header__container_wide {
-    min-height: clamp( 3.125rem , 1.5113636364rem  +  8.0681818182vw , 7.5625rem );
+    min-height: clamp( 3.125rem , 1.6760204082rem  +  7.2448979592vw , 7.5625rem );
   }
 }
 
-@supports not (min-height: clamp( 3.125rem , 1.5113636364rem  +  8.0681818182vw , 7.5625rem )) {
+@supports not (min-height: clamp( 3.125rem , 1.6760204082rem  +  7.2448979592vw , 7.5625rem )) {
   .header__container_wide {
     min-height: calc(
-			3.125rem + 4.4375 * (100vw - 20rem) / 55
+			3.125rem + 4.4375 * (100vw - 20rem) / 61.25
 		);
   }
 }
@@ -538,30 +595,30 @@ body {
   display: flex;
 }
 
-@supports (padding-top: clamp( 3.125rem , 1.5113636364rem  +  8.0681818182vw , 7.5625rem )) {
+@supports (padding-top: clamp( 3.125rem , 1.6760204082rem  +  7.2448979592vw , 7.5625rem )) {
   .page__main {
-    padding-top: clamp( 3.125rem , 1.5113636364rem  +  8.0681818182vw , 7.5625rem );
+    padding-top: clamp( 3.125rem , 1.6760204082rem  +  7.2448979592vw , 7.5625rem );
   }
 }
 
-@supports not (padding-top: clamp( 3.125rem , 1.5113636364rem  +  8.0681818182vw , 7.5625rem )) {
+@supports not (padding-top: clamp( 3.125rem , 1.6760204082rem  +  7.2448979592vw , 7.5625rem )) {
   .page__main {
     padding-top: calc(
-			3.125rem + 4.4375 * (100vw - 20rem) / 55
+			3.125rem + 4.4375 * (100vw - 20rem) / 61.25
 		);
   }
 }
 
-@supports (padding-bottom: clamp( 0.625rem , -0.2840909091rem  +  4.5454545455vw , 3.125rem )) {
+@supports (padding-bottom: clamp( 0.625rem , -0.1913265306rem  +  4.0816326531vw , 3.125rem )) {
   .page__main {
-    padding-bottom: clamp( 0.625rem , -0.2840909091rem  +  4.5454545455vw , 3.125rem );
+    padding-bottom: clamp( 0.625rem , -0.1913265306rem  +  4.0816326531vw , 3.125rem );
   }
 }
 
-@supports not (padding-bottom: clamp( 0.625rem , -0.2840909091rem  +  4.5454545455vw , 3.125rem )) {
+@supports not (padding-bottom: clamp( 0.625rem , -0.1913265306rem  +  4.0816326531vw , 3.125rem )) {
   .page__main {
     padding-bottom: calc(
-			0.625rem + 2.5 * (100vw - 20rem) / 55
+			0.625rem + 2.5 * (100vw - 20rem) / 61.25
 		);
   }
 }
@@ -569,7 +626,7 @@ body {
 .page__container {
   min-width: 0;
   position: relative;
-  max-width: 73.125rem7.75rem;
+  max-width: 79.375rem7.75rem;
   padding: 0 3.875rem 0 2rem;
 }
 
@@ -582,6 +639,7 @@ body {
   display: -ms-flexbox;
   display: flex;
   max-width: 105rem;
+  padding: 0 0.9375rem;
   min-width: 0;
 }
 
@@ -678,34 +736,6 @@ body {
       -ms-flex: 0 1 50%;
           flex: 0 1 50%;
   max-width: 450px;
-}
-
-@supports (font-size: clamp( 2.5rem , 1.5310077519rem  +  4.8449612403vw , 5.625rem )) {
-  .swiper-main__title.title .title__title {
-    font-size: clamp( 2.5rem , 1.5310077519rem  +  4.8449612403vw , 5.625rem );
-  }
-}
-
-@supports not (font-size: clamp( 2.5rem , 1.5310077519rem  +  4.8449612403vw , 5.625rem )) {
-  .swiper-main__title.title .title__title {
-    font-size: calc(
-			2.5rem + 3.125 * (100vw - 20rem) / 64.5
-		);
-  }
-}
-
-@supports (font-size: clamp( 1.5rem , 1.3449612403rem  +  0.7751937984vw , 2rem )) {
-  .swiper-main__title.title .title__subtitle {
-    font-size: clamp( 1.5rem , 1.3449612403rem  +  0.7751937984vw , 2rem );
-  }
-}
-
-@supports not (font-size: clamp( 1.5rem , 1.3449612403rem  +  0.7751937984vw , 2rem )) {
-  .swiper-main__title.title .title__subtitle {
-    font-size: calc(
-			1.5rem + 0.5 * (100vw - 20rem) / 64.5
-		);
-  }
 }
 
 .swiper-main__title:not(:last-child) {
@@ -833,6 +863,97 @@ body {
   vertical-align: middle;
 }
 
+.no-webp .restorant-home-about{
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(4, 4, 4, 0.5046393557)), to(rgba(4, 4, 4, 0.4962359944))), url("../img/restoran-home/about-us/bg.jpg") center/cover no-repeat; }
+
+.no-webp .restorant-home-about{
+  background: -o-linear-gradient(top, rgba(4, 4, 4, 0.5046393557) 0%, rgba(4, 4, 4, 0.4962359944) 100%), url("../img/restoran-home/about-us/bg.jpg") center/cover no-repeat; }
+
+.no-webp .restorant-home-about{
+  background: linear-gradient(180deg, rgba(4, 4, 4, 0.5046393557) 0%, rgba(4, 4, 4, 0.4962359944) 100%), url("../img/restoran-home/about-us/bg.jpg") center/cover no-repeat; }
+
+.restorant-home-about {
+  position: relative;
+}
+
+.restorant-home-about::before {
+  content: "G";
+  font-size: 43.75rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  color: #272727;
+}
+
+.restorant-home-about__container {
+  position: relative;
+  z-index: 2;
+}
+
+.restorant-home-about__content {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 24px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.restorant-home-about__abut-us {
+  max-width: 523px;
+  text-align: right;
+}
+
+.restorant-home-about__abut-us *:not(:last-child) {
+  margin-bottom: 32px;
+}
+
+.restorant-home-about__title {
+  text-align: right;
+}
+
+.restorant-home-about__title_left {
+  text-align: left;
+}
+
+.restorant-home-about__text {
+  line-height: 175%;
+  letter-spacing: 0.04em;
+}
+
+.restorant-home-about__image-ibg {
+  width: 94px;
+  height: 653px;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+}
+
+.restorant-home-about__image-ibg img {
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.restorant-home-about__image_horizont {
+  display: none;
+}
+
+.restorant-home-about__our-histori {
+  max-width: 523px;
+}
+
+.restorant-home-about__our-histori *:not(:last-child) {
+  margin-bottom: 32px;
+}
+
 .swiper {
   overflow: hidden;
 }
@@ -926,16 +1047,16 @@ body {
     background: #0c0b08;
   }
 
-@supports (min-height: clamp( 3.125rem , 1.5113636364rem  +  8.0681818182vw , 7.5625rem )) {
+@supports (min-height: clamp( 3.125rem , 1.6760204082rem  +  7.2448979592vw , 7.5625rem )) {
     .menu-open .menu__body::before {
-      min-height: clamp( 3.125rem , 1.5113636364rem  +  8.0681818182vw , 7.5625rem );
+      min-height: clamp( 3.125rem , 1.6760204082rem  +  7.2448979592vw , 7.5625rem );
     }
 }
 
-@supports not (min-height: clamp( 3.125rem , 1.5113636364rem  +  8.0681818182vw , 7.5625rem )) {
+@supports not (min-height: clamp( 3.125rem , 1.6760204082rem  +  7.2448979592vw , 7.5625rem )) {
     .menu-open .menu__body::before {
       min-height: calc(
-			3.125rem + 4.4375 * (100vw - 20rem) / 55
+			3.125rem + 4.4375 * (100vw - 20rem) / 61.25
 		);
     }
 }
@@ -948,16 +1069,16 @@ body {
             flex-direction: column;
   }
 
-@supports (padding-top: clamp( 3.125rem , 1.5113636364rem  +  8.0681818182vw , 7.5625rem )) {
+@supports (padding-top: clamp( 3.125rem , 1.6760204082rem  +  7.2448979592vw , 7.5625rem )) {
     .menu-open .menu__body .menu__list {
-      padding-top: clamp( 3.125rem , 1.5113636364rem  +  8.0681818182vw , 7.5625rem );
+      padding-top: clamp( 3.125rem , 1.6760204082rem  +  7.2448979592vw , 7.5625rem );
     }
 }
 
-@supports not (padding-top: clamp( 3.125rem , 1.5113636364rem  +  8.0681818182vw , 7.5625rem )) {
+@supports not (padding-top: clamp( 3.125rem , 1.6760204082rem  +  7.2448979592vw , 7.5625rem )) {
     .menu-open .menu__body .menu__list {
       padding-top: calc(
-			3.125rem + 4.4375 * (100vw - 20rem) / 55
+			3.125rem + 4.4375 * (100vw - 20rem) / 61.25
 		);
     }
 }
@@ -1071,7 +1192,7 @@ body {
 
 @media (max-width: 61.99875em) {
   .page__container {
-    padding: 1.875rem;
+    padding: 0.9375rem;
   }
 
   .page__container_wide {
@@ -1081,6 +1202,7 @@ body {
   .page__hashtag {
     height: auto;
     width: 100%;
+    top: -16px;
   }
 
   .page .hashtag__list {
@@ -1115,6 +1237,10 @@ body {
     transition: height 0.2s;
   }
 
+  .title__title_under-spoon_180::after {
+    text-align: center;
+  }
+
   .swiper-main__slide {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -1122,6 +1248,7 @@ body {
             flex-direction: column;
     gap: 48px;
     padding: 0;
+    padding-bottom: 1rem;
   }
 
   .swiper-main__content {
@@ -1140,6 +1267,32 @@ body {
   .swiper-main__image-ibg::before,
   .swiper-main__image-ibg::after {
     display: none;
+  }
+
+  .restorant-home-about__content {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+
+  .restorant-home-about__abut-us,
+  .restorant-home-about__our-histori,
+  .restorant-home-about__title {
+    text-align: center !important;
+  }
+
+  .restorant-home-about__image-ibg {
+    display: none;
+  }
+
+  .restorant-home-about__image_horizont {
+    display: block;
+    width: 100%;
+  }
+
+  .restorant-home-about__image_horizont img {
+    width: 100%;
   }
 }
 
@@ -1186,3 +1339,9 @@ body {
     left: -34px;
   }
 }
+
+.webp .restorant-home-about{ background: -webkit-gradient(linear, left top, left bottom, from(rgba(4, 4, 4, 0.5046393557)), to(rgba(4, 4, 4, 0.4962359944))), url(../img/restoran-home/about-us/bg.webp) center/cover no-repeat; }
+
+.webp .restorant-home-about{ background: -o-linear-gradient(top, rgba(4, 4, 4, 0.5046393557) 0%, rgba(4, 4, 4, 0.4962359944) 100%), url(../img/restoran-home/about-us/bg.webp) center/cover no-repeat; }
+
+.webp .restorant-home-about{ background: linear-gradient(180deg, rgba(4, 4, 4, 0.5046393557) 0%, rgba(4, 4, 4, 0.4962359944) 100%), url(../img/restoran-home/about-us/bg.webp) center/cover no-repeat; }
