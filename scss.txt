@@ -8,12 +8,13 @@ $fz: 50px;
 $color_1: #000;
 $color_2: #fff;
 
-// Шаблон №1
+// Шаблон №1 (@extend)
 %tplborder {
 	font-size: 40px;
 	border-bottom: 5px dashed rgba(136, 255, 0, 0.685);
 }
 
+// Миксины (@ include)
 @mixin fontz($f, $c) {
 	font-size: $f;
 	color: $c;
@@ -48,7 +49,7 @@ $color_2: #fff;
 .link-2 {
 	@include fontz(40px, green);
 	border-bottom: 5px dashed #000;
-	@extend .tplborder;
+	@extend %tplborder;
 }
 
 

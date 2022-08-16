@@ -1,11 +1,128 @@
 {
-	// Place your global snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and 
+	// Place your GLOBAL snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and 
 	// description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope 
 	// is left empty or omitted, the snippet gets applied to all languages. The prefix is what is 
 	// used to trigger the snippet and the body will be expanded and inserted. Possible variables are: 
 	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. 
 	// Placeholders with the same ids are connected.
 	// Example:
+	"Testing exemple snipet": {
+		"scope": "html",
+		"prefix": "testsnip",
+		"body": [
+			"test:$1,",
+			"test:$1,",
+			"test:${2:250x270}",
+			"test:${3|one,two,three|}",
+		],
+		"description": "Zero margin"
+	},
+	"margin: 0px auto;": {
+		"scope": "css,scss",
+		"prefix": "mmu",
+		"body": [
+			"margin: 0px auto;",
+		],
+		"description": "Zero margin centr"
+	},
+	"/*==*/": {
+		"scope": "css,scss,txt",
+		"prefix": "cut=",
+		"body": [
+			"/* $1 ================================================================ */",
+			"$2",
+		],
+		"description": "Css cut"
+	},
+	"__container": {
+		"scope": "html",
+		"prefix": "ctn",
+		"body": [
+			"<div class=\"$1__container\">",
+			"</div>",
+		],
+		"description": "Create container"
+	},
+	"img paste": {
+		"scope": "html",
+		"prefix": "imgp",
+		"body": [
+			"<img src=\"img/$1\" alt=\"\">",
+		],
+		"description": "Paste image"
+	},
+	"not last child": {
+		"scope": "css,scss",
+		"prefix": "nlc",
+		"body": [
+			":not(:last-child){",
+			"    $1",
+			"}",
+		],
+		"description": "Not last child",
+	},
+	"Media max": {
+		"scope": "css,scss",
+		"prefix": "@mma",
+		"body": [
+			"@media (max-width:$1px){",
+			"    $2",
+			"}",
+		],
+		"description": "Media max-width",
+	},
+	"Media min": {
+		"scope": "css,scss",
+		"prefix": "@mmi",
+		"body": [
+			"@media (min-width:$1px){",
+			"    $2",
+			"}",
+		],
+		"description": "Media min-width",
+	},
+	"Media pad or moble": {
+		"scope": "css,scss",
+		"prefix": "@mmm",
+		"body": [
+			"@media (max-width:${1|991.98,767.98|}px){",
+			"    $2",
+			"}",
+		],
+		"description": "Media man-width for pad or mobile",
+	},
+	"Media $pad or $moble": {
+		"scope": "css,scss",
+		"prefix": "@mmz",
+		"body": [
+			"@media (max-width:${1|$tablet,$mobile,$mobileSmall|}){",
+			"    $2",
+			"}",
+		],
+		"description": "Media man-width for pad or mobile",
+	},
+	"Create before": {
+		"scope": "css,scss",
+		"prefix": "::be",
+		"body": [
+			"::before {",
+			"    content: \"\";",
+			"    $1",
+			"}",
+		],
+		"description": "Create before",
+	},
+	"Create after": {
+		"scope": "css,scss",
+		"prefix": "::af",
+		"body": [
+			"::after {",
+			"    content: \"\";",
+			"    $1",
+			"}",
+		],
+		"description": "Create after",
+	},
 	"Rating": {
 		"scope": "html",
 		"prefix": "rating",
@@ -88,7 +205,7 @@
 		"scope": "html",
 		"prefix": "ibg",
 		"body": [
-			"<div class=\"${1:имя блока}__image-ibg\"><img data-src=\"@img$2\" alt=\"\"></div>"
+			"<div class=\"${1:имя блока}__image-ibg\"><img src=\"@img$2\" alt=\"\"></div>"
 		],
 		"description": "Добавляет объект с картинкой и классом IBG"
 	},
@@ -96,7 +213,7 @@
 		"scope": "html",
 		"prefix": "ibga",
 		"body": [
-			"<a href=\"\" class=\"${1:имя блока}__image-ibg\"><img data-src=\"@img$2\" alt=\"\"></a>"
+			"<a href=\"\" class=\"${1:имя блока}__image-ibg\"><img src=\"@img$2\" alt=\"\"></a>"
 		],
 		"description": "Добавляет ссылку с картинкой и классом IBG"
 	},
@@ -929,7 +1046,7 @@
 	},
 	"logo": {
 		"prefix": "logo",
-		"body": "<a href=\"\" class=\"header__logo\"><img data-src=\"../img/logo.svg\" alt=\"\"></a>",
+		"body": "<a href=\"\" class=\"header__logo\"><img src=\"../img/logo.svg\" alt=\"\"></a>",
 		"description": "logo"
 	},
 	"Image": {
@@ -939,7 +1056,7 @@
 	},
 	"Image Lazy": {
 		"prefix": "imgl",
-		"body": "<img data-src=\"@img$0\" alt=\"\">",
+		"body": "<img src=\"@img$0\" alt=\"\">",
 		"description": "img lazy load"
 	},
 	/*
