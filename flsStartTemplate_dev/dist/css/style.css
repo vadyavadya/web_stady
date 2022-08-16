@@ -378,11 +378,23 @@ body {
   text-align: left;
 }
 
+.no-webp .bg_wall{
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(4, 4, 4, 0.5046393557)), to(rgba(4, 4, 4, 0.4962359944))), url("../img/restoran-home/about-us/bg.jpg") center/cover no-repeat; }
+
+.no-webp .bg_wall{
+  background: -o-linear-gradient(top, rgba(4, 4, 4, 0.5046393557) 0%, rgba(4, 4, 4, 0.4962359944) 100%), url("../img/restoran-home/about-us/bg.jpg") center/cover no-repeat; }
+
+.no-webp .bg_wall{
+  background: linear-gradient(180deg, rgba(4, 4, 4, 0.5046393557) 0%, rgba(4, 4, 4, 0.4962359944) 100%), url("../img/restoran-home/about-us/bg.jpg") center/cover no-repeat; }
+
 .header {
-  position: fixed;
+  position: absolute;
   width: 100%;
   color: #ffffff;
   z-index: 50;
+  -webkit-transition: all 0.3s ease 0s;
+  -o-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
 }
 
 .header__container_wide {
@@ -411,6 +423,19 @@ body {
 			3.125rem + 4.4375 * (100vw - 20rem) / 61.25
 		);
   }
+}
+
+.header._header-scroll {
+  position: fixed;
+  -webkit-transform: translate(0, -80%);
+      -ms-transform: translate(0, -80%);
+          transform: translate(0, -80%);
+}
+
+.header._header-show {
+  -webkit-transform: translate(0, -20%);
+      -ms-transform: translate(0, -20%);
+          transform: translate(0, -20%);
 }
 
 .header__column {
@@ -586,6 +611,23 @@ body {
 
 .icon-menu {
   display: none;
+}
+
+.page {
+  position: relative;
+}
+
+.page::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 100vh;
+  left: 50%;
+  -webkit-transform: translate(-865px, 0);
+      -ms-transform: translate(-865px, 0);
+          transform: translate(-865px, 0);
+  background: url("../img/bg-line1.svg") no-repeat 0 0, url("../img/bg-line.svg") no-repeat 0 0;
 }
 
 .page__main {
@@ -862,15 +904,6 @@ body {
   background: #dcca87;
   vertical-align: middle;
 }
-
-.no-webp .restorant-home-about{
-  background: -webkit-gradient(linear, left top, left bottom, from(rgba(4, 4, 4, 0.5046393557)), to(rgba(4, 4, 4, 0.4962359944))), url("../img/restoran-home/about-us/bg.jpg") center/cover no-repeat; }
-
-.no-webp .restorant-home-about{
-  background: -o-linear-gradient(top, rgba(4, 4, 4, 0.5046393557) 0%, rgba(4, 4, 4, 0.4962359944) 100%), url("../img/restoran-home/about-us/bg.jpg") center/cover no-repeat; }
-
-.no-webp .restorant-home-about{
-  background: linear-gradient(180deg, rgba(4, 4, 4, 0.5046393557) 0%, rgba(4, 4, 4, 0.4962359944) 100%), url("../img/restoran-home/about-us/bg.jpg") center/cover no-repeat; }
 
 .restorant-home-about {
   position: relative;
@@ -1340,8 +1373,8 @@ body {
   }
 }
 
-.webp .restorant-home-about{ background: -webkit-gradient(linear, left top, left bottom, from(rgba(4, 4, 4, 0.5046393557)), to(rgba(4, 4, 4, 0.4962359944))), url(../img/restoran-home/about-us/bg.webp) center/cover no-repeat; }
+.webp .bg_wall{ background: -webkit-gradient(linear, left top, left bottom, from(rgba(4, 4, 4, 0.5046393557)), to(rgba(4, 4, 4, 0.4962359944))), url(../img/restoran-home/about-us/bg.webp) center/cover no-repeat; }
 
-.webp .restorant-home-about{ background: -o-linear-gradient(top, rgba(4, 4, 4, 0.5046393557) 0%, rgba(4, 4, 4, 0.4962359944) 100%), url(../img/restoran-home/about-us/bg.webp) center/cover no-repeat; }
+.webp .bg_wall{ background: -o-linear-gradient(top, rgba(4, 4, 4, 0.5046393557) 0%, rgba(4, 4, 4, 0.4962359944) 100%), url(../img/restoran-home/about-us/bg.webp) center/cover no-repeat; }
 
-.webp .restorant-home-about{ background: linear-gradient(180deg, rgba(4, 4, 4, 0.5046393557) 0%, rgba(4, 4, 4, 0.4962359944) 100%), url(../img/restoran-home/about-us/bg.webp) center/cover no-repeat; }
+.webp .bg_wall{ background: linear-gradient(180deg, rgba(4, 4, 4, 0.5046393557) 0%, rgba(4, 4, 4, 0.4962359944) 100%), url(../img/restoran-home/about-us/bg.webp) center/cover no-repeat; }

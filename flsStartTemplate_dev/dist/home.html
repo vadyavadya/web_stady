@@ -6,7 +6,7 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20220811131454">
+	<link rel="stylesheet" href="css/style.min.css?_v=20220816124501">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,7 +14,7 @@
 
 <body>
 	<div class="wrapper">
-		<header class="header">
+		<header data-scroll data-scroll-show="3000" class="header">
 			<div class="header__container header__container_wide">
 				<div class="header__logo header__column">
 					<a href="#" class="">Gerícht</a>
@@ -114,10 +114,11 @@
 						</div>
 						<div class="swiper-main__pagination swiper-pagination"></div>
 					</div>
-					<button class="page__scroll scroll">Scroll</button>
+					<button data-goto=".restorant-home-about" class="page__scroll scroll">Scroll</button>
 				</div>
 			</div>
-			<section class="page__restorant-home-about restorant-home-about">
+			<section class="page__restorant-home-about restorant-home-about bg_wall">
+				<!-- <section class="page__restorant-home-about restorant-home-about"> -->
 				<div class="restorant-home-about__container">
 					<div class="restorant-home-about__content">
 						<div class="restorant-home-about__abut-us">
@@ -156,7 +157,7 @@
 		</div>
 	</div>
 </div> -->
-	<script src="js/app.min.js?_v=20220811131454"></script>
+	<script src="js/app.min.js?_v=20220816124501"></script>
 </body>
 
 </html>

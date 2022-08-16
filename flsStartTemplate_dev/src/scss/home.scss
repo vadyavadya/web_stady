@@ -1,5 +1,17 @@
 //====================================================================================================
 .page {
+    position: relative;
+    &::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 100vh;
+        left: 50%;
+        transform: translate(-865px, 0);
+        background: url("@img/bg-line1.svg") no-repeat 0 0, url("@img/bg-line.svg") no-repeat 0 0;
+    }
+
     &__main {
         @include adaptiveValue("padding-top", 121, 50);
         @include adaptiveValue("padding-bottom", 50, 10);
@@ -284,8 +296,6 @@
 }
 .restorant-home-about {
     position: relative;
-    background: linear-gradient(180deg, rgba(4, 4, 4, 0.5046393557422969) 0%, rgba(4, 4, 4, 0.4962359943977591) 100%),
-        url("@img/restoran-home/about-us/bg.jpg") center / cover no-repeat;
     &::before {
         content: "G";
         font-size: rem(700);

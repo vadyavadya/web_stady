@@ -1,9 +1,10 @@
 //====================================================================================================
 .header {
-	position: fixed;
+	position: absolute;
 	width: 100%;
 	color: #ffffff;
 	z-index: 50;
+	transition: all 0.3s ease 0s;
 	// .header__container
 	&__container {
 		// .header__container_wide
@@ -20,6 +21,13 @@
 				rgba(0, 0, 0, 0.05926120448179273) 100%
 			);
 		}
+	}
+	&._header-scroll {
+		position: fixed;
+		transform: translate(0, -80%);
+	}
+	&._header-show {
+		transform: translate(0, -20%);
 	}
 	// .header__logo
 	&__column {
