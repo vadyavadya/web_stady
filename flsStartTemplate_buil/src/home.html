@@ -1,94 +1,84 @@
 <!DOCTYPE html>
 <html lang="ru">
-	@@include('html/_head.htm',{
-	"title":"Главная"
-	})
-	<body>
-		<div class="wrapper">
-			@@include('html/_header.htm',{})
-			<main class="mainpage">
-				<section data-fullscreen class="mainpage__slider main-slider">
-					<div class="main-slider__container main-slider__container_wide">
-						<div class="main-slider__container body-main-slider">
-							<div class="body-main-slider__swiper">
-								<div class="body-main-slider__slide slide-main-slider">
-									<div class="slide-main-slider__content">
-										<div class="slide-main-slider__header block-header block-header_big block-header_left">
-											<div class="block-header__sub-title">Chase the new Flavour</div>
-											<h2 class="block-header__title">The key to Fine dining</h2>
-										</div>
-										<div class="slide-main-slider__text">
-											Sit tellus lobortis sed senectus vivamus molestie. Condimentum volutpat morbi facilisis quam scelerisque sapien. Et, penatibus aliquam amet tellus
-										</div>
-										<a href="" class="slide-main-slider__button button">Explore Menu</a>
-									</div>
-									<a href class="slide-main-slider__image-ibg">
-										<img class="swiper-lazy" data-src="@img/mainpage/mainslider/01.jpg" alt="Картинка еды">
-									</a>
-								</div>
-								<div class="body-main-slider__slide slide-main-slider">
-									<div class="slide-main-slider__content">
-										<div class="slide-main-slider__header block-header block-header_big block-header_left">
-											<div class="block-header__sub-title">Chase the new Flavour</div>
-											<h2 class="block-header__title">The key</h2>
-										</div>
-										<div class="slide-main-slider__text">
-											Sit tellus lobortis sed senectus vivamus molestie.
-										</div>
-										<a href="" class="slide-main-slider__button button">Explore Menu</a>
-									</div>
-									<a href class="slide-main-slider__image-ibg">
-										<img class="swiper-lazy" data-src="@img/mainpage/mainslider/02.jpg" alt="Картинка еды">
-									</a>
-								</div>
-								<div class="body-main-slider__slide slide-main-slider">
-									<div class="slide-main-slider__content">
-										<div class="slide-main-slider__header block-header block-header_big block-header_left">
-											<div class="block-header__sub-title">Chase the new Flavour</div>
-											<h2 class="block-header__title">The key to Fine dining</h2>
-										</div>
-										<div class="slide-main-slider__text">
-											Sit tellus lobortis sed senectus vivamus molestie. Condimentum volutpat morbi facilisis quam scelerisque sapien. Et, penatibus aliquam amet tellus
-										</div>
-										<a href="" class="slide-main-slider__button button">Explore Menu</a>
-									</div>
-									<a href class="slide-main-slider__image-ibg">
-										<img class="swiper-lazy" data-src="@img/mainpage/mainslider/03.jpg" alt="Картинка еды">
-									</a>
-								</div>
-							</div>
-							<div class="body-main-slider__controll"></div>
-						</div>
-						<nav class="main-slider__menu menu-main-slider">
-							<a href="" class="menu-main-slider__link menu-main-slider__link_current">#Gericht</a>
-							<a href="" class="menu-main-slider__link">#Bar</a>
-						</nav>
-						<button data-goto="about-section" data-da=".body-main-slider,1445,last" type="button" class="main-slider__scroll scroll">Scroll</button>
-					</div>
-				</section>
-				<div class="mainpage__body">
-					<section id="about-section" data-bg class="mainpage__about about-section">
-						<div class="about-section__container">
-							<div class="about-section__content">
-								<h3 class="about-section__title">About Us</h3>
-								<div class="about-section__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis pharetra adipiscing ultrices vulputate posuere tristique. In sed odio nec aliquet eu proin mauris et.</div>
-								<a href="" class="about-section__button button">Know More</a>
-							</div>
-							<div class="about-section__knife">
-								<img src="@img/mainpage/about/knives.png" alt="Нож">
-							</div>
-							<div class="about-section__content">
-								<h3 class="about-section__title">Our History</h3>
-								<div class="about-section__text">Adipiscing tempus ullamcorper lobortis odio tellus arcu volutpat. Risus placerat morbi volutpat habitasse interdum mi aliquam In sed odio nec aliquet.</div>
-								<a href="" class="about-section__button button">Know More</a>
-							</div>
-						</div>
-					</section>
+@@include('html/_head.htm',{
+"title":"Главная"
+})
+
+<body>
+	<style>
+		[hidden] {
+			display: none;
+		}
+	</style>
+	<script>
+
+	</script>
+	<div class="wrapper">
+		@@include('html/_header.htm',{})
+		<main class="page">
+			<!-- <h1>
+				<span class="yellow">JavaScript.</span>
+				Браузерное окружение.
+				Работа с <span class="yellow">DOM.</span>
+			</h1>
+
+			<ul>
+				<li>Корчи</li>
+				<li>Йончи</li>
+			</ul>
+
+			<div class="page">
+
+				<div class="block">
+					<button type="button" class="block__title">Заголовок</button>
+					<p hidden class="block__text">Ut proident quis magna exercitation consequat id officia anim in aliqua nulla cupidatat non. Magna ullamco ea excepteur consequat irure do eu. Irure anim exercitation esse duis cupidatat excepteur anim nostrud do occaecat. Nisi aliquip ullamco eiusmod voluptate ipsum excepteur do laboris sit proident aute Lorem Lorem cupidatat.</p>
+					<button type="button" class="block__title">Заголовок</button>
+					<p hidden class="block__text">Ut proident quis magna exercitation consequat id officia anim in aliqua nulla cupidatat non. Magna ullamco ea excepteur consequat irure do eu. Irure anim exercitation esse duis cupidatat excepteur anim nostrud do occaecat. Nisi aliquip ullamco eiusmod voluptate ipsum excepteur do laboris sit proident aute Lorem Lorem cupidatat.</p>
+					<button type="button" class="block__title">Заголовок</button>
+					<p hidden class="block__text">Ut proident quis magna exercitation consequat id officia anim in aliqua nulla cupidatat non. Magna ullamco ea excepteur consequat irure do eu. Irure anim exercitation esse duis cupidatat excepteur anim nostrud do occaecat. Nisi aliquip ullamco eiusmod voluptate ipsum excepteur do laboris sit proident aute Lorem Lorem cupidatat.</p>
+
+					<div class="block_item-1">1</div>
+					<div class="block_item-2"><span>2</span></div>
+					<div class="block_item-3">3</div>
 				</div>
-			</main>
-			@@include('html/_footer.htm',{})
-		</div>
-		@@include('html/_popup.htm',{})
-		@@include('html/_js.htm',{})
-	</body>
+
+				<div class="like"></div>
+				<div class="subscribe"></div>
+				<div class="like subscribe"></div>
+
+				<div data-say-hi="yes">Привет!</div>
+				<h3>Урок №13</h3>
+				<ul>
+					<li>Пункт №1</li>
+					<li>Пункт №2</li>
+				</ul> 
+
+			</div>  -->
+
+			<!-- <div class="sector"> <button class="sector__button">Прокрутить</button> </div>
+			<div class="text">Anim consequat esse et deserunt tempor ad. Tempor tempor reprehenderit cillum excepteur. Lorem eiusmod ad ipsum duis. In consequat laborum in aliqua aliquip laborum eiusmod ut qui minim voluptate Lorem eiusmod. Pariatur sint cupidatat laborum fugiat proident. Adipisicing occaecat elit fugiat anim consectetur eu sunt cupidatat enim ea excepteur deserunt nulla.</div>
+			<div class="text">Anim consequat esse et deserunt tempor ad. Tempor tempor reprehenderit cillum excepteur. Lorem eiusmod ad ipsum duis. In consequat laborum in aliqua aliquip laborum eiusmod ut qui minim voluptate Lorem eiusmod. Pariatur sint cupidatat laborum fugiat proident. Adipisicing occaecat elit fugiat anim consectetur eu sunt cupidatat enim ea excepteur deserunt nulla.</div>
+			<div class="text">Anim consequat esse et deserunt tempor ad. Tempor tempor reprehenderit cillum excepteur. Lorem eiusmod ad ipsum duis. In consequat laborum in aliqua aliquip laborum eiusmod ut qui minim voluptate Lorem eiusmod. Pariatur sint cupidatat laborum fugiat proident. Adipisicing occaecat elit fugiat anim consectetur eu sunt cupidatat enim ea excepteur deserunt nulla.</div>
+ 			-->
+			<div class="cards">
+				<div class="card">
+					<p class="card__text">Laborum non anim cillum sunt magna aliqua enim velit consectetur eiusmod deserunt amet cillum commodo. Aute occaecat mollit est commodo cupidatat labore laboris. Aliquip exercitation reprehenderit aliquip ex. Nisi est eu cillum consequat. Pariatur in pariatur tempor occaecat occaecat commodo ad do cillum nisi. Cupidatat mollit id labore enim ad incididunt. Labore nostrud nostrud Lorem dolore culpa sit.</p>
+					<button class="card__button">Показать еще</button>
+				</div>
+				<div class="card">
+					<p class="card__text">Pariatur in pariatur tempor occaecat occaecat commodo ad do cillum nisi. Cupidatat mollit id labore enim ad incididunt. Labore nostrud nostrud Lorem dolore culpa sit.</p>
+					<button class="card__button">Показать еще</button>
+				</div>
+				<div class="card">
+					<p class="card__text">Nostrud eu velit deserunt Lorem anim aliqua deserunt aute qui amet id excepteur mollit elit. Commodo mollit ut et consectetur ea non amet proident commodo. Id excepteur nostrud commodo nisi cupidatat consequat est cupidatat anim nostrud. Duis eu dolor enim duis nulla amet cupidatat. Ullamco tempor ullamco aute cupidatat amet velit elit esse commodo magna veniam voluptate incididunt pariatur. Pariatur in pariatur tempor occaecat occaecat commodo ad do cillum nisi. Cupidatat mollit id labore enim ad incididunt. Labore nostrud nostrud Lorem dolore culpa sit.</p>
+					<button class="card__button">Показать еще</button>
+				</div>
+			</div>
+		</main>
+		@@include('html/_footer.htm',{})
+	</div>
+	@@include('html/_popup.htm',{})
+	@@include('html/_js.htm',{})
+</body>
+
 </html>

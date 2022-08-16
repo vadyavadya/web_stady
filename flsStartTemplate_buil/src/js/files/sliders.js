@@ -7,7 +7,7 @@
 // Подключаем слайдер Swiper из node_modules
 // При необходимости подключаем дополнительные модули слайдера, указывая их в {} через запятую
 // Пример: { Navigation, Autoplay }
-import Swiper, { Navigation, Pagination, Lazy, EffectFade, Autoplay } from 'swiper';
+import Swiper, { Navigation } from 'swiper';
 /*
 Основниые модули слайдера:
 Navigation, Pagination, Autoplay, 
@@ -45,64 +45,62 @@ function initSliders() {
 	bildSliders();
 
 	// Перечень слайдеров
-	if (document.querySelector('.body-main-slider')) {
-		new Swiper('.body-main-slider', {
+	if (document.querySelector('.swiper')) {
+		new Swiper('.swiper', {
 			// Подключаем модули слайдера
 			// для конкретного случая
-			modules: [Pagination, EffectFade, Lazy, Autoplay],
+			//modules: [Navigation, Pagination],
+			/*
 			effect: 'fade',
 			autoplay: {
 				delay: 3000,
 				disableOnInteraction: false,
 			},
+			*/
 			observer: true,
 			observeParents: true,
 			slidesPerView: 1,
 			spaceBetween: 0,
-			autoHeight: false,
-			speed: 1000,
+			autoHeight: true,
+			speed: 800,
 			//touchRatio: 0,
 			//simulateTouch: false,
-			loop: true,
-			preloadImages: false,
-			lazy: {
-				loadPrevNext: true,
-			},
+			//loop: true,
+			//preloadImages: false,
+			//lazy: true,
 			// Dotts
-			pagination: {
-				el: '.body-main-slider__controll',
-				clickable: true,
-			},
+			//pagination: {
+			//	el: '.slider-quality__pagging',
+			//	clickable: true,
+			//},
 			// Arrows
-			/*
 			navigation: {
 				nextEl: '.about__more .more__item_next',
 				prevEl: '.about__more .more__item_prev',
 			},
-			*/
+			/*
 			breakpoints: {
 				320: {
+					slidesPerView: 1,
+					spaceBetween: 0,
 					autoHeight: true,
 				},
+				768: {
+					slidesPerView: 2,
+					spaceBetween: 20,
+				},
 				992: {
-					autoHeight: false,
-				}
+					slidesPerView: 3,
+					spaceBetween: 20,
+				},
+				1268: {
+					slidesPerView: 4,
+					spaceBetween: 30,
+				},
 			},
+			*/
 			on: {
-				init: function () {
-					const controll = document.querySelectorAll('.body-main-slider__controll .swiper-pagination-bullet');
-					controll.forEach((el, index) => {
-						let num;
-						if (index < 10) {
-							num = `0`;
-						}
-						el.innerHTML = `${num}${index + 1}`;
-					});
-				},
-				breakpoint: function (swiper, info) {
-					!info.autoHeight ? document.querySelector('.body-main-slider__swiper').style.height = 'auto' : '';
-					swiper.updateSize();
-				},
+
 			}
 		});
 	}

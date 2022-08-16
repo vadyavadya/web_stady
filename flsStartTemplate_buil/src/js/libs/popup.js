@@ -1,20 +1,24 @@
 // (c) Фрилансер по жизни, Хмурый Кот
 // Документация: 
-// Подключение функционала "Чертогов Фрилансера"
-import { isMobile, bodyLockStatus, bodyLockToggle } from "../files/functions.js";
 
+// Подключение функционала "Чертогов Фрилансера"
+import { isMobile, bodyLockStatus, bodyLockToggle, FLS } from "../files/functions.js";
+
+// Класс Popup
 export class Popup {
 	constructor(options) {
 		let config = {
-			logging: false,
+			logging: true,
 			init: true,
+			// Для кнопок 
 			attributeOpenButton: 'data-popup', // Атрибут для кнопки, которая вызывает попап
 			attributeCloseButton: 'data-close', // Атрибут для кнопки, которая закрывает попап
+			// Для сторонних объектов
 			fixElementSelector: '[data-lp]', // Атрибут для элементов с левым паддингом (которые fixed)
-
-			youtubeAttribute: 'data-youtube', //Атрибут для кода youtube
+			// Для объекта попапа
+			youtubeAttribute: 'data-youtube', // Атрибут для кода youtube
+			youtubePlaceAttribute: 'data-youtube-place', // Атрибут для вставки ролика youtube
 			setAutoplayYoutube: true,
-
 			// Изменение классов
 			classes: {
 				popup: 'popup',
@@ -22,9 +26,7 @@ export class Popup {
 				popupContent: 'popup__content',
 				popupActive: 'popup_show', // Добавляется для попапа, когда он открывается
 				bodyActive: 'popup-show', // Добавляется для боди, когда попап открыт
-				popupVideo: 'popup__video',
 			},
-
 			focusCatch: true, // Фокус внутри попапа зациклен
 			closeEsc: true, // Закрытие по ESC
 			bodyLock: true, // Блокировка скролла
@@ -34,7 +36,6 @@ export class Popup {
 				location: true, // Хэш в адресной строке
 				goHash: true, // Переход по наличию в адресной строке
 			},
-
 			on: { // События
 				beforeOpen: function () { },
 				afterOpen: function () { },
@@ -78,8 +79,24 @@ export class Popup {
 			'[contenteditable]',
 			'[tabindex]:not([tabindex^="-"])'
 		];
-		this.options = Object.assign(config, options);
-		options.init ? this.initPopups() : null
+		//this.options = Object.assign(config, options);
+		this.options = {
+			...config,
+			...options,
+			classes: {
+				...config.classes,
+				...options?.classes,
+			},
+			hashSettings: {
+				...config.hashSettings,
+				...options?.hashSettings,
+			},
+			on: {
+				...config.on,
+				...options?.on,
+			}
+		}
+		this.options.init ? this.initPopups() : null
 	}
 	initPopups() {
 		this.popupLogging(`Проснулся`);
@@ -114,7 +131,6 @@ export class Popup {
 				return;
 			}
 		}.bind(this));
-
 		// Закрытие по ESC
 		document.addEventListener("keydown", function (e) {
 			if (this.options.closeEsc && e.which == 27 && e.code === 'Escape' && this.isOpen) {
@@ -127,7 +143,16 @@ export class Popup {
 				return;
 			}
 		}.bind(this))
-
+		// Событие отправки формы
+		if (document.querySelector('form[data-ajax],form[data-dev]')) {
+			document.addEventListener("formSent", function (e) {
+				const popup = e.detail.form.dataset.popupMessage;
+				if (popup) {
+					this.open(popup);
+				}
+			}.bind(this));
+		}
+		// Открытие по хешу
 		if (this.options.hashSettings.goHash) {
 			// Проверка изменения адресной строки
 			window.addEventListener('hashchange', function () {
@@ -146,7 +171,6 @@ export class Popup {
 
 			}.bind(this))
 		}
-
 	}
 	open(selectorValue) {
 		// Если ввести значение селектора (селектор настраивается в options)
@@ -178,8 +202,8 @@ export class Popup {
 
 				iframe.setAttribute('src', urlVideo);
 
-				if (this.targetOpen.element.querySelector(`.${this.options.classes.popupVideo}`))
-					this.targetOpen.element.querySelector(`.${this.options.classes.popupVideo}`).appendChild(iframe);
+				if (this.targetOpen.element.querySelector(`[${this.options.youtubePlaceAttribute}]`))
+					this.targetOpen.element.querySelector(`[${this.options.youtubePlaceAttribute}]`).appendChild(iframe);
 			}
 			if (this.options.hashSettings.location) {
 				// Получение хэша и его выставление 
@@ -234,8 +258,8 @@ export class Popup {
 		this.options.on.beforeClose(this);
 		// YouTube
 		if (this.targetOpen.element.hasAttribute(this.options.youtubeAttribute)) {
-			if (this.targetOpen.element.querySelector(`.${this.options.classes.popupVideo}`))
-				this.targetOpen.element.querySelector(`.${this.options.classes.popupVideo}`).innerHTML = '';
+			if (this.targetOpen.element.querySelector(`[${this.options.youtubePlaceAttribute}]`))
+				this.targetOpen.element.querySelector(`[${this.options.youtubePlaceAttribute}]`).innerHTML = '';
 		}
 		this.previousOpen.element.classList.remove(this.options.classes.popupActive);
 		// aria-hidden
@@ -308,6 +332,6 @@ export class Popup {
 	}
 	// Функция вывода в консоль
 	popupLogging(message) {
-		this.options.logging ? console.log(`[Попапос]: ${message}`) : null;
+		this.options.logging ? FLS(`[Попапос]: ${message}`) : null;
 	}
 }
