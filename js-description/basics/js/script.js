@@ -189,9 +189,9 @@ window.scrollTo({
 <div data-sanches-one class="btn"></div>
 В JS
 const btn = querySelector('.btn');
-btn.setdata.sanchesOne;
+btn.dataset.sanchesOne;
 */
-
+// * Получить значеие атрибута element.dataset.['имя атрибута'] element.dataset.sanchesOne
 // * Проверка наличия атрибута element.hasAttribute('data-sanches')
 // * Получить значение атрибута element.getAttribute('data-sanches')
 // * Задать значение атрибута element.setAttribute('data-sanches')

@@ -226,3 +226,8 @@
 	background: linear-gradient(180deg, rgba(4, 4, 4, 0.5046393557422969) 0%, rgba(4, 4, 4, 0.4962359943977591) 100%),
 		url("@img/restoran-home/about-us/bg.jpg") center / cover no-repeat;
 }
+.bg-paralax {
+	position: absolute;
+	width: 100%;
+	overflow: hidden;
+}

@@ -387,6 +387,12 @@ body {
 .no-webp .bg_wall{
   background: linear-gradient(180deg, rgba(4, 4, 4, 0.5046393557) 0%, rgba(4, 4, 4, 0.4962359944) 100%), url("../img/restoran-home/about-us/bg.jpg") center/cover no-repeat; }
 
+.bg-paralax {
+  position: absolute;
+  width: 100%;
+  overflow: hidden;
+}
+
 .header {
   position: absolute;
   width: 100%;
@@ -916,6 +922,7 @@ body {
 
 .restorant-home-about {
   position: relative;
+  overflow: hidden;
 }
 
 .restorant-home-about::before {
@@ -933,6 +940,34 @@ body {
 .restorant-home-about__container {
   position: relative;
   z-index: 2;
+}
+
+@supports (padding-top: clamp( 0.625rem , -1.2117346939rem  +  9.1836734694vw , 6.25rem )) {
+  .restorant-home-about__container {
+    padding-top: clamp( 0.625rem , -1.2117346939rem  +  9.1836734694vw , 6.25rem );
+  }
+}
+
+@supports not (padding-top: clamp( 0.625rem , -1.2117346939rem  +  9.1836734694vw , 6.25rem )) {
+  .restorant-home-about__container {
+    padding-top: calc(
+			0.625rem + 5.625 * (100vw - 20rem) / 61.25
+		);
+  }
+}
+
+@supports (padding-bottom: clamp( 0.625rem , -1.2117346939rem  +  9.1836734694vw , 6.25rem )) {
+  .restorant-home-about__container {
+    padding-bottom: clamp( 0.625rem , -1.2117346939rem  +  9.1836734694vw , 6.25rem );
+  }
+}
+
+@supports not (padding-bottom: clamp( 0.625rem , -1.2117346939rem  +  9.1836734694vw , 6.25rem )) {
+  .restorant-home-about__container {
+    padding-bottom: calc(
+			0.625rem + 5.625 * (100vw - 20rem) / 61.25
+		);
+  }
 }
 
 .restorant-home-about__content {

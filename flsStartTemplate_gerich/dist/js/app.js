@@ -3761,6 +3761,39 @@
     };
     const da = new DynamicAdapt("max");
     da.init();
+    window.addEventListener("load", (function() {
+        const bgElements = document.querySelectorAll("[data-bg-paralax]");
+        if (bgElements.length) bgElements.forEach((bgElement => {
+            const dataElement = bgElement.dataset.bgParalax;
+            let parallaxImgPath;
+            let parallaxCount = 30;
+            if (dataElement.length) {
+                const bgArray = bgElement.dataset.bgParalax.split(",");
+                bgArray.forEach((bgArrayElement => {
+                    if (bgArrayElement.endsWith("%")) bgArrayElement = bgArrayElement.slice(0, bgArrayElement.indexOf("%"));
+                    if (Number(bgArrayElement)) parallaxCount = Number(bgArrayElement); else parallaxImgPath = bgArrayElement.trim();
+                }));
+            }
+            bgElement.insertAdjacentHTML("afterbegin", `<div class="bg-paralax" style="background:url(${parallaxImgPath}) 0 0 / cover no-repeat; height:${100 + 2 * parallaxCount}%; top:0;"></div>`);
+        }));
+        window.addEventListener("scroll", (function() {
+            if (bgElements.length) bgElements.forEach((bgElement => {
+                if (window.innerHeight - bgElement.getBoundingClientRect().top > 0 && bgElement.offsetHeight + bgElement.getBoundingClientRect().top > 0) {
+                    console.log(window.innerHeight - bgElement.getBoundingClientRect().top);
+                    let parallaxImgPath;
+                    let parallaxCount = 30;
+                    if (dataElement.length) {
+                        const bgArray = bgElement.dataset.bgParalax.split(",");
+                        bgArray.forEach((bgArrayElement => {
+                            if (bgArrayElement.endsWith("%")) bgArrayElement = bgArrayElement.slice(0, bgArrayElement.indexOf("%"));
+                            if (Number(bgArrayElement)) parallaxCount = Number(bgArrayElement); else parallaxImgPath = bgArrayElement.trim();
+                        }));
+                        bgElement.offsetHeigh;
+                    }
+                }
+            }));
+        }));
+    }));
     window["FLS"] = true;
     isWebp();
     addTouchClass();

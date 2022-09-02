@@ -296,6 +296,7 @@
 }
 .restorant-home-about {
     position: relative;
+    overflow: hidden;
     &::before {
         content: "G";
         font-size: rem(700);
@@ -307,6 +308,8 @@
     }
     // .restorant-home-about__container
     &__container {
+        @include adaptiveValue("padding-top", 100, 10);
+        @include adaptiveValue("padding-bottom", 100, 10);
         position: relative;
         z-index: 2;
     }
