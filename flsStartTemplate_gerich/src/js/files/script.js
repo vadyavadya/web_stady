@@ -33,18 +33,21 @@ window.addEventListener('load', function () {
             }
             bgElement.insertAdjacentHTML(
                 'afterbegin',
-                `<div class="bg-paralax" style="background:url(${parallaxImgPath}) 0 0 / cover no-repeat; height:${100 + (parallaxCount * 2)}%; top:0;"></div>`,
+                `<div class="bg-paralax" style="background:url(${parallaxImgPath}) 0 0 / cover no-repeat; height:${100 + (parallaxCount * 2)}%; bottom:0;"></div>`,
             )
         })
     }
     window.addEventListener('scroll', function () {
         if (bgElements.length) {
             // Переходим к каждому элементу 
+
             bgElements.forEach(bgElement => {
+                let pixelHeight = window.innerHeight + bgElement.offsetHeight;
                 if ((window.innerHeight - bgElement.getBoundingClientRect().top) > 0 && (bgElement.offsetHeight + bgElement.getBoundingClientRect().top) > 0) {
-                    console.log(window.innerHeight - bgElement.getBoundingClientRect().top);
+                    // console.log(window.innerHeight - bgElement.getBoundingClientRect().top);
                     let parallaxImgPath;
                     let parallaxCount = 30;
+                    const dataElement = bgElement.dataset.bgParalax;
                     // Написанно ли что то внутри атрибута
                     if (dataElement.length) {
                         const bgArray = bgElement.dataset.bgParalax.split(',');
@@ -59,7 +62,12 @@ window.addEventListener('load', function () {
                                 parallaxImgPath = bgArrayElement.trim();
                             }
                         })
-                        let pixelScroll = bgElement.offsetHeigh*parallaxCount*2;
+
+                        let pixelScroll = bgElement.offsetHeight * (parallaxCount * 2) / 100;
+                        let elementBg = bgElement.firstElementChild;
+                        let precentHeight = (window.innerHeight - bgElement.getBoundingClientRect().top) / pixelHeight;
+                        console.log(elementBg.style.top);
+                        elementBg.style.bottom = '-' + precentHeight * pixelScroll + 'px';
                     }
 
                 }

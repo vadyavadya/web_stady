@@ -56,7 +56,7 @@ const ftpConnect = ftp.create(configFTP);
 
 // Функция очистки папки с результатом
 function clean() {
-	return del(path.clean);
+	return deleteAsync(path.clean);
 }
 // Вспомогательная функция
 function cb() { }
@@ -74,7 +74,7 @@ function addGitIgnore() {
 		fs.appendFile('./.gitignore', projectName + '\r\n', cb);
 		fs.appendFile('./.gitignore', '**/*.zip\r\n', cb);
 		fs.appendFile('./.gitignore', '**/*.rar\r\n', cb);
-		//if (projectName !== 'flsStart') del('./.git/');
+		//if (projectName !== 'flsStart') deleteAsync('./.git/');
 	}
 	return src(path.src.html);
 }
@@ -82,7 +82,7 @@ function addGitIgnore() {
 // Шрифты
 // Удаляем папку со шрифтами
 function fontsFoldrClean() {
-	return del(path.build.fonts);
+	return deleteAsync(path.build.fonts);
 }
 // Конвертируем из .ttf в .woff и .woff2
 function fontsConverter() {
@@ -334,7 +334,7 @@ gulp.task('deploy', deploy);
 
 // Удалить
 function deployTemplateClean(params) {
-	return del('startTemplate');
+	return deleteAsync('startTemplate');
 }
 function deployTemplateAction() {
 	return src([`**/*.*`, `!my_ftp.js`, `!todo.txt`, `!package-lock.json`, `!node_modules/**/*.*`, `!${projectName}/**/*.*`], {})

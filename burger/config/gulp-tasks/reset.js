@@ -1,4 +1,4 @@
-import del from "del";
+import { deleteAsync } от "del";
 export const reset = () => {
-	return del(app.path.clean);
+	return deleteAsync(app.path.clean);
 }

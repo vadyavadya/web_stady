@@ -2000,15 +2000,17 @@
         if ("auto" === params.slidesPerView && !params.loopedSlides) params.loopedSlides = slides.length;
         swiper.loopedSlides = Math.ceil(parseFloat(params.loopedSlides || params.slidesPerView, 10));
         swiper.loopedSlides += params.loopAdditionalSlides;
-        if (swiper.loopedSlides > slides.length) swiper.loopedSlides = slides.length;
+        if (swiper.loopedSlides > slides.length && swiper.params.loopedSlidesLimit) swiper.loopedSlides = slides.length;
         const prependSlides = [];
         const appendSlides = [];
         slides.each(((el, index) => {
-            const slide = dom(el);
-            if (index < swiper.loopedSlides) appendSlides.push(el);
-            if (index < slides.length && index >= slides.length - swiper.loopedSlides) prependSlides.push(el);
-            slide.attr("data-swiper-slide-index", index);
+            dom(el).attr("data-swiper-slide-index", index);
         }));
+        for (let i = 0; i < swiper.loopedSlides; i += 1) {
+            const index = i - Math.floor(i / slides.length) * slides.length;
+            appendSlides.push(slides.eq(index)[0]);
+            prependSlides.unshift(slides.eq(slides.length - index - 1)[0]);
+        }
         for (let i = 0; i < appendSlides.length; i += 1) $selector.append(dom(appendSlides[i].cloneNode(true)).addClass(params.slideDuplicateClass));
         for (let i = prependSlides.length - 1; i >= 0; i -= 1) $selector.prepend(dom(prependSlides[i].cloneNode(true)).addClass(params.slideDuplicateClass));
     }
@@ -2685,6 +2687,7 @@
         loop: false,
         loopAdditionalSlides: 0,
         loopedSlides: null,
+        loopedSlidesLimit: true,
         loopFillGroupWithBlank: false,
         loopPreventsSlide: true,
         rewind: false,
@@ -3436,6 +3439,11 @@
             }
         });
         function run() {
+            if (!swiper.size) {
+                swiper.autoplay.running = false;
+                swiper.autoplay.paused = false;
+                return;
+            }
             const $activeSlideEl = swiper.slides.eq(swiper.activeIndex);
             let delay = swiper.params.autoplay.delay;
             if ($activeSlideEl.attr("data-swiper-autoplay")) delay = $activeSlideEl.attr("data-swiper-autoplay") || swiper.params.autoplay.delay;
@@ -3774,21 +3782,26 @@
                     if (Number(bgArrayElement)) parallaxCount = Number(bgArrayElement); else parallaxImgPath = bgArrayElement.trim();
                 }));
             }
-            bgElement.insertAdjacentHTML("afterbegin", `<div class="bg-paralax" style="background:url(${parallaxImgPath}) 0 0 / cover no-repeat; height:${100 + 2 * parallaxCount}%; top:0;"></div>`);
+            bgElement.insertAdjacentHTML("afterbegin", `<div class="bg-paralax" style="background:url(${parallaxImgPath}) 0 0 / cover no-repeat; height:${100 + 2 * parallaxCount}%; bottom:0;"></div>`);
         }));
         window.addEventListener("scroll", (function() {
             if (bgElements.length) bgElements.forEach((bgElement => {
+                let pixelHeight = window.innerHeight + bgElement.offsetHeight;
                 if (window.innerHeight - bgElement.getBoundingClientRect().top > 0 && bgElement.offsetHeight + bgElement.getBoundingClientRect().top > 0) {
-                    console.log(window.innerHeight - bgElement.getBoundingClientRect().top);
                     let parallaxImgPath;
                     let parallaxCount = 30;
+                    const dataElement = bgElement.dataset.bgParalax;
                     if (dataElement.length) {
                         const bgArray = bgElement.dataset.bgParalax.split(",");
                         bgArray.forEach((bgArrayElement => {
                             if (bgArrayElement.endsWith("%")) bgArrayElement = bgArrayElement.slice(0, bgArrayElement.indexOf("%"));
                             if (Number(bgArrayElement)) parallaxCount = Number(bgArrayElement); else parallaxImgPath = bgArrayElement.trim();
                         }));
-                        bgElement.offsetHeigh;
+                        let pixelScroll = bgElement.offsetHeight * (2 * parallaxCount) / 100;
+                        let elementBg = bgElement.firstElementChild;
+                        let precentHeight = (window.innerHeight - bgElement.getBoundingClientRect().top) / pixelHeight;
+                        console.log(elementBg.style.top);
+                        elementBg.style.bottom = "-" + precentHeight * pixelScroll + "px";
                     }
                 }
             }));
