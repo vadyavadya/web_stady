@@ -246,6 +246,20 @@ body {
      object-fit: contain;
 }
 
+.bg-paralax {
+  position: absolute;
+  width: 100%;
+  overflow: hidden;
+  background-color: rgb(34, 39, 195);
+  background-image: -webkit-gradient(linear, left bottom, left top, from(rgb(254, 254, 254)), color-stop(10%, rgb(4, 0, 255)), color-stop(21%, rgb(255, 0, 0)), color-stop(30%, rgb(254, 254, 254)), color-stop(40%, rgb(4, 0, 255)), color-stop(50%, rgb(255, 0, 0)), color-stop(62%, rgb(254, 254, 254)), color-stop(74%, rgb(4, 0, 255)), color-stop(84%, rgb(255, 0, 0)), color-stop(91%, rgb(254, 254, 254)), color-stop(100%, rgb(4, 0, 255)), to(rgb(255, 0, 0)));
+  background-image: -o-linear-gradient(bottom, rgb(254, 254, 254) 0%, rgb(4, 0, 255) 10%, rgb(255, 0, 0) 21%, rgb(254, 254, 254) 30%, rgb(4, 0, 255) 40%, rgb(255, 0, 0) 50%, rgb(254, 254, 254) 62%, rgb(4, 0, 255) 74%, rgb(255, 0, 0) 84%, rgb(254, 254, 254) 91%, rgb(4, 0, 255) 100%, rgb(255, 0, 0) 100%);
+  background-image: linear-gradient(0deg, rgb(254, 254, 254) 0%, rgb(4, 0, 255) 10%, rgb(255, 0, 0) 21%, rgb(254, 254, 254) 30%, rgb(4, 0, 255) 40%, rgb(255, 0, 0) 50%, rgb(254, 254, 254) 62%, rgb(4, 0, 255) 74%, rgb(255, 0, 0) 84%, rgb(254, 254, 254) 91%, rgb(4, 0, 255) 100%, rgb(255, 0, 0) 100%);
+  background-position: center 0;
+  background-size: cover;
+  background-repeat: no-repeat;
+  bottom: 0;
+}
+
 .swiper-main__pagination .swiper-pagination-bullet,
 .header__logo,
 .title,
@@ -387,12 +401,6 @@ body {
 .no-webp .bg_wall{
   background: linear-gradient(180deg, rgba(4, 4, 4, 0.5046393557) 0%, rgba(4, 4, 4, 0.4962359944) 100%), url("../img/restoran-home/about-us/bg.jpg") center/cover no-repeat; }
 
-.bg-paralax {
-  position: absolute;
-  width: 100%;
-  overflow: hidden;
-}
-
 .header {
   position: absolute;
   width: 100%;
@@ -401,6 +409,10 @@ body {
   -webkit-transition: all 0.3s ease 0s;
   -o-transition: all 0.3s ease 0s;
   transition: all 0.3s ease 0s;
+  background: rgb(0, 0, 0);
+  background: -webkit-gradient(linear, left top, left bottom, from(rgb(0, 0, 0)), color-stop(59%, rgb(0, 0, 0)), to(rgba(0, 0, 0, 0.0592612045)));
+  background: -o-linear-gradient(top, rgb(0, 0, 0) 0%, rgb(0, 0, 0) 59%, rgba(0, 0, 0, 0.0592612045) 100%);
+  background: linear-gradient(180deg, rgb(0, 0, 0) 0%, rgb(0, 0, 0) 59%, rgba(0, 0, 0, 0.0592612045) 100%);
 }
 
 .header__container_wide {
@@ -411,10 +423,6 @@ body {
       -ms-flex-align: center;
           align-items: center;
   gap: 12px;
-  background: rgb(0, 0, 0);
-  background: -webkit-gradient(linear, left top, left bottom, from(rgb(0, 0, 0)), color-stop(59%, rgb(0, 0, 0)), to(rgba(0, 0, 0, 0.0592612045)));
-  background: -o-linear-gradient(top, rgb(0, 0, 0) 0%, rgb(0, 0, 0) 59%, rgba(0, 0, 0, 0.0592612045) 100%);
-  background: linear-gradient(180deg, rgb(0, 0, 0) 0%, rgb(0, 0, 0) 59%, rgba(0, 0, 0, 0.0592612045) 100%);
 }
 
 @supports (min-height: clamp( 3.125rem , 1.6760204082rem  +  7.2448979592vw , 7.5625rem )) {

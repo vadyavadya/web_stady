@@ -3774,7 +3774,7 @@
         if (bgElements.length) bgElements.forEach((bgElement => {
             const dataElement = bgElement.dataset.bgParalax;
             let parallaxImgPath;
-            let parallaxCount = 30;
+            let parallaxCount = 60;
             if (dataElement.length) {
                 const bgArray = bgElement.dataset.bgParalax.split(",");
                 bgArray.forEach((bgArrayElement => {
@@ -3782,7 +3782,9 @@
                     if (Number(bgArrayElement)) parallaxCount = Number(bgArrayElement); else parallaxImgPath = bgArrayElement.trim();
                 }));
             }
-            bgElement.insertAdjacentHTML("afterbegin", `<div class="bg-paralax" style="background:url(${parallaxImgPath}) 0 0 / cover no-repeat; height:${100 + 2 * parallaxCount}%; bottom:0;"></div>`);
+            let bgHeight;
+            if (window.innerHeight > bgElement.offsetHeight) bgHeight = window.innerHeight + window.innerHeight * (2 * parallaxCount) / 100; else bgHeight = bgElement.offsetHeight + bgElement.offsetHeight * (2 * parallaxCount) / 100;
+            if (bgElement.offsetHeight > 0) if (parallaxImgPath) bgElement.insertAdjacentHTML("afterbegin", `<div class="bg-paralax" style="background-image:url(${parallaxImgPath}); height:${bgHeight}px;"></div>`); else bgElement.insertAdjacentHTML("afterbegin", `<div class="bg-paralax" style="height:${bgHeight}px;"></div>`);
         }));
         window.addEventListener("scroll", (function() {
             if (bgElements.length) bgElements.forEach((bgElement => {
@@ -3797,10 +3799,11 @@
                             if (bgArrayElement.endsWith("%")) bgArrayElement = bgArrayElement.slice(0, bgArrayElement.indexOf("%"));
                             if (Number(bgArrayElement)) parallaxCount = Number(bgArrayElement); else parallaxImgPath = bgArrayElement.trim();
                         }));
-                        let pixelScroll = bgElement.offsetHeight * (2 * parallaxCount) / 100;
+                        let pixelScroll;
+                        pixelScroll = window.innerHeight;
                         let elementBg = bgElement.firstElementChild;
                         let precentHeight = (window.innerHeight - bgElement.getBoundingClientRect().top) / pixelHeight;
-                        console.log(elementBg.style.top);
+                        console.log(precentHeight);
                         elementBg.style.bottom = "-" + precentHeight * pixelScroll + "px";
                     }
                 }

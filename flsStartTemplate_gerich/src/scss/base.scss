@@ -125,7 +125,31 @@
 		display: none;
 	}
 }
-
+.bg-paralax {
+	position: absolute;
+	width: 100%;
+	overflow: hidden;
+	background-color: rgb(34, 39, 195);
+	background-image: linear-gradient(
+		0deg,
+		rgba(254, 254, 254, 1) 0%,
+		rgba(4, 0, 255, 1) 10%,
+		rgba(255, 0, 0, 1) 21%,
+		rgba(254, 254, 254, 1) 30%,
+		rgba(4, 0, 255, 1) 40%,
+		rgba(255, 0, 0, 1) 50%,
+		rgba(254, 254, 254, 1) 62%,
+		rgba(4, 0, 255, 1) 74%,
+		rgba(255, 0, 0, 1) 84%,
+		rgba(254, 254, 254, 1) 91%,
+		rgba(4, 0, 255, 1) 100%,
+		rgba(255, 0, 0, 1) 100%
+	);
+	background-position: center 0;
+	background-size: cover;
+	background-repeat: no-repeat;
+	bottom: 0;
+}
 %ffcu {
 	font-family: CormorantUpright;
 }
@@ -225,9 +249,4 @@
 .bg_wall {
 	background: linear-gradient(180deg, rgba(4, 4, 4, 0.5046393557422969) 0%, rgba(4, 4, 4, 0.4962359943977591) 100%),
 		url("@img/restoran-home/about-us/bg.jpg") center / cover no-repeat;
-}
-.bg-paralax {
-	position: absolute;
-	width: 100%;
-	overflow: hidden;
 }

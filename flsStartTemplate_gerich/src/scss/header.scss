@@ -5,6 +5,13 @@
 	color: #ffffff;
 	z-index: 50;
 	transition: all 0.3s ease 0s;
+	background: rgb(0, 0, 0);
+	background: linear-gradient(
+		180deg,
+		rgba(0, 0, 0, 1) 0%,
+		rgba(0, 0, 0, 1) 59%,
+		rgba(0, 0, 0, 0.05926120448179273) 100%
+	);
 	// .header__container
 	&__container {
 		// .header__container_wide
@@ -13,13 +20,6 @@
 			display: flex;
 			align-items: center;
 			gap: 12px;
-			background: rgb(0, 0, 0);
-			background: linear-gradient(
-				180deg,
-				rgba(0, 0, 0, 1) 0%,
-				rgba(0, 0, 0, 1) 59%,
-				rgba(0, 0, 0, 0.05926120448179273) 100%
-			);
 		}
 	}
 	&._header-scroll {

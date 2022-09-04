@@ -14,7 +14,7 @@ window.addEventListener('load', function () {
         bgElements.forEach(bgElement => {
             const dataElement = bgElement.dataset.bgParalax;
             let parallaxImgPath;
-            let parallaxCount = 30;
+            let parallaxCount = 60;
             // Написанно ли что то внутри атрибута
             if (dataElement.length) {
                 const bgArray = bgElement.dataset.bgParalax.split(',');
@@ -31,11 +31,29 @@ window.addEventListener('load', function () {
                 })
                 // console.log('Элемент: ', 'parallaxCount= ', parallaxCount, 'parallaxImgPath= ', parallaxImgPath);
             }
-            bgElement.insertAdjacentHTML(
-                'afterbegin',
-                `<div class="bg-paralax" style="background:url(${parallaxImgPath}) 0 0 / cover no-repeat; height:${100 + (parallaxCount * 2)}%; bottom:0;"></div>`,
-            )
+            let bgHeight;
+            if (window.innerHeight > bgElement.offsetHeight) {
+                bgHeight = window.innerHeight + window.innerHeight * (parallaxCount * 2) / 100;
+            } else {
+                bgHeight = bgElement.offsetHeight + bgElement.offsetHeight * (parallaxCount * 2) / 100;
+            }
+            if (bgElement.offsetHeight > 0) {
+                if (parallaxImgPath) {
+
+                    bgElement.insertAdjacentHTML(
+                        'afterbegin',
+                        `<div class="bg-paralax" style="background-image:url(${parallaxImgPath}); height:${bgHeight}px;"></div>`,
+                    )
+
+                } else {
+                    bgElement.insertAdjacentHTML(
+                        'afterbegin',
+                        `<div class="bg-paralax" style="height:${bgHeight}px;"></div>`,
+                    )
+                }
+            }
         })
+
     }
     window.addEventListener('scroll', function () {
         if (bgElements.length) {
@@ -62,11 +80,19 @@ window.addEventListener('load', function () {
                                 parallaxImgPath = bgArrayElement.trim();
                             }
                         })
+                        let pixelScroll;
+                        /* if (window.innerHeight > bgElement.offsetHeight) {
+                            pixelScroll = window.innerHeight * (parallaxCount * 2) / 100;
+                        } else {
+                            pixelScroll = bgElement.offsetHeight * (parallaxCount * 2) / 100;
+                        }
+ */
+                        // let pixelScroll = bgElement.offsetHeight * (parallaxCount * 2) / 100;
+                        pixelScroll = window.innerHeight;
 
-                        let pixelScroll = bgElement.offsetHeight * (parallaxCount * 2) / 100;
                         let elementBg = bgElement.firstElementChild;
                         let precentHeight = (window.innerHeight - bgElement.getBoundingClientRect().top) / pixelHeight;
-                        console.log(elementBg.style.top);
+                        console.log(precentHeight);
                         elementBg.style.bottom = '-' + precentHeight * pixelScroll + 'px';
                     }
 
