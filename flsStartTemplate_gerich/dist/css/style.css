@@ -250,10 +250,21 @@ body {
   position: absolute;
   width: 100%;
   overflow: hidden;
-  background-color: rgb(34, 39, 195);
-  background-image: -webkit-gradient(linear, left bottom, left top, from(rgb(254, 254, 254)), color-stop(10%, rgb(4, 0, 255)), color-stop(21%, rgb(255, 0, 0)), color-stop(30%, rgb(254, 254, 254)), color-stop(40%, rgb(4, 0, 255)), color-stop(50%, rgb(255, 0, 0)), color-stop(62%, rgb(254, 254, 254)), color-stop(74%, rgb(4, 0, 255)), color-stop(84%, rgb(255, 0, 0)), color-stop(91%, rgb(254, 254, 254)), color-stop(100%, rgb(4, 0, 255)), to(rgb(255, 0, 0)));
-  background-image: -o-linear-gradient(bottom, rgb(254, 254, 254) 0%, rgb(4, 0, 255) 10%, rgb(255, 0, 0) 21%, rgb(254, 254, 254) 30%, rgb(4, 0, 255) 40%, rgb(255, 0, 0) 50%, rgb(254, 254, 254) 62%, rgb(4, 0, 255) 74%, rgb(255, 0, 0) 84%, rgb(254, 254, 254) 91%, rgb(4, 0, 255) 100%, rgb(255, 0, 0) 100%);
-  background-image: linear-gradient(0deg, rgb(254, 254, 254) 0%, rgb(4, 0, 255) 10%, rgb(255, 0, 0) 21%, rgb(254, 254, 254) 30%, rgb(4, 0, 255) 40%, rgb(255, 0, 0) 50%, rgb(254, 254, 254) 62%, rgb(4, 0, 255) 74%, rgb(255, 0, 0) 84%, rgb(254, 254, 254) 91%, rgb(4, 0, 255) 100%, rgb(255, 0, 0) 100%);
+  /* background-image: linear-gradient(
+  	0deg,
+  	rgba(254, 254, 254, 1) 0%,
+  	rgba(4, 0, 255, 1) 10%,
+  	rgba(255, 0, 0, 1) 21%,
+  	rgba(254, 254, 254, 1) 30%,
+  	rgba(4, 0, 255, 1) 40%,
+  	rgba(255, 0, 0, 1) 50%,
+  	rgba(254, 254, 254, 1) 62%,
+  	rgba(4, 0, 255, 1) 74%,
+  	rgba(255, 0, 0, 1) 84%,
+  	rgba(254, 254, 254, 1) 91%,
+  	rgba(4, 0, 255, 1) 100%,
+  	rgba(255, 0, 0, 1) 100%
+  ); */
   background-position: center 0;
   background-size: cover;
   background-repeat: no-repeat;
@@ -933,21 +944,8 @@ body {
   overflow: hidden;
 }
 
-.restorant-home-about::before {
-  content: "G";
-  font-size: 43.75rem;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-      -ms-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-  color: #272727;
-}
-
 .restorant-home-about__container {
   position: relative;
-  z-index: 2;
 }
 
 @supports (padding-top: clamp( 0.625rem , -1.2117346939rem  +  9.1836734694vw , 6.25rem )) {
@@ -978,6 +976,18 @@ body {
   }
 }
 
+.restorant-home-about__container::before {
+  content: "G";
+  font-size: 43.75rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  color: #272727;
+}
+
 .restorant-home-about__content {
   height: 100%;
   display: -webkit-box;
@@ -993,6 +1003,7 @@ body {
 }
 
 .restorant-home-about__abut-us {
+  position: relative;
   max-width: 523px;
   text-align: right;
 }
@@ -1032,12 +1043,16 @@ body {
 }
 
 .restorant-home-about__our-histori {
+  position: relative;
   max-width: 523px;
 }
 
 .restorant-home-about__our-histori *:not(:last-child) {
   margin-bottom: 32px;
 }
+
+.no-webp .test-bg{
+  background-image: url("../img/main-slider/02.jpg"); }
 
 .swiper {
   overflow: hidden;
@@ -1430,3 +1445,5 @@ body {
 .webp .bg_wall{ background: -o-linear-gradient(top, rgba(4, 4, 4, 0.5046393557) 0%, rgba(4, 4, 4, 0.4962359944) 100%), url(../img/restoran-home/about-us/bg.webp) center/cover no-repeat; }
 
 .webp .bg_wall{ background: linear-gradient(180deg, rgba(4, 4, 4, 0.5046393557) 0%, rgba(4, 4, 4, 0.4962359944) 100%), url(../img/restoran-home/about-us/bg.webp) center/cover no-repeat; }
+
+.webp .test-bg{ background-image: url(../img/main-slider/02.webp); }

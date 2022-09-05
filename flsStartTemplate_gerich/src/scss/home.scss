@@ -297,21 +297,22 @@
 .restorant-home-about {
     position: relative;
     overflow: hidden;
-    &::before {
-        content: "G";
-        font-size: rem(700);
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        color: #272727;
-    }
+
     // .restorant-home-about__container
     &__container {
         @include adaptiveValue("padding-top", 100, 10);
         @include adaptiveValue("padding-bottom", 100, 10);
         position: relative;
-        z-index: 2;
+        // z-index: 1;
+        &::before {
+            content: "G";
+            font-size: rem(700);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #272727;
+        }
     }
     // .restorant-home-about__content
     &__content {
@@ -323,6 +324,7 @@
     }
     // .restorant-home-about__abut-us
     &__abut-us {
+        position: relative;
         max-width: 523px;
         *:not(:last-child) {
             margin-bottom: 32px;
@@ -357,6 +359,7 @@
     }
     // .restorant-home-about__our-histori
     &__our-histori {
+        position: relative;
         max-width: 523px;
         *:not(:last-child) {
             margin-bottom: 32px;
@@ -390,4 +393,7 @@
     }
 }
 
+.test-bg {
+    background-image: url("@img/main-slider/02.jpg");
+}
 //====================================================================================================

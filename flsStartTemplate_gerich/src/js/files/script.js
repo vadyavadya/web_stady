@@ -7,97 +7,66 @@ import { flsModules } from "./modules.js";
 // Проверяем загрузку страницы
 window.addEventListener('load', function () {
     // Получаем пременные у которых есть атрибут
-    const bgElements = document.querySelectorAll('[data-bg-paralax]');
+    const elementsParallaxBg = document.querySelectorAll('[data-bg-paralax]');
     // Проверяем есть ли такие
-    if (bgElements.length) {
+    if (elementsParallaxBg.length) {
         // Переходим к каждому элементу 
-        bgElements.forEach(bgElement => {
-            const dataElement = bgElement.dataset.bgParalax;
-            let parallaxImgPath;
+        elementsParallaxBg.forEach(elementParallaxBg => {
+            // Берем значения атрибута
+            const dataElement = elementParallaxBg.dataset.bgParalax;
+            // Путь к картинке если не по умолчанию
+            let imgPath;
             let parallaxCount = 60;
+            let heightViewPixel = window.innerHeight + elementParallaxBg.offsetHeight;
+
             // Написанно ли что то внутри атрибута
             if (dataElement.length) {
-                const bgArray = bgElement.dataset.bgParalax.split(',');
+                const bgArray = elementParallaxBg.dataset.bgParalax.split(',');
                 // Проверяем что написанно путь и число или путь или число 
                 bgArray.forEach(bgArrayElement => {
                     if (bgArrayElement.endsWith('%')) {
                         bgArrayElement = bgArrayElement.slice(0, bgArrayElement.indexOf('%'));
                     }
-                    if (Number(bgArrayElement)) {
+                    if ((Number(bgArrayElement)) || (Number(bgArrayElement) == 0)) {
                         parallaxCount = Number(bgArrayElement);
                     } else {
-                        parallaxImgPath = bgArrayElement.trim();
+                        imgPath = `url(${bgArrayElement.trim()})`;
                     }
                 })
-                // console.log('Элемент: ', 'parallaxCount= ', parallaxCount, 'parallaxImgPath= ', parallaxImgPath);
             }
-            let bgHeight;
-            if (window.innerHeight > bgElement.offsetHeight) {
-                bgHeight = window.innerHeight + window.innerHeight * (parallaxCount * 2) / 100;
-            } else {
-                bgHeight = bgElement.offsetHeight + bgElement.offsetHeight * (parallaxCount * 2) / 100;
-            }
-            if (bgElement.offsetHeight > 0) {
-                if (parallaxImgPath) {
+            // Если не задан gwnm к картинке то берем у родителя
+            if (imgPath == undefined) {
+                let backgroundParrent = window.getComputedStyle(elementParallaxBg).backgroundImage;
+                if (backgroundParrent) {
+                    let re = /"/g;
+                    imgPath = backgroundParrent.replace(re, "'");
+                    console.log(window.getComputedStyle(elementParallaxBg).backgroundImage);
+                    elementParallaxBg.style.backgroundImage = 'inherit';
+                }
 
-                    bgElement.insertAdjacentHTML(
+            }
+            let pixelScroll = (heightViewPixel * (parallaxCount / 100));
+            let bgHeight = elementParallaxBg.offsetHeight + pixelScroll;
+            if (elementParallaxBg.offsetHeight > 0) {
+                if (imgPath) {
+                    elementParallaxBg.insertAdjacentHTML(
                         'afterbegin',
-                        `<div class="bg-paralax" style="background-image:url(${parallaxImgPath}); height:${bgHeight}px;"></div>`,
-                    )
-
+                        `<div class="bg-paralax" style="background-image:${imgPath}; height:${bgHeight}px;"></div>`,
+                    );
                 } else {
-                    bgElement.insertAdjacentHTML(
+                    elementParallaxBg.insertAdjacentHTML(
                         'afterbegin',
                         `<div class="bg-paralax" style="height:${bgHeight}px;"></div>`,
-                    )
-                }
-            }
-        })
-
-    }
-    window.addEventListener('scroll', function () {
-        if (bgElements.length) {
-            // Переходим к каждому элементу 
-
-            bgElements.forEach(bgElement => {
-                let pixelHeight = window.innerHeight + bgElement.offsetHeight;
-                if ((window.innerHeight - bgElement.getBoundingClientRect().top) > 0 && (bgElement.offsetHeight + bgElement.getBoundingClientRect().top) > 0) {
-                    // console.log(window.innerHeight - bgElement.getBoundingClientRect().top);
-                    let parallaxImgPath;
-                    let parallaxCount = 30;
-                    const dataElement = bgElement.dataset.bgParalax;
-                    // Написанно ли что то внутри атрибута
-                    if (dataElement.length) {
-                        const bgArray = bgElement.dataset.bgParalax.split(',');
-                        // Проверяем что написанно путь и число или путь или число 
-                        bgArray.forEach(bgArrayElement => {
-                            if (bgArrayElement.endsWith('%')) {
-                                bgArrayElement = bgArrayElement.slice(0, bgArrayElement.indexOf('%'));
-                            }
-                            if (Number(bgArrayElement)) {
-                                parallaxCount = Number(bgArrayElement);
-                            } else {
-                                parallaxImgPath = bgArrayElement.trim();
-                            }
-                        })
-                        let pixelScroll;
-                        /* if (window.innerHeight > bgElement.offsetHeight) {
-                            pixelScroll = window.innerHeight * (parallaxCount * 2) / 100;
-                        } else {
-                            pixelScroll = bgElement.offsetHeight * (parallaxCount * 2) / 100;
-                        }
- */
-                        // let pixelScroll = bgElement.offsetHeight * (parallaxCount * 2) / 100;
-                        pixelScroll = window.innerHeight;
-
-                        let elementBg = bgElement.firstElementChild;
-                        let precentHeight = (window.innerHeight - bgElement.getBoundingClientRect().top) / pixelHeight;
-                        console.log(precentHeight);
-                        elementBg.style.bottom = '-' + precentHeight * pixelScroll + 'px';
-                    }
-
+                    );
+                };
+            };
+            window.addEventListener('scroll', function () {
+                if ((window.innerHeight - elementParallaxBg.getBoundingClientRect().top) > 0 && (elementParallaxBg.offsetHeight + elementParallaxBg.getBoundingClientRect().top) > 0) {
+                    let elementBg = elementParallaxBg.firstElementChild;
+                    let precentHeight = 1 - (elementParallaxBg.getBoundingClientRect().top + elementParallaxBg.offsetHeight) / heightViewPixel;
+                    elementBg.style.bottom = '-' + (precentHeight * pixelScroll) + 'px';
                 }
             })
-        }
-    })
+        });
+    };
 })

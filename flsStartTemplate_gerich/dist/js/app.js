@@ -2000,17 +2000,15 @@
         if ("auto" === params.slidesPerView && !params.loopedSlides) params.loopedSlides = slides.length;
         swiper.loopedSlides = Math.ceil(parseFloat(params.loopedSlides || params.slidesPerView, 10));
         swiper.loopedSlides += params.loopAdditionalSlides;
-        if (swiper.loopedSlides > slides.length && swiper.params.loopedSlidesLimit) swiper.loopedSlides = slides.length;
+        if (swiper.loopedSlides > slides.length) swiper.loopedSlides = slides.length;
         const prependSlides = [];
         const appendSlides = [];
         slides.each(((el, index) => {
-            dom(el).attr("data-swiper-slide-index", index);
+            const slide = dom(el);
+            if (index < swiper.loopedSlides) appendSlides.push(el);
+            if (index < slides.length && index >= slides.length - swiper.loopedSlides) prependSlides.push(el);
+            slide.attr("data-swiper-slide-index", index);
         }));
-        for (let i = 0; i < swiper.loopedSlides; i += 1) {
-            const index = i - Math.floor(i / slides.length) * slides.length;
-            appendSlides.push(slides.eq(index)[0]);
-            prependSlides.unshift(slides.eq(slides.length - index - 1)[0]);
-        }
         for (let i = 0; i < appendSlides.length; i += 1) $selector.append(dom(appendSlides[i].cloneNode(true)).addClass(params.slideDuplicateClass));
         for (let i = prependSlides.length - 1; i >= 0; i -= 1) $selector.prepend(dom(prependSlides[i].cloneNode(true)).addClass(params.slideDuplicateClass));
     }
@@ -2687,7 +2685,6 @@
         loop: false,
         loopAdditionalSlides: 0,
         loopedSlides: null,
-        loopedSlidesLimit: true,
         loopFillGroupWithBlank: false,
         loopPreventsSlide: true,
         rewind: false,
@@ -3439,11 +3436,6 @@
             }
         });
         function run() {
-            if (!swiper.size) {
-                swiper.autoplay.running = false;
-                swiper.autoplay.paused = false;
-                return;
-            }
             const $activeSlideEl = swiper.slides.eq(swiper.activeIndex);
             let delay = swiper.params.autoplay.delay;
             if ($activeSlideEl.attr("data-swiper-autoplay")) delay = $activeSlideEl.attr("data-swiper-autoplay") || swiper.params.autoplay.delay;
@@ -3770,42 +3762,36 @@
     const da = new DynamicAdapt("max");
     da.init();
     window.addEventListener("load", (function() {
-        const bgElements = document.querySelectorAll("[data-bg-paralax]");
-        if (bgElements.length) bgElements.forEach((bgElement => {
-            const dataElement = bgElement.dataset.bgParalax;
-            let parallaxImgPath;
+        const elementsParallaxBg = document.querySelectorAll("[data-bg-paralax]");
+        if (elementsParallaxBg.length) elementsParallaxBg.forEach((elementParallaxBg => {
+            const dataElement = elementParallaxBg.dataset.bgParalax;
+            let imgPath;
             let parallaxCount = 60;
+            let heightViewPixel = window.innerHeight + elementParallaxBg.offsetHeight;
             if (dataElement.length) {
-                const bgArray = bgElement.dataset.bgParalax.split(",");
+                const bgArray = elementParallaxBg.dataset.bgParalax.split(",");
                 bgArray.forEach((bgArrayElement => {
                     if (bgArrayElement.endsWith("%")) bgArrayElement = bgArrayElement.slice(0, bgArrayElement.indexOf("%"));
-                    if (Number(bgArrayElement)) parallaxCount = Number(bgArrayElement); else parallaxImgPath = bgArrayElement.trim();
+                    if (Number(bgArrayElement) || 0 == Number(bgArrayElement)) parallaxCount = Number(bgArrayElement); else imgPath = `url(${bgArrayElement.trim()})`;
                 }));
             }
-            let bgHeight;
-            if (window.innerHeight > bgElement.offsetHeight) bgHeight = window.innerHeight + window.innerHeight * (2 * parallaxCount) / 100; else bgHeight = bgElement.offsetHeight + bgElement.offsetHeight * (2 * parallaxCount) / 100;
-            if (bgElement.offsetHeight > 0) if (parallaxImgPath) bgElement.insertAdjacentHTML("afterbegin", `<div class="bg-paralax" style="background-image:url(${parallaxImgPath}); height:${bgHeight}px;"></div>`); else bgElement.insertAdjacentHTML("afterbegin", `<div class="bg-paralax" style="height:${bgHeight}px;"></div>`);
-        }));
-        window.addEventListener("scroll", (function() {
-            if (bgElements.length) bgElements.forEach((bgElement => {
-                let pixelHeight = window.innerHeight + bgElement.offsetHeight;
-                if (window.innerHeight - bgElement.getBoundingClientRect().top > 0 && bgElement.offsetHeight + bgElement.getBoundingClientRect().top > 0) {
-                    let parallaxImgPath;
-                    let parallaxCount = 30;
-                    const dataElement = bgElement.dataset.bgParalax;
-                    if (dataElement.length) {
-                        const bgArray = bgElement.dataset.bgParalax.split(",");
-                        bgArray.forEach((bgArrayElement => {
-                            if (bgArrayElement.endsWith("%")) bgArrayElement = bgArrayElement.slice(0, bgArrayElement.indexOf("%"));
-                            if (Number(bgArrayElement)) parallaxCount = Number(bgArrayElement); else parallaxImgPath = bgArrayElement.trim();
-                        }));
-                        let pixelScroll;
-                        pixelScroll = window.innerHeight;
-                        let elementBg = bgElement.firstElementChild;
-                        let precentHeight = (window.innerHeight - bgElement.getBoundingClientRect().top) / pixelHeight;
-                        console.log(precentHeight);
-                        elementBg.style.bottom = "-" + precentHeight * pixelScroll + "px";
-                    }
+            if (void 0 == imgPath) {
+                let backgroundParrent = window.getComputedStyle(elementParallaxBg).backgroundImage;
+                if (backgroundParrent) {
+                    let re = /"/g;
+                    imgPath = backgroundParrent.replace(re, "'");
+                    console.log(window.getComputedStyle(elementParallaxBg).backgroundImage);
+                    elementParallaxBg.style.backgroundImage = "inherit";
+                }
+            }
+            let pixelScroll = heightViewPixel * (parallaxCount / 100);
+            let bgHeight = elementParallaxBg.offsetHeight + pixelScroll;
+            if (elementParallaxBg.offsetHeight > 0) if (imgPath) elementParallaxBg.insertAdjacentHTML("afterbegin", `<div class="bg-paralax" style="background-image:${imgPath}; height:${bgHeight}px;"></div>`); else elementParallaxBg.insertAdjacentHTML("afterbegin", `<div class="bg-paralax" style="height:${bgHeight}px;"></div>`);
+            window.addEventListener("scroll", (function() {
+                if (window.innerHeight - elementParallaxBg.getBoundingClientRect().top > 0 && elementParallaxBg.offsetHeight + elementParallaxBg.getBoundingClientRect().top > 0) {
+                    let elementBg = elementParallaxBg.firstElementChild;
+                    let precentHeight = 1 - (elementParallaxBg.getBoundingClientRect().top + elementParallaxBg.offsetHeight) / heightViewPixel;
+                    elementBg.style.bottom = "-" + precentHeight * pixelScroll + "px";
                 }
             }));
         }));
