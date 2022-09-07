@@ -1,7 +1,8 @@
 .qs-datepicker-container {
 	margin: 5px;
 	font-size: 1rem;
-	font-family: sans-serif;
+	// font-family: sans-serif;
+	@extend %ffcu;
 	color: #000;
 	position: absolute;
 	width: 15.625em;

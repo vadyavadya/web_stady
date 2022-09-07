@@ -2,6 +2,7 @@
 // Снипет (HTML): sel
 .select {
 	position: relative;
+
 	// .select__body
 	&__body {
 		position: relative;
@@ -10,11 +11,11 @@
 	&__title {
 		color: inherit;
 		text-align: left;
-		border: 1px solid #d9d9d9;
-		background-color: #fff;
+		border: 1px solid #f5efdb;
+		background-color: transparent;
 		cursor: pointer;
 		width: 100%;
-		border-radius: 4px;
+		height: rem(60);
 	}
 	// .select__value
 	&__value {
@@ -23,17 +24,21 @@
 		height: rem(30);
 		padding: 0 rem(15);
 		gap: rem(10);
+		font-size: rem(24);
+		@extend %ffcu;
 		> * {
 			flex: 1 1 auto;
 		}
 		&:after {
-			content: "";
 			align-self: stretch;
 			flex: 0 0 10px;
 			transition: all 0.3s ease 0s;
 			display: flex;
 			justify-content: center;
 			align-items: center;
+			@extend %ic;
+			content: "\e903";
+			font-size: rem(6);
 			._select-open & {
 				transform: rotate(-180deg);
 			}
@@ -56,15 +61,15 @@
 	}
 	// .select__options
 	&__options {
-		color: #000;
+		color: inherit;
 		position: absolute;
-		top: 29px;
+		top: calc(100% - 1px);
 		border-radius: 0 0 4px 4px;
 		min-width: 100%;
 		left: 0;
-		background-color: #fff;
+		background-color: #0c0b08b6;
 		border-top: 0;
-		border: 1px solid #d9d9d9;
+		border: 1px solid #f5efdb;
 		border-top: 0;
 		padding: 10px 0px 5px 0px;
 	}
@@ -77,23 +82,28 @@
 		// Стили скроллбара
 		.simplebar-scrollbar {
 			&::before {
+				background-color: $colorCalicio;
 				//opacity: 1;
 			}
 		}
 	}
 	// .select__option
 	&__option {
+		@extend %ffcu;
+		font-size: rem(24);
 		width: 100%;
 		text-align: left;
 		cursor: pointer;
 		padding: 5px 15px;
 		color: inherit;
+
 		&._select-selected {
 			background-color: #eee;
 		}
 		@media (any-hover: hover) {
 			&:hover {
-				background: #d9d9d9;
+				background: $colorCalicioHover;
+				color: $colorBg;
 			}
 		}
 	}

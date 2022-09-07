@@ -94,6 +94,9 @@
             }
         }
     }
+    &__reservation {
+        position: relative;
+    }
 }
 .hashtag {
     font-weight: 400;
@@ -292,9 +295,20 @@
 .page {
     // .page__restorant-home-about
     &__restorant-home-about {
+        margin-bottom: rem(159);
     }
 }
 .restorant-home-about {
+    &::before {
+        content: "G";
+        font-size: rem(700);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: #272727;
+        z-index: 1;
+    }
     position: relative;
     overflow: hidden;
 
@@ -302,29 +316,19 @@
     &__container {
         @include adaptiveValue("padding-top", 100, 10);
         @include adaptiveValue("padding-bottom", 100, 10);
-        position: relative;
-        // z-index: 1;
-        &::before {
-            content: "G";
-            font-size: rem(700);
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: #272727;
-        }
     }
     // .restorant-home-about__content
     &__content {
+        position: relative;
         height: 100%;
         display: flex;
         align-items: center;
         gap: 24px;
         justify-content: space-between;
+        z-index: 2;
     }
     // .restorant-home-about__abut-us
     &__abut-us {
-        position: relative;
         max-width: 523px;
         *:not(:last-child) {
             margin-bottom: 32px;
@@ -359,7 +363,6 @@
     }
     // .restorant-home-about__our-histori
     &__our-histori {
-        position: relative;
         max-width: 523px;
         *:not(:last-child) {
             margin-bottom: 32px;
@@ -392,8 +395,79 @@
         }
     }
 }
+//====================================================================================================
 
-.test-bg {
-    background-image: url("@img/main-slider/02.jpg");
+.page {
+    // .page__reservation
+    &__reservation {
+    }
 }
+.resirvation-form {
+    // .resirvation-form__title
+    &__title {
+        @include adaptiveValue("margin-bottom", 64, 24);
+    }
+    // .resirvation-form__container
+    &__container {
+        max-width: rem(1364);
+        @include adaptiveValue("padding-top", 48, 12);
+        @include adaptiveValue("padding-bottom", 48, 12);
+        background-color: #0c0c0c;
+        border: 1px solid rgba(220, 202, 135, 0.2);
+        box-shadow: 22px 30px 95px 1px rgba(0, 0, 0, 0.7);
+    }
+    // .resirvation-form__form
+    &__form {
+    }
+}
+
+.form-book {
+    &__lines {
+        display: flex;
+        @include adaptiveValue("gap", 32, 12);
+        justify-content: center;
+        &:not(:last-child) {
+            @include adaptiveValue("margin-bottom", 64, 24);
+        }
+    }
+    &__input {
+        position: relative;
+        &::before {
+            position: absolute;
+            right: rem(16);
+            top: rem(25);
+            font-size: rem(10);
+            transition: all 0.3s ease 0s;
+        }
+        &._form-focus {
+            &::before {
+                transform: rotate(-180deg);
+            }
+        }
+        .form__error {
+            color: red;
+            font-size: rem(15);
+            margin: 10px 0px 0px 0px;
+            @media (min-width: $tablet) {
+                position: absolute;
+                bottom: -25px;
+            }
+        }
+    }
+    &__line {
+        flex: 1 1 auto;
+    }
+    // .form-book__container
+    &__container {
+    }
+    // .form-book__input
+    &__input {
+    }
+    // .form-book__button
+    &__button {
+    }
+}
+.button {
+}
+
 //====================================================================================================

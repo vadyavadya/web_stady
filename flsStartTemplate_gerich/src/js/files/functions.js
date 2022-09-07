@@ -630,4 +630,75 @@ export function dataMediaQueries(array, dataSetValue) {
 		}
 	}
 }
+
+
+
+// Функция работы с паралакс бэкграундом
+// Пример: <div data-bg-paralax="@img/restoran-home/about-us/-bg.jpg,50%"></div>
+// Диапазон 0(едет вместе с объектом) 100 (стоит на месте) 
+// По умолчанию 60, и бакграунд это го элемента
+
+// если что онре рабтает то может надо указывать картинку по умолчанью в 
+// свойстве background-image:url();
+export function parallaxBg() {
+	// Проверяем загрузку страницы
+	window.addEventListener('load', function () {
+		// Получаем пременные у которых есть атрибут
+		const elementsParallaxBg = document.querySelectorAll('[data-bg-paralax]');
+		// Проверяем есть ли такие
+		if (elementsParallaxBg.length) {
+			// Переходим к каждому элементу 
+			elementsParallaxBg.forEach(elementParallaxBg => {
+				// Берем значения атрибута
+				const dataElement = elementParallaxBg.dataset.bgParalax;
+				// Путь к картинке если не по умолчанию
+				let imgPath;
+				// Значение паралакса по умолчанию
+				let parallaxCount = 60;
+				let heightViewPixel = window.innerHeight + elementParallaxBg.offsetHeight;
+				// Написанно ли что то внутри атрибута
+				if (dataElement.length) {
+					const bgArray = elementParallaxBg.dataset.bgParalax.split(',');
+					bgArray.forEach(bgArrayElement => {
+						if (bgArrayElement.endsWith('%')) {
+							bgArrayElement = bgArrayElement.slice(0, bgArrayElement.indexOf('%'));
+						}
+						if ((Number(bgArrayElement)) || (Number(bgArrayElement) == 0)) {
+							parallaxCount = Number(bgArrayElement);
+						} else {
+							imgPath = `url(${bgArrayElement.trim()})`;
+						}
+					});
+				}
+				// Если не задан imgPath к картинке то берем у родителя
+				if (imgPath == undefined) {
+					let backgroundParrent = window.getComputedStyle(elementParallaxBg).backgroundImage;
+					if (backgroundParrent) {
+						let re = /"/g;
+						imgPath = backgroundParrent.replace(re, "'");
+						console.log(window.getComputedStyle(elementParallaxBg).backgroundImage);
+						elementParallaxBg.style.backgroundImage = 'inherit';
+					}
+				}
+				let pixelScroll = (heightViewPixel * (parallaxCount / 100));
+				let bgHeight = elementParallaxBg.offsetHeight + pixelScroll;
+				if (elementParallaxBg.offsetHeight > 0) {
+					elementParallaxBg.insertAdjacentHTML(
+						'afterbegin',
+						`<div class="bg-paralax" style="background-image:${imgPath}; height:${bgHeight}px;"></div>`,
+					);
+				}
+				window.addEventListener('scroll', function () {
+					if ((window.innerHeight - elementParallaxBg.getBoundingClientRect().top) > 0 &&
+						(elementParallaxBg.offsetHeight + elementParallaxBg.getBoundingClientRect().top) > 0) {
+						let bgParalax = elementParallaxBg.firstElementChild;
+						let precentHeight = 1 - (elementParallaxBg.getBoundingClientRect().top
+							+ elementParallaxBg.offsetHeight) / heightViewPixel;
+						bgParalax.style.bottom = '-' + (precentHeight * pixelScroll) + 'px';
+					}
+				});
+			});
+		}
+	});
+}
 //================================================================================================================================================================================================================================================================================================================

@@ -15,7 +15,8 @@ const picker = datepicker('[data-datepicker]', {
 	startDay: 1,
 	formatter: (input, date, instance) => {
 		const value = date.toLocaleDateString()
-		input.value = value
+		let reDot = /\./g;
+		input.value = value.replace(reDot, "/");
 	},
 	onSelect: function (input, instance, date) {
 

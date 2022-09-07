@@ -11,12 +11,30 @@ textarea {
 .input {
 	border-radius: 0 !important;
 	width: 100%;
+	height: 60px;
+	background-color: transparent;
+	color: $mainColor;
+	font-size: rem(24);
 	display: block;
 	padding: 0px 20px;
-	border: 1px solid #eee;
+	border: 1px solid #f5efdb;
+
 	&._form-focus {
 	}
 	&._form-error {
+	}
+}
+.input-dark {
+	@extend %ffcu;
+	border: 1px solid #f5efdb;
+	width: 100%;
+	height: 60px;
+	color: inherit;
+	font-size: rem(24);
+	background-color: transparent;
+	padding: 0px rem(16);
+	&._form-error {
+		border: 1px solid red;
 	}
 }
 textarea.input {
