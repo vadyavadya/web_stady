@@ -6,7 +6,7 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20220907165227">
+	<link rel="stylesheet" href="css/style.min.css?_v=20220908163426">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -144,15 +144,22 @@
 			</section>
 
 			<section class="page__reservation resirvation-form">
-				<div class="resirvation-form__container">
+				<div data-decor class="resirvation-form__container">
 					<div class="resirvation-form__title title">
 						<h2 class="title__subtitle">Reservations</h2>
 						<h1 class="title__title title__title_upper-spoon">Book A Table</h1>
 					</div>
-					<form data-dev method="POST" action="#" class="resirvation-form__form form-book">
+					<!-- 
+						data-dev для имитации отправки формы
+					-->
+					<form data-dev data-popup-message="#pushForm" method="POST" action="#" class="resirvation-form__form form-book">
 						<div class="form-book__lines">
 							<div class="form-book__line">
-								<select name="form[]" data-class-modif="mod1" class="">
+								<!-- 
+									не стоит новый класс писать ничего не получится меняем в имеющихся селектах
+									
+								 -->
+								<select name="form[]" data-class-modif="form" class="">
 									<option value="1">1 Person</option>
 									<option value="2">2 Person</option>
 									<option value="3">3 Person</option>
@@ -161,10 +168,18 @@
 							</div>
 							<div class="form-book__line">
 								<div class="form-book__input _icon-select-arrow">
+									<!-- 
+										data-required обязательное поле
+										не забываем валидацию полей включить для отслеживания активна или нет поле
+									 -->
 									<input type="text" data-datepicker placeholder="12/05/2021" data-error="Ошибка" data-required class="input-dark">
 								</div>
 							</div>
 							<div class="form-book__line">
+								<!-- 
+									data-scroll добавляет скролл к селекту
+									а так же там кастомизация скрола есть
+								 -->
 								<select name="form[]" data-scroll data-class-modif="form" class="">
 									<option value="1">11:00 AM</option>
 									<option value="2">12:00 AM</option>
@@ -187,6 +202,21 @@
 				</div>
 			</section>
 
+			<section class="page__navigation-menu navigation-menu">
+				<div data-bg-paralax="10" class="navigation-menu__bg">
+					<div class="navigation-menu__bg-black"></div>
+					<div data-decor class="navigation-menu__container navigation-menu__container_wide">
+						<ul class="navigation-menu__list">
+							<li class="navigation-menu__item"><a data-bg-img="img/navigation-menu/bg-navigation-menu.jpg" href="#" class="navigation-menu__link">Bar Menu</a></li>
+							<li class="navigation-menu__item"><a data-bg-img="img/navigation-menu/bg-navigation-menu-food.jpg" href="#" class="navigation-menu__link">Food Menu</a></li>
+							<li class="navigation-menu__item"><a data-bg-img="img/navigation-menu/bg-navigation-menu-dessert.jpg" href="#" class="navigation-menu__link">Desserts Menu</a></li>
+						</ul>
+					</div>
+
+				</div>
+			</section>
+
+
 			<section data-fullscreen></section>
 			<section>
 				Паралакс на нож
@@ -205,17 +235,17 @@
 			</div>
 		</footer>
 	</div>
-	<!-- <div id="popup" aria-hidden="true" class="popup">
-	<div class="popup__wrapper">
-		<div class="popup__content">
-			<button data-close type="button" class="popup__close">Закрыть</button>
-			<div class="popup__text">
-				Text
+	<div id="pushForm" aria-hidden="true" class="popup">
+		<div class="popup__wrapper">
+			<div class="popup__content">
+				<button data-close type="button" class="popup__close"></button>
+				<div class="popup__text">
+					Отправленно
+				</div>
 			</div>
 		</div>
 	</div>
-</div> -->
-	<script src="js/app.min.js?_v=20220907165227"></script>
+	<script src="js/app.min.js?_v=20220908163426"></script>
 </body>
 
 </html>

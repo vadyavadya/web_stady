@@ -46,16 +46,43 @@ body::after {
 	justify-content: center;
 	align-items: center;
 }
+.popup__close {
+	&::before,
+	&::after {
+		content: "";
+		display: block;
+		width: rem(20);
+		height: 2px;
+		background-color: $colorCalicio;
+		position: absolute;
+		top: rem(20);
+		right: rem(20);
+	}
+	&::before {
+		transform: rotate(45deg);
+	}
+	&::after {
+		transform: rotate(135deg);
+	}
+}
+
 .popup__content {
 	visibility: hidden;
 	transform: scale(0);
 	transition: transform 0.3s ease 0s;
-	background-color: #eee;
+	background-color: $colorBg;
+	box-shadow: 0 0 5px white;
 	padding: 20px;
 	width: 100%;
 	max-width: 900px;
 	border-radius: 20px;
+	text-align: center;
 	.lock & {
 		visibility: visible;
+	}
+}
+#pushForm {
+	.popup__content {
+		max-width: 300px;
 	}
 }

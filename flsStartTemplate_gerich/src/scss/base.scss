@@ -3,7 +3,7 @@
 @import "base/forms/forms";
 
 // Стили попапов
-// @import "base/popup";
+@import "base/popup";
 
 // Стили спойлеров
 // @import "base/spollers";
@@ -252,6 +252,25 @@
 	}
 }
 .bg_wall {
-	background: linear-gradient(180deg, rgba(4, 4, 4, 0.5046393557422969) 0%, rgba(4, 4, 4, 0.4962359943977591) 100%),
+	background: linear-gradient(180deg, rgba(4, 4, 4, 0.116) 0%, rgba(4, 4, 4, 0.4962359943977591) 100%),
 		url("@img/restoran-home/about-us/bg.jpg") center / cover no-repeat;
+}
+[data-decor] {
+	&::before {
+		content: "";
+		width: rem(146);
+		height: rem(146);
+		position: absolute;
+		background: url("@img/decor.png") center / contain no-repeat;
+		animation: name duration timing-function delay iteration-count direction fill-mode;
+		animation: rotate 15s infinite linear;
+	}
+}
+@keyframes rotate {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
 }

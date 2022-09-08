@@ -640,7 +640,7 @@ export function dataMediaQueries(array, dataSetValue) {
 
 // если что онре рабтает то может надо указывать картинку по умолчанью в 
 // свойстве background-image:url();
-export function parallaxBg() {
+export function parallaxBg(imgPath = undefined) {
 	// Проверяем загрузку страницы
 	window.addEventListener('load', function () {
 		// Получаем пременные у которых есть атрибут
@@ -676,7 +676,6 @@ export function parallaxBg() {
 					if (backgroundParrent) {
 						let re = /"/g;
 						imgPath = backgroundParrent.replace(re, "'");
-						console.log(window.getComputedStyle(elementParallaxBg).backgroundImage);
 						elementParallaxBg.style.backgroundImage = 'inherit';
 					}
 				}
@@ -688,6 +687,7 @@ export function parallaxBg() {
 						`<div class="bg-paralax" style="background-image:${imgPath}; height:${bgHeight}px;"></div>`,
 					);
 				}
+				console.log(imgPath);
 				window.addEventListener('scroll', function () {
 					if ((window.innerHeight - elementParallaxBg.getBoundingClientRect().top) > 0 &&
 						(elementParallaxBg.offsetHeight + elementParallaxBg.getBoundingClientRect().top) > 0) {

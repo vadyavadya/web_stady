@@ -797,6 +797,129 @@ textarea.input {
   background: #cce4ff;
 }
 
+body::after {
+  content: "";
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  -webkit-transition: opacity 0.8s ease 0s;
+  -o-transition: opacity 0.8s ease 0s;
+  transition: opacity 0.8s ease 0s;
+  pointer-events: none;
+  z-index: 149;
+}
+
+.popup-show body::after {
+  opacity: 1;
+}
+
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  padding: 30px 10px;
+  -webkit-transition: visibility 0.8s ease 0s;
+  -o-transition: visibility 0.8s ease 0s;
+  transition: visibility 0.8s ease 0s;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.popup_show {
+  z-index: 150;
+  visibility: visible;
+  overflow: auto;
+  pointer-events: auto;
+}
+
+.popup_show .popup__content {
+  visibility: visible;
+  -webkit-transform: scale(1);
+      -ms-transform: scale(1);
+          transform: scale(1);
+}
+
+.popup__wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  min-height: 100%;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+  width: 100%;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  align-items: center;
+}
+
+.popup__close::before,
+.popup__close::after {
+  content: "";
+  display: block;
+  width: 1.25rem;
+  height: 2px;
+  background-color: #dcca87;
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+}
+
+.popup__close::before {
+  -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+.popup__close::after {
+  -webkit-transform: rotate(135deg);
+      -ms-transform: rotate(135deg);
+          transform: rotate(135deg);
+}
+
+.popup__content {
+  visibility: hidden;
+  -webkit-transform: scale(0);
+      -ms-transform: scale(0);
+          transform: scale(0);
+  -webkit-transition: -webkit-transform 0.3s ease 0s;
+  transition: -webkit-transform 0.3s ease 0s;
+  -o-transition: transform 0.3s ease 0s;
+  transition: transform 0.3s ease 0s;
+  transition: transform 0.3s ease 0s, -webkit-transform 0.3s ease 0s;
+  background-color: #0c0b08;
+  -webkit-box-shadow: 0 0 5px white;
+          box-shadow: 0 0 5px white;
+  padding: 20px;
+  width: 100%;
+  max-width: 900px;
+  border-radius: 20px;
+  text-align: center;
+}
+
+.lock .popup__content {
+  visibility: visible;
+}
+
+#pushForm .popup__content {
+  max-width: 300px;
+}
+
 [data-fullscreen] {
   min-height: 100vh;
 }
@@ -849,6 +972,7 @@ textarea.input {
   bottom: 0;
 }
 
+.navigation-menu__item,
 .swiper-main__pagination .swiper-pagination-bullet,
 .header__logo,
 .title,
@@ -1005,13 +1129,51 @@ textarea.input {
 }
 
 .no-webp .bg_wall{
-  background: -webkit-gradient(linear, left top, left bottom, from(rgba(4, 4, 4, 0.5046393557)), to(rgba(4, 4, 4, 0.4962359944))), url("../img/restoran-home/about-us/bg.jpg") center/cover no-repeat; }
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(4, 4, 4, 0.116)), to(rgba(4, 4, 4, 0.4962359944))), url("../img/restoran-home/about-us/bg.jpg") center/cover no-repeat; }
 
 .no-webp .bg_wall{
-  background: -o-linear-gradient(top, rgba(4, 4, 4, 0.5046393557) 0%, rgba(4, 4, 4, 0.4962359944) 100%), url("../img/restoran-home/about-us/bg.jpg") center/cover no-repeat; }
+  background: -o-linear-gradient(top, rgba(4, 4, 4, 0.116) 0%, rgba(4, 4, 4, 0.4962359944) 100%), url("../img/restoran-home/about-us/bg.jpg") center/cover no-repeat; }
 
 .no-webp .bg_wall{
-  background: linear-gradient(180deg, rgba(4, 4, 4, 0.5046393557) 0%, rgba(4, 4, 4, 0.4962359944) 100%), url("../img/restoran-home/about-us/bg.jpg") center/cover no-repeat; }
+  background: linear-gradient(180deg, rgba(4, 4, 4, 0.116) 0%, rgba(4, 4, 4, 0.4962359944) 100%), url("../img/restoran-home/about-us/bg.jpg") center/cover no-repeat; }
+
+.no-webp [data-decor]::before{
+  background: url("../img/decor.png") center/contain no-repeat; }
+
+[data-decor]::before {
+  content: "";
+  width: 9.125rem;
+  height: 9.125rem;
+  position: absolute;
+  -webkit-animation: name duration timing-function delay iteration-count direction fill-mode;
+          animation: name duration timing-function delay iteration-count direction fill-mode;
+  -webkit-animation: rotate 15s infinite linear;
+          animation: rotate 15s infinite linear;
+}
+
+@-webkit-keyframes rotate {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes rotate {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
 
 .header {
   position: absolute;
@@ -1657,6 +1819,10 @@ textarea.input {
   margin-bottom: 32px;
 }
 
+.page__reservation:not(:last-child) {
+  margin-bottom: 11.5rem;
+}
+
 @supports (margin-bottom: clamp( 1.5rem , 0.6836734694rem  +  4.0816326531vw , 4rem )) {
   .resirvation-form__title {
     margin-bottom: clamp( 1.5rem , 0.6836734694rem  +  4.0816326531vw , 4rem );
@@ -1677,6 +1843,7 @@ textarea.input {
   border: 1px solid rgba(220, 202, 135, 0.2);
   -webkit-box-shadow: 22px 30px 95px 1px rgba(0, 0, 0, 0.7);
           box-shadow: 22px 30px 95px 1px rgba(0, 0, 0, 0.7);
+  position: relative;
 }
 
 @supports (padding-top: clamp( 0.75rem , 0.0153061224rem  +  3.6734693878vw , 3rem )) {
@@ -1707,10 +1874,17 @@ textarea.input {
   }
 }
 
+.resirvation-form__container[data-decor]::before {
+  top: -170px;
+  right: -140px;
+}
+
 .form-book__lines {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -1774,6 +1948,95 @@ textarea.input {
   -webkit-box-flex: 1;
       -ms-flex: 1 1 auto;
           flex: 1 1 auto;
+}
+
+.page__navigation-menu:not(:last-child) {
+  margin-bottom: 9.375rem;
+}
+
+.navigation-menu .bg-paralax {
+  -webkit-transition: background-image 0.9s ease 0s;
+  -o-transition: background-image 0.9s ease 0s;
+  transition: background-image 0.9s ease 0s;
+}
+
+.no-webp .navigation-menu__bg{
+  background-image: url("../img/navigation-menu/bg-navigation-menu.jpg"); }
+
+.navigation-menu__bg {
+  position: relative;
+  overflow: hidden;
+  max-width: 120rem;
+  margin: 0px auto;
+}
+
+.navigation-menu__bg-black {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: -o-radial-gradient(circle, rgba(12, 11, 8, 0.2917542017) 0%, rgb(12, 11, 8) 100%);
+  background: radial-gradient(circle, rgba(12, 11, 8, 0.2917542017) 0%, rgb(12, 11, 8) 100%);
+}
+
+.navigation-menu__container_wide::before {
+  top: 0;
+  z-index: 2;
+}
+
+.navigation-menu__list {
+  position: relative;
+}
+
+@supports (padding-top: clamp( 3rem , -1.3469387755rem  +  21.7346938776vw , 16.3125rem )) {
+  .navigation-menu__list {
+    padding-top: clamp( 3rem , -1.3469387755rem  +  21.7346938776vw , 16.3125rem );
+  }
+}
+
+@supports not (padding-top: clamp( 3rem , -1.3469387755rem  +  21.7346938776vw , 16.3125rem )) {
+  .navigation-menu__list {
+    padding-top: calc(
+			3rem + 13.3125 * (100vw - 20rem) / 61.25
+		);
+  }
+}
+
+@supports (padding-bottom: clamp( 3rem , -1.3469387755rem  +  21.7346938776vw , 16.3125rem )) {
+  .navigation-menu__list {
+    padding-bottom: clamp( 3rem , -1.3469387755rem  +  21.7346938776vw , 16.3125rem );
+  }
+}
+
+@supports not (padding-bottom: clamp( 3rem , -1.3469387755rem  +  21.7346938776vw , 16.3125rem )) {
+  .navigation-menu__list {
+    padding-bottom: calc(
+			3rem + 13.3125 * (100vw - 20rem) / 61.25
+		);
+  }
+}
+
+.navigation-menu__item {
+  color: #fff;
+  font-weight: 400;
+  font-size: 64px;
+  line-height: 130%;
+  letter-spacing: 0.03em;
+  text-transform: capitalize;
+  -webkit-font-feature-settings: "tnum" on, "lnum" on;
+          font-feature-settings: "tnum" on, "lnum" on;
+}
+
+.navigation-menu__item:not(:last-child) {
+  margin-bottom: 4rem;
+}
+
+.navigation-menu__link:active {
+  color: #dcca87;
+}
+
+.navigation-menu__link:hover {
+  -webkit-text-decoration-line: underline;
+          text-decoration-line: underline;
 }
 
 .swiper {
@@ -2213,6 +2476,12 @@ textarea.input {
   }
 }
 
+@media (max-width: 991.98px) {
+  .resirvation-form__container[data-decor]::before {
+    display: none;
+  }
+}
+
 @media (max-width: 523.98px) {
   .auth-header {
     -webkit-box-orient: vertical;
@@ -2413,8 +2682,12 @@ textarea.input {
   }
 }
 
-.webp .bg_wall{ background: -webkit-gradient(linear, left top, left bottom, from(rgba(4, 4, 4, 0.5046393557)), to(rgba(4, 4, 4, 0.4962359944))), url(../img/restoran-home/about-us/bg.webp) center/cover no-repeat; }
+.webp .bg_wall{ background: -webkit-gradient(linear, left top, left bottom, from(rgba(4, 4, 4, 0.116)), to(rgba(4, 4, 4, 0.4962359944))), url(../img/restoran-home/about-us/bg.webp) center/cover no-repeat; }
 
-.webp .bg_wall{ background: -o-linear-gradient(top, rgba(4, 4, 4, 0.5046393557) 0%, rgba(4, 4, 4, 0.4962359944) 100%), url(../img/restoran-home/about-us/bg.webp) center/cover no-repeat; }
+.webp .bg_wall{ background: -o-linear-gradient(top, rgba(4, 4, 4, 0.116) 0%, rgba(4, 4, 4, 0.4962359944) 100%), url(../img/restoran-home/about-us/bg.webp) center/cover no-repeat; }
 
-.webp .bg_wall{ background: linear-gradient(180deg, rgba(4, 4, 4, 0.5046393557) 0%, rgba(4, 4, 4, 0.4962359944) 100%), url(../img/restoran-home/about-us/bg.webp) center/cover no-repeat; }
+.webp .bg_wall{ background: linear-gradient(180deg, rgba(4, 4, 4, 0.116) 0%, rgba(4, 4, 4, 0.4962359944) 100%), url(../img/restoran-home/about-us/bg.webp) center/cover no-repeat; }
+
+.webp [data-decor]::before{ background: url(../img/decor.webp) center/contain no-repeat; }
+
+.webp .navigation-menu__bg{ background-image: url(../img/navigation-menu/bg-navigation-menu.webp); }
