@@ -2,11 +2,11 @@
 // Для подключения/отключения стилей конкретного єлемента формы смотри base/forms/forms.scss
 @import "base/forms/forms";
 
-// Стили попапов
-// @import "base/popup";
-
 // Стили спойлеров
-//@import "base/spollers";
+// @import "base/spollers";
+
+// Стили попапов
+@import "base/popup";
 
 // Стили табов
 // @import "base/tabs";
@@ -17,11 +17,11 @@
 // Стили блока "показать еще"
 // @import "base/showmore";
 
-// Стили для полноэкранного блока
-// @import "base/fullscreen";
+// Календарь
+@import "libs/datepicker";
 
-// Стили для липкого блока
-// @import "base/sticky";
+// Стили для полноэкранного блока
+@import "base/fullscreen";
 
 // Стили для отзывчивых картинок (IBG)
 // Сниппет (HTML): ibg (div c картинкой и классами)
@@ -124,4 +124,7 @@
 	&::-webkit-scrollbar {
 		display: none;
 	}
+}
+%cuf {
+	font-family: CormorantUpright;
 }

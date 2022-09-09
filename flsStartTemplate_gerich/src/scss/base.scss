@@ -264,6 +264,9 @@
 		background: url("@img/decor.png") center / contain no-repeat;
 		animation: name duration timing-function delay iteration-count direction fill-mode;
 		animation: rotate 15s infinite linear;
+		@media (max-width: $tablet) {
+			display: none;
+		}
 	}
 }
 @keyframes rotate {

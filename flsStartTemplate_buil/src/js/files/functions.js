@@ -157,7 +157,7 @@ export let bodyLock = (delay = 500) => {
 		}, delay);
 	}
 }
-// Модуль работы со спойлерами =======================================================================================================================================================================================================================
+// Модуь работы со спойлерами =======================================================================================================================================================================================================================
 /*
 Для родителя слойлеров пишем атрибут data-spollers
 Для заголовков слойлеров пишем атрибут data-spoller
@@ -178,21 +178,51 @@ export function spollers() {
 			return !item.dataset.spollers.split(",")[0];
 		});
 		// Инициализация обычных слойлеров
-		if (spollersRegular.length) {
+		if (spollersRegular.length > 0) {
 			initSpollers(spollersRegular);
 		}
 		// Получение слойлеров с медиа запросами
-		let mdQueriesArray = dataMediaQueries(spollersArray, "spollers");
-		if (mdQueriesArray && mdQueriesArray.length) {
-			mdQueriesArray.forEach(mdQueriesItem => {
-				// Событие
-				mdQueriesItem.matchMedia.addEventListener("change", function () {
-					initSpollers(mdQueriesItem.itemsArray, mdQueriesItem.matchMedia);
+		const spollersMedia = Array.from(spollersArray).filter(function (item, index, self) {
+			return item.dataset.spollers.split(",")[0];
+		});
+		// Инициализация слойлеров с медиа запросами
+		if (spollersMedia.length > 0) {
+			const breakpointsArray = [];
+			spollersMedia.forEach(item => {
+				const params = item.dataset.spollers;
+				const breakpoint = {};
+				const paramsArray = params.split(",");
+				breakpoint.value = paramsArray[0];
+				breakpoint.type = paramsArray[1] ? paramsArray[1].trim() : "max";
+				breakpoint.item = item;
+				breakpointsArray.push(breakpoint);
+			});
+			// Получаем уникальные брейкпоинты
+			let mediaQueries = breakpointsArray.map(function (item) {
+				return '(' + item.type + "-width: " + item.value + "px)," + item.value + ',' + item.type;
+			});
+			mediaQueries = mediaQueries.filter(function (item, index, self) {
+				return self.indexOf(item) === index;
+			});
+			// Работаем с каждым брейкпоинтом
+			mediaQueries.forEach(breakpoint => {
+				const paramsArray = breakpoint.split(",");
+				const mediaBreakpoint = paramsArray[1];
+				const mediaType = paramsArray[2];
+				const matchMedia = window.matchMedia(paramsArray[0]);
+				// Объекты с нужными условиями
+				const spollersArray = breakpointsArray.filter(function (item) {
+					if (item.value === mediaBreakpoint && item.type === mediaType) {
+						return true;
+					}
 				});
-				initSpollers(mdQueriesItem.itemsArray, mdQueriesItem.matchMedia);
+				// Событие
+				matchMedia.addEventListener("change", function () {
+					initSpollers(spollersArray, matchMedia);
+				});
+				initSpollers(spollersArray, matchMedia);
 			});
 		}
-
 		// Инициализация
 		function initSpollers(spollersArray, matchMedia = false) {
 			spollersArray.forEach(spollersBlock => {
@@ -227,8 +257,8 @@ export function spollers() {
 		}
 		function setSpollerAction(e) {
 			const el = e.target;
-			if (el.closest('[data-spoller]')) {
-				const spollerTitle = el.closest('[data-spoller]');
+			if (el.hasAttribute('data-spoller') || el.closest('[data-spoller]')) {
+				const spollerTitle = el.hasAttribute('data-spoller') ? el : el.closest('[data-spoller]');
 				const spollersBlock = spollerTitle.closest('[data-spollers]');
 				const oneSpoller = spollersBlock.hasAttribute('data-one-spoller') ? true : false;
 				if (!spollersBlock.querySelectorAll('._slide').length) {
@@ -280,17 +310,55 @@ export function tabs() {
 			initTabs(tabsBlock);
 		});
 
-		// Получение слойлеров с медиа запросами
-		let mdQueriesArray = dataMediaQueries(tabs, "tabs");
-		if (mdQueriesArray && mdQueriesArray.length) {
-			mdQueriesArray.forEach(mdQueriesItem => {
-				// Событие
-				mdQueriesItem.matchMedia.addEventListener("change", function () {
-					setTitlePosition(mdQueriesItem.itemsArray, mdQueriesItem.matchMedia);
-				});
-				setTitlePosition(mdQueriesItem.itemsArray, mdQueriesItem.matchMedia);
-			});
+		// Получение табов с медиа запросами
+		const tabsMedia = Array.from(tabs).filter(function (item, index, self) {
+			return item.dataset.tabs;
+		});
+		// Инициализация табов с медиа запросами
+		if (tabsMedia.length > 0) {
+			initMediaTabs(tabsMedia);
 		}
+	}
+	// Инициализация табов с медиа запросами
+	function initMediaTabs(tabsMedia) {
+		const breakpointsArray = [];
+		tabsMedia.forEach(item => {
+			const breakpointValue = item.dataset.tabs;
+
+			const tabsBreakpointsObject = {};
+			tabsBreakpointsObject.value = breakpointValue;
+			tabsBreakpointsObject.item = item;
+
+			breakpointsArray.push(tabsBreakpointsObject);
+		});
+
+		// Получаем уникальные брейкпоинты
+		let mediaQueries = breakpointsArray.map(function (item) {
+			return `(max-width:${item.value}px),${item.value}`;
+		});
+		mediaQueries = mediaQueries.filter(function (item, index, self) {
+			return self.indexOf(item) === index;
+		});
+
+		// Работаем с каждым брейкпоинтом
+		mediaQueries.forEach(breakpoint => {
+			const paramsArray = breakpoint.split(",");
+			const matchMedia = window.matchMedia(paramsArray[0]);
+			const mediaBreakpoint = paramsArray[1];
+
+			// Объекты с нужными условиями
+			const tabsMediaArray = breakpointsArray.filter(function (item) {
+				if (item.value === mediaBreakpoint) {
+					return true;
+				}
+			});
+
+			// Событие
+			matchMedia.addEventListener("change", function () {
+				setTitlePosition(tabsMediaArray, matchMedia);
+			});
+			setTitlePosition(tabsMediaArray, matchMedia);
+		});
 	}
 	// Установка позиций заголовков
 	function setTitlePosition(tabsMediaArray, matchMedia) {
@@ -355,9 +423,7 @@ export function tabs() {
 					} else {
 						tabsContentItem.hidden = false;
 					}
-					if (!tabsContentItem.closest('.popup')) {
-						location.hash = `tab-${tabsBlockIndex}-${index}`;
-					}
+					location.hash = `tab-${tabsBlockIndex}-${index}`;
 				} else {
 					if (tabsBlockAnimate) {
 						_slideUp(tabsContentItem, tabsBlockAnimate);
@@ -410,7 +476,6 @@ export function menuClose() {
 // Модуль "показать еще" =======================================================================================================================================================================================================================
 /*
 Документация по работе в шаблоне:
-data-showmore-media = "768,min"
 data-showmore="size/items"
 data-showmore-content="размер/кол-во"
 data-showmore-button="скорость"
@@ -418,57 +483,23 @@ data-showmore-button="скорость"
 */
 export function showMore() {
 	const showMoreBlocks = document.querySelectorAll('[data-showmore]');
-	let showMoreBlocksRegular;
-	let mdQueriesArray;
 	if (showMoreBlocks.length) {
-		// Получение обычных объектов
-		showMoreBlocksRegular = Array.from(showMoreBlocks).filter(function (item, index, self) {
-			return !item.dataset.showmoreMedia;
-		});
-		// Инициализация обычных объектов
-		showMoreBlocksRegular.length ? initItems(showMoreBlocksRegular) : null;
-
+		initItems(showMoreBlocks);
 		document.addEventListener("click", showMoreActions);
 		window.addEventListener("resize", showMoreActions);
-
-		// Получение объектов с медиа запросами
-		mdQueriesArray = dataMediaQueries(showMoreBlocks, "showmoreMedia");
-		if (mdQueriesArray && mdQueriesArray.length) {
-			mdQueriesArray.forEach(mdQueriesItem => {
-				// Событие
-				mdQueriesItem.matchMedia.addEventListener("change", function () {
-					initItems(mdQueriesItem.itemsArray, mdQueriesItem.matchMedia);
-				});
-			});
-			initItemsMedia(mdQueriesArray);
-		}
 	}
-	function initItemsMedia(mdQueriesArray) {
-		mdQueriesArray.forEach(mdQueriesItem => {
-			initItems(mdQueriesItem.itemsArray, mdQueriesItem.matchMedia);
-		});
-	}
-	function initItems(showMoreBlocks, matchMedia) {
+	function initItems(showMoreBlocks) {
 		showMoreBlocks.forEach(showMoreBlock => {
-			initItem(showMoreBlock, matchMedia);
+			initItem(showMoreBlock);
 		});
 	}
-	function initItem(showMoreBlock, matchMedia = false) {
-		showMoreBlock = matchMedia ? showMoreBlock.item : showMoreBlock;
+	function initItem(showMoreBlock) {
 		const showMoreContent = showMoreBlock.querySelector('[data-showmore-content]');
 		const showMoreButton = showMoreBlock.querySelector('[data-showmore-button]');
 		const hiddenHeight = getHeight(showMoreBlock, showMoreContent);
-		if (matchMedia.matches || !matchMedia) {
-			if (hiddenHeight < getOriginalHeight(showMoreContent)) {
-				_slideUp(showMoreContent, 0, hiddenHeight);
-				showMoreButton.hidden = false;
-			} else {
-				_slideDown(showMoreContent, 0, hiddenHeight);
-				showMoreButton.hidden = true;
-			}
-		} else {
-			_slideDown(showMoreContent, 0, hiddenHeight);
-			showMoreButton.hidden = true;
+		if (hiddenHeight < getOriginalHeight(showMoreContent)) {
+			_slideUp(showMoreContent, 0, hiddenHeight);
+			showMoreButton.hidden = false;
 		}
 	}
 	function getHeight(showMoreBlock, showMoreContent) {
@@ -511,11 +542,11 @@ export function showMore() {
 				}
 			}
 		} else if (targetType === 'resize') {
-			showMoreBlocksRegular.length ? initItems(showMoreBlocksRegular) : null;
-			mdQueriesArray.length ? initItemsMedia(mdQueriesArray) : null;
+			initItems(showMoreBlocks);
 		}
 	}
 }
+
 // Модуль попапов ===========================================================================================================================================================================================================================
 /*
 Документация по работе в шаблоне:
@@ -525,28 +556,12 @@ data-youtube - Атрибут для кода youtube
 Сниппет (HTML): pl
 */
 import { Popup } from "../libs/popup.js";
-export const initPopups = () => new Popup({});
-
-// Модуль параллакса мышью ===========================================================================================================================================================================================================================
-/*
-Документация по работе в шаблоне:
-Сниппет (HTML): 
-*/
-import { MousePRLX } from "../libs/parallax-mouse.js";
-export const initParallaxMouse = () => new MousePRLX({});
+export const initPopups = (logging = false, init = true) => new Popup({ logging: logging, init: init });
 
 //================================================================================================================================================================================================================================================================================================================
 // Прочие полезные функции ================================================================================================================================================================================================================================================================================================================
 //================================================================================================================================================================================================================================================================================================================
 
-// FLS (Full Logging System)
-export function FLS(message) {
-	setTimeout(() => {
-		if (window.FLS) {
-			console.log(message);
-		}
-	}, 0);
-}
 // Получить цифры из строки
 export function getDigFromString(item) {
 	return parseInt(item.replace(/[^\d]/g, ''))
@@ -572,53 +587,5 @@ export function indexInParent(parent, element) {
 	const array = Array.prototype.slice.call(parent.children);
 	return Array.prototype.indexOf.call(array, element);
 };
-// Обработа медиа запросов из атрибутов 
-export function dataMediaQueries(array, dataSetValue) {
-	// Получение объектов с медиа запросами
-	const media = Array.from(array).filter(function (item, index, self) {
-		if (item.dataset[dataSetValue]) {
-			return item.dataset[dataSetValue].split(",")[0];
-		}
-	});
-	// Инициализация объектов с медиа запросами
-	if (media.length) {
-		const breakpointsArray = [];
-		media.forEach(item => {
-			const params = item.dataset[dataSetValue];
-			const breakpoint = {};
-			const paramsArray = params.split(",");
-			breakpoint.value = paramsArray[0];
-			breakpoint.type = paramsArray[1] ? paramsArray[1].trim() : "max";
-			breakpoint.item = item;
-			breakpointsArray.push(breakpoint);
-		});
-		// Получаем уникальные брейкпоинты
-		let mdQueries = breakpointsArray.map(function (item) {
-			return '(' + item.type + "-width: " + item.value + "px)," + item.value + ',' + item.type;
-		});
-		mdQueries = uniqArray(mdQueries);
-		const mdQueriesArray = []
 
-		if (mdQueries.length) {
-			// Работаем с каждым брейкпоинтом
-			mdQueries.forEach(breakpoint => {
-				const paramsArray = breakpoint.split(",");
-				const mediaBreakpoint = paramsArray[1];
-				const mediaType = paramsArray[2];
-				const matchMedia = window.matchMedia(paramsArray[0]);
-				// Объекты с нужными условиями
-				const itemsArray = breakpointsArray.filter(function (item) {
-					if (item.value === mediaBreakpoint && item.type === mediaType) {
-						return true;
-					}
-				});
-				mdQueriesArray.push({
-					itemsArray,
-					matchMedia
-				})
-			});
-			return mdQueriesArray;
-		}
-	}
-}
 //================================================================================================================================================================================================================================================================================================================

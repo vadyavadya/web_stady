@@ -1,12 +1,14 @@
 // Подключение функционала "Чертогов Фрилансера"
 // Вспомогательные функции
-import { isMobile, _slideUp, _slideDown, _slideToggle, FLS } from "../functions.js";
+import { isMobile, _slideUp, initPopups, _slideDown, _slideToggle } from "../functions.js";
 // Модуль прокрутки к блоку
 import { gotoBlock } from "../scroll/gotoblock.js";
 // Класс select
 import { SelectConstructor } from "../../libs/select.js";
 // Класс масок
 import { InputMask } from "../../libs/inputmask.js";
+// Функционал попапа
+const popupItem = initPopups();
 //==============================================================================================================================================================================================================================================================================================================================
 // Объект модулей форм для экспорта
 export const formsModules = {
@@ -24,11 +26,6 @@ data-required="email" - вадидация E-mail
 к атрибуту data-required добавляем атрибут data-validate
 
 Чтобы вывести текст ошибки, нужно указать его в атрибуте data-error
-
-data-popup-message - указываем селектор попапа который нужно показать после отправки формы (режимы data-ajax или data-dev) ! необходимо подключить функционал попапов в app.js
-data-ajax - отправляем данные формы AJAX запросом по адресу указанному в action методом указанным в method
-data-dev - режим разработчика - эмитируем отправку формы
-data-goto-error - прокрутить страницу к ошибке
 */
 
 // Работа с полями формы. Добавление классов, работа с placeholder
@@ -171,8 +168,10 @@ export function formSubmit(validate) {
 	async function formSubmitAction(form, e) {
 		const error = validate ? formValidate.getErrors(form) : 0;
 		if (error === 0) {
+			const popup = form.dataset.popupMassage;
 			const ajax = form.hasAttribute('data-ajax');
-			if (ajax) { // Если режим ajax
+			//SendForm
+			if (ajax) {
 				e.preventDefault();
 				const formAction = form.getAttribute('action') ? form.getAttribute('action').trim() : '#';
 				const formMethod = form.getAttribute('method') ? form.getAttribute('method').trim() : 'GET';
@@ -186,14 +185,24 @@ export function formSubmit(validate) {
 				if (response.ok) {
 					let responseResult = await response.json();
 					form.classList.remove('_sending');
-					formSent(form);
+					if (popup) {
+						// Нужно подключить зависимость
+						popupItem.open(`${popup}`);
+					}
+					formValidate.formClean(form);
 				} else {
 					alert("Ошибка");
 					form.classList.remove('_sending');
 				}
-			} else if (form.hasAttribute('data-dev')) {	// Если режим разработки
+			}
+			// Если режим разработки
+			if (form.hasAttribute('data-dev')) {
 				e.preventDefault();
-				formSent(form);
+				if (popup) {
+					// Нужно подключить зависимость
+					popupItem.open(`${popup}`);
+				}
+				formValidate.formClean(form);
 			}
 		} else {
 			e.preventDefault();
@@ -201,23 +210,8 @@ export function formSubmit(validate) {
 			if (formError && form.hasAttribute('data-goto-error')) {
 				gotoBlock(formError, true, 1000);
 			}
+
 		}
-	}
-	// Действия после отправки формы
-	function formSent(form) {
-		// Создаем событие отправки формы
-		document.dispatchEvent(new CustomEvent("formSent", {
-			detail: {
-				form: form
-			}
-		}));
-		// Очищаем форму
-		formValidate.formClean(form);
-		// Сообщаем в консоль
-		formLogging(`Форма отправлена!`);
-	}
-	function formLogging(message) {
-		FLS(`[Формы]: ${message}`);
 	}
 }
 /* Маски для полей (в работе) */
@@ -227,8 +221,10 @@ export function formMasks(logging) {
 	});
 }
 /* Модуль работы с select */
-export function formSelect() {
-	formsModules.selectModule = new SelectConstructor({});
+export function formSelect(logging) {
+	formsModules.selectModule = new SelectConstructor({
+		logging: logging
+	});
 }
 /* Модуь формы "показать пароль" */
 export function formViewpass() {

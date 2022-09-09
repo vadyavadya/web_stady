@@ -537,6 +537,7 @@
         color: $colorWhite;
         font-weight: 400;
         font-size: 64px;
+        @include adaptiveValue("font-size", 64, 36);
         line-height: 130%;
         letter-spacing: 0.03em;
         text-transform: capitalize;
@@ -554,5 +555,163 @@
             text-decoration-line: underline;
         }
     }
+}
+//====================================================================================================
+
+.page {
+    // .page__special
+    &__special {
+    }
+}
+.today-special {
+    position: relative;
+    // .today-special__container
+    &__container {
+        display: grid;
+        @include adaptiveValue("gap", 64, 24);
+    }
+    // .today-special__title
+    &__title {
+    }
+    // .today-special__row
+    &__row {
+        display: grid;
+        @media (max-width: $mobile) {
+            row-gap: 40px;
+        }
+        @media (min-width: $mobile) {
+            grid-template-columns: repeat(2, 1fr);
+            column-gap: 40px;
+        }
+        @media (min-width: $tablet) {
+            grid-template-columns: repeat(3, 1fr);
+            column-gap: 32px;
+        }
+    }
+    // .today-special__column
+    &__column {
+        // align-self: center;
+    }
+    &__img {
+        @media (max-width: $tablet) {
+            display: none;
+        }
+    }
+
+    // .today-special__subtitle
+    &__subtitle {
+        @extend %ffcu;
+        font-weight: 600;
+        font-size: rem(45);
+        @include adaptiveValue("font-size", 45, 32);
+        line-height: 130%;
+        text-align: center;
+        letter-spacing: 0.04em;
+        text-transform: capitalize;
+        font-feature-settings: "tnum" on, "lnum" on;
+        color: $colorWhite;
+        &:not(:last-child) {
+            margin-bottom: rem(48);
+        }
+    }
+    // .today-special__position
+    &__position {
+    }
+    // .today-special__button
+    &__button {
+        justify-self: center;
+    }
+}
+.title {
+    // .title__subtitle
+    &__subtitle {
+    }
+    // .title__title
+    &__title {
+        // .title__title_upper-spoon
+        &_upper-spoon {
+        }
+    }
+}
+.position-menu {
+    display: grid;
+    column-gap: 32px;
+    grid-template-columns: auto 1fr auto;
+
+    @media (max-width: $tablet) {
+        grid-template-columns: auto minmax(auto, 120px) auto;
+        justify-content: center;
+    }
+    @media (max-width: $mobileSmall) {
+        justify-content: stretch;
+    }
+    align-items: center;
+    // .position-menu__name
+    &__name {
+        @extend %ffcu;
+        font-size: rem(23);
+        @include adaptiveValue("font-size", 23, 16);
+        line-height: 130%;
+        letter-spacing: 0.04em;
+        text-transform: capitalize;
+        font-feature-settings: "tnum" on, "lnum" on;
+        color: $colorCalicio;
+    }
+    // .position-menu__line
+    &__line {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        &::after {
+            content: "";
+            display: block;
+            width: 100%;
+            max-width: 120px;
+            height: 1px;
+            background-color: #fafafa;
+        }
+    }
+    // .position-menu__price
+    &__price {
+        justify-self: end;
+        @extend %ffcu;
+        @include adaptiveValue("font-size", 23, 16);
+        line-height: 130%;
+        letter-spacing: 0.04em;
+        text-transform: capitalize;
+        font-feature-settings: "tnum" on, "lnum" on;
+        color: $colorWhite;
+    }
+    // .position-menu__composition
+    &__composition {
+        &:not(:last-child) {
+            margin-bottom: rem(40);
+        }
+        margin-top: rem(8);
+        grid-column: 1 / 4;
+        display: flex;
+        gap: rem(10);
+    }
+    // .position-menu__item
+    &__item {
+        display: flex;
+        &:not(:last-child) {
+            &::after {
+                content: "";
+                margin-left: rem(10);
+                display: block;
+                height: 100%;
+                width: 1px;
+                background-color: $mainColor;
+            }
+        }
+    }
+}
+.today-specia {
+    // .today-specia__image-ibg
+    &__image-ibg {
+    }
+}
+.button {
 }
 //====================================================================================================

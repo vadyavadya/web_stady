@@ -1,5 +1,5 @@
-// Подключение функционала "Чертогов Фрилансера"
-import { isMobile, _slideUp, _slideDown, _slideToggle, FLS } from "../files/functions.js";
+//----- Импорт зависимостей ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+import { isMobile, _slideUp, _slideDown, _slideToggle } from "../files/functions.js";
 import { formValidate } from "../files/forms/forms.js";
 
 // Подключение файла стилей
@@ -44,7 +44,7 @@ export class SelectConstructor {
 	constructor(props, data = null) {
 		let defaultConfig = {
 			init: true,
-			logging: true,
+			logging: false,
 		}
 		this.config = Object.assign(defaultConfig, props);
 		// CSS классы модуля
@@ -81,7 +81,7 @@ export class SelectConstructor {
 				this.selectsInit(selectItems);
 				this.setLogging(`Проснулся, построил селектов: (${selectItems.length})`);
 			} else {
-				this.setLogging('Сплю, нет ни одного select zzZZZzZZz');
+				this.setLogging('Нет ни одного select. Сплю...zzZZZzZZz...');
 			}
 		}
 	}
@@ -459,7 +459,7 @@ export class SelectConstructor {
 	}
 	// Логгинг в консоль
 	setLogging(message) {
-		this.config.logging ? FLS(`[select]: ${message}`) : null;
+		this.config.logging ? console.log(`[select]: ${message}`) : null;
 	}
 }
 
