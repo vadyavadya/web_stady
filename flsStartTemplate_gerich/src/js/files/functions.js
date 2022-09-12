@@ -684,14 +684,13 @@ export function parallaxBg(imgPath = undefined) {
 				if (elementParallaxBg.offsetHeight > 0) {
 					elementParallaxBg.insertAdjacentHTML(
 						'afterbegin',
-						`<div class="bg-paralax" style="background-image:${imgPath}; height:${bgHeight}px;"></div>`,
+						`<div class="bg-paralax__box" style="height:${elementParallaxBg.offsetHeight}px"><div class="bg-paralax__image" style="background-image:${imgPath}; height:${bgHeight}px;"></div></div>`,
 					);
 				}
-				console.log(imgPath);
 				window.addEventListener('scroll', function () {
 					if ((window.innerHeight - elementParallaxBg.getBoundingClientRect().top) > 0 &&
 						(elementParallaxBg.offsetHeight + elementParallaxBg.getBoundingClientRect().top) > 0) {
-						let bgParalax = elementParallaxBg.firstElementChild;
+						let bgParalax = elementParallaxBg.firstElementChild.firstElementChild;
 						let precentHeight = 1 - (elementParallaxBg.getBoundingClientRect().top
 							+ elementParallaxBg.offsetHeight) / heightViewPixel;
 						bgParalax.style.bottom = '-' + (precentHeight * pixelScroll) + 'px';

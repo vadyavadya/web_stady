@@ -8,6 +8,7 @@
         height: 100%;
         top: 100vh;
         left: 50%;
+        z-index: 0;
         transform: translate(-865px, 0);
         background: url("@img/bg-line1.svg") no-repeat 0 0, url("@img/bg-line.svg") no-repeat 0 0;
     }
@@ -188,51 +189,6 @@
         min-height: 150px;
         width: 100%;
         flex: 0 1 50%;
-        transition: all 0.3s ease 0s;
-        img {
-            transition: all 0.3s ease 0s;
-            z-index: 2;
-        }
-        &::before,
-        &::after {
-            content: "";
-            display: block;
-            position: absolute;
-            background: $colorCalicio;
-            width: percent(435, 620);
-            height: percent(435, 620);
-            transition: all 0.3s ease 0s;
-        }
-        &::before {
-            top: -24px;
-            right: -24px;
-        }
-        &::after {
-            bottom: -24px;
-            left: -24px;
-        }
-        @media (any-hover: hover) {
-            &:hover {
-                img {
-                    transform: scale(1.05);
-                }
-                &::before {
-                    top: -34px;
-                    right: -34px;
-                }
-                &::after {
-                    bottom: -34px;
-                    left: -34px;
-                }
-            }
-        }
-        @media (max-width: $mobile) {
-            flex: 1 1 auto;
-            &::before,
-            &::after {
-                display: none;
-            }
-        }
     }
     // .swiper-main__pagination
     &__pagination {
@@ -499,7 +455,7 @@
     }
 }
 .navigation-menu {
-    .bg-paralax {
+    .bg-paralax__image {
         transition: background-image 0.9s ease 0s;
     }
     &__bg {
@@ -561,6 +517,9 @@
 .page {
     // .page__special
     &__special {
+        &:not(:last-child) {
+            @include adaptiveValue("margin-bottom", 152, 32);
+        }
     }
 }
 .today-special {
@@ -622,17 +581,7 @@
         justify-self: center;
     }
 }
-.title {
-    // .title__subtitle
-    &__subtitle {
-    }
-    // .title__title
-    &__title {
-        // .title__title_upper-spoon
-        &_upper-spoon {
-        }
-    }
-}
+//==================================================================================================
 .position-menu {
     display: grid;
     column-gap: 32px;
@@ -712,6 +661,171 @@
     &__image-ibg {
     }
 }
-.button {
+//====================================================================================================
+.page {
+    // .page__chefs
+    &__chefs {
+        position: relative;
+        &:not(:last-child) {
+            @include adaptiveValue("margin-bottom", 152, 40);
+        }
+    }
 }
+.chefs-restorane {
+    @include adaptiveValue("padding-top", 121, 50);
+    @include adaptiveValue("padding-bottom", 121, 50);
+    // overflow: hidden;
+    // .chefs-restorane__container
+    [data-decor] {
+        &::before {
+            bottom: -150px;
+            right: -75px;
+        }
+    }
+    &__container {
+        position: relative;
+        display: grid;
+        gap: 32px;
+        @include adaptiveValue("gap", 96, 32);
+        @media (min-width: $mobile) {
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+    &__image {
+        @media (min-width: $mobile) {
+            // padding: 45px;
+        }
+        height: 100%;
+        min-height: 550px;
+    }
+    // .chefs-restorane__image-ibg
+    &__image-ibg {
+        height: 100%;
+    }
+    // .chefs-restorane__content
+    &__content {
+        @include adaptiveValue("padding-top", 87, 0);
+        @include adaptiveValue("padding-bottom", 87, 0);
+        display: grid;
+        @include adaptiveValue("gap", 64, 32);
+    }
+    // .chefs-restorane__title
+    &__title {
+    }
+    // .chefs-restorane__quote
+    &__quote {
+        font-style: italic;
+        line-height: 175%;
+        /* or 28px */
+
+        letter-spacing: 0.04em;
+        &::before {
+            content: "";
+            display: inline-block;
+            width: 47px;
+            height: 40px;
+            background: url("@img/chefs-restoran/quotes.svg");
+            margin-right: 10px;
+        }
+    }
+    // .chefs-restorane__name-position
+    &__name-position {
+    }
+    // .chefs-restorane__name
+    &__name {
+        @extend %ffcu;
+        @include adaptiveValue("font-size", 32, 24);
+        text-transform: capitalize;
+        font-feature-settings: "tnum" on, "lnum" on;
+        color: $colorCalicio;
+        &:not(:last-child) {
+            margin-bottom: rem(8);
+        }
+    }
+    // .chefs-restorane__position
+    &__position {
+    }
+    // .chefs-restorane__signature
+    &__signature {
+    }
+}
+//====================================================================================================
+.page {
+    // .page__video
+    &__video {
+    }
+}
+.restorane-video {
+    width: 100%;
+    padding-bottom: percent(763, 1920);
+    position: relative;
+    &::before {
+        top: 145px;
+        left: 130px;
+        z-index: 2;
+        opacity: 1;
+        transition: all 0.3s ease 0s;
+    }
+    &::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(12, 12, 12, 0.405);
+    }
+    // .restorane-video__video
+    video {
+        position: absolute;
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+    }
+    &__control {
+        &::before,
+        &::after {
+            content: "";
+            display: block;
+            position: absolute;
+            z-index: 2;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 1;
+            transition: all 0.3s ease 0s;
+        }
+        &::before {
+            width: 0;
+            height: 0;
+            border-top: 15px solid transparent;
+            border-left: 24px solid rgb(255, 255, 255);
+            border-bottom: 15px solid transparent;
+            transform: translate(-25%, -50%);
+        }
+        &::after {
+            border: 1px solid $colorCalicio;
+            border-radius: 50%;
+            @include adaptiveValue("width", 120, 80);
+            @include adaptiveValue("height", 120, 80);
+        }
+    }
+    &._video-play {
+        &::before {
+            opacity: 0;
+        }
+        &::after {
+            background-color: transparent;
+        }
+        .restorane-video__control {
+            &::before,
+            &::after {
+                opacity: 0;
+            }
+            &::after {
+                transform: translate(-50%, -50%) scale(3);
+            }
+        }
+    }
+}
+//====================================================================================================
+
 //====================================================================================================
