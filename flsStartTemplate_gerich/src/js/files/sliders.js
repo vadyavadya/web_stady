@@ -7,7 +7,7 @@
 // Подключаем слайдер Swiper из node_modules
 // При необходимости подключаем дополнительные модули слайдера, указывая их в {} через запятую
 // Пример: { Navigation, Autoplay }
-import Swiper, { Pagination, Autoplay } from 'swiper';
+import Swiper, { Pagination, Autoplay, FreeMode } from 'swiper';
 /*
 Основниые модули слайдера:
 Navigation, Pagination, Autoplay, 
@@ -116,6 +116,93 @@ function initSliders() {
 
 			}
 		});
+	}
+	if (document.querySelector('.swiper-gallary')) { // Указываем скласс нужного слайдера
+		const slides = document.querySelectorAll('.gallery-restoran__slide');
+		if (slides.length > 1) {
+			let width = (100 / (slides.length - 1)) + '%';
+			slides.forEach(slide => {
+				slide.style.width = width;
+			});
+
+			// Создаем слайдер
+			new Swiper('.swiper-gallary', { // Указываем скласс нужного слайдера
+				// Подключаем модули слайдера
+				// для конкретного случая
+				modules: [Autoplay, FreeMode],
+				observer: true,
+				observeParents: true,
+				freeMode: true,
+				slidesPerView: 'auto',
+				loopedSlides: slides.length,
+				spaceBetween: 32,
+				autoHeight: true,
+				speed: 800,
+
+				//touchRatio: 0,
+				//simulateTouch: false,
+				loop: true,
+				//preloadImages: false,
+				//lazy: true,
+
+				// autoplay: {
+				// 	delay: 3000,
+				// 	disableOnInteraction: false,
+				// },
+
+
+				// // Эффекты
+				// effect: 'fade',
+				autoplay: {
+					delay: 3000,
+					disableOnInteraction: false,
+				},
+
+
+
+
+				// Скроллбар
+				/*
+				scrollbar: {
+					el: '.swiper-scrollbar',
+					draggable: true,
+				},
+				*/
+				/* 
+							// Кнопки "влево/вправо"
+							navigation: {
+								prevEl: '.swiper-button-prev',
+								nextEl: '.swiper-button-next',
+							},
+				 */
+				// Брейкпоинты
+				/*
+				breakpoints: {
+					320: {
+						slidesPerView: 1,
+						spaceBetween: 0,
+						autoHeight: true,
+					},
+					768: {
+						slidesPerView: 2,
+						spaceBetween: 20,
+					},
+					992: {
+						slidesPerView: 3,
+						spaceBetween: 20,
+					},
+					1268: {
+						slidesPerView: 4,
+						spaceBetween: 30,
+					},
+				},
+				*/
+				// События
+				on: {
+
+				}
+			});
+		}
 	}
 }
 // Скролл на базе слайдера (по классу swiper_scroll для оболочки слайдера)

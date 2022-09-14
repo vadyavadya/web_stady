@@ -60,27 +60,117 @@ lesson 9  - формат изображений
 
 
 Основные снипетты
-ctn - контейнер
+sp - полоса
+//========================================================================================================================================================
+
+
+
+
+HTML
+cnt - контейнер
 menu - меню
-ibg
-ex - extend %
-av - вызывает адаптивное свойство шрифта
-	@include adaptiveValue(свойство которое менять, с какого значения, до какого, с какой ширины экрана, до какого значения экрана, 1 или 2 или 3);
-			елси 1 то за промежутками будуть крайние значения если 2 и 3 это то сверху будет снизу нет и наоборот
-	@include adaptiveValue("font-size", , );
-mmd - media
-nlc - not(:last-child)
+
+ibg, ibga - картинка, картинка с сылкой
+img, imgl(lazy)
+
+inp - input
+txta - texarea
+sel
+opt
+chk
+btn, bbtn, abtn
+
+
+ac - _active
+
 Динамический адаптив  из шаблона
 	в теге который нужно перемстить пишем
 	<div data-da="(куда переместить класс пишем), (на какой ширине), (на какую позицию)"></div>
 	<div data-da=".munu__body, 479.98"></div>
 	<div data-da=".munu__body, 479.98, 2"></div>
 	и в файле app.js раскоментируем строку про динамический адаптив
-aa - transition добавление
+
+
+
+SCSS
+
+mm, mmm, mmu, mmt, mmb, mmr, mml  mb, mt, - margin
+
+pp, ppp, ppt, ppb, ppr, ppl - padding (padding: rem(0) rem(0) rem(0) rem(0);, padding: 0 rem($1);,top bottom,)
+
+
+
+mbl - &:not(:last-child) {margin-bottom: $1px;}
+
+@mma, @mmi, @mmm, @mmim, md(в em), mmd(в em) - @media и с м выбор вконце
+md1, mmd1, md2, mmd2, md3, mmd3, md4, mmd4,  - @media max or min pc, tabelet, mobile, mobilesmall
+
+::be, ::af - before, after,
+ba, b, a - before и after scss
+
+pl - data-popup=\"$1\
+
+ex - extend %
+ic, - @extend %ic
+
+av - вызывает адаптивное свойство шрифта
+
+em - перевод в em
+
+rem - перево в рем
+
+prc - percent($1,$2)
+
+di - Деление чисел
+
+w, h - ширина, высота
+
+op - opacyti
+
+lh - line-height: math.div($1 , $2);
+
+nlc - not(:last-child)
+lc, fc, nc,  - :last-child ferst и nth
+
+aa  - transition добавление
+an - animation
+ar, as, at, att - transform
+kf - @keyframe
+
 swiper - для слайдера
-hhv - добвдение ховера  только на устройствах с мышью
-percent(10, 100) процент 10 из 100 для свойств  scss
-arr - в css рисует треугольник
+
+hv, hhv - hover, добвдение ховера  только на устройствах с мышью
+
+ac, acc - :&._active, :active,
+
+art, arb, arr, arl  - в css рисует треугольник верх вниз права лево
+
+br5 - border-radius: 50%;
+
+bs - box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+
+c, c0 , c1  - color
+
+bg+ - background: url('@img') 0 0 no-repeat;
+
+ps - позиция обсолют и все остальное
+
+zi - z-index
+
+с адуч надо подумать
+
+vc[1-3], bc[1-3] - настройки fls цвета текста и бакграунда
+
+
+
+
+JS
+click - ${1:document}.addEventListener(\"click\", function (e) {\n\t$2\n});
+dq - document.quewryselector
+dqa - document.quewryselectorAll
+log 
+
+
 
 
 

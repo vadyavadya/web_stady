@@ -113,6 +113,16 @@ body {
 	[class*="__container_wide"] {
 		max-width: rem(1680);
 	}
+	[class*="__container_right-exit"] {
+		@media (min-width: rem($containerWidth)) {
+			position: relative;
+			left: 50%;
+			transform: translate(rem(calc($containerWidth / -2)), 0px);
+			max-width: calc(50% + rem(calc($maxWidthContainer / 2)));
+			margin: 0;
+			padding-right: rem(15);
+		}
+	}
 } @else {
 	// По брейк-поинтам
 	[class*="__container"] {
