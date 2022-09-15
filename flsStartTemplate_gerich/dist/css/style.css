@@ -186,6 +186,10 @@ body {
   min-width: 0;
 }
 
+html.loaded .wrapper {
+  opacity: 1;
+}
+
 /*
 (i) Стили будут применяться ко 
 всем классам содержащим *__container
@@ -1616,6 +1620,238 @@ body::after {
 
 .footer__copyright {
   text-align: center;
+}
+
+.loader {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+html.loaded .loader {
+  display: none;
+}
+
+.loader .wineglass {
+  height: 36px;
+  position: relative;
+}
+
+.loader .wineglass:after {
+  content: "";
+  position: absolute;
+  top: 47px;
+  left: 5px;
+  width: 20px;
+  height: 5px;
+  background: white;
+  -webkit-box-shadow: 0 0 1px white;
+          box-shadow: 0 0 1px white;
+}
+
+.loader .top {
+  background: white;
+  width: 30px;
+  height: 36px;
+  border-radius: 0 0 36px 36px;
+  -webkit-box-shadow: 0 0 1px white;
+          box-shadow: 0 0 1px white;
+}
+
+.loader .top:before {
+  content: "";
+  position: absolute;
+  left: 4px;
+  bottom: 4px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(50%, transparent), color-stop(50%, #f36e3e));
+  background: -o-linear-gradient(transparent 50%, #f36e3e 50%);
+  background: linear-gradient(transparent 50%, #f36e3e 50%);
+}
+
+.loader .left .top:before {
+  -webkit-animation: rotate2 2s linear infinite;
+          animation: rotate2 2s linear infinite;
+}
+
+.loader .right .top:before {
+  -webkit-animation: rotate1 2s linear infinite;
+          animation: rotate1 2s linear infinite;
+}
+
+.loader .top:after {
+  content: "";
+  position: absolute;
+  top: 35px;
+  left: 12px;
+  width: 6px;
+  height: 13px;
+  background: white;
+  -webkit-box-shadow: 0 0 1px white;
+          box-shadow: 0 0 1px white;
+}
+
+.loader .left {
+  display: inline-block;
+  margin-right: 10px;
+  -webkit-animation: rotate1 2s cubic-bezier(0.39, 1.52, 0.46, 0.92) infinite;
+          animation: rotate1 2s cubic-bezier(0.39, 1.52, 0.46, 0.92) infinite;
+}
+
+.loader .right {
+  display: inline-block;
+  -webkit-animation: rotate2 2s cubic-bezier(0.39, 1.52, 0.46, 0.92) infinite;
+          animation: rotate2 2s cubic-bezier(0.39, 1.52, 0.46, 0.92) infinite;
+}
+
+@-webkit-keyframes rotate1 {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+
+  50% {
+    -webkit-transform: rotate(22deg);
+            transform: rotate(22deg);
+  }
+}
+
+@keyframes rotate1 {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+
+  50% {
+    -webkit-transform: rotate(22deg);
+            transform: rotate(22deg);
+  }
+}
+
+@-webkit-keyframes rotate2 {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+
+  50% {
+    -webkit-transform: rotate(-22deg);
+            transform: rotate(-22deg);
+  }
+}
+
+@keyframes rotate2 {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+
+  50% {
+    -webkit-transform: rotate(-22deg);
+            transform: rotate(-22deg);
+  }
+}
+
+.loader ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 70px;
+  height: 25px;
+  position: relative;
+  opacity: 0;
+  -webkit-animation: 2s fadeInUp infinite linear 2s;
+          animation: 2s fadeInUp infinite linear 2s;
+}
+
+.loader li {
+  width: 6px;
+  height: 15px;
+  background: white;
+  position: absolute;
+  -webkit-box-shadow: 0 0 1px white;
+          box-shadow: 0 0 1px white;
+  -webkit-transform-origin: bottom;
+      -ms-transform-origin: bottom;
+          transform-origin: bottom;
+}
+
+.loader li:nth-child(1) {
+  left: 26px;
+  bottom: 5px;
+  -webkit-transform: rotate(-35deg);
+      -ms-transform: rotate(-35deg);
+          transform: rotate(-35deg);
+}
+
+.loader li:nth-child(2) {
+  left: 34px;
+  bottom: 8px;
+}
+
+.loader li:nth-child(3) {
+  left: 42px;
+  bottom: 5px;
+  -webkit-transform: rotate(35deg);
+      -ms-transform: rotate(35deg);
+          transform: rotate(35deg);
+}
+
+@-webkit-keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    -webkit-transform: scaleY(1);
+            transform: scaleY(1);
+  }
+
+  33% {
+    opacity: 1;
+    -webkit-transform: scaleY(1.4);
+            transform: scaleY(1.4);
+  }
+
+  64% {
+    opacity: 0.1;
+    -webkit-transform: scaleY(1);
+            transform: scaleY(1);
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: scaleY(0.3);
+            transform: scaleY(0.3);
+  }
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    -webkit-transform: scaleY(1);
+            transform: scaleY(1);
+  }
+
+  33% {
+    opacity: 1;
+    -webkit-transform: scaleY(1.4);
+            transform: scaleY(1.4);
+  }
+
+  64% {
+    opacity: 0.1;
+    -webkit-transform: scaleY(1);
+            transform: scaleY(1);
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: scaleY(0.3);
+            transform: scaleY(0.3);
+  }
 }
 
 .page {
