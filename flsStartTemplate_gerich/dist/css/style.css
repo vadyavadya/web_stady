@@ -156,6 +156,10 @@ h6 {
 
 body {
   background: #0c0b08;
+  /* .loaded & {
+  	opacity: 1;
+  } */
+  opacity: 1;
 }
 
 .lock body {
