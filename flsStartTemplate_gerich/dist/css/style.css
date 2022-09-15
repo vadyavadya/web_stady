@@ -2714,6 +2714,20 @@ body::after {
           transform: translate(-50%, -50%) scale(3);
 }
 
+@supports (margin-bottom: clamp( 2.5rem , 0.8673469388rem  +  8.1632653061vw , 7.5rem )) {
+  .page_gallarey:not(:last-child) {
+    margin-bottom: clamp( 2.5rem , 0.8673469388rem  +  8.1632653061vw , 7.5rem );
+  }
+}
+
+@supports not (margin-bottom: clamp( 2.5rem , 0.8673469388rem  +  8.1632653061vw , 7.5rem )) {
+  .page_gallarey:not(:last-child) {
+    margin-bottom: calc(
+			2.5rem + 5 * (100vw - 20rem) / 61.25
+		);
+  }
+}
+
 .gallery-restoran {
   position: relative;
   background-color: rgba(4, 4, 4, 0.507);

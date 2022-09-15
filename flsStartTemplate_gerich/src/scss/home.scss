@@ -834,6 +834,9 @@
 .page {
     // .page_gallarey
     &_gallarey {
+        &:not(:last-child) {
+            @include adaptiveValue("margin-bottom", 120, 40);
+        }
     }
 }
 .gallery-restoran {
@@ -922,30 +925,6 @@
         }
         // padding-bottom: 459px;
     }
-}
-.title {
-    // .title_left
-    &_left {
-    }
-    // .title__subtitle
-    &__subtitle {
-    }
-    // .title__title
-    &__title {
-        // .title__title_upper-spoon
-        &_upper-spoon {
-        }
-    }
-}
-.button {
-}
-.swiper-gallary {
-}
-.swiper {
-}
-.swiper-wrapper {
-}
-.swiper-slide {
 }
 
 //====================================================================================================
