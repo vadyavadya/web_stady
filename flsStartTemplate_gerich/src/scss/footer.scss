@@ -1,9 +1,89 @@
 //====================================================================================================
 .footer {
     position: relative;
-    background-image: url("@img/bg.jpg");
-    @include adaptiveValue("padding-top", 144, 40);
-    @include adaptiveValue("padding-bottom", 144, 40);
+    // .footer__container
+    &__container {
+        position: relative;
+    }
+    // .footer__subscribe
+    &__subscribe {
+        margin-bottom: rem(-180);
+        z-index: 2;
+        position: relative;
+        padding: 10px;
+        @include adaptiveValue("padding-top", 64, 32);
+        @include adaptiveValue("padding-bottom", 64, 32);
+        background: #0c0c0c;
+        border: 1px solid rgba(220, 202, 135, 0.2);
+        box-shadow: 22px 30px 95px 1px rgba(0, 0, 0, 0.7);
+    }
+    // .footer__title
+    &__title {
+        font-weight: 700;
+        @include adaptiveValue("font-size", 64, 32);
+        line-height: 130%;
+        text-align: center;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        color: $colorCalicio;
+        &:not(:last-child) {
+            margin-bottom: 32px;
+        }
+    }
+    // .footer__text
+    &__text {
+        text-align: center;
+        line-height: 175%;
+        letter-spacing: 0.04em;
+        &:not(:last-child) {
+            margin-bottom: 8px;
+        }
+        &_margin-16 {
+            &:not(:last-child) {
+                margin-bottom: 16px;
+            }
+        }
+        &_margin-64 {
+            &:not(:last-child) {
+                @include adaptiveValue("margin-bottom", 64, 16);
+            }
+        }
+        // .footer__text_color-white
+        &_color-white {
+            color: $colorWhite;
+        }
+        &_spoon {
+            &::after {
+                content: "\e904";
+                @extend %ic;
+                color: $colorCalicio;
+                display: block;
+                margin-top: rem(16);
+            }
+        }
+    }
+    // .footer__flex
+    &__flex {
+        display: flex;
+        gap: 32px;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+    &__input {
+        flex: 1 0 268px;
+        max-width: 796px;
+    }
+    // .footer__button
+    &__button {
+    }
+    // .footer__footer
+    &__footer {
+        position: relative;
+        background-image: url("@img/bg.jpg");
+        @include adaptiveValue("padding-top", 324, 220);
+        @include adaptiveValue("padding-bottom", 144, 40);
+    }
     @media (max-width: $tablet) {
         &__center-column {
             order: 0;
@@ -14,10 +94,6 @@
         &__working {
             order: 2;
         }
-    }
-    // .footer__container
-    &__container {
-        position: relative;
     }
     // .footer__grid
     &__grid {
@@ -54,46 +130,10 @@
             margin-bottom: 24px;
         }
     }
-    // .footer__text
-    &__text {
-        text-align: center;
-        &:not(:last-child) {
-            margin-bottom: 8px;
-        }
-        &_margin-16 {
-            &:not(:last-child) {
-                margin-bottom: 16px;
-            }
-        }
-        // .footer__text_color-white
-        &_color-white {
-            color: $colorWhite;
-            &::after {
-                content: "\e904";
-                @extend %ic;
-                color: $colorCalicio;
-                display: block;
-                margin-top: rem(16);
-            }
-        }
-    }
     // .footer__center-column
     &__center-column {
         max-width: 438px;
         justify-self: center;
-    }
-    // .footer__title
-    &__title {
-        font-weight: 700;
-        @include adaptiveValue("font-size", 64, 32);
-        line-height: 130%;
-        text-align: center;
-        letter-spacing: 0.04em;
-        text-transform: uppercase;
-        color: $colorCalicio;
-        &:not(:last-child) {
-            margin-bottom: 32px;
-        }
     }
     // .footer__social
     &__social {
@@ -116,5 +156,12 @@
     &__copyright {
         text-align: center;
     }
+    &__scroll {
+        z-index: 2;
+        position: absolute;
+        right: -100px;
+        bottom: 0;
+    }
 }
+
 //====================================================================================================

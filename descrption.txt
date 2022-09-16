@@ -68,10 +68,35 @@ sp - полоса
 
 HTML
 cnt - контейнер
-menu - меню
 
+menu - меню
+logo
+
+
+imgp, 
 ibg, ibga - картинка, картинка с сылкой
 img, imgl(lazy)
+
+rating
+
+spollers
+
+tabs
+
+showmore
+
+swiper
+swiperfull
+
+quantity
+qa
+
+tip - data-tippy-content="Подсказка"
+
+req - Добавляет атрибут к полю формы
+
+
+
 
 inp - input
 txta - texarea
@@ -79,10 +104,12 @@ sel
 opt
 chk
 btn, bbtn, abtn
+formemail
 
 
 ac - _active
 
+da
 Динамический адаптив  из шаблона
 	в теге который нужно перемстить пишем
 	<div data-da="(куда переместить класс пишем), (на какой ширине), (на какую позицию)"></div>
@@ -97,6 +124,7 @@ SCSS
 mm, mmm, mmu, mmt, mmb, mmr, mml  mb, mt, - margin
 
 pp, ppp, ppt, ppb, ppr, ppl - padding (padding: rem(0) rem(0) rem(0) rem(0);, padding: 0 rem($1);,top bottom,)
+pav
 
 
 

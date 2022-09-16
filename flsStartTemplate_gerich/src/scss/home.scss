@@ -1,5 +1,8 @@
 //====================================================================================================
-
+html.loaded.preloader_html {
+    height: auto;
+    background: #0c0b08;
+}
 .loader {
     html.loaded & {
         display: none;
@@ -133,6 +136,7 @@
         }
     }
 }
+
 //========================================================================================================================================================
 
 .page {
@@ -993,6 +997,12 @@
     }
     // .gallery-restoran__container
     &__container {
+        &[data-decor] {
+            &::before {
+                bottom: -300px;
+                left: -150px;
+            }
+        }
         display: grid;
         @include adaptiveValue("gap", 64, 24);
         // .gallery-restoran__container_right-exit

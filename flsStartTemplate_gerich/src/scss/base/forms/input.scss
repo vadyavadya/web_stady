@@ -25,6 +25,7 @@ textarea {
 	}
 }
 .input-dark {
+	outline: none;
 	@extend %ffcu;
 	border: 1px solid #f5efdb;
 	width: 100%;
