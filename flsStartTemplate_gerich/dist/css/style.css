@@ -2920,6 +2920,67 @@ html.loaded .loader {
   margin-bottom: 0.5rem;
 }
 
+@supports (margin-bottom: clamp( 2rem , -0.4489795918rem  +  12.2448979592vw , 9.5rem )) {
+  .page__testimony:not(:last-child) {
+    margin-bottom: clamp( 2rem , -0.4489795918rem  +  12.2448979592vw , 9.5rem );
+  }
+}
+
+@supports not (margin-bottom: clamp( 2rem , -0.4489795918rem  +  12.2448979592vw , 9.5rem )) {
+  .page__testimony:not(:last-child) {
+    margin-bottom: calc(
+			2rem + 7.5 * (100vw - 20rem) / 61.25
+		);
+  }
+}
+
+.testimony {
+  position: relative;
+}
+
+@supports (margin-bottom: clamp( 2rem , 1.3469387755rem  +  3.2653061224vw , 4rem )) {
+  .testimony__title:not(:last-child) {
+    margin-bottom: clamp( 2rem , 1.3469387755rem  +  3.2653061224vw , 4rem );
+  }
+}
+
+@supports not (margin-bottom: clamp( 2rem , 1.3469387755rem  +  3.2653061224vw , 4rem )) {
+  .testimony__title:not(:last-child) {
+    margin-bottom: calc(
+			2rem + 2 * (100vw - 20rem) / 61.25
+		);
+  }
+}
+
+.testimony__content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  row-gap: 64px;
+}
+
+.card-testimony {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 32px;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.card-testimony__image-ibg {
+  width: 29.9684542587%;
+  padding-bottom: 29.9684542587%;
+}
+
+.card-testimony__content {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 412px;
+          flex: 0 1 412px;
+}
+
 @supports (margin-bottom: clamp( 1.5rem , -1.112244898rem  +  13.0612244898vw , 9.5rem )) {
   .page__video:not(:last-child) {
     margin-bottom: clamp( 1.5rem , -1.112244898rem  +  13.0612244898vw , 9.5rem );
@@ -4202,6 +4263,19 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
     -webkit-column-gap: 32px;
        -moz-column-gap: 32px;
             column-gap: 32px;
+  }
+
+  .testimony__content {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+
+  .testimony__card {
+    -webkit-box-flex: 1;
+        -ms-flex: 1 1 50%;
+            flex: 1 1 50%;
+    padding: 0 16px;
   }
 
   .gallery-restoran__container {
