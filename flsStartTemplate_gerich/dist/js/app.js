@@ -1241,9 +1241,10 @@
             var uncurryThis = __webpack_require__(1768);
             var defineBuiltIns = __webpack_require__(6367);
             var getWeakData = __webpack_require__(6582).getWeakData;
-            var anObject = __webpack_require__(1474);
-            var isObject = __webpack_require__(5896);
             var anInstance = __webpack_require__(3046);
+            var anObject = __webpack_require__(1474);
+            var isNullOrUndefined = __webpack_require__(2420);
+            var isObject = __webpack_require__(5896);
             var iterate = __webpack_require__(1518);
             var ArrayIterationModule = __webpack_require__(528);
             var hasOwn = __webpack_require__(8281);
@@ -1294,7 +1295,7 @@
                             id: id++,
                             frozen: void 0
                         });
-                        if (void 0 != iterable) iterate(iterable, that[ADDER], {
+                        if (!isNullOrUndefined(iterable)) iterate(iterable, that[ADDER], {
                             that,
                             AS_ENTRIES: IS_MAP
                         });
@@ -1355,6 +1356,7 @@
             var iterate = __webpack_require__(1518);
             var anInstance = __webpack_require__(3046);
             var isCallable = __webpack_require__(6282);
+            var isNullOrUndefined = __webpack_require__(2420);
             var isObject = __webpack_require__(5896);
             var fails = __webpack_require__(6183);
             var checkCorrectnessOfIteration = __webpack_require__(1751);
@@ -1409,7 +1411,7 @@
                         Constructor = wrapper((function(dummy, iterable) {
                             anInstance(dummy, NativePrototype);
                             var that = inheritIfRequired(new NativeConstructor, dummy, Constructor);
-                            if (void 0 != iterable) iterate(iterable, that[ADDER], {
+                            if (!isNullOrUndefined(iterable)) iterate(iterable, that[ADDER], {
                                 that,
                                 AS_ENTRIES: IS_MAP
                             });
@@ -1459,26 +1461,6 @@
                 F.prototype.constructor = null;
                 return Object.getPrototypeOf(new F) !== F.prototype;
             }));
-        },
-        2538: (module, __unused_webpack_exports, __webpack_require__) => {
-            "use strict";
-            var IteratorPrototype = __webpack_require__(6524).IteratorPrototype;
-            var create = __webpack_require__(1525);
-            var createPropertyDescriptor = __webpack_require__(9273);
-            var setToStringTag = __webpack_require__(820);
-            var Iterators = __webpack_require__(6126);
-            var returnThis = function() {
-                return this;
-            };
-            module.exports = function(IteratorConstructor, NAME, next, ENUMERABLE_NEXT) {
-                var TO_STRING_TAG = NAME + " Iterator";
-                IteratorConstructor.prototype = create(IteratorPrototype, {
-                    next: createPropertyDescriptor(+!ENUMERABLE_NEXT, next)
-                });
-                setToStringTag(IteratorConstructor, TO_STRING_TAG, false, true);
-                Iterators[TO_STRING_TAG] = returnThis;
-                return IteratorConstructor;
-            };
         },
         1501: (module, __unused_webpack_exports, __webpack_require__) => {
             var DESCRIPTORS = __webpack_require__(723);
@@ -1556,100 +1538,6 @@
                     global[key] = value;
                 }
                 return value;
-            };
-        },
-        7583: (module, __unused_webpack_exports, __webpack_require__) => {
-            "use strict";
-            var $ = __webpack_require__(4761);
-            var call = __webpack_require__(4552);
-            var IS_PURE = __webpack_require__(8977);
-            var FunctionName = __webpack_require__(4530);
-            var isCallable = __webpack_require__(6282);
-            var createIteratorConstructor = __webpack_require__(2538);
-            var getPrototypeOf = __webpack_require__(4204);
-            var setPrototypeOf = __webpack_require__(5900);
-            var setToStringTag = __webpack_require__(820);
-            var createNonEnumerableProperty = __webpack_require__(1501);
-            var defineBuiltIn = __webpack_require__(2054);
-            var wellKnownSymbol = __webpack_require__(8149);
-            var Iterators = __webpack_require__(6126);
-            var IteratorsCore = __webpack_require__(6524);
-            var PROPER_FUNCTION_NAME = FunctionName.PROPER;
-            var CONFIGURABLE_FUNCTION_NAME = FunctionName.CONFIGURABLE;
-            var IteratorPrototype = IteratorsCore.IteratorPrototype;
-            var BUGGY_SAFARI_ITERATORS = IteratorsCore.BUGGY_SAFARI_ITERATORS;
-            var ITERATOR = wellKnownSymbol("iterator");
-            var KEYS = "keys";
-            var VALUES = "values";
-            var ENTRIES = "entries";
-            var returnThis = function() {
-                return this;
-            };
-            module.exports = function(Iterable, NAME, IteratorConstructor, next, DEFAULT, IS_SET, FORCED) {
-                createIteratorConstructor(IteratorConstructor, NAME, next);
-                var getIterationMethod = function(KIND) {
-                    if (KIND === DEFAULT && defaultIterator) return defaultIterator;
-                    if (!BUGGY_SAFARI_ITERATORS && KIND in IterablePrototype) return IterablePrototype[KIND];
-                    switch (KIND) {
-                      case KEYS:
-                        return function keys() {
-                            return new IteratorConstructor(this, KIND);
-                        };
-
-                      case VALUES:
-                        return function values() {
-                            return new IteratorConstructor(this, KIND);
-                        };
-
-                      case ENTRIES:
-                        return function entries() {
-                            return new IteratorConstructor(this, KIND);
-                        };
-                    }
-                    return function() {
-                        return new IteratorConstructor(this);
-                    };
-                };
-                var TO_STRING_TAG = NAME + " Iterator";
-                var INCORRECT_VALUES_NAME = false;
-                var IterablePrototype = Iterable.prototype;
-                var nativeIterator = IterablePrototype[ITERATOR] || IterablePrototype["@@iterator"] || DEFAULT && IterablePrototype[DEFAULT];
-                var defaultIterator = !BUGGY_SAFARI_ITERATORS && nativeIterator || getIterationMethod(DEFAULT);
-                var anyNativeIterator = "Array" == NAME ? IterablePrototype.entries || nativeIterator : nativeIterator;
-                var CurrentIteratorPrototype, methods, KEY;
-                if (anyNativeIterator) {
-                    CurrentIteratorPrototype = getPrototypeOf(anyNativeIterator.call(new Iterable));
-                    if (CurrentIteratorPrototype !== Object.prototype && CurrentIteratorPrototype.next) {
-                        if (!IS_PURE && getPrototypeOf(CurrentIteratorPrototype) !== IteratorPrototype) if (setPrototypeOf) setPrototypeOf(CurrentIteratorPrototype, IteratorPrototype); else if (!isCallable(CurrentIteratorPrototype[ITERATOR])) defineBuiltIn(CurrentIteratorPrototype, ITERATOR, returnThis);
-                        setToStringTag(CurrentIteratorPrototype, TO_STRING_TAG, true, true);
-                        if (IS_PURE) Iterators[TO_STRING_TAG] = returnThis;
-                    }
-                }
-                if (PROPER_FUNCTION_NAME && DEFAULT == VALUES && nativeIterator && nativeIterator.name !== VALUES) if (!IS_PURE && CONFIGURABLE_FUNCTION_NAME) createNonEnumerableProperty(IterablePrototype, "name", VALUES); else {
-                    INCORRECT_VALUES_NAME = true;
-                    defaultIterator = function values() {
-                        return call(nativeIterator, this);
-                    };
-                }
-                if (DEFAULT) {
-                    methods = {
-                        values: getIterationMethod(VALUES),
-                        keys: IS_SET ? defaultIterator : getIterationMethod(KEYS),
-                        entries: getIterationMethod(ENTRIES)
-                    };
-                    if (FORCED) {
-                        for (KEY in methods) if (BUGGY_SAFARI_ITERATORS || INCORRECT_VALUES_NAME || !(KEY in IterablePrototype)) defineBuiltIn(IterablePrototype, KEY, methods[KEY]);
-                    } else $({
-                        target: NAME,
-                        proto: true,
-                        forced: BUGGY_SAFARI_ITERATORS || INCORRECT_VALUES_NAME
-                    }, methods);
-                }
-                if ((!IS_PURE || FORCED) && IterablePrototype[ITERATOR] !== defaultIterator) defineBuiltIn(IterablePrototype, ITERATOR, defaultIterator, {
-                    name: DEFAULT
-                });
-                Iterators[NAME] = defaultIterator;
-                return methods;
             };
         },
         723: (module, __unused_webpack_exports, __webpack_require__) => {
@@ -1930,11 +1818,12 @@
         650: (module, __unused_webpack_exports, __webpack_require__) => {
             var classof = __webpack_require__(9225);
             var getMethod = __webpack_require__(9827);
+            var isNullOrUndefined = __webpack_require__(2420);
             var Iterators = __webpack_require__(6126);
             var wellKnownSymbol = __webpack_require__(8149);
             var ITERATOR = wellKnownSymbol("iterator");
             module.exports = function(it) {
-                if (void 0 != it) return getMethod(it, ITERATOR) || getMethod(it, "@@iterator") || Iterators[classof(it)];
+                if (!isNullOrUndefined(it)) return getMethod(it, ITERATOR) || getMethod(it, "@@iterator") || Iterators[classof(it)];
             };
         },
         7755: (module, __unused_webpack_exports, __webpack_require__) => {
@@ -1952,9 +1841,10 @@
         },
         9827: (module, __unused_webpack_exports, __webpack_require__) => {
             var aCallable = __webpack_require__(5055);
+            var isNullOrUndefined = __webpack_require__(2420);
             module.exports = function(V, P) {
                 var func = V[P];
-                return null == func ? void 0 : aCallable(func);
+                return isNullOrUndefined(func) ? void 0 : aCallable(func);
             };
         },
         4742: (module, __unused_webpack_exports, __webpack_require__) => {
@@ -2153,7 +2043,7 @@
             hiddenKeys[METADATA] = true;
         },
         1030: (module, __unused_webpack_exports, __webpack_require__) => {
-            var NATIVE_WEAK_MAP = __webpack_require__(4404);
+            var NATIVE_WEAK_MAP = __webpack_require__(9780);
             var global = __webpack_require__(8454);
             var uncurryThis = __webpack_require__(1768);
             var isObject = __webpack_require__(5896);
@@ -2182,7 +2072,7 @@
                 var wmhas = uncurryThis(store.has);
                 var wmset = uncurryThis(store.set);
                 set = function(it, metadata) {
-                    if (wmhas(store, it)) throw new TypeError(OBJECT_ALREADY_INITIALIZED);
+                    if (wmhas(store, it)) throw TypeError(OBJECT_ALREADY_INITIALIZED);
                     metadata.facade = it;
                     wmset(store, it, metadata);
                     return metadata;
@@ -2197,7 +2087,7 @@
                 var STATE = sharedKey("state");
                 hiddenKeys[STATE] = true;
                 set = function(it, metadata) {
-                    if (hasOwn(it, STATE)) throw new TypeError(OBJECT_ALREADY_INITIALIZED);
+                    if (hasOwn(it, STATE)) throw TypeError(OBJECT_ALREADY_INITIALIZED);
                     metadata.facade = it;
                     createNonEnumerableProperty(it, STATE, metadata);
                     return metadata;
@@ -2297,9 +2187,18 @@
             var POLYFILL = isForced.POLYFILL = "P";
             module.exports = isForced;
         },
+        2420: module => {
+            module.exports = function(it) {
+                return null === it || void 0 === it;
+            };
+        },
         5896: (module, __unused_webpack_exports, __webpack_require__) => {
             var isCallable = __webpack_require__(6282);
-            module.exports = function(it) {
+            var documentAll = "object" == typeof document && document.all;
+            var SPECIAL_DOCUMENT_ALL = "undefined" == typeof documentAll && void 0 !== documentAll;
+            module.exports = SPECIAL_DOCUMENT_ALL ? function(it) {
+                return "object" == typeof it ? null !== it : isCallable(it) || it === documentAll;
+            } : function(it) {
                 return "object" == typeof it ? null !== it : isCallable(it);
             };
         },
@@ -2339,6 +2238,7 @@
             module.exports = function(iterable, unboundFunction, options) {
                 var that = options && options.that;
                 var AS_ENTRIES = !!(options && options.AS_ENTRIES);
+                var IS_RECORD = !!(options && options.IS_RECORD);
                 var IS_ITERATOR = !!(options && options.IS_ITERATOR);
                 var INTERRUPTED = !!(options && options.INTERRUPTED);
                 var fn = bind(unboundFunction, that);
@@ -2354,7 +2254,7 @@
                     }
                     return INTERRUPTED ? fn(value, stop) : fn(value);
                 };
-                if (IS_ITERATOR) iterator = iterable; else {
+                if (IS_RECORD) iterator = iterable.iterator; else if (IS_ITERATOR) iterator = iterable; else {
                     iterFn = getIteratorMethod(iterable);
                     if (!iterFn) throw $TypeError(tryToString(iterable) + " is not iterable");
                     if (isArrayIteratorMethod(iterFn)) {
@@ -2366,7 +2266,7 @@
                     }
                     iterator = getIterator(iterable, iterFn);
                 }
-                next = iterator.next;
+                next = IS_RECORD ? iterable.next : iterator.next;
                 while (!(step = call(next, iterator)).done) {
                     try {
                         result = callFn(step.value);
@@ -2402,10 +2302,125 @@
                 return value;
             };
         },
+        392: (module, __unused_webpack_exports, __webpack_require__) => {
+            "use strict";
+            var IteratorPrototype = __webpack_require__(6524).IteratorPrototype;
+            var create = __webpack_require__(1525);
+            var createPropertyDescriptor = __webpack_require__(9273);
+            var setToStringTag = __webpack_require__(820);
+            var Iterators = __webpack_require__(6126);
+            var returnThis = function() {
+                return this;
+            };
+            module.exports = function(IteratorConstructor, NAME, next, ENUMERABLE_NEXT) {
+                var TO_STRING_TAG = NAME + " Iterator";
+                IteratorConstructor.prototype = create(IteratorPrototype, {
+                    next: createPropertyDescriptor(+!ENUMERABLE_NEXT, next)
+                });
+                setToStringTag(IteratorConstructor, TO_STRING_TAG, false, true);
+                Iterators[TO_STRING_TAG] = returnThis;
+                return IteratorConstructor;
+            };
+        },
+        335: (module, __unused_webpack_exports, __webpack_require__) => {
+            "use strict";
+            var $ = __webpack_require__(4761);
+            var call = __webpack_require__(4552);
+            var IS_PURE = __webpack_require__(8977);
+            var FunctionName = __webpack_require__(4530);
+            var isCallable = __webpack_require__(6282);
+            var createIteratorConstructor = __webpack_require__(392);
+            var getPrototypeOf = __webpack_require__(4204);
+            var setPrototypeOf = __webpack_require__(5900);
+            var setToStringTag = __webpack_require__(820);
+            var createNonEnumerableProperty = __webpack_require__(1501);
+            var defineBuiltIn = __webpack_require__(2054);
+            var wellKnownSymbol = __webpack_require__(8149);
+            var Iterators = __webpack_require__(6126);
+            var IteratorsCore = __webpack_require__(6524);
+            var PROPER_FUNCTION_NAME = FunctionName.PROPER;
+            var CONFIGURABLE_FUNCTION_NAME = FunctionName.CONFIGURABLE;
+            var IteratorPrototype = IteratorsCore.IteratorPrototype;
+            var BUGGY_SAFARI_ITERATORS = IteratorsCore.BUGGY_SAFARI_ITERATORS;
+            var ITERATOR = wellKnownSymbol("iterator");
+            var KEYS = "keys";
+            var VALUES = "values";
+            var ENTRIES = "entries";
+            var returnThis = function() {
+                return this;
+            };
+            module.exports = function(Iterable, NAME, IteratorConstructor, next, DEFAULT, IS_SET, FORCED) {
+                createIteratorConstructor(IteratorConstructor, NAME, next);
+                var getIterationMethod = function(KIND) {
+                    if (KIND === DEFAULT && defaultIterator) return defaultIterator;
+                    if (!BUGGY_SAFARI_ITERATORS && KIND in IterablePrototype) return IterablePrototype[KIND];
+                    switch (KIND) {
+                      case KEYS:
+                        return function keys() {
+                            return new IteratorConstructor(this, KIND);
+                        };
+
+                      case VALUES:
+                        return function values() {
+                            return new IteratorConstructor(this, KIND);
+                        };
+
+                      case ENTRIES:
+                        return function entries() {
+                            return new IteratorConstructor(this, KIND);
+                        };
+                    }
+                    return function() {
+                        return new IteratorConstructor(this);
+                    };
+                };
+                var TO_STRING_TAG = NAME + " Iterator";
+                var INCORRECT_VALUES_NAME = false;
+                var IterablePrototype = Iterable.prototype;
+                var nativeIterator = IterablePrototype[ITERATOR] || IterablePrototype["@@iterator"] || DEFAULT && IterablePrototype[DEFAULT];
+                var defaultIterator = !BUGGY_SAFARI_ITERATORS && nativeIterator || getIterationMethod(DEFAULT);
+                var anyNativeIterator = "Array" == NAME ? IterablePrototype.entries || nativeIterator : nativeIterator;
+                var CurrentIteratorPrototype, methods, KEY;
+                if (anyNativeIterator) {
+                    CurrentIteratorPrototype = getPrototypeOf(anyNativeIterator.call(new Iterable));
+                    if (CurrentIteratorPrototype !== Object.prototype && CurrentIteratorPrototype.next) {
+                        if (!IS_PURE && getPrototypeOf(CurrentIteratorPrototype) !== IteratorPrototype) if (setPrototypeOf) setPrototypeOf(CurrentIteratorPrototype, IteratorPrototype); else if (!isCallable(CurrentIteratorPrototype[ITERATOR])) defineBuiltIn(CurrentIteratorPrototype, ITERATOR, returnThis);
+                        setToStringTag(CurrentIteratorPrototype, TO_STRING_TAG, true, true);
+                        if (IS_PURE) Iterators[TO_STRING_TAG] = returnThis;
+                    }
+                }
+                if (PROPER_FUNCTION_NAME && DEFAULT == VALUES && nativeIterator && nativeIterator.name !== VALUES) if (!IS_PURE && CONFIGURABLE_FUNCTION_NAME) createNonEnumerableProperty(IterablePrototype, "name", VALUES); else {
+                    INCORRECT_VALUES_NAME = true;
+                    defaultIterator = function values() {
+                        return call(nativeIterator, this);
+                    };
+                }
+                if (DEFAULT) {
+                    methods = {
+                        values: getIterationMethod(VALUES),
+                        keys: IS_SET ? defaultIterator : getIterationMethod(KEYS),
+                        entries: getIterationMethod(ENTRIES)
+                    };
+                    if (FORCED) {
+                        for (KEY in methods) if (BUGGY_SAFARI_ITERATORS || INCORRECT_VALUES_NAME || !(KEY in IterablePrototype)) defineBuiltIn(IterablePrototype, KEY, methods[KEY]);
+                    } else $({
+                        target: NAME,
+                        proto: true,
+                        forced: BUGGY_SAFARI_ITERATORS || INCORRECT_VALUES_NAME
+                    }, methods);
+                }
+                if ((!IS_PURE || FORCED) && IterablePrototype[ITERATOR] !== defaultIterator) defineBuiltIn(IterablePrototype, ITERATOR, defaultIterator, {
+                    name: DEFAULT
+                });
+                Iterators[NAME] = defaultIterator;
+                return methods;
+            };
+        },
         6524: (module, __unused_webpack_exports, __webpack_require__) => {
             "use strict";
             var fails = __webpack_require__(6183);
             var isCallable = __webpack_require__(6282);
+            var isObject = __webpack_require__(5896);
             var create = __webpack_require__(1525);
             var getPrototypeOf = __webpack_require__(4204);
             var defineBuiltIn = __webpack_require__(2054);
@@ -2421,7 +2436,7 @@
                     if (PrototypeOfArrayIteratorPrototype !== Object.prototype) IteratorPrototype = PrototypeOfArrayIteratorPrototype;
                 }
             }
-            var NEW_ITERATOR_PROTOTYPE = void 0 == IteratorPrototype || fails((function() {
+            var NEW_ITERATOR_PROTOTYPE = !isObject(IteratorPrototype) || fails((function() {
                 var test = {};
                 return IteratorPrototype[ITERATOR].call(test) !== test;
             }));
@@ -2493,21 +2508,6 @@
                 var n = +x;
                 return (n > 0 ? floor : ceil)(n);
             };
-        },
-        323: (module, __unused_webpack_exports, __webpack_require__) => {
-            var V8_VERSION = __webpack_require__(4324);
-            var fails = __webpack_require__(6183);
-            module.exports = !!Object.getOwnPropertySymbols && !fails((function() {
-                var symbol = Symbol();
-                return !String(symbol) || !(Object(symbol) instanceof Symbol) || !Symbol.sham && V8_VERSION && V8_VERSION < 41;
-            }));
-        },
-        4404: (module, __unused_webpack_exports, __webpack_require__) => {
-            var global = __webpack_require__(8454);
-            var isCallable = __webpack_require__(6282);
-            var inspectSource = __webpack_require__(6901);
-            var WeakMap = global.WeakMap;
-            module.exports = isCallable(WeakMap) && /native code/.test(inspectSource(WeakMap));
         },
         8513: (module, __unused_webpack_exports, __webpack_require__) => {
             var global = __webpack_require__(8454);
@@ -3034,10 +3034,11 @@
                 return "b" !== re.exec("b").groups.a || "bc" !== "b".replace(re, "$<a>c");
             }));
         },
-        7431: module => {
+        7431: (module, __unused_webpack_exports, __webpack_require__) => {
+            var isNullOrUndefined = __webpack_require__(2420);
             var $TypeError = TypeError;
             module.exports = function(it) {
-                if (void 0 == it) throw $TypeError("Can't call method on " + it);
+                if (isNullOrUndefined(it)) throw $TypeError("Can't call method on " + it);
                 return it;
             };
         },
@@ -3075,10 +3076,10 @@
             (module.exports = function(key, value) {
                 return store[key] || (store[key] = void 0 !== value ? value : {});
             })("versions", []).push({
-                version: "3.23.3",
+                version: "3.25.0",
                 mode: IS_PURE ? "pure" : "global",
                 copyright: "© 2014-2022 Denis Pushkarev (zloirock.ru)",
-                license: "https://github.com/zloirock/core-js/blob/v3.23.3/LICENSE",
+                license: "https://github.com/zloirock/core-js/blob/v3.25.0/LICENSE",
                 source: "https://github.com/zloirock/core-js"
             });
         },
@@ -3128,6 +3129,14 @@
                 end: createMethod(2),
                 trim: createMethod(3)
             };
+        },
+        3801: (module, __unused_webpack_exports, __webpack_require__) => {
+            var V8_VERSION = __webpack_require__(4324);
+            var fails = __webpack_require__(6183);
+            module.exports = !!Object.getOwnPropertySymbols && !fails((function() {
+                var symbol = Symbol();
+                return !String(symbol) || !(Object(symbol) instanceof Symbol) || !Symbol.sham && V8_VERSION && V8_VERSION < 41;
+            }));
         },
         9623: (module, __unused_webpack_exports, __webpack_require__) => {
             var toIntegerOrInfinity = __webpack_require__(8037);
@@ -3232,7 +3241,7 @@
             };
         },
         4746: (module, __unused_webpack_exports, __webpack_require__) => {
-            var NATIVE_SYMBOL = __webpack_require__(323);
+            var NATIVE_SYMBOL = __webpack_require__(3801);
             module.exports = NATIVE_SYMBOL && !Symbol.sham && "symbol" == typeof Symbol.iterator;
         },
         8654: (module, __unused_webpack_exports, __webpack_require__) => {
@@ -3245,12 +3254,18 @@
                 }).prototype;
             }));
         },
+        9780: (module, __unused_webpack_exports, __webpack_require__) => {
+            var global = __webpack_require__(8454);
+            var isCallable = __webpack_require__(6282);
+            var WeakMap = global.WeakMap;
+            module.exports = isCallable(WeakMap) && /native code/.test(String(WeakMap));
+        },
         8149: (module, __unused_webpack_exports, __webpack_require__) => {
             var global = __webpack_require__(8454);
             var shared = __webpack_require__(1748);
             var hasOwn = __webpack_require__(8281);
             var uid = __webpack_require__(9059);
-            var NATIVE_SYMBOL = __webpack_require__(323);
+            var NATIVE_SYMBOL = __webpack_require__(3801);
             var USE_SYMBOL_AS_UID = __webpack_require__(4746);
             var WellKnownSymbolsStore = shared("wks");
             var Symbol = global.Symbol;
@@ -3290,7 +3305,7 @@
             var Iterators = __webpack_require__(6126);
             var InternalStateModule = __webpack_require__(1030);
             var defineProperty = __webpack_require__(9168).f;
-            var defineIterator = __webpack_require__(7583);
+            var defineIterator = __webpack_require__(335);
             var IS_PURE = __webpack_require__(8977);
             var DESCRIPTORS = __webpack_require__(723);
             var ARRAY_ITERATOR = "Array Iterator";
@@ -3426,7 +3441,7 @@
             var charAt = __webpack_require__(7321).charAt;
             var toString = __webpack_require__(7655);
             var InternalStateModule = __webpack_require__(1030);
-            var defineIterator = __webpack_require__(7583);
+            var defineIterator = __webpack_require__(335);
             var STRING_ITERATOR = "String Iterator";
             var setInternalState = InternalStateModule.set;
             var getInternalState = InternalStateModule.getterFor(STRING_ITERATOR);
@@ -3458,6 +3473,7 @@
             var call = __webpack_require__(4552);
             var fixRegExpWellKnownSymbolLogic = __webpack_require__(9696);
             var anObject = __webpack_require__(1474);
+            var isNullOrUndefined = __webpack_require__(2420);
             var toLength = __webpack_require__(3917);
             var toString = __webpack_require__(7655);
             var requireObjectCoercible = __webpack_require__(7431);
@@ -3467,7 +3483,7 @@
             fixRegExpWellKnownSymbolLogic("match", (function(MATCH, nativeMatch, maybeCallNative) {
                 return [ function match(regexp) {
                     var O = requireObjectCoercible(this);
-                    var matcher = void 0 == regexp ? void 0 : getMethod(regexp, MATCH);
+                    var matcher = isNullOrUndefined(regexp) ? void 0 : getMethod(regexp, MATCH);
                     return matcher ? call(matcher, regexp, O) : new RegExp(regexp)[MATCH](toString(O));
                 }, function(string) {
                     var rx = anObject(this);
@@ -3499,6 +3515,7 @@
             var fails = __webpack_require__(6183);
             var anObject = __webpack_require__(1474);
             var isCallable = __webpack_require__(6282);
+            var isNullOrUndefined = __webpack_require__(2420);
             var toIntegerOrInfinity = __webpack_require__(8037);
             var toLength = __webpack_require__(3917);
             var toString = __webpack_require__(7655);
@@ -3540,7 +3557,7 @@
                 var UNSAFE_SUBSTITUTE = REGEXP_REPLACE_SUBSTITUTES_UNDEFINED_CAPTURE ? "$" : "$0";
                 return [ function replace(searchValue, replaceValue) {
                     var O = requireObjectCoercible(this);
-                    var replacer = void 0 == searchValue ? void 0 : getMethod(searchValue, REPLACE);
+                    var replacer = isNullOrUndefined(searchValue) ? void 0 : getMethod(searchValue, REPLACE);
                     return replacer ? call(replacer, searchValue, O, replaceValue) : call(nativeReplace, toString(O), searchValue, replaceValue);
                 }, function(string, replaceValue) {
                     var rx = anObject(this);
@@ -3599,7 +3616,7 @@
             var isObject = __webpack_require__(5896);
             var isExtensible = __webpack_require__(6662);
             var enforceInternalState = __webpack_require__(1030).enforce;
-            var NATIVE_WEAK_MAP = __webpack_require__(4404);
+            var NATIVE_WEAK_MAP = __webpack_require__(9780);
             var IS_IE11 = !global.ActiveXObject && "ActiveXObject" in global;
             var InternalWeakMap;
             var wrapper = function(init) {
@@ -6978,15 +6995,17 @@
             if ("auto" === params.slidesPerView && !params.loopedSlides) params.loopedSlides = slides.length;
             swiper.loopedSlides = Math.ceil(parseFloat(params.loopedSlides || params.slidesPerView, 10));
             swiper.loopedSlides += params.loopAdditionalSlides;
-            if (swiper.loopedSlides > slides.length) swiper.loopedSlides = slides.length;
+            if (swiper.loopedSlides > slides.length && swiper.params.loopedSlidesLimit) swiper.loopedSlides = slides.length;
             const prependSlides = [];
             const appendSlides = [];
             slides.each(((el, index) => {
-                const slide = dom(el);
-                if (index < swiper.loopedSlides) appendSlides.push(el);
-                if (index < slides.length && index >= slides.length - swiper.loopedSlides) prependSlides.push(el);
-                slide.attr("data-swiper-slide-index", index);
+                dom(el).attr("data-swiper-slide-index", index);
             }));
+            for (let i = 0; i < swiper.loopedSlides; i += 1) {
+                const index = i - Math.floor(i / slides.length) * slides.length;
+                appendSlides.push(slides.eq(index)[0]);
+                prependSlides.unshift(slides.eq(slides.length - index - 1)[0]);
+            }
             for (let i = 0; i < appendSlides.length; i += 1) $selector.append(dom(appendSlides[i].cloneNode(true)).addClass(params.slideDuplicateClass));
             for (let i = prependSlides.length - 1; i >= 0; i -= 1) $selector.prepend(dom(prependSlides[i].cloneNode(true)).addClass(params.slideDuplicateClass));
         }
@@ -7663,6 +7682,7 @@
             loop: false,
             loopAdditionalSlides: 0,
             loopedSlides: null,
+            loopedSlidesLimit: true,
             loopFillGroupWithBlank: false,
             loopPreventsSlide: true,
             rewind: false,
@@ -8414,6 +8434,11 @@
                 }
             });
             function run() {
+                if (!swiper.size) {
+                    swiper.autoplay.running = false;
+                    swiper.autoplay.paused = false;
+                    return;
+                }
                 const $activeSlideEl = swiper.slides.eq(swiper.activeIndex);
                 let delay = swiper.params.autoplay.delay;
                 if ($activeSlideEl.attr("data-swiper-autoplay")) delay = $activeSlideEl.attr("data-swiper-autoplay") || swiper.params.autoplay.delay;
@@ -8854,9 +8879,9 @@
             return !(offsetWidth || offsetHeight || target.getClientRects().length);
         };
         var isElement = function(obj) {
-            var _a, _b;
+            var _a;
             if (obj instanceof Element) return true;
-            var scope = null === (_b = null === (_a = obj) || void 0 === _a ? void 0 : _a.ownerDocument) || void 0 === _b ? void 0 : _b.defaultView;
+            var scope = null === (_a = null === obj || void 0 === obj ? void 0 : obj.ownerDocument) || void 0 === _a ? void 0 : _a.defaultView;
             return !!(scope && obj instanceof scope.Element);
         };
         var isReplacedElement = function(target) {
@@ -9032,7 +9057,7 @@
                     return notify();
                 })).observe(el_1, config);
                 queueMicroTask_trigger = function() {
-                    el_1.textContent = "" + (toggle_1 ? toggle_1-- : toggle_1++);
+                    el_1.textContent = "".concat(toggle_1 ? toggle_1-- : toggle_1++);
                 };
             }
             callbacks.push(callback);
@@ -9946,7 +9971,7 @@
             }
         }), 0);
         /*!
- * lightgallery | 2.5.0 | June 13th 2022
+ * lightgallery | 2.6.0 | August 29th 2022
  * http://www.lightgalleryjs.com/
  * Copyright (c) 2020 Sachin Neravath;
  * @license GPLv3
@@ -11294,21 +11319,21 @@ PERFORMANCE OF THIS SOFTWARE.
                     this.$inner.on("touchstart.lg", (function(e) {
                         _this.dragOrSwipeEnabled = true;
                         var $item = _this.getSlideItem(_this.index);
-                        if (($LG(e.target).hasClass("lg-item") || $item.get().contains(e.target)) && !_this.outer.hasClass("lg-zoomed") && !_this.lgBusy && 1 === e.targetTouches.length) {
+                        if (($LG(e.target).hasClass("lg-item") || $item.get().contains(e.target)) && !_this.outer.hasClass("lg-zoomed") && !_this.lgBusy && 1 === e.touches.length) {
                             isSwiping = true;
                             _this.touchAction = "swipe";
                             _this.manageSwipeClass();
                             startCoords = {
-                                pageX: e.targetTouches[0].pageX,
-                                pageY: e.targetTouches[0].pageY
+                                pageX: e.touches[0].pageX,
+                                pageY: e.touches[0].pageY
                             };
                         }
                     }));
                     this.$inner.on("touchmove.lg", (function(e) {
-                        if (isSwiping && "swipe" === _this.touchAction && 1 === e.targetTouches.length) {
+                        if (isSwiping && "swipe" === _this.touchAction && 1 === e.touches.length) {
                             endCoords = {
-                                pageX: e.targetTouches[0].pageX,
-                                pageY: e.targetTouches[0].pageY
+                                pageX: e.touches[0].pageX,
+                                pageY: e.touches[0].pageY
                             };
                             _this.touchMove(startCoords, endCoords, e);
                             isMoved = true;
@@ -11638,16 +11663,16 @@ PERFORMANCE OF THIS SOFTWARE.
                 this.updateCounterTotal();
                 this.manageSingleSlideClassName();
             };
+            LightGallery.prototype.destroyGallery = function() {
+                this.destroyModules(true);
+                if (!this.settings.dynamic) this.invalidateItems();
+                $LG(window).off(".lg.global" + this.lgId);
+                this.LGel.off(".lg");
+                this.$container.remove();
+            };
             LightGallery.prototype.destroy = function() {
-                var _this = this;
                 var closeTimeout = this.closeGallery(true);
-                setTimeout((function() {
-                    _this.destroyModules(true);
-                    if (!_this.settings.dynamic) _this.invalidateItems();
-                    $LG(window).off(".lg.global" + _this.lgId);
-                    _this.LGel.off(".lg");
-                    _this.$container.remove();
-                }), closeTimeout);
+                if (closeTimeout) setTimeout(this.destroyGallery.bind(this), closeTimeout); else this.destroyGallery();
                 return closeTimeout;
             };
             return LightGallery;

@@ -2952,33 +2952,62 @@ html.loaded .loader {
   }
 }
 
-.testimony__content {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  row-gap: 64px;
+.testimony__card:not(:last-child) {
+  margin-bottom: 4rem;
 }
 
 .card-testimony {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: -ms-grid;
+  display: grid;
   gap: 32px;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
 }
 
 .card-testimony__image-ibg {
-  width: 29.9684542587%;
-  padding-bottom: 29.9684542587%;
+  width: 100%;
+  padding-bottom: 90%;
 }
 
-.card-testimony__content {
-  -webkit-box-flex: 0;
-      -ms-flex: 0 1 412px;
-          flex: 0 1 412px;
+.card-testimony__text {
+  font-style: italic;
+  letter-spacing: 0.04em;
+  line-height: 175%;
+}
+
+.card-testimony__text:not(:last-child) {
+  margin-bottom: 1rem;
+}
+
+.card-testimony__name {
+  line-height: 130%;
+  letter-spacing: 0.04em;
+  text-transform: capitalize;
+  -webkit-font-feature-settings: "tnum" on, "lnum" on;
+          font-feature-settings: "tnum" on, "lnum" on;
+  color: #dcca87;
+}
+
+@supports (font-size: clamp( 1.5rem , 1.3367346939rem  +  0.8163265306vw , 2rem )) {
+  .card-testimony__name {
+    font-size: clamp( 1.5rem , 1.3367346939rem  +  0.8163265306vw , 2rem );
+  }
+}
+
+@supports not (font-size: clamp( 1.5rem , 1.3367346939rem  +  0.8163265306vw , 2rem )) {
+  .card-testimony__name {
+    font-size: calc(
+			1.5rem + 0.5 * (100vw - 20rem) / 61.25
+		);
+  }
+}
+
+.card-testimony__name:not(:last-child) {
+  margin-bottom: 0.25rem;
+}
+
+.card-testimony__position {
+  line-height: 175%;
+  letter-spacing: 0.04em;
+  color: #f5efdb;
 }
 
 @supports (margin-bottom: clamp( 1.5rem , -1.112244898rem  +  13.0612244898vw , 9.5rem )) {
@@ -3182,6 +3211,11 @@ html.loaded .loader {
   display: -ms-grid;
   display: grid;
   gap: 24px;
+}
+
+.gallery-restoran__text {
+  line-height: 175%;
+  letter-spacing: 0.04em;
 }
 
 .gallery-restoran__button {
@@ -4217,6 +4251,19 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
   left: 0;
 }
 
+@media (min-width: 29.99875em) {
+  .card-testimony {
+    -ms-grid-columns: 1fr 2fr;
+    grid-template-columns: 1fr 2fr;
+  }
+
+  .card-testimony__image-ibg {
+    max-width: 11.875rem;
+    max-height: 11.875rem;
+    padding-bottom: 100%;
+  }
+}
+
 @media (min-width: 47.99875em) {
   .today-special__row {
     -ms-grid-columns: (1fr)[2];
@@ -4229,6 +4276,34 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
   .chefs-restorane__container {
     -ms-grid-columns: 1fr 1fr;
     grid-template-columns: 1fr 1fr;
+  }
+
+  .testimony__content {
+    display: -ms-grid;
+    display: grid;
+    -webkit-column-gap: 32px;
+       -moz-column-gap: 32px;
+            column-gap: 32px;
+    -ms-grid-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+  }
+
+@supports (row-gap: clamp( 2rem , -0.887034322rem  +  6.0148114733vw , 4rem )) {
+    .testimony__content {
+      row-gap: clamp( 2rem , -0.887034322rem  +  6.0148114733vw , 4rem );
+    }
+}
+
+@supports not (row-gap: clamp( 2rem , -0.887034322rem  +  6.0148114733vw , 4rem )) {
+    .testimony__content {
+      row-gap: calc(
+			2rem + 2 * (100vw - 47.99875rem) / 33.25125
+		);
+    }
+}
+
+  .testimony__card {
+    margin: 0 !important;
   }
 
   .gallery-restoran__container {
@@ -4263,19 +4338,6 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
     -webkit-column-gap: 32px;
        -moz-column-gap: 32px;
             column-gap: 32px;
-  }
-
-  .testimony__content {
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-  }
-
-  .testimony__card {
-    -webkit-box-flex: 1;
-        -ms-flex: 1 1 50%;
-            flex: 1 1 50%;
-    padding: 0 16px;
   }
 
   .gallery-restoran__container {
@@ -4653,6 +4715,12 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
     -webkit-box-pack: stretch;
         -ms-flex-pack: stretch;
             justify-content: stretch;
+  }
+}
+
+@media (min-width: 47.99875em) and (max-width: 47.99875em) {
+  .testimony__content {
+    row-gap: inherit;
   }
 }
 

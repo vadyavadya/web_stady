@@ -898,70 +898,94 @@ html.loaded.preloader_html {
 }
 .testimony {
     position: relative;
+
     // .testimony__container
     &__container {
     }
+
     // .testimony__title
     &__title {
         &:not(:last-child) {
             @include adaptiveValue("margin-bottom", 64, 32);
         }
     }
+
     // .testimony__content
     &__content {
-        display: flex;
-        flex-wrap: wrap;
-        row-gap: 64px;
     }
+
     // .testimony__card
     &__card {
+        &:not(:last-child) {
+            margin-bottom: rem(64);
+        }
     }
-    @media (min-width: $tablet) {
+
+    @media (min-width: $mobile) {
         &__content {
-            justify-content: center;
+            display: grid;
+            column-gap: 32px;
+            @include adaptiveValue("row-gap", 64, 32, $widthTo: 767.98);
+            grid-template-columns: 1fr 1fr;
         }
         &__card {
-            flex: 1 1 50%;
-            padding: 0 16px;
-            // margin: 0 -16px;
+            margin: 0 !important;
         }
     }
 }
-.title {
-    // .title__subtitle
-    &__subtitle {
-    }
-    // .title__title
-    &__title {
-        // .title__title_upper-spoon
-        &_upper-spoon {
-        }
-    }
-}
+
 .card-testimony {
-    display: flex;
+    display: grid;
     gap: 32px;
-    flex-wrap: wrap;
+    @media (min-width: $mobileSmall) {
+        grid-template-columns: 1fr 2fr;
+        &__image-ibg {
+            max-width: rem(190);
+            max-height: rem(190);
+            padding-bottom: 100%;
+        }
+    }
     // .card-testimony__image-ibg
     &__image-ibg {
-        width: percent(190, 634);
-        padding-bottom: percent(190, 634);
+        width: 100%;
+        padding-bottom: 90%;
+
+        // width: percent(190, 634);
+        // padding-bottom: percent(190, 634);
     }
     // .card-testimony__content
     &__content {
-        flex: 0 1 412px;
+        // flex: 0 1 412px;
     }
     // .card-testimony__text
     &__text {
+        font-style: italic;
+        letter-spacing: 0.04em;
+        line-height: 175%;
+        &:not(:last-child) {
+            margin-bottom: rem(16);
+        }
     }
     // .card-testimony__autor
     &__autor {
     }
     // .card-testimony__name
     &__name {
+        @include adaptiveValue("font-size", 32, 24);
+        line-height: 130%;
+        letter-spacing: 0.04em;
+        text-transform: capitalize;
+        font-feature-settings: "tnum" on, "lnum" on;
+        color: $colorCalicio;
+        &:not(:last-child) {
+            margin-bottom: rem(4);
+        }
     }
     // .card-testimony__position
     &__position {
+        line-height: 175%;
+        letter-spacing: 0.04em;
+        color: #f5efdb;
     }
 }
 
@@ -1095,6 +1119,8 @@ html.loaded.preloader_html {
     }
     // .gallery-restoran__text
     &__text {
+        line-height: 175%;
+        letter-spacing: 0.04em;
     }
     &__button {
         justify-self: left;
