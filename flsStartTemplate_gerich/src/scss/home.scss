@@ -949,9 +949,13 @@ html.loaded.preloader_html {
     &__image-ibg {
         width: 100%;
         padding-bottom: 90%;
+
+        // width: percent(190, 634);
+        // padding-bottom: percent(190, 634);
     }
     // .card-testimony__content
     &__content {
+        // flex: 0 1 412px;
     }
     // .card-testimony__text
     &__text {
