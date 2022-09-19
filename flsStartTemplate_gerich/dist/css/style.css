@@ -975,6 +975,7 @@ body::after {
   bottom: 0;
 }
 
+.card-blogs__title,
 .awards__image::after,
 .chefs-restorane__name,
 .position-menu__price,
@@ -3025,20 +3026,6 @@ html.loaded .loader {
   color: #f5efdb;
 }
 
-@supports (margin-bottom: clamp( 3.75rem , 1.8724489796rem  +  9.387755102vw , 9.5rem )) {
-  .page__video:not(:last-child) {
-    margin-bottom: clamp( 3.75rem , 1.8724489796rem  +  9.387755102vw , 9.5rem );
-  }
-}
-
-@supports not (margin-bottom: clamp( 3.75rem , 1.8724489796rem  +  9.387755102vw , 9.5rem )) {
-  .page__video:not(:last-child) {
-    margin-bottom: calc(
-			3.75rem + 5.75 * (100vw - 20rem) / 61.25
-		);
-  }
-}
-
 .restorane-video {
   width: 100%;
   padding-bottom: 39.7395833333%;
@@ -3374,6 +3361,130 @@ html.loaded .loader {
 .award__text {
   line-height: 175%;
   letter-spacing: 0.04em;
+}
+
+.page__restorane-blogs {
+  position: relative;
+}
+
+@supports (margin-bottom: clamp( 3.75rem , 1.3010204082rem  +  12.2448979592vw , 11.25rem )) {
+  .page__restorane-blogs:not(:last-child) {
+    margin-bottom: clamp( 3.75rem , 1.3010204082rem  +  12.2448979592vw , 11.25rem );
+  }
+}
+
+@supports not (margin-bottom: clamp( 3.75rem , 1.3010204082rem  +  12.2448979592vw , 11.25rem )) {
+  .page__restorane-blogs:not(:last-child) {
+    margin-bottom: calc(
+			3.75rem + 7.5 * (100vw - 20rem) / 61.25
+		);
+  }
+}
+
+.restorane-blogs__container {
+  position: relative;
+  display: -ms-grid;
+  display: grid;
+}
+
+@supports (row-gap: clamp( 2rem , 1.3469387755rem  +  3.2653061224vw , 4rem )) {
+  .restorane-blogs__container {
+    row-gap: clamp( 2rem , 1.3469387755rem  +  3.2653061224vw , 4rem );
+  }
+}
+
+@supports not (row-gap: clamp( 2rem , 1.3469387755rem  +  3.2653061224vw , 4rem )) {
+  .restorane-blogs__container {
+    row-gap: calc(
+			2rem + 2 * (100vw - 20rem) / 61.25
+		);
+  }
+}
+
+.restorane-blogs__container::before {
+  bottom: -6.25rem;
+  right: -9.375rem;
+}
+
+.restorane-blogs__cards {
+  display: -ms-grid;
+  display: grid;
+  gap: 32px;
+}
+
+.restorane-blogs__button {
+  -ms-grid-column-align: center;
+      justify-self: center;
+}
+
+.card-blogs__image-ibg {
+  padding-bottom: 104.3689320388%;
+}
+
+.card-blogs__image-ibg:not(:last-child) {
+  margin-bottom: 1.5rem;
+}
+
+.card-blogs__content {
+  display: -ms-grid;
+  display: grid;
+}
+
+@supports (row-gap: clamp( 1rem , 0.6734693878rem  +  1.6326530612vw , 2rem )) {
+  .card-blogs__content {
+    row-gap: clamp( 1rem , 0.6734693878rem  +  1.6326530612vw , 2rem );
+  }
+}
+
+@supports not (row-gap: clamp( 1rem , 0.6734693878rem  +  1.6326530612vw , 2rem )) {
+  .card-blogs__content {
+    row-gap: calc(
+			1rem + 1 * (100vw - 20rem) / 61.25
+		);
+  }
+}
+
+.card-blogs__metadata {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.card-blogs__date {
+  ine-height: 175%;
+  letter-spacing: 0.04em;
+  color: #fafafa;
+}
+
+.card-blogs__autor {
+  ine-height: 175%;
+  letter-spacing: 0.04em;
+  color: #fafafa;
+}
+
+.card-blogs__title {
+  font-size: 2rem;
+  line-height: 130%;
+  letter-spacing: 0.04em;
+  text-decoration: underline;
+  text-transform: capitalize;
+  -webkit-font-feature-settings: "tnum" on, "lnum" on;
+          font-feature-settings: "tnum" on, "lnum" on;
+  color: #dcca87;
+}
+
+.card-blogs__text {
+  line-height: 175%;
+  letter-spacing: 0.04em;
+}
+
+.card-blogs__link {
+  line-height: 175%;
+  letter-spacing: 0.04em;
+  color: #dcca87;
 }
 
 @supports (margin-bottom: clamp( 2.5rem , 0.8673469388rem  +  8.1632653061vw , 7.5rem )) {
@@ -4593,6 +4704,16 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
     }
 }
 
+  .awards__item {
+    margin: 0 !important;
+  }
+
+  .restorane-blogs__cards {
+    -ms-grid-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+  }
+
   .gallery-restoran__container {
     -ms-grid-columns: 350px 1fr;
     grid-template-columns: 350px 1fr;
@@ -4657,6 +4778,15 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
     bottom: 0;
     left: -14.9068322981%;
     color: #fff;
+  }
+
+  .awards__content {
+    margin: 0 !important;
+  }
+
+  .restorane-blogs__cards {
+    -ms-grid-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
   }
 
   .gallery-restoran__container {
