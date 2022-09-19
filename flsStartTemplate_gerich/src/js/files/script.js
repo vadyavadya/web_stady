@@ -19,13 +19,16 @@ window.addEventListener('load', () => {
             });
         }
         let listMenu = document.querySelector('.navigation-menu__list');
-        window.addEventListener('scroll', () => {
-            if ((listMenu.getBoundingClientRect().top < window.innerHeight) & (listMenu.getBoundingClientRect().top + listMenu.offsetHeight > 0)) {
-                flag = false;
-            } else {
-                flag = true
-            }
-        })
+        if (listMenu) {
+            window.addEventListener('scroll', () => {
+                if ((listMenu.getBoundingClientRect().top < window.innerHeight) & (listMenu.getBoundingClientRect().top + listMenu.offsetHeight > 0)) {
+                    flag = false;
+                } else {
+                    flag = true
+                }
+            });
+        }
+
         let id = 0;
         function changeActivMenu() {
             setInterval(() => {

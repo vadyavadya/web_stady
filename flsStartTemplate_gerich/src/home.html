@@ -21,12 +21,12 @@
 	<div class="wrapper">
 		@@include('html/_header.htm',{})
 		<main class="page">
-			<div data-fullscreen class="page__main">
+			<div data-fullscreen class="page__main page__first">
 				<div class="page__container page__container_wide">
 					<nav class="page__hashtag hashtag">
 						<ul class="hashtag__list">
-							<li class="hashtag__item"><a href="" class="link">#Gericht</a></li>
-							<li class="hashtag__item"><a href="" class="link">#Bar</a></li>
+							<li class="hashtag__item _active"><a href="home.html" class="link">#Gericht</a></li>
+							<li class="hashtag__item"><a href="bar.html" class="link">#Bar</a></li>
 						</ul>
 					</nav>
 					<div class="page__container">
@@ -96,7 +96,7 @@
 						</div>
 						<div class="swiper-main__pagination swiper-pagination"></div>
 					</div>
-					<button data-goto=".restorant-home-about" class="page__scroll scroll">Scroll</button>
+					<button data-goto-top="60" data-goto=".restorant-home-about" class="page__scroll scroll">Scroll</button>
 				</div>
 			</div>
 

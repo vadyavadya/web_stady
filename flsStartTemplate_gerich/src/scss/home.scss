@@ -254,14 +254,18 @@ html.loaded.preloader_html {
     }
     // .hashtag__item
     &__item {
+        transition: all 0.3s ease 0s;
         &:not(:last-child) {
             margin-bottom: rem(40);
         }
         transform: rotate(-180deg);
         writing-mode: vertical-lr;
+        &._active {
+            color: $colorCalicio;
+        }
         @media (any-hover: hover) {
             &:hover {
-                color: $colorCalicio;
+                transform: scale(1.2) rotate(-180deg);
             }
         }
     }
@@ -413,6 +417,12 @@ html.loaded.preloader_html {
     &__container {
         @include adaptiveValue("padding-top", 100, 10);
         @include adaptiveValue("padding-bottom", 100, 10);
+        * {
+            transition: all 0.3s ease 0s;
+            &:hover {
+                transform: scale(1.05);
+            }
+        }
     }
     // .restorant-home-about__content
     &__content {
@@ -694,6 +704,10 @@ html.loaded.preloader_html {
         @media (max-width: $tablet) {
             display: none;
         }
+        transition: all 0.3s ease 0s;
+        &:hover {
+            transform: scale(1.05);
+        }
     }
 
     // .today-special__subtitle
@@ -720,7 +734,6 @@ html.loaded.preloader_html {
         justify-self: center;
     }
 }
-//==================================================================================================
 .position-menu {
     display: grid;
     column-gap: 32px;
@@ -999,6 +1012,11 @@ html.loaded.preloader_html {
             }
         }
     }
+    transition: all 0.3s ease 0s;
+    &:hover {
+        background-color: rgba(65, 65, 65, 0.363);
+        transform: scale(1.05);
+    }
 }
 
 //====================================================================================================
@@ -1060,6 +1078,7 @@ html.loaded.preloader_html {
             @include adaptiveValue("height", 120, 80);
         }
     }
+
     &._video-play {
         &::before {
             opacity: 0;
@@ -1116,10 +1135,18 @@ html.loaded.preloader_html {
         &:not(:last-child) {
             margin-bottom: rem(32);
         }
+        transition: all 0.3s ease 0s;
+        &:hover {
+            transform: scale(1.1);
+        }
     }
     // .awards__image-ibg
     &__image-ibg {
         padding-bottom: percent(691, 483);
+        transition: all 0.3s ease 0s;
+        &:hover {
+            transform: scale(1.05);
+        }
     }
     &__img_1 {
         animation: img1 6s infinite linear;
@@ -1293,6 +1320,11 @@ html.loaded.preloader_html {
     }
 }
 .card-blogs {
+    transition: all 0.3s ease 0s;
+    &:hover {
+        background-color: rgba(39, 39, 39, 0.521);
+        transform: scale(1.05);
+    }
     // .card-blogs__image-ibg
     &__image-ibg {
         padding-bottom: percent(430, 412);

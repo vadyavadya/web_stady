@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="ru" class="preloader_html">
+
+<head>
+	<title>Главная</title>
+	<meta charset="UTF-8">
+	<meta name="format-detection" content="telephone=no">
+	<style>
+		.preloader_html {
+			height: 100vh;
+			background: #0c0b08 url('img/Preloader_1.gif') no-repeat center;
+		}
+
+		body {
+			opacity: 0;
+		}
+
+		.wrapper {
+			opacity: 0;
+		}
+	</style>
+	<link rel="stylesheet" href="css/style.min.css?_v=20220919161652">
+	<link rel="shortcut icon" href="favicon.ico">
+	<!-- <meta name="robots" content="noindex, nofollow"> -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+	<div class="loader">
+		<ul>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+		<div class="wineglass left">
+			<div class="top"></div>
+		</div>
+		<div class="wineglass right">
+			<div class="top"></div>
+		</div>
+	</div>
+	<div class="wrapper">
+		<header data-scroll data-scroll-show="3000" class="header">
+			<div class="header__container header__container_wide">
+				<div class="header__logo header__column">
+					<a href="#" class="">Gerícht</a>
+				</div>
+				<div class="header__menu menu">
+					<nav class="menu__body">
+						<ul class="menu__list">
+							<li class="menu__item"><a href="home.html" class="menu__link">Home</a></li>
+							<li class="menu__item"><a href="" class="menu__link">Pages</a></li>
+							<li class="menu__item"><a href="" class="menu__link">Contact Us</a></li>
+							<li class="menu__item"><a href="" class="menu__link">Blog</a></li>
+							<li class="menu__item"><a href="" class="menu__link">Landing</a></li>
+						</ul>
+					</nav>
+				</div>
+				<ul data-da=".menu__body,523.98" class="header__auth auth-header header__column">
+					<li class="auth-header__item">Log in / registration</li>
+					<li class="auth-header__item">Book table</li>
+				</ul>
+				<button type="button" class="icon-menu"><span></span></button>
+			</div>
+		</header>
+		<main class="page-bar">
+			<div data-fullscreen data-bg-paralax class="page-bar__main page__first">
+				<div class="page-bar__container page__container_wide">
+					<nav class="page-bar__hashtag hashtag">
+						<ul class="hashtag__list">
+							<li class="hashtag__item"><a href="home.html" class="link">#Gericht</a></li>
+							<li class="hashtag__item _active"><a href="bar.html" class="link">#Bar</a></li>
+						</ul>
+					</nav>
+					<div class="page-bar__swiper swiper-bar swiper">
+						<div class="swiper-bar__wrapper swiper-wrapper">
+							<div class="swiper-bar__slide swiper-slide">
+								<h2 class="swiper-bar__title">On the Rocks</h2>
+								<div class="swiper-bar__image-ibg">
+									<picture><source srcset="img/bar/slider/01.webp" type="image/webp"><img src="img/bar/slider/01.jpg" alt=""></picture>
+								</div>
+							</div>
+							<div class="swiper-bar__slide swiper-slide">
+								<h2 class="swiper-bar__title">On the Rocks 2</h2>
+								<div class="swiper-bar__image-ibg">
+									<picture><source srcset="img/bar/slider/02.webp" type="image/webp"><img src="img/bar/slider/02.jpg" alt=""></picture>
+								</div>
+							</div>
+							<div class="swiper-bar__slide swiper-slide">
+								<h2 class="swiper-bar__title">On the Rocks 3</h2>
+								<div class="swiper-bar__image-ibg">
+									<picture><source srcset="img/bar/slider/01.webp" type="image/webp"><img src="img/bar/slider/01.jpg" alt=""></picture>
+								</div>
+							</div>
+							<div class="swiper-bar__slide swiper-slide">
+								<h2 class="swiper-bar__title">On the Rocks 4</h2>
+								<div class="swiper-bar__image-ibg">
+									<picture><source srcset="img/bar/slider/02.webp" type="image/webp"><img src="img/bar/slider/02.jpg" alt=""></picture>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="swiper-bar__pagination swiper-pagination"></div>
+					<button data-goto-top="60" data-goto=".resirvation-form" class="page-bar__scroll scroll">Scroll</button>
+				</div>
+			</div>
+
+			<section class="page-bar__reservation resirvation-form">
+				<div data-decor class="resirvation-form__container">
+					<div class="resirvation-form__title title">
+						<h2 class="title__subtitle">Reservations</h2>
+						<h1 class="title__title title__title_upper-spoon">Book A Table</h1>
+					</div>
+					<!-- 
+						data-dev для имитации отправки формы
+					-->
+					<form data-dev data-popup-message="#pushForm" method="POST" action="#" class="resirvation-form__form form-book">
+						<div class="form-book__lines">
+							<div class="form-book__line">
+								<!-- 
+									не стоит новый класс писать ничего не получится меняем в имеющихся селектах
+									
+								 -->
+								<select name="form[]" data-class-modif="form" class="">
+									<option value="1">1 Person</option>
+									<option value="2">2 Person</option>
+									<option value="3">3 Person</option>
+									<option value="4">4 Person</option>
+								</select>
+							</div>
+							<div class="form-book__line">
+								<div class="form-book__input _icon-select-arrow">
+									<!-- 
+										data-required обязательное поле
+										не забываем валидацию полей включить для отслеживания активна или нет поле
+									 -->
+									<input type="text" data-datepicker placeholder="12/05/2021" data-error="Ошибка" data-required class="input-dark">
+								</div>
+							</div>
+							<div class="form-book__line">
+								<!-- 
+									data-scroll добавляет скролл к селекту
+									а так же там кастомизация скрола есть
+								 -->
+								<select name="form[]" data-scroll data-class-modif="form" class="">
+									<option value="1">11:00 AM</option>
+									<option value="2">12:00 AM</option>
+									<option value="3">1:00 PM</option>
+									<option value="4">2:00 PM</option>
+									<option value="5">3:00 PM</option>
+									<option value="6">5:00 PM</option>
+									<option value="7">7:00 PM</option>
+									<option value="8">9:00 PM</option>
+								</select>
+							</div>
+						</div>
+						<div class="form-book__lines">
+
+							<button class="form-book__button button" type="submit">Book Now</button>
+
+						</div>
+
+					</form>
+				</div>
+			</section>
+
+			<section data-bg-paralax class="page-bar__abuot about-bar">
+				<div data-decor class="about-bar__container">
+					<div class="about-bar__image-column-ibg">
+						<picture><source srcset="img/bar/about/column.webp" type="image/webp"><img src="img/bar/about/column.jpg" alt=""></picture>
+					</div>
+					<div class="about-bar__content">
+						<div class="about-bar__image-title-ibg">
+							<picture><source srcset="img/bar/about/content.webp" type="image/webp"><img src="img/bar/about/content.jpg" alt=""></picture>
+						</div>
+						<div class="about-bar__title title title_left">
+							<h2 class="title__subtitle">About Us</h2>
+							<h1 class="title__title title__title_upper-spoon">Food, Drinks, entertainment in one</h1>
+						</div>
+						<p class="about-bar__text">
+							Adipiscing tempus ullamcorper lobortis odio tellus arcu volutpat. Risus placerat morbi volutpat habitasse interdum mi aliquam In sed odio nec aliquet.
+						</p>
+						<a href="" class="about-bar__button button">Know More</a>
+					</div>
+				</div>
+			</section>
+
+			<section class="page-bar__navigation navigation-bar">
+				<div class="navigation-bar__container">
+					<div class="navigation-bar__title title">
+						<h2 class="title__subtitle">Wide Range to choose from</h2>
+						<h1 class="title__title title__title_upper-spoon">What’s Your Poison?</h1>
+					</div>
+					<ul class="navigation-bar__list">
+						<li class="navigation-bar__item">
+							<div class="navigation-bar__image-ibg"><picture><source srcset="img/bar/navigation/bear.webp" type="image/webp"><img src="img/bar/navigation/bear.jpg" alt=""></picture></div>
+							<p class="navigation-bar__text">Beer</p>
+						</li>
+						<li class="navigation-bar__item">
+							<div class="navigation-bar__image-ibg"><picture><source srcset="img/bar/navigation/wine.webp" type="image/webp"><img src="img/bar/navigation/wine.jpg" alt=""></picture></div>
+							<p class="navigation-bar__text">Wine</p>
+						</li>
+						<li class="navigation-bar__item">
+							<div class="navigation-bar__image-ibg"><picture><source srcset="img/bar/navigation/cocktalis.webp" type="image/webp"><img src="img/bar/navigation/cocktalis.jpg" alt=""></picture></div>
+							<p class="navigation-bar__text">Cocktalis</p>
+						</li>
+					</ul>
+				</div>
+			</section>
+
+			<section data-bg-paralax="img/bar/happy-hour/image.jpg,10" class="page-bar__happy-hour happy-hour">
+				<div class="happy-hour__container">
+					<h2 class="happy-hour__title">Happy Hours</h2>
+					<p class="happy-hour__text">Monday - Friday (4:00 Pm - 7:00 pm)</p>
+				</div>
+			</section>
+
+			<section class="page-bar__special today-special">
+				<div data-decor class="today-special__container">
+					<div class="today-special__title title">
+						<h2 class="title__subtitle">Menu that fits you palatte</h2>
+						<h1 class="title__title title__title_upper-spoon">Today’s Special</h1>
+					</div>
+					<div class="today-special__row">
+						<div class="today-special__column">
+							<h2 class="today-special__subtitle">Wine & Beer</h2>
+							<div class="today-special__position position-menu">
+								<div class="position-menu__name">Chapel Hill Shiraz</div>
+								<div class="position-menu__line"></div>
+								<div class="position-menu__price">$56</div>
+								<ul class="position-menu__composition">
+									<li class="position-menu__item">AU</li>
+									<li class="position-menu__item">Bottle</li>
+								</ul>
+								<div class="position-menu__name">Catena Malbec</div>
+								<div class="position-menu__line"></div>
+								<div class="position-menu__price">$59</div>
+								<ul class="position-menu__composition">
+									<li class="position-menu__item">AR</li>
+									<li class="position-menu__item"> 750 m</li>
+								</ul>
+								<div class="position-menu__name">La Vieille Rosé</div>
+								<div class="position-menu__line"></div>
+								<div class="position-menu__price">$156</div>
+								<ul class="position-menu__composition">
+									<li class="position-menu__item">FR</li>
+									<li class="position-menu__item">750 m</li>
+								</ul>
+								<div class="position-menu__name">Rhino Pale Ale</div>
+								<div class="position-menu__line"></div>
+								<div class="position-menu__price">$44</div>
+								<ul class="position-menu__composition">
+									<li class="position-menu__item">CA</li>
+									<li class="position-menu__item">750 m</li>
+								</ul>
+								<div class="position-menu__name">Irish Guinness</div>
+								<div class="position-menu__line"></div>
+								<div class="position-menu__price">$31</div>
+								<ul class="position-menu__composition">
+									<li class="position-menu__item">IE</li>
+									<li class="position-menu__item">750 m</li>
+								</ul>
+							</div>
+						</div>
+						<div class="today-special__img today-specia__image-ibg">
+							<picture><source data-srcset="img/special-menu/special-menu.webp" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" type="image/webp"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="  data-src="img/special-menu/special-menu.jpg" alt=""></picture>
+						</div>
+						<div class="today-special__column">
+							<h2 class="today-special__subtitle">Cocktails</h2>
+							<div class="today-special__position position-menu">
+								<div class="position-menu__name">Aperol Spritz</div>
+								<div class="position-menu__line"></div>
+								<div class="position-menu__price">$20</div>
+								<ul class="position-menu__composition">
+									<li class="position-menu__item">Aperol</li>
+									<li class="position-menu__item">Villa Marchesi prosecco</li>
+									<li class="position-menu__item">soda</li>
+									<li class="position-menu__item">30 ml</li>
+								</ul>
+								<div class="position-menu__name">Dark 'N' Stormy</div>
+								<div class="position-menu__line"></div>
+								<div class="position-menu__price">$16</div>
+								<ul class="position-menu__composition">
+									<li class="position-menu__item">Dark rum</li>
+									<li class="position-menu__item">Ginger beer</li>
+									<li class="position-menu__item">Slice of lime</li>
+								</ul>
+								<div class="position-menu__name">Daiquiri</div>
+								<div class="position-menu__line"></div>
+								<div class="position-menu__price">$10</div>
+								<ul class="position-menu__composition">
+									<li class="position-menu__item">Rum</li>
+									<li class="position-menu__item"> Citrus juice</li>
+									<li class="position-menu__item">Suga</li>
+								</ul>
+								<div class="position-menu__name">Old Fashioned</div>
+								<div class="position-menu__line"></div>
+								<div class="position-menu__price">$31</div>
+								<ul class="position-menu__composition">
+									<li class="position-menu__item">Bourbon</li>
+									<li class="position-menu__item">Brown sugar</li>
+									<li class="position-menu__item">Angostura Bitters</li>
+								</ul>
+								<div class="position-menu__name">Negroni</div>
+								<div class="position-menu__line"></div>
+								<div class="position-menu__price">$26</div>
+								<ul class="position-menu__composition">
+									<li class="position-menu__item">Gin</li>
+									<li class="position-menu__item">Sweet Vermouth</li>
+									<li class="position-menu__item">Campari</li>
+									<li class="position-menu__item"> Orange garnish</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<a class="today-special__button button">View More</a>
+				</div>
+			</section>
+
+			<section data-bg-paralax="img/bg.jpg" class="page-bar__contact contact-bar">
+				<div class="contact-bar__container">
+					<div class="contact-bar__content">
+						<div class="contact-bar__title title title_left">
+							<h2 class="title__subtitle">Contact</h2>
+							<h1 class="title__title title__title_upper-spoon">Find Us</h1>
+						</div>
+						<p class="contact-bar__text">Lane Ends Bungalow, Whatcroft Hall Lane, Rudheath, CW9 7SG</p>
+						<div class="contact-bar__opening">
+							<h4 class="contact-bar__subtitle">Opening Hours</h4>
+							<p class="contact-bar__time">Mon - Fri: 10:00 am - 02:00 am</p>
+							<p class="contact-bar__time">Sat - Sun: 10:00 am - 03:00 am</p>
+						</div>
+						<a href="" class="contact-bar__button button">Visit Us</a>
+					</div>
+					<div class="contact-bar__image-ibg"><picture><source srcset="img/bar/contact/bokal.webp" type="image/webp"><img src="img/bar/contact/bokal.jpg" alt=""></picture></div>
+				</div>
+			</section>
+
+		</main>
+		<footer class="footer">
+
+			<div class="footer__container">
+				<div class="footer__subscribe">
+					<div class="footer__title title">
+						<h2 class="title__subtitle">Newsletter</h2>
+						<h1 class="title__title title__title_upper-spoon">Subscribe to Our Newsletter</h1>
+					</div>
+					<p class="footer__text footer__text_color-white footer__text_margin-64">And never miss latest Updates!</p>
+					<form data-dev data-popup-message="#pushForm" action="" method="">
+						<div class="footer__flex">
+							<input type="text" name="form[email]" data-error="Error" placeholder="Email Address" class="footer__input input-dark">
+							<button type="submit" class="footer__button button">Subscribe</button>
+						</div>
+					</form>
+				</div>
+				<button data-goto=".page__first" class="footer__scroll scroll">Top</button>
+			</div>
+			<div data-bg-paralax class="footer__footer">
+				<div class="footer__container">
+					<div class="footer__grid">
+						<div class="footer__column footer__contact">
+							<div class="footer__subtitle">Contact Us</div>
+							<p class="footer__text">9 W 53rd St, New York, NY 10019, USA</p>
+							<p class="footer__text"><a href="tel:+12123441230">+1 212-344-1230</a></p>
+							<p class="footer__text"><a href="tel:+12123441230">+1 212-555-1230</a></p>
+						</div>
+						<div class="footer__center-column">
+							<div class="footer__title">Gerícht</div>
+							<p class="footer__text footer__text_color-white footer__text_margin-16 footer__text_spoon">"The best way to find yourself is to lose yourself in the service of others.”</p>
+							<div class="footer__social">
+								<a href="" class="footer__link _icon-facebook"></a>
+								<a href="" class="footer__link _icon-twit"></a>
+								<a href="" class="footer__link _icon-inst"></a>
+							</div>
+						</div>
+						<div class="footer__column footer__working">
+							<div class="footer__subtitle">Working Hours</div>
+							<p class="footer__text">Monday-Friday: </p>
+							<p class="footer__text footer__text_margin-16">08:00 am -12:00 am</p>
+							<p class="footer__text">Saturday-Sunday: </p>
+							<p class="footer__text">07:00am -11:00 pm</p>
+						</div>
+					</div>
+					<div class="footer__copyright">2021 Gerícht. All Rights reserved.</div>
+				</div>
+			</div>
+		</footer>
+	</div>
+	<div id="pushForm" aria-hidden="true" class="popup">
+		<div class="popup__wrapper">
+			<div class="popup__content">
+				<button data-close type="button" class="popup__close"></button>
+				<div class="popup__text">
+					Отправленно
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="js/app.min.js?_v=20220919161652"></script>
+</body>
+
+</html>

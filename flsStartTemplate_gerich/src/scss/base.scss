@@ -173,6 +173,9 @@
 }
 .link {
 }
+[data-bg-paralax] {
+	background-image: url("@img/bg.jpg");
+}
 [data-bg] {
 	overflow: hidden;
 	position: relative;

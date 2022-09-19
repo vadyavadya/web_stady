@@ -129,6 +129,7 @@ pav
 
 
 mbl - &:not(:last-child) {margin-bottom: $1px;}
+mbavl 
 
 @mma, @mmi, @mmm, @mmim, md(в em), mmd(в em) - @media и с м выбор вконце
 md1, mmd1, md2, mmd2, md3, mmd3, md4, mmd4,  - @media max or min pc, tabelet, mobile, mobilesmall

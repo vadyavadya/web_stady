@@ -19,7 +19,7 @@
 			opacity: 0;
 		}
 	</style>
-	<link rel="stylesheet" href="css/style.min.css?_v=20220919093923">
+	<link rel="stylesheet" href="css/style.min.css?_v=20220919161652">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -48,12 +48,11 @@
 				<div class="header__menu menu">
 					<nav class="menu__body">
 						<ul class="menu__list">
-							<li class="menu__item"><a href="" class="menu__link">Home</a></li>
+							<li class="menu__item"><a href="home.html" class="menu__link">Home</a></li>
 							<li class="menu__item"><a href="" class="menu__link">Pages</a></li>
 							<li class="menu__item"><a href="" class="menu__link">Contact Us</a></li>
 							<li class="menu__item"><a href="" class="menu__link">Blog</a></li>
 							<li class="menu__item"><a href="" class="menu__link">Landing</a></li>
-
 						</ul>
 					</nav>
 				</div>
@@ -65,12 +64,12 @@
 			</div>
 		</header>
 		<main class="page">
-			<div data-fullscreen class="page__main">
+			<div data-fullscreen class="page__main page__first">
 				<div class="page__container page__container_wide">
 					<nav class="page__hashtag hashtag">
 						<ul class="hashtag__list">
-							<li class="hashtag__item"><a href="" class="link">#Gericht</a></li>
-							<li class="hashtag__item"><a href="" class="link">#Bar</a></li>
+							<li class="hashtag__item _active"><a href="home.html" class="link">#Gericht</a></li>
+							<li class="hashtag__item"><a href="bar.html" class="link">#Bar</a></li>
 						</ul>
 					</nav>
 					<div class="page__container">
@@ -140,7 +139,7 @@
 						</div>
 						<div class="swiper-main__pagination swiper-pagination"></div>
 					</div>
-					<button data-goto=".restorant-home-about" class="page__scroll scroll">Scroll</button>
+					<button data-goto-top="60" data-goto=".restorant-home-about" class="page__scroll scroll">Scroll</button>
 				</div>
 			</div>
 
@@ -605,7 +604,7 @@
 						</div>
 					</form>
 				</div>
-				<button data-goto=".page__main" class="footer__scroll scroll">Top</button>
+				<button data-goto=".page__first" class="footer__scroll scroll">Top</button>
 			</div>
 			<div data-bg-paralax class="footer__footer">
 				<div class="footer__container">
@@ -648,7 +647,7 @@
 			</div>
 		</div>
 	</div>
-	<script src="js/app.min.js?_v=20220919093923"></script>
+	<script src="js/app.min.js?_v=20220919161652"></script>
 </body>
 
 </html>
