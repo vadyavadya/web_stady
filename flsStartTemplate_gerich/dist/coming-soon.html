@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ru" class="preloader_html">
+
+<head>
+	<title>Comming Soon</title>
+	<meta charset="UTF-8">
+	<meta name="format-detection" content="telephone=no">
+	<style>
+		.preloader_html {
+			height: 100vh;
+			background: #0c0b08 url('img/Preloader_1.gif') no-repeat center;
+		}
+
+		body {
+			opacity: 0;
+		}
+
+		.wrapper {
+			opacity: 0;
+		}
+	</style>
+	<link rel="stylesheet" href="css/style.min.css?_v=20220920170032">
+	<link rel="shortcut icon" href="favicon.ico">
+	<!-- <meta name="robots" content="noindex, nofollow"> -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+	<div class="loader">
+		<ul>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+		<div class="wineglass left">
+			<div class="top"></div>
+		</div>
+		<div class="wineglass right">
+			<div class="top"></div>
+		</div>
+	</div>
+	<div class="wrapper">
+		<header data-scroll data-scroll-show="3000" class="header">
+			<div class="header__container header__container_wide">
+				<div class="header__logo header__column">
+					<a href="#" class="">Gerícht</a>
+				</div>
+				<div class="header__menu menu">
+					<nav class="menu__body">
+						<ul class="menu__list">
+							<li class="menu__item">
+								<a href="home.html" class="menu__link">Home</a>
+								<span class="menu__arrow"></span>
+								<ul class="menu__sablist">
+									<li class="menu__sub-item"><a href="home.html" class="menu__link"> Gericht</a></li>
+									<li class="menu__sub-item"><a href="bar.html" class="menu__link">Bar</a></li>
+								</ul>
+							</li>
+							<li class="menu__item"><a href="" class="menu__link">Pages</a></li>
+							<li class="menu__item"><a href="contact.html" class="menu__link">Contact Us</a></li>
+							<li class="menu__item"><a href="" class="menu__link">Blog</a></li>
+							<li class="menu__item"><a href="error-404.html" class="menu__link">Landing</a></li>
+						</ul>
+					</nav>
+				</div>
+				<ul data-da=".menu__body,523.98" class="header__auth auth-header header__column">
+					<li class="auth-header__item"><a href="coming-soon.html" class="menu__link">Log in / registration</a></li>
+					<li data-popup="#book-tabel" class="auth-header__item">Book table</li>
+				</ul>
+				<button type="button" class="icon-menu"><span></span></button>
+			</div>
+		</header>
+		<main class="page">
+			<section data-fullscreen class="page__error coming-soon">
+				<div data-decor class="coming-soon__container">
+					<h1 class="coming-soon__title">Coming Soon</h1>
+					<p class="coming-soon__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tristique feugiat orci tristique bibendum sollicitudin at aliquam. Nulla varius augue eu orci vel.</p>
+					<div class="coming-soon__datatime">
+						<div class="coming-soon__element">
+							<div class="coming-soon__number">12</div>
+							<div class="coming-soon__name">Months</div>
+						</div>
+						<div class="coming-soon__element">
+							<div class="coming-soon__number">32</div>
+							<div class="coming-soon__name">Days</div>
+						</div>
+						<div class="coming-soon__element">
+							<div class="coming-soon__number">11</div>
+							<div class="coming-soon__name">Hours</div>
+						</div>
+						<div class="coming-soon__element">
+							<div class="coming-soon__number">52</div>
+							<div class="coming-soon__name">Minutes</div>
+						</div>
+						<div class="coming-soon__element">
+							<div class="coming-soon__number">34</div>
+							<div class="coming-soon__name">Seconds</div>
+						</div>
+					</div>
+					<a data-decor href="home.html" class="coming-soon__button button">Back To Home</a>
+				</div>
+				<div class="page__error-footer error-footer">
+					<div class=" error-footer__container">
+						<p class="error-footer__text">2021 Gerícht. All Rights reserved.</p>
+					</div>
+				</div>
+			</section>
+		</main>
+
+	</div>
+	<div id="pushForm" aria-hidden="true" class="popup">
+		<div class="popup__wrapper">
+			<div class="popup__content">
+				<button data-close type="button" class="popup__close"></button>
+				<div class="popup__text">
+					Отправленно
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="book-tabel" aria-hidden="true" class="popup">
+		<div class="popup__wrapper">
+			<div class="popup__content">
+				<button data-close type="button" class="popup__close"></button>
+
+				<div class="resirvation-form__title title">
+					<h2 class="title__subtitle">Reservations</h2>
+					<h1 class="title__title title__title_upper-spoon">Book A Table</h1>
+				</div>
+				<!-- 
+						data-dev для имитации отправки формы
+					-->
+				<form data-dev data-popup-message="#pushForm" method="POST" action="#" class="resirvation-form__form form-book">
+					<div class="form-book__lines">
+						<div class="form-book__line">
+							<!-- 
+									не стоит новый класс писать ничего не получится меняем в имеющихся селектах
+									
+								 -->
+							<select name="form[]" data-class-modif="form" class="">
+								<option value="1">1 Person</option>
+								<option value="2">2 Person</option>
+								<option value="3">3 Person</option>
+								<option value="4">4 Person</option>
+							</select>
+						</div>
+						<div class="form-book__line">
+							<div class="form-book__input _icon-select-arrow">
+								<!-- 
+										data-required обязательное поле
+										не забываем валидацию полей включить для отслеживания активна или нет поле
+									 -->
+								<input type="text" data-datepicker-popup placeholder="12/05/2021" data-error="Ошибка" data-required class="input-dark">
+							</div>
+						</div>
+						<div class="form-book__line">
+							<!-- 
+									data-scroll добавляет скролл к селекту
+									а так же там кастомизация скрола есть
+								 -->
+							<select name="form[]" data-scroll data-class-modif="form" class="">
+								<option value="1">11:00 AM</option>
+								<option value="2">12:00 AM</option>
+								<option value="3">1:00 PM</option>
+								<option value="4">2:00 PM</option>
+								<option value="5">3:00 PM</option>
+								<option value="6">5:00 PM</option>
+								<option value="7">7:00 PM</option>
+								<option value="8">9:00 PM</option>
+							</select>
+						</div>
+					</div>
+					<div class="form-book__lines">
+						<button class="form-book__button button" type="submit">Book Now</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<script src="js/app.min.js?_v=20220920170032"></script>
+</body>
+
+</html>

@@ -5,6 +5,20 @@ import { flsModules } from "./modules.js";
 
 
 window.addEventListener('load', () => {
+
+    if (isMobile.any()) {
+
+        let menuArrows = document.querySelectorAll(".menu__arrow");
+        if (menuArrows.length > 0) {
+            for (let index = 0; index < menuArrows.length; index++) {
+                const menuArrow = menuArrows[index];
+                menuArrow.addEventListener("click", function (e) {
+                    menuArrow.parentElement.classList.toggle("_active");
+                });
+            }
+        }
+    }
+
     changeBgMenu();
     function changeBgMenu() {
         let flag = true;
@@ -28,7 +42,6 @@ window.addEventListener('load', () => {
                 }
             });
         }
-
         let id = 0;
         function changeActivMenu() {
             setInterval(() => {
@@ -45,6 +58,7 @@ window.addEventListener('load', () => {
         }
         changeActivMenu();
     }
+
     const videoRess = document.querySelectorAll(".restorane-video");
     if (videoRess.length) {
         for (let videoRes of videoRess) {
@@ -57,6 +71,57 @@ window.addEventListener('load', () => {
                 }
                 videoRes.classList.toggle('_video-play')
             });
+        }
+    }
+
+    const soon = document.querySelectorAll(".coming-soon__number");
+    if (soon.length > 0) {
+        console.log(soon);
+        let soonMonth = soon[0].innerHTML;
+        let soonDays = soon[1].innerHTML;
+        let soonHour = soon[2].innerHTML;
+        let soonMinut = soon[3].innerHTML;
+        let soonSecond = soon[4].innerHTML;
+        let soonAllSecond = soonSecond
+            + soonMinut * 60
+            + soonHour * 60 * 60
+            + soonDays * 24 * 60 * 60
+            + soonMonth * 30 * 24 * 60 * 60;
+        console.log(soonAllSecond);
+        dateSoon(soonAllSecond);
+        function dateSoon() {
+            if (soonAllSecond > 0) {
+                if (soon[4].innerHTML != '0') {
+                    soon[4].innerHTML -= 1;
+                } else if (soon[3].innerHTML != '0') {
+                    soon[3].innerHTML -= 1;
+                    soon[4].innerHTML = 59;
+                } else if (soon[2].innerHTML != '0') {
+                    soon[2].innerHTML -= 1;
+                    soon[3].innerHTML = 59;
+                    soon[4].innerHTML = 59;
+                } else if (soon[1].innerHTML != '0') {
+                    soon[1].innerHTML -= 1;
+                    soon[2].innerHTML = 23;
+                    soon[3].innerHTML = 59;
+                    soon[4].innerHTML = 59;
+                } else if (soon[0].innerHTML != '0') {
+                    soon[0].innerHTML -= 1;
+                    soon[1].innerHTML = 30;
+                    soon[2].innerHTML = 23;
+                    soon[3].innerHTML = 59;
+                    soon[4].innerHTML = 59;
+                } else {
+                    soon[0].innerHTML = 0;
+                    soon[1].innerHTML = 0;
+                    soon[2].innerHTML = 0;
+                    soon[3].innerHTML = 0;
+                    soon[4].innerHTML = 0;
+                    soonAllSecond = 1;
+                }
+                soonAllSecond -= 1;
+                setTimeout(dateSoon, 1000)
+            }
         }
     }
 });

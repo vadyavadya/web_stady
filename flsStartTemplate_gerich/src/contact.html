@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ru" class="preloader_html">
+@@include('html/_head.htm',{
+"title":"Главная"
+})
+
+<body>
+	<div class="loader">
+		<ul>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+		<div class="wineglass left">
+			<div class="top"></div>
+		</div>
+		<div class="wineglass right">
+			<div class="top"></div>
+		</div>
+	</div>
+	<div class="wrapper">
+		@@include('html/_header.htm',{})
+		<main class="page-contact">
+			<div class="page-contact__hero hero page__first">
+
+				<div data-image-autoplay class="hero__image-ibg">
+					<img src="@img" alt="">
+					<!-- 
+						по атрибуту взять всех детей оставить только 2их и менять пути по мере смены кадра
+					 -->
+				</div>
+
+				<div class="hero__title">contact Us</div>
+				<ul class="hero__path">
+					<li class="hero__item">Home</li>
+					<li class="hero__item">contact Us</li>
+				</ul>
+			</div>
+		</main>
+		@@include('html/_footer.htm',{})
+	</div>
+	@@include('html/_popup.htm',{})
+	@@include('html/_js.htm',{})
+</body>
+
+</html>

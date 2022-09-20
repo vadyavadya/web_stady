@@ -7,7 +7,27 @@ import { flsModules } from "../modules.js";
 // Подключение модуля
 import datepicker from 'js-datepicker';
 
-const picker = datepicker('[data-datepicker]', {
+if (document.querySelector('[data-datepicker]')) {
+	const picker = datepicker('[data-datepicker]', {
+		customDays: ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"],
+		customMonths: ["Янв", "Фев", "Мар", "Апр", "Май", "Июн", "Июл", "Авг", "Сен", "Окт", "Ноя", "Дек"],
+		overlayButton: 'Применить',
+		overlayPlaceholder: 'Год (4 цифры)',
+		startDay: 1,
+		formatter: (input, date, instance) => {
+			const value = date.toLocaleDateString()
+			let reDot = /\./g;
+			input.value = value.replace(reDot, "/");
+		},
+		onSelect: function (input, instance, date) {
+
+		}
+	});
+	flsModules.datepicker = picker;
+}
+
+
+const pickerPopup = datepicker('[data-datepicker-popup]', {
 	customDays: ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"],
 	customMonths: ["Янв", "Фев", "Мар", "Апр", "Май", "Июн", "Июл", "Авг", "Сен", "Окт", "Ноя", "Дек"],
 	overlayButton: 'Применить',
@@ -22,4 +42,4 @@ const picker = datepicker('[data-datepicker]', {
 
 	}
 });
-flsModules.datepicker = picker;
+flsModules.datepickerPopup = pickerPopup;

@@ -6,17 +6,24 @@
 		<div class="header__menu menu">
 			<nav class="menu__body">
 				<ul class="menu__list">
-					<li class="menu__item"><a href="home.html" class="menu__link">Home</a></li>
+					<li class="menu__item">
+						<a href="home.html" class="menu__link">Home</a>
+						<span class="menu__arrow"></span>
+						<ul class="menu__sablist">
+							<li class="menu__sub-item"><a href="home.html" class="menu__link"> Gericht</a></li>
+							<li class="menu__sub-item"><a href="bar.html" class="menu__link">Bar</a></li>
+						</ul>
+					</li>
 					<li class="menu__item"><a href="" class="menu__link">Pages</a></li>
-					<li class="menu__item"><a href="" class="menu__link">Contact Us</a></li>
+					<li class="menu__item"><a href="contact.html" class="menu__link">Contact Us</a></li>
 					<li class="menu__item"><a href="" class="menu__link">Blog</a></li>
-					<li class="menu__item"><a href="" class="menu__link">Landing</a></li>
+					<li class="menu__item"><a href="error-404.html" class="menu__link">Landing</a></li>
 				</ul>
 			</nav>
 		</div>
 		<ul data-da=".menu__body,523.98" class="header__auth auth-header header__column">
-			<li class="auth-header__item">Log in / registration</li>
-			<li class="auth-header__item">Book table</li>
+			<li class="auth-header__item"><a href="coming-soon.html" class="menu__link">Log in / registration</a></li>
+			<li data-popup="#book-tabel" class="auth-header__item">Book table</li>
 		</ul>
 		<button type="button" class="icon-menu"><span></span></button>
 	</div>

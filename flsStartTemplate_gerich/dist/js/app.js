@@ -5105,7 +5105,23 @@
         }
         flsModules.select = new SelectConstructor({});
         var datepicker_min = __webpack_require__(1448);
-        const picker = datepicker_min("[data-datepicker]", {
+        if (document.querySelector("[data-datepicker]")) {
+            const picker = datepicker_min("[data-datepicker]", {
+                customDays: [ "Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс" ],
+                customMonths: [ "Янв", "Фев", "Мар", "Апр", "Май", "Июн", "Июл", "Авг", "Сен", "Окт", "Ноя", "Дек" ],
+                overlayButton: "Применить",
+                overlayPlaceholder: "Год (4 цифры)",
+                startDay: 1,
+                formatter: (input, date, instance) => {
+                    const value = date.toLocaleDateString();
+                    let reDot = /\./g;
+                    input.value = value.replace(reDot, "/");
+                },
+                onSelect: function(input, instance, date) {}
+            });
+            flsModules.datepicker = picker;
+        }
+        const pickerPopup = datepicker_min("[data-datepicker-popup]", {
             customDays: [ "Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс" ],
             customMonths: [ "Янв", "Фев", "Мар", "Апр", "Май", "Июн", "Июл", "Авг", "Сен", "Окт", "Ноя", "Дек" ],
             overlayButton: "Применить",
@@ -5118,7 +5134,7 @@
             },
             onSelect: function(input, instance, date) {}
         });
-        flsModules.datepicker = picker;
+        flsModules.datepickerPopup = pickerPopup;
         function ssr_window_esm_isObject(obj) {
             return null !== obj && "object" === typeof obj && "constructor" in obj && obj.constructor === Object;
         }
@@ -11908,6 +11924,15 @@ PERFORMANCE OF THIS SOFTWARE.
         const da = new DynamicAdapt("max");
         da.init();
         window.addEventListener("load", (() => {
+            if (isMobile.any()) {
+                let menuArrows = document.querySelectorAll(".menu__arrow");
+                if (menuArrows.length > 0) for (let index = 0; index < menuArrows.length; index++) {
+                    const menuArrow = menuArrows[index];
+                    menuArrow.addEventListener("click", (function(e) {
+                        menuArrow.parentElement.classList.toggle("_active");
+                    }));
+                }
+            }
             changeBgMenu();
             function changeBgMenu() {
                 let flag = true;
@@ -11945,6 +11970,50 @@ PERFORMANCE OF THIS SOFTWARE.
                 } else videoRes.firstElementChild.pause();
                 videoRes.classList.toggle("_video-play");
             }));
+            const soon = document.querySelectorAll(".coming-soon__number");
+            if (soon.length > 0) {
+                console.log(soon);
+                let soonMonth = soon[0].innerHTML;
+                let soonDays = soon[1].innerHTML;
+                let soonHour = soon[2].innerHTML;
+                let soonMinut = soon[3].innerHTML;
+                let soonSecond = soon[4].innerHTML;
+                let soonAllSecond = soonSecond + 60 * soonMinut + 60 * soonHour * 60 + 24 * soonDays * 60 * 60 + 30 * soonMonth * 24 * 60 * 60;
+                console.log(soonAllSecond);
+                dateSoon(soonAllSecond);
+                function dateSoon() {
+                    if (soonAllSecond > 0) {
+                        if ("0" != soon[4].innerHTML) soon[4].innerHTML -= 1; else if ("0" != soon[3].innerHTML) {
+                            soon[3].innerHTML -= 1;
+                            soon[4].innerHTML = 59;
+                        } else if ("0" != soon[2].innerHTML) {
+                            soon[2].innerHTML -= 1;
+                            soon[3].innerHTML = 59;
+                            soon[4].innerHTML = 59;
+                        } else if ("0" != soon[1].innerHTML) {
+                            soon[1].innerHTML -= 1;
+                            soon[2].innerHTML = 23;
+                            soon[3].innerHTML = 59;
+                            soon[4].innerHTML = 59;
+                        } else if ("0" != soon[0].innerHTML) {
+                            soon[0].innerHTML -= 1;
+                            soon[1].innerHTML = 30;
+                            soon[2].innerHTML = 23;
+                            soon[3].innerHTML = 59;
+                            soon[4].innerHTML = 59;
+                        } else {
+                            soon[0].innerHTML = 0;
+                            soon[1].innerHTML = 0;
+                            soon[2].innerHTML = 0;
+                            soon[3].innerHTML = 0;
+                            soon[4].innerHTML = 0;
+                            soonAllSecond = 1;
+                        }
+                        soonAllSecond -= 1;
+                        setTimeout(dateSoon, 1e3);
+                    }
+                }
+            }
         }));
         window["FLS"] = true;
         isWebp();

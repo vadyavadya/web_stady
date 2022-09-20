@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ru" class="preloader_html">
+@@include('html/_head.htm',{
+"title":"Comming Soon"
+})
+
+<body>
+	<div class="loader">
+		<ul>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+		<div class="wineglass left">
+			<div class="top"></div>
+		</div>
+		<div class="wineglass right">
+			<div class="top"></div>
+		</div>
+	</div>
+	<div class="wrapper">
+		@@include('html/_header.htm',{})
+		<main class="page">
+			<section data-fullscreen class="page__error coming-soon">
+				<div data-decor class="coming-soon__container">
+					<h1 class="coming-soon__title">Coming Soon</h1>
+					<p class="coming-soon__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tristique feugiat orci tristique bibendum sollicitudin at aliquam. Nulla varius augue eu orci vel.</p>
+					<div class="coming-soon__datatime">
+						<div class="coming-soon__element">
+							<div class="coming-soon__number">12</div>
+							<div class="coming-soon__name">Months</div>
+						</div>
+						<div class="coming-soon__element">
+							<div class="coming-soon__number">32</div>
+							<div class="coming-soon__name">Days</div>
+						</div>
+						<div class="coming-soon__element">
+							<div class="coming-soon__number">11</div>
+							<div class="coming-soon__name">Hours</div>
+						</div>
+						<div class="coming-soon__element">
+							<div class="coming-soon__number">52</div>
+							<div class="coming-soon__name">Minutes</div>
+						</div>
+						<div class="coming-soon__element">
+							<div class="coming-soon__number">34</div>
+							<div class="coming-soon__name">Seconds</div>
+						</div>
+					</div>
+					<a data-decor href="home.html" class="coming-soon__button button">Back To Home</a>
+				</div>
+				<div class="page__error-footer error-footer">
+					<div class=" error-footer__container">
+						<p class="error-footer__text">2021 Gerícht. All Rights reserved.</p>
+					</div>
+				</div>
+			</section>
+		</main>
+
+	</div>
+	@@include('html/_popup.htm',{})
+	@@include('html/_js.htm',{})
+</body>
+
+</html>
