@@ -639,7 +639,7 @@ export function dataMediaQueries(array, dataSetValue) {
 }
 
 
-
+//========================================================================================================================================================
 // Функция работы с паралакс бэкграундом
 // Пример: <div data-bg-paralax="@img/restoran-home/about-us/-bg.jpg,50%"></div>
 // Диапазон 0(едет вместе с объектом) 100 (стоит на месте) 
@@ -707,4 +707,52 @@ export function parallaxBg(imgPath = undefined) {
 		}
 	});
 }
+
 //================================================================================================================================================================================================================================================================================================================
+// Строиш  ibg конструкцию туда несколько img ложишь и пишешь аттрибут data-image-autoplay="4000" 
+// 4000 это время перехода в ms
+export function imagesAutoplay() {
+	const imagesAutoplayElement = document.querySelectorAll("[data-image-autoplay]");
+	if (imagesAutoplayElement.length) {
+		imagesAutoplayElement.forEach(imageAutoplay => {
+			let setTimer = Number((imageAutoplay.dataset.imageAutoplay) > 0 ? imageAutoplay.dataset.imageAutoplay : 2000);
+			const imgBoxChild = findElementNodes(imageAutoplay);
+			let imgPath = [];
+			for (let index = 0; index < imgBoxChild.length; index++) {
+				imgPath[index] = imgBoxChild[index].getAttribute('src');
+			}
+			imageAutoplay.innerHTML = `<img src="${imgPath[0]}" alt="">
+										<img style="opacity:0;" src="${imgPath[1]}" alt="">`;
+			let index = 1;
+			timerfunc();
+			function timerfunc() {
+				setTimeout(function () {
+					if (index == imgBoxChild.length) {
+						index = 0;
+					}
+					let img1 = imageAutoplay.firstChild;
+					let img2 = imageAutoplay.lastChild;
+					img2.src = imgPath[index];
+					img1.style.transitionDuration = '2s';
+					img2.style.transitionDuration = '2s';
+					img1.style.opacity = 0;
+					img2.style.opacity = 1;
+					index++;
+					if (index == imgBoxChild.length) {
+						index = 0;
+					}
+					setTimeout(function () {
+						img1.src = imgPath[index];
+						img1.style.opacity = 1;
+						img2.style.opacity = 0;
+						index++;
+						timerfunc();
+					}, setTimer)
+				}, setTimer);
+			};
+		});
+	}
+	function findElementNodes(elem) {
+		return [...elem.childNodes].filter(node => node.nodeType == Node.ELEMENT_NODE);
+	}
+}

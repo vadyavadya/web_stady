@@ -4331,6 +4331,42 @@
                 }));
             }));
         }
+        function imagesAutoplay() {
+            const imagesAutoplayElement = document.querySelectorAll("[data-image-autoplay]");
+            if (imagesAutoplayElement.length) imagesAutoplayElement.forEach((imageAutoplay => {
+                let setTimer = Number(imageAutoplay.dataset.imageAutoplay > 0 ? imageAutoplay.dataset.imageAutoplay : 2e3);
+                const imgBoxChild = findElementNodes(imageAutoplay);
+                let imgPath = [];
+                for (let index = 0; index < imgBoxChild.length; index++) imgPath[index] = imgBoxChild[index].getAttribute("src");
+                imageAutoplay.innerHTML = `<img src="${imgPath[0]}" alt="">\n\t\t\t\t\t\t\t\t\t\t<img style="opacity:0;" src="${imgPath[1]}" alt="">`;
+                let index = 1;
+                timerfunc();
+                function timerfunc() {
+                    setTimeout((function() {
+                        if (index == imgBoxChild.length) index = 0;
+                        let img1 = imageAutoplay.firstChild;
+                        let img2 = imageAutoplay.lastChild;
+                        img2.src = imgPath[index];
+                        img1.style.transitionDuration = "2s";
+                        img2.style.transitionDuration = "2s";
+                        img1.style.opacity = 0;
+                        img2.style.opacity = 1;
+                        index++;
+                        if (index == imgBoxChild.length) index = 0;
+                        setTimeout((function() {
+                            img1.src = imgPath[index];
+                            img1.style.opacity = 1;
+                            img2.style.opacity = 0;
+                            index++;
+                            timerfunc();
+                        }), setTimer);
+                    }), setTimer);
+                }
+            }));
+            function findElementNodes(elem) {
+                return [ ...elem.childNodes ].filter((node => node.nodeType == Node.ELEMENT_NODE));
+            }
+        }
         class Popup {
             constructor(options) {
                 let config = {
@@ -12031,5 +12067,6 @@ PERFORMANCE OF THIS SOFTWARE.
         pageNavigation();
         headerScroll();
         parallaxBg();
+        imagesAutoplay();
     })();
 })();

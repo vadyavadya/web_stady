@@ -1,7 +1,7 @@
 //====================================================================================================
 .footer {
     position: relative;
-    @include adaptiveValue("padding-top", 128, 60);
+    // @include adaptiveValue("padding-top", 128, 60);
     // .footer__container
     &__container {
         position: relative;

@@ -1,3 +1,97 @@
 //========================================================================================================================================================
-
+.page-contact {
+    background: url("@img/contact/wave-element.svg") no-repeat 50% 1110px;
+    @include adaptiveValue("padding-bottom", 120, 60);
+    // .page-contact__hero
+    &__hero {
+        &:not(:last-child) {
+            @include adaptiveValue("margin-bottom", 152, 60);
+        }
+    }
+}
+.hero {
+    @include adaptiveValue("padding-top", 121, 50);
+    position: relative;
+    // .hero__image-ibg
+    &__image-ibg {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+    }
+    // .hero__content
+    &__container {
+        @include adaptiveValue("padding-top", 254, 50);
+        @include adaptiveValue("padding-bottom", 254, 50);
+        position: relative;
+    }
+    // .hero__title
+    &__title {
+        @extend %ffcu;
+        font-weight: 700;
+        font-size: 90px;
+        @include adaptiveValue("font-size", 90, 36);
+        line-height: 130%;
+        text-align: center;
+        letter-spacing: 0.04em;
+        text-transform: capitalize;
+        color: $colorCalicio;
+        text-align: center;
+        &:not(:last-child) {
+            margin-bottom: rem(24);
+        }
+    }
+    // .hero__path
+    &__path {
+        display: flex;
+        gap: rem(8);
+        justify-content: center;
+    }
+    // .hero__item
+    &__item {
+        @extend %ffcu;
+        font-weight: 700;
+        @include adaptiveValue("font-size", 23, 16);
+        line-height: 130%;
+        letter-spacing: 0.04em;
+        text-transform: capitalize;
+        font-feature-settings: "tnum" on, "lnum" on;
+        color: $colorWhite;
+        display: flex;
+        align-items: center;
+        gap: rem(8);
+        &:not(:last-child) {
+            &::after {
+                content: "";
+                display: block;
+                width: rem(23);
+                height: rem(23);
+                background: url("@img/u_angle-left-b.svg");
+            }
+        }
+    }
+}
+//========================================================================================================================================================
+.page-contact {
+    // .page-contact__map
+    &__map {
+        &:not(:last-child) {
+            @include adaptiveValue("margin-bottom", 152, 60);
+        }
+    }
+    // .page-contact__container
+    &__container {
+        position: relative;
+        &::before {
+            right: rem(-220);
+            bottom: rem(-70);
+        }
+    }
+    // .page-contact__image-ibg
+    &__image-ibg {
+        width: 100%;
+        padding-bottom: percent(500, 1300);
+    }
+}
 //========================================================================================================================================================

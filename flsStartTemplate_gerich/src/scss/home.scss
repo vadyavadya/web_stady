@@ -1000,26 +1000,8 @@
             transform: scale(1.1);
         }
     }
-    // .awards__image-ibg
-    &__image-ibg {
-        padding-bottom: percent(691, 483);
-        transition: all 0.3s ease 0s;
-        &:hover {
-            transform: scale(1.05);
-        }
-    }
-    &__img_1 {
-        animation: img1 6s infinite linear;
-    }
-    &__img_2 {
-        animation: img2 6s infinite linear;
-    }
     &__image {
         position: relative;
-        &::after {
-            @extend %ffcu;
-            opacity: 0;
-        }
     }
     @media (min-width: $mobile) {
         &__nominations {
@@ -1040,61 +1022,12 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
         }
-        &__image {
-            width: percent(483, 650);
-            position: relative;
-            justify-self: end;
-            &::after {
-                opacity: 0.8;
-                content: "G";
-                line-height: 0.65;
-                font-size: rem(380);
-                display: block;
-                position: absolute;
-                bottom: 0;
-                left: percent(-72, 483);
-                color: #fff;
-            }
-        }
+       
         &__image-ibg {
         }
         &__content {
             margin: 0 !important;
         }
-    }
-}
-@keyframes img1 {
-    0% {
-        opacity: 1;
-    }
-    40% {
-        opacity: 1;
-    }
-    50% {
-        opacity: 0;
-    }
-    90% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-}
-@keyframes img2 {
-    0% {
-        opacity: 0;
-    }
-    40% {
-        opacity: 0;
-    }
-    50% {
-        opacity: 1;
-    }
-    90% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 0;
     }
 }
 .award {
@@ -1115,7 +1048,6 @@
             object-fit: contain;
         }
     }
-
     // .award__nomination
     &__nomination {
         font-size: rem(23);
@@ -1131,6 +1063,7 @@
         letter-spacing: 0.04em;
     }
 }
+
 //========================================================================================================================================================
 .page {
     // .page__restorane-blogs

@@ -201,6 +201,9 @@ import "./libs/dynamic_adapt.js";
 /* Паралокс бэкграунда */
 flsFunctions.parallaxBg();
 
+/* Плавная смена картики */
+flsFunctions.imagesAutoplay();
+
 
 /* Подключаем файлы со своим кодом */
 import "./files/script.js";

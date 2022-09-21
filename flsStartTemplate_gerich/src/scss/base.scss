@@ -319,3 +319,34 @@
 		}
 	}
 }
+.image-g {
+	&__image-ibg {
+		padding-bottom: percent(691, 483);
+		transition: all 0.3s ease 0s;
+		&:hover {
+			transform: scale(1.05);
+		}
+	}
+	&::after {
+		@extend %ffcu;
+		opacity: 0;
+	}
+
+	@media (min-width: $tablet) {
+		width: percent(483, 650);
+		position: relative;
+		justify-self: end;
+		&::after {
+			opacity: 0.8;
+			content: "G";
+			line-height: 0.65;
+			font-size: rem(380);
+			display: block;
+			position: absolute;
+			bottom: 0;
+			left: percent(-72, 483);
+			color: #fff;
+			z-index: 2;
+		}
+	}
+}
