@@ -4150,9 +4150,11 @@
         }
         function addLoadedClass() {
             window.addEventListener("load", (function() {
-                setTimeout((function() {
+                document.documentElement.classList.add("loaded_hiding");
+                window.setTimeout((function() {
                     document.documentElement.classList.add("loaded");
-                }), 0);
+                    document.documentElement.classList.remove("loaded_hiding");
+                }), 500);
             }));
         }
         function getHash() {

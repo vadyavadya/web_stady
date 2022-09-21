@@ -6,40 +6,37 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<style>
-		.preloader_html {
-			height: 100vh;
-			background: #0c0b08 url('img/Preloader_1.gif') no-repeat center;
+		html {
+			background: url('img/Preloader_1.gif') no-repeat 50vw 50vh;
 		}
 
 		body {
 			opacity: 0;
 		}
-
-		.wrapper {
-			opacity: 0;
-		}
 	</style>
-	<link rel="stylesheet" href="css/style.min.css?_v=20220920170032">
+	<link rel="stylesheet" href="css/style.min.css?_v=20220921095443">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body>
-	<div class="loader">
-		<ul>
-			<li></li>
-			<li></li>
-			<li></li>
-		</ul>
-		<div class="wineglass left">
-			<div class="top"></div>
-		</div>
-		<div class="wineglass right">
-			<div class="top"></div>
-		</div>
-	</div>
 	<div class="wrapper">
+		<div class="preloader">
+			<div class="loader">
+				<ul>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+				<div class="wineglass left">
+					<div class="top"></div>
+				</div>
+				<div class="wineglass right">
+					<div class="top"></div>
+				</div>
+			</div>
+		</div>
 		<header data-scroll data-scroll-show="3000" class="header">
 			<div class="header__container header__container_wide">
 				<div class="header__logo header__column">
@@ -156,7 +153,7 @@
 			</div>
 		</div>
 	</div>
-	<script src="js/app.min.js?_v=20220920170032"></script>
+	<script src="js/app.min.js?_v=20220921095443"></script>
 </body>
 
 </html>

@@ -27,9 +27,16 @@ export function addTouchClass() {
 // Добавление loaded для HTML после полной загрузки страницы
 export function addLoadedClass() {
 	window.addEventListener("load", function () {
-		setTimeout(function () {
+		//  Сьарый  от Жени
+		/* setTimeout(function () {
 			document.documentElement.classList.add('loaded');
-		}, 0);
+		}, 0); */
+		// Новый с дщобавлением плавного исчезновения
+		document.documentElement.classList.add('loaded_hiding');
+		window.setTimeout(function () {
+			document.documentElement.classList.add('loaded');
+			document.documentElement.classList.remove('loaded_hiding');
+		}, 500);
 	});
 }
 // Получение хеша в адресе сайта

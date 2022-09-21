@@ -5,20 +5,8 @@
 })
 
 <body>
-	<div class="loader">
-		<ul>
-			<li></li>
-			<li></li>
-			<li></li>
-		</ul>
-		<div class="wineglass left">
-			<div class="top"></div>
-		</div>
-		<div class="wineglass right">
-			<div class="top"></div>
-		</div>
-	</div>
 	<div class="wrapper">
+		@@include('html/_preload.htm',{})
 		@@include('html/_header.htm',{})
 		<main class="page">
 			<div data-fullscreen class="page__main page__first">
