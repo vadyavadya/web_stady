@@ -15,6 +15,62 @@
 	&__error {
 	}
 }
+
+.form-book {
+	&__lines {
+		display: flex;
+		flex-wrap: wrap;
+		@include adaptiveValue("gap", 32, 12);
+		justify-content: center;
+		&:not(:last-child) {
+			@include adaptiveValue("margin-bottom", 64, 24);
+		}
+	}
+	&__input {
+		position: relative;
+		&::before {
+			position: absolute;
+			right: rem(16);
+			top: rem(25);
+			font-size: rem(10);
+			transition: all 0.3s ease 0s;
+		}
+		&._form-focus {
+			&::before {
+				transform: rotate(-180deg);
+			}
+		}
+		.form__error {
+			color: red;
+			font-size: rem(15);
+			margin: 10px 0px 0px 0px;
+			@media (min-width: $tablet) {
+				position: absolute;
+				bottom: -25px;
+			}
+		}
+	}
+	&__line {
+		flex: 1 1 auto;
+	}
+	// .form-book__container
+	&__container {
+	}
+	// .form-book__input
+	&__input {
+	}
+	// .form-book__button
+	&__button {
+	}
+}
+
+.form-message {
+	display: grid;
+	gap: rem(32);
+	.button {
+		justify-self: start;
+	}
+}
 //</FORM>
 
 // <BUTTONS>

@@ -656,51 +656,72 @@ export function parallaxBg(imgPath = undefined) {
 		if (elementsParallaxBg.length) {
 			// Переходим к каждому элементу 
 			elementsParallaxBg.forEach(elementParallaxBg => {
-				// Берем значения атрибута
-				const dataElement = elementParallaxBg.dataset.bgParalax;
-				// Путь к картинке если не по умолчанию
-				let imgPath;
-				// Значение паралакса по умолчанию
-				let parallaxCount = 60;
-				let heightViewPixel = window.innerHeight + elementParallaxBg.offsetHeight;
-				// Написанно ли что то внутри атрибута
-				if (dataElement.length) {
-					const bgArray = elementParallaxBg.dataset.bgParalax.split(',');
-					bgArray.forEach(bgArrayElement => {
-						if (bgArrayElement.endsWith('%')) {
-							bgArrayElement = bgArrayElement.slice(0, bgArrayElement.indexOf('%'));
-						}
-						if ((Number(bgArrayElement)) || (Number(bgArrayElement) == 0)) {
-							parallaxCount = Number(bgArrayElement);
-						} else {
-							imgPath = `url(${bgArrayElement.trim()})`;
-						}
-					});
-				}
-				// Если не задан imgPath к картинке то берем у родителя
-				if (imgPath == undefined) {
-					let backgroundParrent = window.getComputedStyle(elementParallaxBg).backgroundImage;
-					if (backgroundParrent) {
-						let re = /"/g;
-						imgPath = backgroundParrent.replace(re, "'");
-						elementParallaxBg.style.backgroundImage = 'inherit';
+				elementParallaxBg.insertAdjacentHTML(
+					'afterbegin',
+					`<div class="bg-paralax__box"><div class="bg-paralax__image"></div></div>`,
+				);
+				let heightViewPixel;
+				let pixelScroll;
+				countGetSettings(elementParallaxBg);
+				function countGetSettings(elementParallaxBg) {
+					// Берем значения атрибута
+					const dataElement = elementParallaxBg.dataset.bgParalax;
+					// Значение паралакса по умолчанию
+					let parallaxCount = 60;
+					let heightBox = elementParallaxBg.offsetHeight;
+					heightViewPixel = window.innerHeight + heightBox;
+					let imgPath;
+					// Написанно ли что то внутри атрибута
+					if (dataElement.length) {
+						const bgArray = elementParallaxBg.dataset.bgParalax.split(',');
+						bgArray.forEach(bgArrayElement => {
+							if (bgArrayElement.endsWith('%')) {
+								bgArrayElement = bgArrayElement.slice(0, bgArrayElement.indexOf('%'));
+							}
+							if ((Number(bgArrayElement)) || (Number(bgArrayElement) == 0)) {
+								parallaxCount = Number(bgArrayElement);
+							} else {
+								imgPath = `url(${bgArrayElement.trim()})`;
+							}
+						});
 					}
+
+					// Если не задан imgPath к картинке то берем у родителя
+					if (imgPath == undefined) {
+						let backgroundParrent = window.getComputedStyle(elementParallaxBg).backgroundImage;
+						if (backgroundParrent) {
+							let re = /"/g;
+							imgPath = backgroundParrent.replace(re, "'");
+							// elementParallaxBg.style.backgroundImage = 'inherit';
+						}
+					}
+
+
+					pixelScroll = (heightViewPixel * (parallaxCount / 100));
+					let bgHeight = heightBox + pixelScroll;
+
+
+					let parallaxBox = elementParallaxBg.querySelector(".bg-paralax__box");
+					let parallaxImage = elementParallaxBg.querySelector(".bg-paralax__image");
+					parallaxBox.style.height = heightBox + 'px';
+					parallaxImage.style.height = bgHeight + 'px';
+					parallaxImage.style.backgroundImage = imgPath;
+					return heightViewPixel;
 				}
-				let pixelScroll = (heightViewPixel * (parallaxCount / 100));
-				let bgHeight = elementParallaxBg.offsetHeight + pixelScroll;
-				if (elementParallaxBg.offsetHeight > 0) {
-					elementParallaxBg.insertAdjacentHTML(
-						'afterbegin',
-						`<div class="bg-paralax__box" style="height:${elementParallaxBg.offsetHeight}px"><div class="bg-paralax__image" style="background-image:${imgPath}; height:${bgHeight}px;"></div></div>`,
-					);
-				}
+
 				window.addEventListener('scroll', function () {
 					if ((window.innerHeight - elementParallaxBg.getBoundingClientRect().top) > 0 &&
 						(elementParallaxBg.offsetHeight + elementParallaxBg.getBoundingClientRect().top) > 0) {
-						let bgParalax = elementParallaxBg.firstElementChild.firstElementChild;
+						if (elementParallaxBg.offsetHeight
+							!= elementParallaxBg.querySelector('.bg-paralax__box').offsetHeight) {
+							countGetSettings(elementParallaxBg);
+							/* heightBox = elementParallaxBg.offsetHeight;
+							elementParallaxBg.firstElementChild.style.height = heightBox + 'px'; */
+						}
+						let imageBgParalax = elementParallaxBg.querySelector('.bg-paralax__image');
 						let precentHeight = 1 - (elementParallaxBg.getBoundingClientRect().top
 							+ elementParallaxBg.offsetHeight) / heightViewPixel;
-						bgParalax.style.bottom = '-' + (precentHeight * pixelScroll) + 'px';
+						imageBgParalax.style.bottom = '-' + (precentHeight * pixelScroll) + 'px';
 					}
 				});
 			});
@@ -719,7 +740,11 @@ export function imagesAutoplay() {
 			const imgBoxChild = findElementNodes(imageAutoplay);
 			let imgPath = [];
 			for (let index = 0; index < imgBoxChild.length; index++) {
-				imgPath[index] = imgBoxChild[index].getAttribute('src');
+				if (imgBoxChild[index].dataset.src) {
+					imgPath[index] = imgBoxChild[index].dataset.src;
+				} else {
+					imgPath[index] = imgBoxChild[index].getAttribute('src');
+				}
 			}
 			imageAutoplay.innerHTML = `<img src="${imgPath[0]}" alt="">
 										<img style="opacity:0;" src="${imgPath[1]}" alt="">`;

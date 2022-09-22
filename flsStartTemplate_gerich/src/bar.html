@@ -46,66 +46,68 @@
 						</div>
 					</div>
 					<div class="swiper-bar__pagination swiper-pagination"></div>
-					<button data-goto-top="60" data-goto=".resirvation-form" class="page-bar__scroll scroll">Scroll</button>
+					<button data-goto-top="60" data-goto=".resirvation" class="page-bar__scroll scroll">Scroll</button>
 				</div>
 			</div>
 
-			<section class="page-bar__reservation resirvation-form">
-				<div data-decor class="resirvation-form__container">
-					<div class="resirvation-form__title title">
-						<h2 class="title__subtitle">Reservations</h2>
-						<h1 class="title__title title__title_upper-spoon">Book A Table</h1>
-					</div>
-					<!-- 
+			<section class="page-bar__reservation">
+				<div data-decor class="page-bar__container">
+					<div class="resirvation">
+						<div class="resirvation__title title">
+							<h2 class="title__subtitle">Reservations</h2>
+							<h1 class="title__title title__title_upper-spoon">Book A Table</h1>
+						</div>
+						<!-- 
 						data-dev для имитации отправки формы
 					-->
-					<form data-dev data-popup-message="#pushForm" method="POST" action="#" class="resirvation-form__form form-book">
-						<div class="form-book__lines">
-							<div class="form-book__line">
-								<!-- 
+						<form data-dev data-popup-message="#pushForm" method="POST" action="#" class="resirvation__form form-book">
+							<div class="form-book__lines">
+								<div class="form-book__line">
+									<!-- 
 									не стоит новый класс писать ничего не получится меняем в имеющихся селектах
 									
 								 -->
-								<select name="form[]" data-class-modif="form" class="">
-									<option value="1">1 Person</option>
-									<option value="2">2 Person</option>
-									<option value="3">3 Person</option>
-									<option value="4">4 Person</option>
-								</select>
-							</div>
-							<div class="form-book__line">
-								<div class="form-book__input _icon-select-arrow">
-									<!-- 
+									<select name="form[]" data-class-modif="form" class="">
+										<option value="1">1 Person</option>
+										<option value="2">2 Person</option>
+										<option value="3">3 Person</option>
+										<option value="4">4 Person</option>
+									</select>
+								</div>
+								<div class="form-book__line">
+									<div class="form-book__input _icon-select-arrow">
+										<!-- 
 										data-required обязательное поле
 										не забываем валидацию полей включить для отслеживания активна или нет поле
 									 -->
-									<input type="text" data-datepicker placeholder="12/05/2021" data-error="Ошибка" data-required class="input-dark">
+										<input type="text" data-datepicker placeholder="12/05/2021" data-error="Ошибка" data-required class="input-dark input-dark_fz-26">
+									</div>
 								</div>
-							</div>
-							<div class="form-book__line">
-								<!-- 
+								<div class="form-book__line">
+									<!-- 
 									data-scroll добавляет скролл к селекту
 									а так же там кастомизация скрола есть
 								 -->
-								<select name="form[]" data-scroll data-class-modif="form" class="">
-									<option value="1">11:00 AM</option>
-									<option value="2">12:00 AM</option>
-									<option value="3">1:00 PM</option>
-									<option value="4">2:00 PM</option>
-									<option value="5">3:00 PM</option>
-									<option value="6">5:00 PM</option>
-									<option value="7">7:00 PM</option>
-									<option value="8">9:00 PM</option>
-								</select>
+									<select name="form[]" data-scroll data-class-modif="form" class="">
+										<option value="1">11:00 AM</option>
+										<option value="2">12:00 AM</option>
+										<option value="3">1:00 PM</option>
+										<option value="4">2:00 PM</option>
+										<option value="5">3:00 PM</option>
+										<option value="6">5:00 PM</option>
+										<option value="7">7:00 PM</option>
+										<option value="8">9:00 PM</option>
+									</select>
+								</div>
 							</div>
-						</div>
-						<div class="form-book__lines">
+							<div class="form-book__lines">
 
-							<button class="form-book__button button" type="submit">Book Now</button>
+								<button class="form-book__button button" type="submit">Book Now</button>
 
-						</div>
+							</div>
 
-					</form>
+						</form>
+					</div>
 				</div>
 			</section>
 

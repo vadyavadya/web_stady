@@ -19,5 +19,12 @@
 	letter-spacing: 0.04em;
 	color: $colorBg;
 	padding: rem(8) rem(32);
+	transition: all 0.3s ease 0s;
 	background-color: $colorCalicio;
+	// .button__negative
+	&__negative {
+		background-color: transparent;
+		border: 1px solid $colorCalicio;
+		color: $colorWhite;
+	}
 }

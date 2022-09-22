@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ru">
+@@include('html/_head.htm',{
+"title":"Главная"
+})
+
+<body>
+	<div class="wrapper">
+		@@include('html/_preload.htm',{})
+		@@include('html/_header.htm',{})
+		<main class="page">
+			<div class="page__hero hero page__first">
+				<div data-image-autoplay="3000" class="hero__image-ibg">
+					<img src="@img/contact/bg1.jpg" alt="">
+					<img src="@img/contact/bg2.jpg" alt="">
+				</div>
+
+				<div class="hero__container">
+					<div class="hero__title">What We offer</div>
+					<ul class="hero__path">
+						<li class="hero__item">Home</li>
+						<li class="hero__item">Our Services</li>
+					</ul>
+				</div>
+			</div>
+
+			<section data-decor class="page__quality page__container quality">
+				<div class="quality__title title">
+					<h2 class="title__subtitle">Our History</h2>
+					<h1 class="title__title title__title_upper-spoon">serving customers for over a decade</h1>
+				</div>
+				<div class="quality__grid grid grid_two-column">
+					<div class="grid__column  grid__column_lefr">
+						<p class="grid__text text">
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis pharetra adipiscing ultrices vulputate posuere tristique. In sed odio nec aliquet eu proin mauris et.
+						</p>
+						<div class="grid__image-ibg grid__image-ibg_pb-108"><img src="@img/about-us/history/1.jpg" alt=""></div>
+					</div>
+					<div class="grid__column  grid__column_center">
+						<div class="grid__image-ibg grid__image-ibg_pb-53"><img src="@img/about-us/history/2.jpg" alt=""></div>
+						<p class="text__title">Over the years</p>
+						<div class="grid__counter counter">
+							<div class="counter__item">
+								<div class="text text__title text__mb-8 _icon-spoon">30+</div>
+								<div class="text text__subtitle">Breakfast Options</div>
+							</div>
+							<div class="counter__item">
+								<div class="text text__title text__mb-8 _icon-spoon">30+</div>
+								<div class="text text__subtitle">Breakfast Options</div>
+							</div>
+							<div class="counter__item">
+								<div class="text text__title text__mb-8 _icon-spoon">30+</div>
+								<div class="text text__subtitle">Breakfast Options</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+
+			</section>
+
+
+		</main>
+		@@include('html/_footer.htm',{})
+	</div>
+	@@include('html/_popup.htm',{})
+	@@include('html/_js.htm',{})
+</body>
+
+</html>

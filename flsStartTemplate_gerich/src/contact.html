@@ -28,63 +28,25 @@
 					<div class="page-contact__image-ibg"><img data-src="@img/contact/map.jpg" alt=""></div>
 				</div>
 			</div>
-			<section data-bg-paralax class="page__awards awards">
-				<div class="awards__container">
-					<div class="awards__content">
-						<div class="awards__title title title_left">
-							<h2 class="title__subtitle">Awards & recognition</h2>
-							<h1 class="title__title title__title_upper-spoon">Our Laurels</h1>
-						</div>
-						<div class="awards__nominations">
-							<div class="awards__item award">
-								<div class="award__place">
-									<div class="award__image-ibg"><img src="@img/awards/2.svg" alt=""></div>
-								</div>
-								<div class="awards__content">
-									<div class="award__nomination">Bib Gourmond</div>
-									<p class="award__text">Lorem ipsum dolor sit amet, consectetur.</p>
-								</div>
-							</div>
-							<div class="awards__item award">
-								<div class="award__place">
-									<div class="award__image-ibg"><img src="@img/awards/1.svg" alt=""></div>
-								</div>
-								<div class="awards__content">
-									<div class="award__nomination">Rising Star</div>
-									<p class="award__text">Lorem ipsum dolor sit amet, consectetur.</p>
-								</div>
-							</div>
-							<div class="awards__item award">
-								<div class="award__place">
-									<div class="award__image-ibg"><img src="@img/awards/5.svg" alt=""></div>
-								</div>
-								<div class="awards__content">
-									<div class="award__nomination">AA Hospitality </div>
-									<p class="award__text">Lorem ipsum dolor sit amet, consectetur.</p>
-								</div>
-							</div>
-							<div class="awards__item award">
-								<div class="award__place">
-									<div class="award__image-ibg"><img src="@img/awards/3.svg" alt=""></div>
-								</div>
-								<div class="awards__content">
-									<div class="award__nomination">Outstanding Chef</div>
-									<p class="award__text">Lorem ipsum dolor sit amet, consectetur.</p>
-								</div>
-							</div>
-						</div>
+			<section data-bg-paralax class="page-contact__form-message ">
+				<div class="page-contact____container grid grid_two-column">
+					<div class="grid__content grid__content_align-center">
+						<form data-dev data-popup-message="#pushForm" method="POST" action="#" class="form-message form">
+							<input type="text" placeholder="Full Name" data-error="Ошибка" data-required class="input-dark">
+							<input type="text" placeholder="Email Address" data-error="Ошибка" data-required class="input-dark">
+							<textarea name="" id="" cols="30" rows="10" placeholder="Message" data-error="Ошибка" data-required class="input-dark input-dark_height-140 input-dark_text-area"></textarea>
+							<button class="button" type="submit">Book Now</button>
+						</form>
 					</div>
-					<div class="awards__image image-g">
-						<div data-image-autoplay="3000" class="awards__image-ibg">
-							<img src="@img/awards/meet.jpg" alt="">
-							<img src="@img/awards/roll.jpg" alt="">
+					<div class="grid__image image-g">
+						<div data-image-autoplay="3000" class="image-g__image-ibg">
+							<img data-src="@img/awards/meet.jpg" alt="">
+							<img data-src="@img/awards/roll.jpg" alt="">
 							<!-- <img class="awards__img_1" data-src="@img/awards/meet.jpg" alt="">
 							<img class="awards__img_2" data-src="@img/awards/roll.jpg" alt=""> -->
 						</div>
 					</div>
-
 				</div>
-
 			</section>
 		</main>
 		@@include('html/_footer.htm',{})

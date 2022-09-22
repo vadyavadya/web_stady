@@ -2,7 +2,7 @@
 <html lang="ru">
 
 <head>
-	<title>Comming Soon</title>
+	<title>Главная</title>
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<style>
@@ -75,42 +75,106 @@
 			</div>
 		</header>
 		<main class="page">
-			<section data-fullscreen class="page__error coming-soon">
-				<div data-decor class="coming-soon__container">
-					<h1 class="coming-soon__title">Coming Soon</h1>
-					<p class="coming-soon__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tristique feugiat orci tristique bibendum sollicitudin at aliquam. Nulla varius augue eu orci vel.</p>
-					<div class="coming-soon__datatime">
-						<div class="coming-soon__element">
-							<div class="coming-soon__number">12</div>
-							<div class="coming-soon__name">Months</div>
-						</div>
-						<div class="coming-soon__element">
-							<div class="coming-soon__number">32</div>
-							<div class="coming-soon__name">Days</div>
-						</div>
-						<div class="coming-soon__element">
-							<div class="coming-soon__number">11</div>
-							<div class="coming-soon__name">Hours</div>
-						</div>
-						<div class="coming-soon__element">
-							<div class="coming-soon__number">52</div>
-							<div class="coming-soon__name">Minutes</div>
-						</div>
-						<div class="coming-soon__element">
-							<div class="coming-soon__number">34</div>
-							<div class="coming-soon__name">Seconds</div>
-						</div>
-					</div>
-					<a data-decor href="home.html" class="coming-soon__button button">Back To Home</a>
+			<div class="page__hero hero page__first">
+				<div data-image-autoplay="3000" class="hero__image-ibg">
+					<picture><source srcset="img/contact/bg1.webp" type="image/webp"><img src="img/contact/bg1.jpg" alt=""></picture>
+					<picture><source srcset="img/contact/bg2.webp" type="image/webp"><img src="img/contact/bg2.jpg" alt=""></picture>
 				</div>
-				<div class="page__error-footer error-footer">
-					<div class=" error-footer__container">
-						<p class="error-footer__text">2021 Gerícht. All Rights reserved.</p>
-					</div>
-				</div>
-			</section>
-		</main>
 
+				<div class="hero__container">
+					<div class="hero__title">What We offer</div>
+					<ul class="hero__path">
+						<li class="hero__item">Home</li>
+						<li class="hero__item">Our Services</li>
+					</ul>
+				</div>
+			</div>
+
+			<section data-decor class="page__quality page__container quality">
+				<div class="quality__title title">
+					<h2 class="title__subtitle">Our History</h2>
+					<h1 class="title__title title__title_upper-spoon">serving customers for over a decade</h1>
+				</div>
+				<div class="quality__grid grid grid_two-column">
+					<div class="grid__column  grid__column_lefr">
+						<p class="grid__text text">
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis pharetra adipiscing ultrices vulputate posuere tristique. In sed odio nec aliquet eu proin mauris et.
+						</p>
+						<div class="grid__image-ibg grid__image-ibg_pb-108"><picture><source srcset="img/about-us/history/1.webp" type="image/webp"><img src="img/about-us/history/1.jpg" alt=""></picture></div>
+					</div>
+					<div class="grid__column  grid__column_center">
+						<div class="grid__image-ibg grid__image-ibg_pb-53"><picture><source srcset="img/about-us/history/2.webp" type="image/webp"><img src="img/about-us/history/2.jpg" alt=""></picture></div>
+						<p class="text__title">Over the years</p>
+						<div class="grid__counter counter">
+							<div class="counter__item">
+								<div class="text text__title text__mb-8 _icon-spoon">30+</div>
+								<div class="text text__subtitle">Breakfast Options</div>
+							</div>
+							<div class="counter__item">
+								<div class="text text__title text__mb-8 _icon-spoon">30+</div>
+								<div class="text text__subtitle">Breakfast Options</div>
+							</div>
+							<div class="counter__item">
+								<div class="text text__title text__mb-8 _icon-spoon">30+</div>
+								<div class="text text__subtitle">Breakfast Options</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+
+			</section>
+
+
+		</main>
+		<footer class="footer">
+
+			<div class="footer__container">
+				<div class="footer__subscribe">
+					<div class="footer__title title">
+						<h2 class="title__subtitle">Newsletter</h2>
+						<h1 class="title__title title__title_upper-spoon">Subscribe to Our Newsletter</h1>
+					</div>
+					<p class="footer__text footer__text_color-white footer__text_margin-64">And never miss latest Updates!</p>
+					<form data-dev data-popup-message="#pushForm" action="" method="">
+						<div class="footer__flex">
+							<input type="text" name="form[email]" data-error="Error" placeholder="Email Address" class="footer__input input-dark">
+							<button type="submit" class="footer__button button">Subscribe</button>
+						</div>
+					</form>
+				</div>
+				<button data-goto=".page__first" class="footer__scroll scroll">Top</button>
+			</div>
+			<div data-bg-paralax class="footer__footer">
+				<div class="footer__container">
+					<div class="footer__grid">
+						<div class="footer__column footer__contact">
+							<div class="footer__subtitle">Contact Us</div>
+							<p class="footer__text">9 W 53rd St, New York, NY 10019, USA</p>
+							<p class="footer__text"><a href="tel:+12123441230">+1 212-344-1230</a></p>
+							<p class="footer__text"><a href="tel:+12123441230">+1 212-555-1230</a></p>
+						</div>
+						<div class="footer__center-column">
+							<div class="footer__title">Gerícht</div>
+							<p class="footer__text footer__text_color-white footer__text_margin-16 footer__text_spoon">"The best way to find yourself is to lose yourself in the service of others.”</p>
+							<div class="footer__social">
+								<a href="" class="footer__link _icon-facebook"></a>
+								<a href="" class="footer__link _icon-twit"></a>
+								<a href="" class="footer__link _icon-inst"></a>
+							</div>
+						</div>
+						<div class="footer__column footer__working">
+							<div class="footer__subtitle">Working Hours</div>
+							<p class="footer__text">Monday-Friday: </p>
+							<p class="footer__text footer__text_margin-16">08:00 am -12:00 am</p>
+							<p class="footer__text">Saturday-Sunday: </p>
+							<p class="footer__text">07:00am -11:00 pm</p>
+						</div>
+					</div>
+					<div class="footer__copyright">2021 Gerícht. All Rights reserved.</div>
+				</div>
+			</div>
+		</footer>
 	</div>
 	<div id="pushForm" aria-hidden="true" class="popup">
 		<div class="popup__wrapper">
