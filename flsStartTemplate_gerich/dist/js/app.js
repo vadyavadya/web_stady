@@ -4347,32 +4347,26 @@
             const imagesAutoplayElement = document.querySelectorAll("[data-image-autoplay]");
             if (imagesAutoplayElement.length) imagesAutoplayElement.forEach((imageAutoplay => {
                 let setTimer = Number(imageAutoplay.dataset.imageAutoplay > 0 ? imageAutoplay.dataset.imageAutoplay : 2e3);
-                const imgBoxChild = findElementNodes(imageAutoplay);
-                let imgPath = [];
-                for (let index = 0; index < imgBoxChild.length; index++) if (imgBoxChild[index].dataset.src) imgPath[index] = imgBoxChild[index].dataset.src; else imgPath[index] = imgBoxChild[index].getAttribute("src");
-                imageAutoplay.innerHTML = `<img src="${imgPath[0]}" alt="">\n\t\t\t\t\t\t\t\t\t\t<img style="opacity:0;" src="${imgPath[1]}" alt="">`;
-                let index = 1;
-                timerfunc();
-                function timerfunc() {
-                    setTimeout((function() {
-                        if (index == imgBoxChild.length) index = 0;
-                        let img1 = imageAutoplay.firstChild;
-                        let img2 = imageAutoplay.lastChild;
-                        img2.src = imgPath[index];
-                        img1.style.transitionDuration = "2s";
-                        img2.style.transitionDuration = "2s";
-                        img1.style.opacity = 0;
-                        img2.style.opacity = 1;
-                        index++;
-                        if (index == imgBoxChild.length) index = 0;
-                        setTimeout((function() {
-                            img1.src = imgPath[index];
-                            img1.style.opacity = 1;
-                            img2.style.opacity = 0;
-                            index++;
-                            timerfunc();
-                        }), setTimer);
-                    }), setTimer);
+                const imgList = findElementNodes(imageAutoplay);
+                for (let index = 0; index < imgList.length; index++) {
+                    const element = imgList[index];
+                    if (index == imgList.length - 1) {
+                        element.style.transitionDuration = "2s";
+                        element.style.opacity = 1;
+                    } else {
+                        element.style.transitionDuration = "2s";
+                        element.style.opacity = 0;
+                    }
+                }
+                let imgActiv = imgList.length - 1;
+                setInterval(changeImage, setTimer);
+                function changeImage() {
+                    console.log("pervi");
+                    let imgNext = imgActiv + 1;
+                    if (imgNext == imgList.length) imgNext = 0;
+                    imgList[imgActiv].style.opacity = 0;
+                    imgList[imgNext].style.opacity = 1;
+                    imgActiv = imgNext;
                 }
             }));
             function findElementNodes(elem) {
