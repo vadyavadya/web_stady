@@ -3098,22 +3098,19 @@ html:not(.touch) .menu__item:hover .menu__sablist {
 }
 
 .preloader {
-  position: fixed;
+  /* position: fixed;
   width: 100%;
   height: 100%;
   z-index: 9999;
-  background: #0c0b08;
-}
-
-.loaded .preloader {
+  background: $colorBg;
+  .loaded & {
+      display: none;
+  }
+  .loaded_hiding & {
+      transition: all 0.5s ease 0s;
+      opacity: 0;
+  } */
   display: none;
-}
-
-.loaded_hiding .preloader {
-  -webkit-transition: all 0.5s ease 0s;
-  -o-transition: all 0.5s ease 0s;
-  transition: all 0.5s ease 0s;
-  opacity: 0;
 }
 
 .loader {
@@ -3578,6 +3575,10 @@ html:not(.touch) .menu__item:hover .menu__sablist {
 			2.5rem + 5 * (100vw - 20rem) / 61.25
 		);
   }
+}
+
+.page_pb-0 {
+  padding-bottom: 0;
 }
 
 .hashtag {

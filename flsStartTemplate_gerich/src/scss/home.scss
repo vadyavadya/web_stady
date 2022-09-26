@@ -190,6 +190,9 @@
             @include adaptiveValue("margin-bottom", 120, 40);
         }
     }
+    &_pb-0 {
+        padding-bottom: 0;
+    }
 }
 .hashtag {
     font-size: rem(18);
