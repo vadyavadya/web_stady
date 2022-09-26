@@ -25,9 +25,6 @@
         min-width: 0;
         position: relative;
         // прибавляю слева и справа отступы для блоков hashtag and scrol
-        max-width: rem($maxWidthContainer) + rem(124);
-        padding: 0 rem(62) 0 rem(32);
-        // .page__container_wide
         &_wide {
             flex: 1 1 auto;
             position: relative;
@@ -35,6 +32,25 @@
             max-width: rem(1680);
             padding: 0 rem(math.div($containerPadding, 2));
             min-width: 0;
+        }
+        &_pr-32 {
+            padding-right: rem(62);
+        }
+        &_pl-62 {
+            padding-left: rem(32);
+        }
+        max-width: rem($maxWidthContainer) + rem(124);
+    }
+    &__decore_left {
+        &::before {
+            bottom: rem(0);
+            left: rem(-160);
+        }
+    }
+    &__decor_right {
+        &::before {
+            bottom: rem(-0);
+            right: rem(-150);
         }
     }
     // .page__hashtag

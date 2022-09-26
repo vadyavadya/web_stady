@@ -166,7 +166,11 @@
 		transition: all 0.5s ease 0s;
 		max-height: 0;
 		opacity: 0;
-		width: 100%;
+		width: auto;
+		padding: rem(20);
+		background: rgb(12, 12, 12);
+		background: radial-gradient(circle, rgba(12, 12, 12, 1) 50%, rgba(12, 12, 12, 0) 100%);
+		border-radius: rem(10);
 		._active &,
 		html:not(.touch) .menu__item:hover & {
 			max-height: 1000px;
@@ -183,8 +187,10 @@
 	}
 	// .menu__sub-item
 	&__sub-item {
+		white-space: nowrap;
 		transition: all 0.2s ease 0s;
-		background-color: #0c0c0c;
+
+		text-transform: capitalize;
 	}
 	// .menu__link
 	&__link {

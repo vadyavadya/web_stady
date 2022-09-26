@@ -11,27 +11,27 @@
         position: relative;
         @include adaptiveValue("padding-top", 152, 20);
         @include adaptiveValue("padding-bottom", 152, 20);
-        &[data-decor] {
-            &::before {
-                bottom: rem(10);
-                right: rem(-150);
-            }
-        }
+        // &[data-decor] {
+        //     &::before {
+        //         bottom: rem(10);
+        //         right: rem(-150);
+        //     }
+        // }
     }
     // .page__container
     &__container_widtn-1128 {
         max-width: rem(1128);
     }
-    &__reservation {
-        .page__decore_left {
-            &[data-decor] {
-                &::before {
-                    left: rem(-150);
-                    top: 100%;
-                }
-            }
-        }
-    }
+    // &__reservation {
+    //     .page__decore_left {
+    //         &[data-decor] {
+    //             &::before {
+    //                 left: rem(-150);
+    //                 top: 100%;
+    //             }
+    //         }
+    //     }
+    // }
 
     // page__happy-hour
     &__happy-hour {

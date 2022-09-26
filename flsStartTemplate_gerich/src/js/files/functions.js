@@ -32,10 +32,17 @@ export function addLoadedClass() {
 			document.documentElement.classList.add('loaded');
 		}, 0); */
 		// Новый с дщобавлением плавного исчезновения
-		document.documentElement.classList.add('loaded_hiding');
+		/* document.documentElement.classList.add('loaded_hiding');
 		window.setTimeout(function () {
 			document.documentElement.classList.add('loaded');
 			document.documentElement.classList.remove('loaded_hiding');
+		}, 500);
+		 */
+
+		document.body.classList.add('loaded_hiding');
+		window.setTimeout(function () {
+			document.body.classList.add('loaded');
+			document.body.classList.remove('loaded_hiding');
 		}, 500);
 	});
 }

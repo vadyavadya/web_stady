@@ -4150,10 +4150,10 @@
         }
         function addLoadedClass() {
             window.addEventListener("load", (function() {
-                document.documentElement.classList.add("loaded_hiding");
+                document.body.classList.add("loaded_hiding");
                 window.setTimeout((function() {
-                    document.documentElement.classList.add("loaded");
-                    document.documentElement.classList.remove("loaded_hiding");
+                    document.body.classList.add("loaded");
+                    document.body.classList.remove("loaded_hiding");
                 }), 500);
             }));
         }
