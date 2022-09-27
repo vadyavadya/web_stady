@@ -1810,18 +1810,6 @@ body::after {
   display: grid;
 }
 
-.today-special__img {
-  -webkit-transition: all 0.3s ease 0s;
-  -o-transition: all 0.3s ease 0s;
-  transition: all 0.3s ease 0s;
-}
-
-.today-special__img:hover {
-  -webkit-transform: scale(1.05);
-      -ms-transform: scale(1.05);
-          transform: scale(1.05);
-}
-
 .today-special__subtitle {
   font-weight: 600;
   font-size: 2.8125rem;
@@ -1858,6 +1846,9 @@ body::after {
 }
 
 .position-menu {
+  -webkit-transition: all 0.3s ease 0s;
+  -o-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
   display: -ms-grid;
   display: grid;
   -webkit-column-gap: 32px;
@@ -1941,6 +1932,7 @@ body::after {
 }
 
 .position-menu__composition {
+  position: relative;
   margin-top: 0.5rem;
   -ms-grid-column: 1;
   -ms-grid-column-span: 3;
@@ -1953,6 +1945,19 @@ body::after {
 
 .position-menu__composition:not(:last-child) {
   margin-bottom: 2.5rem;
+}
+
+.position-menu__composition::after {
+  -webkit-transition: all 0.3s ease 0s;
+  -o-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: -20px;
+  width: 0;
+  height: 1px;
+  background-color: #fff;
 }
 
 .position-menu__item {
@@ -1968,6 +1973,16 @@ body::after {
   height: 100%;
   width: 1px;
   background-color: #aaa;
+}
+
+.position-menu:hover {
+  -webkit-transform: scale(1.05);
+      -ms-transform: scale(1.05);
+          transform: scale(1.05);
+}
+
+.position-menu:hover .position-menu__composition::after {
+  width: 100%;
 }
 
 .restorant-home-about {
@@ -3098,19 +3113,22 @@ html:not(.touch) .menu__item:hover .menu__sablist {
 }
 
 .preloader {
-  /* position: fixed;
+  position: fixed;
   width: 100%;
   height: 100%;
   z-index: 9999;
-  background: $colorBg;
-  .loaded & {
-      display: none;
-  }
-  .loaded_hiding & {
-      transition: all 0.5s ease 0s;
-      opacity: 0;
-  } */
+  background: #0c0b08;
+}
+
+.loaded .preloader {
   display: none;
+}
+
+.loaded_hiding .preloader {
+  -webkit-transition: all 0.5s ease 0s;
+  -o-transition: all 0.5s ease 0s;
+  transition: all 0.5s ease 0s;
+  opacity: 0;
 }
 
 .loader {
