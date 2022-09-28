@@ -191,10 +191,6 @@ body {
   min-width: 0;
 }
 
-html.loaded .wrapper {
-  opacity: 1;
-}
-
 /*
 (i) Стили будут применяться ко 
 всем классам содержащим *__container
@@ -2763,9 +2759,10 @@ body::after {
   opacity: 0;
   width: auto;
   padding: 1.25rem;
-  background: rgb(12, 12, 12);
-  background: -o-radial-gradient(circle, rgb(12, 12, 12) 50%, rgba(12, 12, 12, 0) 100%);
-  background: radial-gradient(circle, rgb(12, 12, 12) 50%, rgba(12, 12, 12, 0) 100%);
+  background: rgb(12, 11, 8);
+  background: -webkit-gradient(linear, left top, left bottom, from(rgb(12, 11, 8)), color-stop(68%, rgb(12, 11, 8)), to(rgba(12, 11, 8, 0)));
+  background: -o-linear-gradient(top, rgb(12, 11, 8) 0%, rgb(12, 11, 8) 68%, rgba(12, 11, 8, 0) 100%);
+  background: linear-gradient(180deg, rgb(12, 11, 8) 0%, rgb(12, 11, 8) 68%, rgba(12, 11, 8, 0) 100%);
   border-radius: 0.625rem;
 }
 
@@ -3125,9 +3122,9 @@ html:not(.touch) .menu__item:hover .menu__sablist {
 }
 
 .loaded_hiding .preloader {
-  -webkit-transition: all 0.5s ease 0s;
-  -o-transition: all 0.5s ease 0s;
-  transition: all 0.5s ease 0s;
+  -webkit-transition: opasity 0.5s;
+  -o-transition: opasity 0.5s;
+  transition: opasity 0.5s;
   opacity: 0;
 }
 
