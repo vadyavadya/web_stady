@@ -5,11 +5,11 @@
     height: 100%;
     z-index: 9999;
     background: $colorBg;
+    transition: opacity 0.5s;
     .loaded & {
         display: none;
     }
     .loaded_hiding & {
-        transition: opasity 0.5s;
         opacity: 0;
     }
 }

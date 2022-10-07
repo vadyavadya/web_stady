@@ -1,0 +1,36 @@
+//========================================================================================================================================================
+.page {
+    // .page__chefs
+    &__chefs {
+        @include adaptiveValue("padding-top", 121, 50);
+        @include adaptiveValue("padding-bottom", 121, 50);
+    }
+}
+.chef-card {
+    // .chef-card__image-ibg
+    &__image-ibg {
+        border: 1px solid #dcca87;
+        padding-bottom: percent(520, 412);
+        &:not(:last-child) {
+            margin-bottom: rem(32);
+        }
+    }
+    // .chef-card__name
+    &__name {
+        transition: all 0.3s ease 0s;
+        &:not(:last-child) {
+            margin-bottom: rem(8);
+        }
+    }
+    // .chef-card__position
+    &__position {
+    }
+    @media (any-hover: hover) {
+        &:hover {
+            .chef-card__name {
+                color: $colorCalicio;
+            }
+        }
+    }
+}
+//========================================================================================================================================================

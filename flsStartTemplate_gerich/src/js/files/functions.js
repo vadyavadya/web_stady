@@ -38,7 +38,6 @@ export function addLoadedClass() {
 			document.documentElement.classList.remove('loaded_hiding');
 		}, 500);
 		 */
-
 		document.body.classList.add('loaded_hiding');
 		window.setTimeout(function () {
 			document.body.classList.add('loaded');

@@ -183,6 +183,12 @@
 	overflow: hidden;
 	position: relative;
 }
+// Много в home.css написанно
+.page {
+	// .page__container
+	&__container {
+	}
+}
 
 .title {
 	text-align: center;
@@ -316,7 +322,11 @@
 		font-feature-settings: "tnum" on, "lnum" on;
 		color: $colorWhite;
 	}
+	&_white {
+		color: $colorWhite;
+	}
 }
+
 .image-block {
 	transition: all 0.3s ease 0s;
 	img {
@@ -642,6 +652,12 @@
 		@media (max-width: $tablet) {
 			display: none;
 		}
+		transition: transform 0.3s ease 0s;
+		@media (any-hover: hover) {
+			&:hover {
+				transform: scale(1.1);
+			}
+		}
 	}
 
 	// .today-special__subtitle
@@ -668,6 +684,7 @@
 		justify-self: center;
 	}
 }
+
 .position-menu {
 	transition: all 0.3s ease 0s;
 	display: grid;
@@ -782,12 +799,12 @@
 	&__container {
 		@include adaptiveValue("padding-top", 100, 10);
 		@include adaptiveValue("padding-bottom", 100, 10);
-		* {
-			transition: all 0.3s ease 0s;
-			&:hover {
-				transform: scale(1.05);
-			}
-		}
+		// * {
+		// 	transition: all 0.3s ease 0s;
+		// 	&:hover {
+		// 		transform: scale(1.05);
+		// 	}
+		// }
 	}
 	// .restorant-home-about__content
 	&__content {
@@ -1044,6 +1061,7 @@
 		}
 	}
 }
+
 .award {
 	display: flex;
 	@include adaptiveValue("gap", 16, 32);
@@ -1087,6 +1105,10 @@
 		@media (min-width: $tablet) {
 			grid-template-columns: 1fr 1fr;
 		}
+	}
+
+	// .grid_three-column
+	&_three-column {
 	}
 
 	// .grid__content
