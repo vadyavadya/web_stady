@@ -130,6 +130,7 @@
 	}
 	// .menu__link
 	&__link {
+		transition: all 0.3s ease 0s;
 		@media (any-hover: hover) {
 			&:hover {
 				color: $colorCalicio;
@@ -166,6 +167,7 @@
 		transition: all 0.5s ease 0s;
 		max-height: 0;
 		opacity: 0;
+		visibility: hidden;
 		width: auto;
 		padding: rem(20);
 		background: rgb(12, 11, 8);
@@ -175,6 +177,7 @@
 		html:not(.touch) .menu__item:hover & {
 			max-height: 1000px;
 			opacity: 1;
+			visibility: visible;
 		}
 		@media (max-width: 999.98px) {
 			font-size: rem(36);
@@ -189,8 +192,16 @@
 	&__sub-item {
 		white-space: nowrap;
 		transition: all 0.2s ease 0s;
-
 		text-transform: capitalize;
+	}
+
+	&__item,
+	&__sub-item {
+		@media (any-hover: hover) {
+			&:hover {
+				transform: scale(1.05);
+			}
+		}
 	}
 	// .menu__link
 	&__link {

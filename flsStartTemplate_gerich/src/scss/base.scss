@@ -1109,6 +1109,14 @@
 
 	// .grid_three-column
 	&_three-column {
+		display: grid;
+		gap: rem(32);
+		@media (min-width: $mobileSmall) {
+			grid-template-columns: 1fr 1fr;
+		}
+		@media (min-width: $mobile) {
+			grid-template-columns: 1fr 1fr 1fr;
+		}
 	}
 
 	// .grid__content
@@ -1124,6 +1132,7 @@
 	// .grid_two-column
 	&_two-column {
 	}
+
 	// .grid__column
 	&__column {
 		display: grid;
@@ -1156,6 +1165,9 @@
 	}
 	// .grid__counter
 	&__counter {
+	}
+	&_row-gap_64 {
+		row-gap: rem(64);
 	}
 }
 

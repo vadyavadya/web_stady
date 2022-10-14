@@ -22,21 +22,21 @@
 
 <body>
 	<div class="wrapper">
-		<!-- <div class="preloader">
-	<div class="loader">
-		<ul>
-			<li></li>
-			<li></li>
-			<li></li>
-		</ul>
-		<div class="wineglass left">
-			<div class="top"></div>
+		<div class="preloader">
+			<div class="loader">
+				<ul>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+				<div class="wineglass left">
+					<div class="top"></div>
+				</div>
+				<div class="wineglass right">
+					<div class="top"></div>
+				</div>
+			</div>
 		</div>
-		<div class="wineglass right">
-			<div class="top"></div>
-		</div>
-	</div>
-</div> -->
 		<header data-scroll data-scroll-show="3000" class="header">
 			<div class="header__container header__container_wide">
 				<div class="header__logo header__column">
@@ -72,48 +72,200 @@
 				<button type="button" class="icon-menu"><span></span></button>
 			</div>
 		</header>
-		<main class="page-contact">
-			<div class="page-contact__hero hero page__first">
+		<main class="page">
+
+			<div class="page__hero hero page__first">
 				<div data-image-autoplay="3000" class="hero__image-ibg">
 					<picture><source srcset="img/contact/bg1.webp" type="image/webp"><img src="img/contact/bg1.jpg" alt=""></picture>
 					<picture><source srcset="img/contact/bg2.webp" type="image/webp"><img src="img/contact/bg2.jpg" alt=""></picture>
 				</div>
 
 				<div class="hero__container">
-					<div class="hero__title">contact Us</div>
+					<div class="hero__title">What We offer</div>
 					<ul class="hero__path">
 						<li class="hero__item"><a href="home.html">Home</a></li>
-						<li class="hero__item"><a href="contact.html">contact Us</a></li>
+						<li class="hero__item"><a href="our-chefs.html">Our team</a></li>
+						<li class="hero__item"><a href="chef-detals.html">Chef Details</a></li>
 					</ul>
 				</div>
 			</div>
-			<div class="page-contact__map">
-				<div data-decor class="page-contact__container">
-					<div class="page-contact__image-ibg"><picture><source data-srcset="img/contact/map.webp" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" type="image/webp"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="  data-src="img/contact/map.jpg" alt=""></picture></div>
-				</div>
-			</div>
-			<section data-bg-paralax class="page-contact__form-message ">
-				<div class="page-contact____container grid grid_two-column">
-					<div class="grid__content grid__content_align-center">
-						<form data-dev data-popup-message="#pushForm" method="POST" action="#" class="form-message form">
-							<input type="text" placeholder="Full Name" data-error="Ошибка" data-required class="input-dark">
-							<input type="text" placeholder="Email Address" data-error="Ошибка" data-required class="input-dark">
-							<textarea name="" id="" cols="30" rows="10" placeholder="Message" data-error="Ошибка" data-required class="input-dark input-dark_height-140 input-dark_text-area"></textarea>
-							<button class="button" type="submit">Book Now</button>
-						</form>
+
+
+			<section data-bg-paralax="img/chefs-restoran/BG.jpg" class="page__chefs chefs-restorane">
+				<div data-decor class="chefs-restorane__container">
+					<div class="chefs-restorane__image">
+						<div class="chefs-restorane__image-ibg image-block"><picture><source srcset="img/chefs-restoran/photo-kevin.webp" type="image/webp"><img src="img/chefs-restoran/photo-kevin.jpg" alt=""></picture></div>
 					</div>
-					<div class="grid__image image-g">
-						<div data-image-autoplay="2000" class="image-g__image-ibg">
-							<picture><source data-srcset="img/awards/meet.webp" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" type="image/webp"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="  data-src="img/awards/meet.jpg" alt=""></picture>
-							<picture><source data-srcset="img/awards/roll.webp" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" type="image/webp"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="  data-src="img/awards/roll.jpg" alt=""></picture>
-							<picture><source data-srcset="img/restorane-blogs/desert.webp" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" type="image/webp"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="  data-src="img/restorane-blogs/desert.jpg" alt=""></picture>
-							<picture><source data-srcset="img/restorane-blogs/koktail.webp" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" type="image/webp"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="  data-src="img/restorane-blogs/koktail.jpg" alt=""></picture>
+					<div class="chefs-restorane__content">
+						<div class="chefs-restorane__title title title_left">
+							<h2 class="title__subtitle">Chef’s Word</h2>
+							<h1 class="title__title  title__title_upper-spoon">What we believe in</h1>
+						</div>
+						<p class="chefs-restorane__quote">Lorem ipsum dolor sit amet, consectetur adipiscing elit auctor sit. auctor sit iaculis in arcu. Vulputate nulla lobortis mauris eget sit. Nulla scelerisque scelerisque congue ac consequat, aliquam molestie lectus eu. Congue iaculis integer curabitur semper sit nunc.</p>
+						<div class="chefs-restorane__name-position">
+							<div class="chefs-restorane__name">Kevin Luo</div>
+							<div class="chefs-restorane__position">Chef & Founder</div>
+						</div>
+						<img data-src="img/chefs-restoran/Kevin-Luo.svg" class="chefs-restorane__signature" alt="">
+					</div>
+				</div>
+			</section>
+
+			<!-- <div class="page__chefs">
+				<div data-decor class="page__container grid grid_three-column">
+					<div class="chef-card">
+						<div class="chef-card__image-ibg">
+							<picture><source srcset="img/chefs/kevin.webp" type="image/webp"><img src="img/chefs/kevin.jpg" alt=""></picture>
+							<div class="chef-card__links">
+								<ul class="chef-card__list-link">
+									<li><a class="chef-card__link _icon-facebook" href="#"></a></li>
+									<li><a class="chef-card__link _icon-twit" href="#"></a></li>
+									<li><a class="chef-card__link _icon-inst" href="#"></a></li>
+								</ul>
+							</div>
+						</div>
+						<div class="chef-card__name text text__title text_white">Kevin Luo</div>
+						<div class="chef-card__position text text_white">Head Chef</div>
+					</div>
+					<div class="chef-card">
+						<div class="chef-card__image-ibg">
+							<picture><source srcset="img/chefs/patrik.webp" type="image/webp"><img src="img/chefs/patrik.jpg" alt=""></picture>
+							<div class="chef-card__links">
+								<ul class="chef-card__list-link">
+									<li><a class="chef-card__link _icon-facebook" href="#"></a></li>
+									<li><a class="chef-card__link _icon-twit" href="#"></a></li>
+									<li><a class="chef-card__link _icon-inst" href="#"></a></li>
+								</ul>
+								<a href="chef-detals.html" class="chef-card__read-more">Read More</a>
+							</div>
+						</div>
+						<div class="chef-card__name text text__title text_white">Patrick Choi</div>
+						<div class="chef-card__position text text_white">Deputy Chef</div>
+					</div>
+					<div class="chef-card">
+						<div class="chef-card__image-ibg">
+							<picture><source srcset="img/chefs/jak.webp" type="image/webp"><img src="img/chefs/jak.jpg" alt=""></picture>
+							<div class="chef-card__links">
+								<ul class="chef-card__list-link">
+									<li><a class="chef-card__link _icon-facebook" href="#"></a></li>
+									<li><a class="chef-card__link _icon-twit" href="#"></a></li>
+									<li><a class="chef-card__link _icon-inst" href="#"></a></li>
+								</ul>
+								<a href="chef-detals.html" class="chef-card__read-more">Read More</a>
+							</div>
+						</div>
+						<div class="chef-card__name text text__title text_white">Jack Biscoff</div>
+						<div class="chef-card__position text text_white">Station Chef</div>
+					</div>
+					<div class="chef-card">
+						<div class="chef-card__image-ibg">
+							<picture><source srcset="img/chefs/stacy.webp" type="image/webp"><img src="img/chefs/stacy.jpg" alt=""></picture>
+							<div class="chef-card__links">
+								<ul class="chef-card__list-link">
+									<li><a class="chef-card__link _icon-facebook" href="#"></a></li>
+									<li><a class="chef-card__link _icon-twit" href="#"></a></li>
+									<li><a class="chef-card__link _icon-inst" href="#"></a></li>
+								</ul>
+								<a href="chef-detals.html" class="chef-card__read-more">Read More</a>
+							</div>
+						</div>
+						<div class="chef-card__name text text__title text_white">Stacy Lee</div>
+						<div class="chef-card__position text text_white">Station Chef</div>
+					</div>
+					<div class="chef-card">
+						<div class="chef-card__image-ibg">
+							<picture><source srcset="img/chefs/aren.webp" type="image/webp"><img src="img/chefs/aren.jpg" alt=""></picture>
+							<div class="chef-card__links">
+								<ul class="chef-card__list-link">
+									<li><a class="chef-card__link _icon-facebook" href="#"></a></li>
+									<li><a class="chef-card__link _icon-twit" href="#"></a></li>
+									<li><a class="chef-card__link _icon-inst" href="#"></a></li>
+								</ul>
+								<a href="chef-detals.html" class="chef-card__read-more">Read More</a>
+							</div>
+						</div>
+						<div class="chef-card__name text text__title text_white">Aren Goodman </div>
+						<div class="chef-card__position text text_white">Junior Chef</div>
+					</div>
+					<div class="chef-card">
+						<div class="chef-card__image-ibg">
+							<picture><source srcset="img/chefs/javier.webp" type="image/webp"><img src="img/chefs/javier.jpg" alt=""></picture>
+							<div class="chef-card__links">
+								<ul class="chef-card__list-link">
+									<li><a class="chef-card__link _icon-facebook" href="#"></a></li>
+									<li><a class="chef-card__link _icon-twit" href="#"></a></li>
+									<li><a class="chef-card__link _icon-inst" href="#"></a></li>
+								</ul>
+								<a href="chef-detals.html" class="chef-card__read-more">Read More</a>
+							</div>
+						</div>
+						<div class="chef-card__name text text__title text_white">Javier Dowsing</div>
+						<div class="chef-card__position text text_white">Junior Chef</div>
+					</div>
+
+				</div>
+			</div> -->
+
+			<section data-bg-paralax class="page__awards awards">
+				<div class="awards__container">
+					<div class="awards__content">
+						<div class="awards__title title title_left">
+							<h2 class="title__subtitle">Awards & recognition</h2>
+							<h1 class="title__title title__title_upper-spoon">Our Laurels</h1>
+						</div>
+						<div class="awards__nominations">
+							<div class="awards__item award">
+								<div class="award__place">
+									<div class="award__image-ibg"><img src="img/awards/2.svg" alt=""></div>
+								</div>
+								<div class="awards__content">
+									<div class="award__nomination">Bib Gourmond</div>
+									<p class="award__text">Lorem ipsum dolor sit amet, consectetur.</p>
+								</div>
+							</div>
+							<div class="awards__item award">
+								<div class="award__place">
+									<div class="award__image-ibg"><img src="img/awards/1.svg" alt=""></div>
+								</div>
+								<div class="awards__content">
+									<div class="award__nomination">Rising Star</div>
+									<p class="award__text">Lorem ipsum dolor sit amet, consectetur.</p>
+								</div>
+							</div>
+							<div class="awards__item award">
+								<div class="award__place">
+									<div class="award__image-ibg"><img src="img/awards/5.svg" alt=""></div>
+								</div>
+								<div class="awards__content">
+									<div class="award__nomination">AA Hospitality </div>
+									<p class="award__text">Lorem ipsum dolor sit amet, consectetur.</p>
+								</div>
+							</div>
+							<div class="awards__item award">
+								<div class="award__place">
+									<div class="award__image-ibg"><img src="img/awards/3.svg" alt=""></div>
+								</div>
+								<div class="awards__content">
+									<div class="award__nomination">Outstanding Chef</div>
+									<p class="award__text">Lorem ipsum dolor sit amet, consectetur.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="awards__image  image-g">
+						<div data-image-autoplay="3000" class="image-g__image-ibg">
+							<picture><source srcset="img/awards/meet.webp" type="image/webp"><img src="img/awards/meet.jpg" alt=""></picture>
+							<picture><source srcset="img/awards/roll.webp" type="image/webp"><img src="img/awards/roll.jpg" alt=""></picture>
 							<!-- <picture><source data-srcset="img/awards/meet.webp" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" type="image/webp"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="  class="awards__img_1" data-src="img/awards/meet.jpg" alt=""></picture>
 							<picture><source data-srcset="img/awards/roll.webp" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" type="image/webp"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="  class="awards__img_2" data-src="img/awards/roll.jpg" alt=""></picture> -->
 						</div>
 					</div>
+
 				</div>
+
 			</section>
+
+
 		</main>
 		<footer class="footer">
 
