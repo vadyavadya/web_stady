@@ -40,6 +40,10 @@
             padding-left: rem(32);
         }
         max-width: rem($maxWidthContainer) + rem(124);
+        &_avptb {
+            @include adaptiveValue("padding-top", 152, 40);
+            @include adaptiveValue("padding-bottom", 152, 40);
+        }
     }
     &__decore_left {
         &::before {

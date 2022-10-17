@@ -52,3 +52,12 @@ textarea.input {
 	resize: none;
 	padding: 0px 0px;
 }
+
+.input-search {
+	width: 100%;
+	outline: none;
+	padding: rem(4);
+	border-bottom: 1px solid #aaaaaa;
+	background-color: transparent;
+	color: #f5efdb;
+}
