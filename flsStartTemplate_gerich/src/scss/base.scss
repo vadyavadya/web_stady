@@ -173,6 +173,38 @@
 }
 
 .link {
+	&_tags {
+		transition: all 0.3s ease 0s;
+		&:hover {
+			color: $colorWhite;
+		}
+	}
+	&__icon {
+		padding-left: rem(41);
+		&_comment {
+			background: url("@img/chat_bubble_outline.svg") no-repeat bottom -2px left 0;
+		}
+		&_like {
+			background: url("@img/favorite_border.svg") no-repeat bottom -2px left 0;
+		}
+	}
+}
+.link-icon {
+	&::before {
+		color: #f5efdb;
+		transition: all 0.3s ease 0s;
+	}
+	&:hover {
+		&::before {
+			color: $colorCalicio;
+		}
+	}
+}
+
+.image-ibg {
+	&_pb-33 {
+		padding-bottom: 33%;
+	}
 }
 
 [data-bg-paralax] {
@@ -187,6 +219,56 @@
 .page {
 	// .page__container
 	&__container {
+	}
+	&__element {
+		&:not(:last-child) {
+			margin-bottom: rem(40);
+		}
+		&_mb-24 {
+			&:not(:last-child) {
+				margin-bottom: rem(24);
+			}
+		}
+		&_mb-32 {
+			&:not(:last-child) {
+				margin-bottom: rem(32);
+			}
+		}
+		&_mb-152 {
+			&:not(:last-child) {
+				@include adaptiveValue("margin-bottom", 152, 40);
+			}
+		}
+		&_mw-967 {
+			max-width: rem(967);
+		}
+	}
+	&__quote {
+		position: relative;
+		@include adaptiveValue("padding-top", 73, 23);
+		@include adaptiveValue("padding-bottom", 73, 23);
+		@include adaptiveValue("padding-left", 69, 19);
+		@include adaptiveValue("padding-right", 69, 19);
+		background-color: #545454;
+		border: 1px solid $colorCalicio;
+		&::before,
+		&::after {
+			content: "";
+			display: block;
+			position: absolute;
+			width: rem(53);
+			height: rem(41);
+			background: url("@img/qu.svg");
+		}
+		&::before {
+			top: 0;
+			left: rem(16);
+		}
+		&::after {
+			bottom: 0;
+			right: rem(16);
+			transform: rotate(-180deg);
+		}
 	}
 }
 .border {
@@ -328,7 +410,6 @@
 	// .text__subtitle
 	&__subtitle {
 		@extend %ffcu;
-		font-size: 32px;
 		@include adaptiveValue("font-size", 32, 18);
 		line-height: 130%;
 		/* or 42px */
@@ -336,6 +417,10 @@
 		text-transform: capitalize;
 		font-feature-settings: "tnum" on, "lnum" on;
 		color: $colorWhite;
+		&_2 {
+			@include adaptiveValue("font-size", 23, 18);
+			font-weight: 700;
+		}
 	}
 	&_color-calisio {
 		color: $colorCalicio;
@@ -348,6 +433,9 @@
 		text-transform: capitalize;
 		font-feature-settings: "tnum" on, "lnum" on;
 		color: #f5efdb;
+	}
+	&_ta-c {
+		text-align: center;
 	}
 }
 
@@ -1129,6 +1217,11 @@
 		@media (min-width: $tablet) {
 			grid-template-columns: 1fr 1fr;
 		}
+		&_mobilesmall {
+			@media (min-width: $mobileSmall) {
+				grid-template-columns: 1fr 1fr;
+			}
+		}
 	}
 
 	// .grid_three-column
@@ -1215,22 +1308,73 @@
 	&__card-blog {
 	}
 }
-
-.flex {
-	display: flex;
-	&_gap-69 {
-		gap: rem(69);
-	}
-	// .flex__contetnt
-	&__contetnt {
-		&_60 {
-			flex: 1 1 70%;
+@media (min-width: $mobileSmall) {
+	.flex {
+		display: flex;
+		&_gap-69 {
+			// gap: 69px;
+			@include adaptiveValue("gap", 69, 32);
 		}
-	}
-	&__sidebar {
-		flex: 1 1 30%;
-		@media (max-width: $mobileSmall) {
-			display: none;
+		&_gap-8 {
+			gap: rem(8);
+		}
+		&_gap-32 {
+			gap: rem(32);
+		}
+		// .flex_gap-15
+		&_gap-15 {
+			gap: rem(15);
+		}
+		&_gap-16 {
+			gap: rem(16);
+		}
+		&_ai-c {
+			align-items: center;
+		}
+		// .flex__contetnt
+		&__contetnt {
+			&_70 {
+				flex: 1 1 70%;
+			}
+		}
+		&__sidebar {
+			flex: 1 1 30%;
+			@media (max-width: $mobile) {
+				display: none;
+			}
+		}
+		// .flex_jc
+		&_jc-sb {
+			justify-content: space-between;
+		}
+
+		// .flex__item
+		&__item {
+			flex: 1 1 auto;
+			&_0-0-103 {
+				flex: 0 0 rem(103);
+			}
+		}
+		// .flex__catigories
+		&__catigories {
+			align-items: center;
+			&::before {
+				content: "";
+				height: 1px;
+				width: 100%;
+				background-color: #fafafa;
+			}
+		}
+		&__element {
+			&:not(:last-child) {
+				margin-bottom: rem(32);
+			}
+		}
+		&__column {
+			flex: 1 1 auto;
+			&_60 {
+				flex: 0 1 60%;
+			}
 		}
 	}
 }
@@ -1419,6 +1563,16 @@
 			background-color: $colorCalicio;
 			margin-right: rem(8);
 			transform: translate(0px, -2px);
+		}
+	}
+	&__tags {
+		&:not(:last-child) {
+			&::after {
+				content: "";
+				width: rem(16);
+				height: 1px;
+				background-color: $colorCalicio;
+			}
 		}
 	}
 }

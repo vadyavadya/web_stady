@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="ru">
+@@include('html/_head.htm',{
+"title":"Главная"
+})
+
+<body>
+	<div class="wrapper">
+		@@include('html/_preload.htm',{})
+		@@include('html/_header.htm',{})
+		<main class="page">
+
+			<div class="page__hero hero page__first">
+				<div data-image-autoplay="3000" class="hero__image-ibg">
+					<img src="@img/contact/bg1.jpg" alt="">
+					<img src="@img/contact/bg2.jpg" alt="">
+				</div>
+
+				<div class="hero__container">
+					<div class="hero__title">Our Blogs</div>
+					<ul class="hero__path">
+						<li class="hero__item"><a href="home.html">Home</a></li>
+						<li class="hero__item"><a href="">Our Blogs- grid</a></li>
+						<li class="hero__item"><a href="">Cooking Tips</a></li>
+						<li class="hero__item"><a href="">Tips for Prepping and Caring for your grill</a></li>
+					</ul>
+				</div>
+			</div>
+
+			<div data-decor class="page__container page__container_avptb decor__blogs">
+
+				<div class="page__element page__element_mb-24 flex flex_jc-sb">
+					<div class="text text_white">23 May 2021</div>
+					<div class="text text_white">-John Micheal</div>
+				</div>
+
+				<div class="page__element title title_left">
+					<h1 class="title__title">tips for prepping and caring for your grill</h1>
+				</div>
+
+				<div class="page__image-ibg image-ibg_pb-33 page__element"><img src="@img/restorane-blogs/meet.jpg" alt=""></div>
+
+				<div class="page__element page__element_mb-152 flex flex_gap-69">
+					<div class="flex__contetnt flex__contetnt_70">
+						<p class="page__element text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tincidunt pharetra ut lobortis id. Commodo sit libero lacus a egestas penatibus pretium quis lorem. Purus morbi sagittis, faucibus odio. Elementum felis nibh at purus consectetur phasellus lacus, pellentesque dictumst. Pellentesque eu malesuada id vitae risus, libero. Ullamcorper turpis blandit faucibus turpis. Eu elit faucibus leo eget.</p>
+						<h3 class="page__element page__element_mb-32 text text__subtitle text__subtitle_2 text_color-calisio">How to prepare your grill</h3>
+						<p class="page__element page__element_mb-32 text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tincidunt pharetra ut lobortis id. Commodo sit libero lacus a egestas penatibus pretium quis lorem. Purus morbi sagittis, faucibus odio.</p>
+						<ul class=" page__element list">
+							<li class="list__item">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
+							<li class="list__item"> Tincidunt pharetra ut lobortis id.</li>
+							<li class="list__item">Commodo sit libero lacus a egestas penatibus pretium quis lorem.</li>
+						</ul>
+						<div class="page__video page__element restorane-video">
+							<video preload="metadata" data-src="files/restorane-video/iPhone14ProApple.mp4" poster="@img/main-slider/02.jpg" class="restorane-video__video"></video>
+							<span class="restorane-video__control"></span>
+						</div>
+						<p class="page__element text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tincidunt pharetra ut lobortis id. Commodo sit libero lacus a egestas penatibus pretium quis lorem. Purus morbi sagittis, faucibus odio. Elementum felis nibh at purus consectetur phasellus lacus, pellentesque dictumst. Pellentesque eu malesuada id vitae risus, libero. Ullamcorper turpis blandit faucibus turpis. Eu elit faucibus leo eget.</p>
+						<div class="page__quote page__element">
+							<h3 class="text text__subtitle text_ta-c">There is no love sincerer than the love of food.</h3>
+						</div>
+						<div class="page__element flex flex_gap-32">
+							<div class="flex__column flex__column_60">
+								<h3 class="flex__element text text__subtitle text__subtitle_2 text_color-calisio">How to care for your grill</h3>
+								<p class="flex__element text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tin cidunt pharetra ut lobortis id. Commodo sit libero lacus a egestas penatibus pretium quis lorem.</p>
+								<ul class=" page__element list">
+									<li class="list__item">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
+									<li class="list__item"> Tincidunt pharetra ut lobortis id.</li>
+									<li class="list__item">Commodo sit libero lacus a egestas penatibus pretium quis lorem.</li>
+								</ul>
+							</div>
+							<div class="flex__column flex__image-ibg"><img src="@img/main-slider/04.jpg" alt=""></div>
+						</div>
+						<p class="page__element text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tincidunt pharetra ut lobortis id. Commodo sit libero lacus a egestas penatibus pretium quis lorem. Purus morbi sagittis, faucibus odio.</p>
+						<div class="page__element flex flex_jc-sb">
+							<ul class="flex flex_gap-16">
+								<li><a class="link link_tags text" href="">#Grilling</a></li>
+								<li><a class="link link_tags text" href="">#Outdoors</a></li>
+								<li><a class="link link_tags text" href="">#Cooking</a></li>
+							</ul>
+							<ul class="flex flex_gap-32">
+								<li><a class="link link__icon link__icon_comment text text_white" href="">Comment</a></li>
+								<li><a class="link link__icon link__icon_like text text_white" href="">Like</a></li>
+							</ul>
+						</div>
+
+					</div>
+					<div class="flex__sidebar sidebar">
+						<div class="sidebar__element element-sidebar">
+							<div class="element-sidebar__title text text__subtitle text_color-calisio">Search Page</div>
+							<form class="form-search" action="" method="">
+								<input type="text" name="form[]" data-error="Error" placeholder="Example" class="input-search text">
+								<button type="submit" class="button-search"></button>
+							</form>
+						</div>
+						<div class="sidebar__element element-sidebar">
+							<div class="element-sidebar__element text text__subtitle text_color-calisio">All Categories</div>
+							<div class="element-sidebar__element flex flex_jc-sb flex_gap-15">
+								<div class="flex__item flex__item_0-0-103">Photography</div>
+								<div class="flex__item flex flex_jc-sb flex_gap-15 flex__catigories">(1)</div>
+							</div>
+							<div class="element-sidebar__element flex flex_jc-sb flex_gap-15">
+								<div class="flex__item flex__item_0-0-103">Baking</div>
+								<div class="flex__item flex flex_jc-sb flex_gap-15 flex__catigories">(2)</div>
+							</div>
+							<div class="element-sidebar__element flex flex_jc-sb flex_gap-15">
+								<div class="flex__item flex__item_0-0-103">Cooking Tips</div>
+								<div class="flex__item flex flex_jc-sb flex_gap-15 flex__catigories">(6)</div>
+							</div>
+						</div>
+
+						<div class="sidebar__element element-sidebar">
+							<div class="element-sidebar__element text text__subtitle text_color-calisio">Our Latest Posts</div>
+							<div class="grid__card-blog card-blogs">
+								<div class="card-blogs__image-ibg"><img src="@img/restorane-blogs/koktail.jpg" alt=""></div>
+								<div class="card-blogs__content">
+									<div class="card-blogs__metadata">
+										<div class="card-blogs__date">23 May 2021</div>
+										<div class="card-blogs__autor">-John Micheal</div>
+									</div>
+									<h3 class="card-blogs__title">summer cocktails and mocktails</h3>
+									<p class="card-blogs__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Volutpat mattis ipsum turpis elit elit scelerisque egestas mus in.</p>
+									<a href="" class="card-blogs__link">Read More</a>
+								</div>
+							</div>
+						</div>
+
+						<div class="sidebar__element element-sidebar">
+							<div class="element-sidebar__element text text__subtitle text_color-calisio">Related Tags</div>
+							<div class="element-sidebar__element element-sidebar__element_mb-16">
+								<ul class="list flex flex_gap-8">
+									<li class="list__tags flex flex_gap-8 flex_ai-c">Grilling</li>
+									<li class="list__tags flex flex_gap-8 flex_ai-c">Cooking</li>
+									<li class="list__tags flex flex_gap-8 flex_ai-c">Baking</li>
+								</ul>
+							</div>
+							<div class="element-sidebar__element">
+								<ul class="list flex flex_gap-8">
+									<li class="list__tags flex flex_gap-8 flex_ai-c">Cuisines</li>
+									<li class="list__tags flex flex_gap-8 flex_ai-c">Chef</li>
+									<li class="list__tags flex flex_gap-8 flex_ai-c">Alcohol Mixing</li>
+								</ul>
+							</div>
+						</div>
+
+						<div class="sidebar__element element-sidebar">
+							<div class="element-sidebar__element text text__subtitle text_color-calisio">Share</div>
+							<div class="element-sidebar__element">
+								<div class="flex flex_gap-15">
+									<a href="" class="_icon-facebook link-icon"></a>
+									<a href="" class="_icon-twit link-icon"></a>
+									<a href="" class="_icon-inst link-icon"></a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="page__element page__element_mw-967 ">
+					<h3 class="page__element page__element_mb-32 text text__subtitle text_color-calisio">Comment(3)</h3>
+					<div class="page__element page__element_mb-32 flex"></div>
+				</div>
+
+
+
+
+				<!-- <div class="grid__card-blog card-blogs">
+					<div class="card-blogs__image-ibg"><img src="@img/restorane-blogs/koktail.jpg" alt=""></div>
+					<div class="card-blogs__content">
+						<div class="card-blogs__metadata">
+							<div class="card-blogs__date">23 May 2021</div>
+							<div class="card-blogs__autor">-John Micheal</div>
+						</div>
+						<h3 class="card-blogs__title">summer cocktails and mocktails</h3>
+						<p class="card-blogs__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Volutpat mattis ipsum turpis elit elit scelerisque egestas mus in.</p>
+						<a href="" class="card-blogs__link">Read More</a>
+					</div>
+				</div> -->
+			</div>
+
+			<!-- <div data-decor class="page__container page__container_avptb decor__blogs">
+				<div class="flex flex_gap-69">
+					<div class="flex__contetnt flex__contetnt_70 grid">
+						<div class="grid grid_two-column grid_two-column_mobilesmall grid__element grid__element_mb-64">
+							<div class="grid__card-blog card-blogs">
+								<div class="card-blogs__image-ibg"><img src="@img/restorane-blogs/meet.jpg" alt=""></div>
+								<div class="card-blogs__content">
+									<div class="card-blogs__metadata">
+										<div class="card-blogs__date">16 Apr 2021</div>
+										<div class="card-blogs__autor">- Annalisa L</div>
+									</div>
+									<h3 class="card-blogs__title">tips for prepping and caring for your grill</h3>
+									<p class="card-blogs__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Volutpat mattis ipsum turpis elit elit scelerisque egestas mus in.</p>
+									<a href="" class="card-blogs__link">Read More</a>
+								</div>
+							</div>
+							<div class="grid__card-blog card-blogs">
+								<div class="card-blogs__image-ibg"><img src="@img/restorane-blogs/koktail.jpg" alt=""></div>
+								<div class="card-blogs__content">
+									<div class="card-blogs__metadata">
+										<div class="card-blogs__date">23 May 2021</div>
+										<div class="card-blogs__autor">-John Micheal</div>
+									</div>
+									<h3 class="card-blogs__title">summer cocktails and mocktails</h3>
+									<p class="card-blogs__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Volutpat mattis ipsum turpis elit elit scelerisque egestas mus in.</p>
+									<a href="" class="card-blogs__link">Read More</a>
+								</div>
+							</div>
+							<div class="grid__card-blog card-blogs">
+								<div class="card-blogs__image-ibg"><img src="@img/restorane-blogs/desert.jpg" alt=""></div>
+								<div class="card-blogs__content">
+									<div class="card-blogs__metadata">
+										<div class="card-blogs__date">06 Aug 2021</div>
+										<div class="card-blogs__autor">-Fred W</div>
+									</div>
+									<h3 class="card-blogs__title">easy cooking for college students</h3>
+									<p class="card-blogs__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Volutpat mattis ipsum turpis elit elit scelerisque egestas mus in.</p>
+									<a href="" class="card-blogs__link">Read More</a>
+								</div>
+							</div>
+							<div class="grid__card-blog card-blogs">
+								<div class="card-blogs__image-ibg"><img src="@img/restorane-blogs/co.jpg" alt=""></div>
+								<div class="card-blogs__content">
+									<div class="card-blogs__metadata">
+										<div class="card-blogs__date">17 June 2018</div>
+										<div class="card-blogs__autor">-Kaityln B</div>
+									</div>
+									<h3 class="card-blogs__title">Co-ordination & Teamwork Tips from a sous chef</h3>
+									<p class="card-blogs__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Volutpat mattis ipsum turpis elit elit scelerisque egestas mus in.</p>
+									<a href="" class="card-blogs__link">Read More</a>
+								</div>
+							</div>
+						</div>
+						<button type="submit" class="button grid__element grid__element_js-center">View More</button>
+					</div>
+					<div class="flex__sidebar sidebar">
+
+						<div class="sidebar__element element-sidebar">
+							<div class="element-sidebar__title text text__subtitle text_color-calisio">Search Page</div>
+							<form class="form-search" action="" method="">
+								<input type="text" name="form[]" data-error="Error" placeholder="Example" class="input-search text">
+								<button type="submit" class="button-search"></button>
+							</form>
+						</div>
+						<div class="sidebar__element element-sidebar">
+							<div class="element-sidebar__element text text__subtitle text_color-calisio">All Categories</div>
+							<div class="element-sidebar__element flex flex_jc-sb flex_gap-15">
+								<div class="flex__item flex__item_0-0-103">Photography</div>
+								<div class="flex__item flex flex_jc-sb flex_gap-15 flex__catigories">(1)</div>
+							</div>
+							<div class="element-sidebar__element flex flex_jc-sb flex_gap-15">
+								<div class="flex__item flex__item_0-0-103">Baking</div>
+								<div class="flex__item flex flex_jc-sb flex_gap-15 flex__catigories">(2)</div>
+							</div>
+							<div class="element-sidebar__element flex flex_jc-sb flex_gap-15">
+								<div class="flex__item flex__item_0-0-103">Cooking Tips</div>
+								<div class="flex__item flex flex_jc-sb flex_gap-15 flex__catigories">(6)</div>
+							</div>
+						</div>
+
+						<div class="sidebar__element element-sidebar">
+							<div class="element-sidebar__element text text__subtitle text_color-calisio">Our Latest Posts</div>
+							<div class="grid__card-blog card-blogs">
+								<div class="card-blogs__image-ibg"><img src="@img/restorane-blogs/koktail.jpg" alt=""></div>
+								<div class="card-blogs__content">
+									<div class="card-blogs__metadata">
+										<div class="card-blogs__date">23 May 2021</div>
+										<div class="card-blogs__autor">-John Micheal</div>
+									</div>
+									<h3 class="card-blogs__title">summer cocktails and mocktails</h3>
+									<p class="card-blogs__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Volutpat mattis ipsum turpis elit elit scelerisque egestas mus in.</p>
+									<a href="" class="card-blogs__link">Read More</a>
+								</div>
+							</div>
+						</div>
+
+						<div class="sidebar__element element-sidebar">
+							<div class="element-sidebar__element text text__subtitle text_color-calisio">Related Tags</div>
+							<div class="element-sidebar__element element-sidebar__element_mb-16">
+								<ul class="list flex flex_gap-8">
+									<li class="list__tags flex flex_gap-8 flex_ai-c">Grilling</li>
+									<li class="list__tags flex flex_gap-8 flex_ai-c">Cooking</li>
+									<li class="list__tags flex flex_gap-8 flex_ai-c">Baking</li>
+								</ul>
+							</div>
+							<div class="element-sidebar__element">
+								<ul class="list flex flex_gap-8">
+									<li class="list__tags flex flex_gap-8 flex_ai-c">Cuisines</li>
+									<li class="list__tags flex flex_gap-8 flex_ai-c">Chef</li>
+									<li class="list__tags flex flex_gap-8 flex_ai-c">Alcohol Mixing</li>
+								</ul>
+							</div>
+						</div>
+
+						<div class="sidebar__element element-sidebar">
+							<div class="element-sidebar__element text text__subtitle text_color-calisio">Share</div>
+							<div class="element-sidebar__element">
+								<div class="flex flex_gap-15">
+									<a href="" class="_icon-facebook link-icon"></a>
+									<a href="" class="_icon-twit link-icon"></a>
+									<a href="" class="_icon-inst link-icon"></a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div> -->
+
+		</main>
+		@@include('html/_footer.htm',{})
+	</div>
+	@@include('html/_popup.htm',{})
+	@@include('html/_js.htm',{})
+</body>
+
+</html>
