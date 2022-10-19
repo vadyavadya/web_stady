@@ -14,7 +14,7 @@
 			/* opacity: 0; */
 		}
 	</style>
-	<link rel="stylesheet" href="css/style.min.css?_v=20221018164133">
+	<link rel="stylesheet" href="css/style.min.css?_v=20221019144823">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -105,7 +105,7 @@
 
 				<div class="page__image-ibg image-ibg_pb-33 page__element"><picture><source srcset="img/restorane-blogs/meet.webp" type="image/webp"><img src="img/restorane-blogs/meet.jpg" alt=""></picture></div>
 
-				<div class="page__element page__element_mb-152 flex flex_gap-69">
+				<div class="page__element page__element_mb-152 flex flex_mobile-block flex_gap-69">
 					<div class="flex__contetnt flex__contetnt_70">
 						<p class="page__element text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tincidunt pharetra ut lobortis id. Commodo sit libero lacus a egestas penatibus pretium quis lorem. Purus morbi sagittis, faucibus odio. Elementum felis nibh at purus consectetur phasellus lacus, pellentesque dictumst. Pellentesque eu malesuada id vitae risus, libero. Ullamcorper turpis blandit faucibus turpis. Eu elit faucibus leo eget.</p>
 						<h3 class="page__element page__element_mb-32 text text__subtitle text__subtitle_2 text_color-calisio">How to prepare your grill</h3>
@@ -123,8 +123,8 @@
 						<div class="page__quote page__element">
 							<h3 class="text text__subtitle text_ta-c">There is no love sincerer than the love of food.</h3>
 						</div>
-						<div class="page__element flex flex_gap-32">
-							<div class="flex__column flex__column_60">
+						<div class="page__element flex flex_mobile-block flex_gap-32">
+							<div class="flex__column flex__element_mobile-mb flex__column_60">
 								<h3 class="flex__element text text__subtitle text__subtitle_2 text_color-calisio">How to care for your grill</h3>
 								<p class="flex__element text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tin cidunt pharetra ut lobortis id. Commodo sit libero lacus a egestas penatibus pretium quis lorem.</p>
 								<ul class=" page__element list">
@@ -133,17 +133,17 @@
 									<li class="list__item">Commodo sit libero lacus a egestas penatibus pretium quis lorem.</li>
 								</ul>
 							</div>
-							<div class="flex__column flex__image-ibg"><picture><source srcset="img/main-slider/04.webp" type="image/webp"><img src="img/main-slider/04.jpg" alt=""></picture></div>
+							<div class="flex__column flex__image-ibg "><picture><source srcset="img/main-slider/04.webp" type="image/webp"><img src="img/main-slider/04.jpg" alt=""></picture></div>
 						</div>
 						<p class="page__element text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tincidunt pharetra ut lobortis id. Commodo sit libero lacus a egestas penatibus pretium quis lorem. Purus morbi sagittis, faucibus odio.</p>
-						<div class="page__element flex flex_jc-sb">
+						<div class="page__element flex flex_mobile-block flex_wrap flex_jc-sb">
 							<ul class="flex flex_gap-16">
 								<li><a class="link link_tags text" href="">#Grilling</a></li>
 								<li><a class="link link_tags text" href="">#Outdoors</a></li>
 								<li><a class="link link_tags text" href="">#Cooking</a></li>
 							</ul>
-							<ul class="flex flex_gap-32">
-								<li><a class="link link__icon link__icon_comment text text_white" href="">Comment</a></li>
+							<ul class="flex flex_jc-fe flex_gap-32">
+								<li><a data-goto="#go-comment" class="link link__icon link__icon_comment text text_white" href="">Comment</a></li>
 								<li><a class="link link__icon link__icon_like text text_white" href="">Like</a></li>
 							</ul>
 						</div>
@@ -220,12 +220,84 @@
 					</div>
 				</div>
 
-				<div class="page__element page__element_mw-967 ">
+				<div id="go-comment" data-decor class="page__element page__element_mb-152 page__element_mw-967 decor__comment">
 					<h3 class="page__element page__element_mb-32 text text__subtitle text_color-calisio">Comment(3)</h3>
-					<div class="page__element page__element_mb-32 flex"></div>
+					<div class="page__element page__element_mb-32 comment">
+						<div class="comment__image-ibg"><picture><source srcset="img/comment/nora.webp" type="image/webp"><img src="img/comment/nora.jpg" alt=""></picture></div>
+						<div class="comment__column">
+							<div class="comment__content">
+								<div class="comment__name comment__element text text__subtitle text__subtitle_2">Nora Martin</div>
+								<div class="comment__date comment__element text">01 Dec 2020</div>
+								<div class="comment__text comment__element text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ut eu morbi tincidunt erat egestas quisque ultrices ut. Vel elementum blandit et tellus sit tincidunt nulla non tincidunt.</div>
+								<form class="comment__form comment__element form" action="#">
+									<div class="form__element form__flex-start">
+										<button type="submit" class="text text_white">Reply to Nora Martin</button>
+										<button type="reset" class="text">Cancel Reply</button>
+									</div>
+									<textarea name="comment-text" class="form__element form__textarea" placeholder="Hi there! I love your blog...."></textarea>
+									<button type="submit" class="button form__element">Submit</button>
+								</form>
+							</div>
+							<button class="comment__reply text">Reply</button>
+						</div>
+					</div>
+					<div class="page__element page__element_mb-32 comment comment_comment-replay">
+						<div class="comment__image-ibg"><picture><source srcset="img/comment/nora.webp" type="image/webp"><img src="img/comment/nora.jpg" alt=""></picture></div>
+						<div class="comment__column">
+							<div class="comment__content">
+								<div class="comment__name comment__element text text__subtitle text__subtitle_2">Nora Martin</div>
+								<div class="comment__date comment__element text">01 Dec 2020</div>
+								<div class="comment__text comment__element text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ut eu morbi tincidunt erat egestas quisque ultrices ut. Vel elementum blandit et tellus sit tincidunt nulla non tincidunt.</div>
+								<form class="comment__form comment__element form" action="#">
+									<div class="form__element form__flex-start">
+										<button type="submit" class="text text_white">Reply to Nora Martin</button>
+										<button type="reset" class="text">Cancel Reply</button>
+									</div>
+									<textarea name="comment-text" class="form__element form__textarea" placeholder="Hi there! I love your blog...."></textarea>
+									<button type="submit" class="button form__element">Submit</button>
+								</form>
+							</div>
+							<button class="comment__reply text">Reply</button>
+						</div>
+					</div>
+					<div class="page__element page__element_mb-32 comment">
+						<div class="comment__image-ibg"><picture><source srcset="img/comment/nora.webp" type="image/webp"><img src="img/comment/nora.jpg" alt=""></picture></div>
+						<div class="comment__column">
+							<div class="comment__content">
+								<div class="comment__name comment__element text text__subtitle text__subtitle_2">Nora Martin</div>
+								<div class="comment__date comment__element text">01 Dec 2020</div>
+								<div class="comment__text comment__element text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ut eu morbi tincidunt erat egestas quisque ultrices ut. Vel elementum blandit et tellus sit tincidunt nulla non tincidunt.</div>
+								<form class="comment__form comment__element form" action="#">
+									<div class="form__element form__flex-start">
+										<button type="submit" class="text text_white">Reply to Nora Martin</button>
+										<button type="reset" class="text">Cancel Reply</button>
+									</div>
+									<textarea name="comment-text" class="form__element form__textarea" placeholder="Hi there! I love your blog...."></textarea>
+									<button type="submit" class="button form__element">Submit</button>
+								</form>
+							</div>
+							<button class="comment__reply text">Reply</button>
+						</div>
+					</div>
 				</div>
 
-
+				<div data-decor class="page__element page__element_mb-152 page__element_mw-635 decor__blogs">
+					<h3 class="page__element text text__subtitle text_color-calisio">Post a Comment</h3>
+					<form class="form" action="#">
+						<textarea name="comment-text" class="form__element form__element_40  form__textarea" placeholder="Hello There, My message..."></textarea>
+						<div class="form__element  form__element_40 form__flex-start">
+							<input type="text" class="form__input" placeholder="First Name">
+							<input type="text" class="form__input" placeholder="Last Name">
+						</div>
+						<div class="form__element  form__element_40">
+							<div class="checkbox">
+								<input id="c_1" data-error="Ошибка" class="checkbox__input" type="checkbox" value="1" name="form[]">
+								<label for="c_1" class="checkbox__label"><span class="checkbox__text text">Save my name and email in this browser for the next time I comment.</span></label>
+							</div>
+						</div>
+						<button type="submit" class="button form__element">Submit</button>
+					</form>
+				</div>
 
 
 				<!-- <div class="grid__card-blog card-blogs">
@@ -489,7 +561,7 @@
 			</div>
 		</div>
 	</div>
-	<script src="js/app.min.js?_v=20221018164133"></script>
+	<script src="js/app.min.js?_v=20221019144823"></script>
 </body>
 
 </html>

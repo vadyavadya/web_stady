@@ -45,6 +45,7 @@
     // .hero__path
     &__path {
         display: flex;
+        flex-wrap: wrap;
         gap: rem(8);
         justify-content: center;
     }

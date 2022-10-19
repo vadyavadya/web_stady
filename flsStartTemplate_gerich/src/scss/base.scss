@@ -221,6 +221,7 @@
 	&__container {
 	}
 	&__element {
+		position: relative;
 		&:not(:last-child) {
 			margin-bottom: rem(40);
 		}
@@ -241,6 +242,9 @@
 		}
 		&_mw-967 {
 			max-width: rem(967);
+		}
+		&_mw-635 {
+			max-width: rem(635);
 		}
 	}
 	&__quote {
@@ -361,9 +365,20 @@
 .decor {
 	&__blogs {
 		&::before {
-			content: "";
 			top: 50%;
 			right: rem(-280);
+		}
+	}
+	&__comment {
+		&::before {
+			bottom: rem(0);
+			left: rem(-280);
+		}
+	}
+	&__error-footer{
+		&::before {
+			bottom: rem(0);
+			left: rem(280);
 		}
 	}
 }
@@ -1308,74 +1323,103 @@
 	&__card-blog {
 	}
 }
-@media (min-width: $mobileSmall) {
-	.flex {
-		display: flex;
-		&_gap-69 {
-			// gap: 69px;
-			@include adaptiveValue("gap", 69, 32);
+
+.flex {
+	display: flex;
+	&_mobile-block {
+		@media (max-width: $mobile) {
+			display: block;
 		}
-		&_gap-8 {
-			gap: rem(8);
-		}
-		&_gap-32 {
-			gap: rem(32);
-		}
-		// .flex_gap-15
-		&_gap-15 {
-			gap: rem(15);
-		}
-		&_gap-16 {
-			gap: rem(16);
-		}
-		&_ai-c {
-			align-items: center;
-		}
-		// .flex__contetnt
-		&__contetnt {
-			&_70 {
+	}
+	&_wrap {
+		flex-wrap: wrap;
+	}
+	&_gap-69 {
+		// gap: 69px;
+		@include adaptiveValue("gap", 69, 32);
+	}
+	&_gap-8 {
+		gap: rem(8);
+	}
+	&_gap-32 {
+		gap: rem(32);
+	}
+	// .flex_gap-15
+	&_gap-15 {
+		gap: rem(15);
+	}
+	&_gap-16 {
+		gap: rem(16);
+	}
+	&_ai-c {
+		align-items: center;
+	}
+	// .flex__contetnt
+	&__contetnt {
+		&_70 {
+			@media (min-width: $mobile) {
 				flex: 1 1 70%;
 			}
 		}
-		&__sidebar {
-			flex: 1 1 30%;
-			@media (max-width: $mobile) {
-				display: none;
-			}
+	}
+	&__sidebar {
+		flex: 1 1 30%;
+		@media (max-width: $mobile) {
+			display: none;
 		}
-		// .flex_jc
-		&_jc-sb {
-			justify-content: space-between;
-		}
+	}
+	// .flex_jc
+	&_jc-sb {
+		justify-content: space-between;
+	}
+	&_jc-fe {
+		justify-content: flex-end;
+	}
 
-		// .flex__item
-		&__item {
-			flex: 1 1 auto;
-			&_0-0-103 {
-				flex: 0 0 rem(103);
+	// .flex__item
+	&__item {
+		flex: 1 1 auto;
+		&_0-0-103 {
+			flex: 0 0 rem(103);
+		}
+	}
+	// .flex__catigories
+	&__catigories {
+		align-items: center;
+		&::before {
+			content: "";
+			height: 1px;
+			width: 100%;
+			background-color: #fafafa;
+		}
+	}
+	&__element {
+		&:not(:last-child) {
+			margin-bottom: rem(32);
+		}
+		&_mobile-mb {
+			@media (max-width: $mobile) {
+				&:not(:last-child) {
+					margin-bottom: rem(32);
+				}
 			}
 		}
-		// .flex__catigories
-		&__catigories {
-			align-items: center;
-			&::before {
-				content: "";
-				height: 1px;
-				width: 100%;
-				background-color: #fafafa;
-			}
+	}
+	&__column {
+		flex: 1 1 auto;
+		&_60 {
+			flex: 0 1 60%;
 		}
-		&__element {
-			&:not(:last-child) {
-				margin-bottom: rem(32);
-			}
+		&_40 {
+			flex: 1 1 40%;
 		}
-		&__column {
-			flex: 1 1 auto;
-			&_60 {
-				flex: 0 1 60%;
-			}
+		&_as-top {
+			align-self: flex-start;
 		}
+	}
+	&__image-ibg {
+		padding-bottom: 30%;
+		min-width: 200px;
 	}
 }
 
@@ -1573,6 +1617,65 @@
 				height: 1px;
 				background-color: $colorCalicio;
 			}
+		}
+	}
+}
+
+.comment {
+	padding: rem(16) rem(32);
+	@include adaptiveValue("padding-left", 32, 0);
+	@include adaptiveValue("padding-right", 32, 0);
+	display: flex;
+	align-items: flex-start;
+	gap: rem(24);
+	// .comment_replay
+	&_comment-replay {
+		@include adaptiveValue("padding-left", 121, 0);
+	}
+	&_replay {
+	}
+	// .comment__image-ibg
+	&__image-ibg {
+		flex: 0 0 15.5%;
+		padding-bottom: 15.5%;
+	}
+	// .comment__content
+	&__content {
+	}
+	&__column {
+		@media (min-width: $mobile) {
+			display: flex;
+			gap: rem(24);
+			align-items: flex-start;
+		}
+	}
+	// .comment__name
+	&__name {
+	}
+	// .comment__date
+	&__date {
+	}
+	// .comment__text
+	&__text {
+	}
+	// .comment__form
+	&__form {
+		max-height: 0px;
+		transition: all 0.3s ease 0s;
+		opacity: 0;
+		visibility: hidden;
+		.comment_replay & {
+			visibility: visible;
+			max-height: 1000px;
+			opacity: 1;
+		}
+	}
+	// .comment__reply
+	&__reply {
+	}
+	&__element {
+		&:not(:last-child) {
+			margin-bottom: rem(16);
 		}
 	}
 }

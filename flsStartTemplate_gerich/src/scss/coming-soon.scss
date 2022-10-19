@@ -28,7 +28,7 @@
         justify-content: center;
         @include adaptiveValue("gap", 40, 16);
         &::before {
-            top: 0;
+            top: rem(150);
             right: rem(-100);
         }
     }

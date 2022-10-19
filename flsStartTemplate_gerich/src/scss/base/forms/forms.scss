@@ -16,6 +16,68 @@
 	}
 }
 
+.form {
+	// .form__element
+	&__element {
+		&:not(:last-child) {
+			margin-bottom: rem(16);
+		}
+		&_40 {
+			&:not(:last-child) {
+				margin-bottom: rem(40);
+			}
+		}
+	}
+	// .form__flex-start
+	&__flex-start {
+		@media (min-width: $mobile) {
+			display: flex;
+			justify-content: flex-start;
+			gap: rem(32);
+		}
+	}
+	// .form__textarea
+	&__textarea {
+		background: transparent;
+		border: 1px solid #f5efdb;
+		width: 100%;
+		resize: vertical;
+		min-height: rem(140);
+		padding: rem(16);
+		color: white;
+		outline: none;
+		transition: all 0.3s ease 0s;
+		&::placeholder {
+			@extend %ffcu;
+			font-weight: 700;
+		}
+		&:focus {
+			background: rgba(255, 255, 255, 0.107);
+		}
+	}
+	&__input {
+		transition: all 0.3s ease 0s;
+		background: transparent;
+		border: 1px solid #f5efdb;
+		width: 100%;
+		padding: rem(16);
+		color: white;
+		outline: none;
+		&::placeholder {
+			@extend %ffcu;
+			font-weight: 700;
+		}
+		&:focus {
+			background: rgba(255, 255, 255, 0.107);
+		}
+		@media (max-width: $mobile) {
+			&:not(:last-child) {
+				margin-bottom: rem(40);
+			}
+		}
+	}
+}
+
 .form-book {
 	&__lines {
 		display: flex;
@@ -88,7 +150,7 @@
 
 // <CHECK>
 // Снипет (HTML): chk
-// @import "checkbox";
+@import "checkbox";
 
 // <RADIO>
 // Снипет (HTML): opt

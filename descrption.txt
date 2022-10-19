@@ -99,7 +99,7 @@ req - Добавляет атрибут к полю формы
 
 
 inp - input
-txta - texarea
+txta - textarea
 sel
 opt
 chk

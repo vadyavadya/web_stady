@@ -4361,7 +4361,6 @@
                 let imgActiv = imgList.length - 1;
                 setInterval(changeImage, setTimer);
                 function changeImage() {
-                    console.log("pervi");
                     let imgNext = imgActiv + 1;
                     if (imgNext == imgList.length) imgNext = 0;
                     imgList[imgActiv].style.opacity = 0;
@@ -12058,6 +12057,14 @@ PERFORMANCE OF THIS SOFTWARE.
                     }
                 }
             }
+            const comments = document.querySelectorAll(".comment");
+            if (comments.length > 0) comments.forEach((comment => {
+                let buttonReply = comment.querySelector(".comment__reply");
+                buttonReply.addEventListener("click", (function() {
+                    comment.classList.toggle("comment_replay");
+                }));
+                console.log(comment);
+            }));
         }));
         window["FLS"] = true;
         isWebp();

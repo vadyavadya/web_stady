@@ -169,13 +169,14 @@
 		opacity: 0;
 		visibility: hidden;
 		width: auto;
-		padding: rem(20);
+		padding: 0;
 		background: rgb(12, 11, 8);
 		background: linear-gradient(180deg, rgba(12, 11, 8, 1) 0%, rgba(12, 11, 8, 1) 68%, rgba(12, 11, 8, 0) 100%);
 		border-radius: rem(10);
 		._active &,
 		html:not(.touch) .menu__item:hover & {
 			max-height: 1000px;
+			padding: rem(20);
 			opacity: 1;
 			visibility: visible;
 		}

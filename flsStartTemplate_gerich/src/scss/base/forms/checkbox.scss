@@ -14,6 +14,8 @@
 		}
 		&:checked + .checkbox__label:before {
 			background: #000;
+			background: url("@img/checkbox.svg") no-repeat center center / 100% 100%;
+			border: none;
 		}
 	}
 	// .checkbox__label
@@ -25,11 +27,13 @@
 		gap: 10px;
 		&:before {
 			content: "";
-			align-self: flex-start;
+			// align-self: flex-start;
 			flex: 0 0 20px;
 			width: 20px;
 			height: 20px;
-			border: 1px solid #a7a9ac;
+			border: 2px solid $colorCalicio;
+			border-radius: 2px;
+			background-color: transparent;
 		}
 	}
 	// .checkbox__text

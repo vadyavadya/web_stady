@@ -125,4 +125,16 @@ window.addEventListener('load', () => {
         }
     }
 
+    const comments = document.querySelectorAll(".comment");
+    if (comments.length > 0) {
+        comments.forEach(comment => {
+            let buttonReply = comment.querySelector(".comment__reply");
+            buttonReply.addEventListener("click", function () {
+                comment.classList.toggle("comment_replay");
+            });
+
+            console.log(comment);
+        });
+    }
+
 });

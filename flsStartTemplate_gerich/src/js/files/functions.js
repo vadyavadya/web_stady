@@ -753,7 +753,6 @@ export function imagesAutoplay() {
 			let imgActiv = imgList.length - 1;
 			setInterval(changeImage, setTimer)
 			function changeImage() {
-				console.log('pervi');
 				let imgNext = imgActiv + 1;
 				if (imgNext == imgList.length) {
 					imgNext = 0;
