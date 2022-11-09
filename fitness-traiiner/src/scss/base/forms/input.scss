@@ -9,14 +9,24 @@ textarea {
 	appearance: none;
 }
 .input {
-	border-radius: 0 !important;
+	border-radius: 5px !important;
 	width: 100%;
 	display: block;
 	padding: 0px 20px;
-	border: 1px solid #eee;
+	border: 1px solid #000;
+	transition: all 0.3s ease 0s;
 	&._form-focus {
+		background: rgb(245, 245, 245);
 	}
 	&._form-error {
+	}
+	// .input_br-r
+	&_br-r {
+		border-radius: 5px 0 0 5px !important;
+	}
+	outline: none;
+	&:focus {
+		
 	}
 }
 textarea.input {

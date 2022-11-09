@@ -3338,3 +3338,10 @@ if (list) {
 if (listElement && listElement.classList.contains('list')) { // НЕ СТАВИТЬ ТОЧКУ!!!!!
 	console.log('Юху!');
 }
+
+
+
+Запрет f12
+window.onkeydown = function(evt) {
+    if(evt.code == "F12") return false;
+};

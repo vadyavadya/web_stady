@@ -14,6 +14,10 @@
 	&__error {
 	}
 }
+.get-started {
+	display: flex;
+}
+
 //</FORM>
 
 // <BUTTONS>
@@ -22,7 +26,7 @@
 
 // <INPUTS>
 // Снипет (HTML): inp
-// @import "input";
+@import "input";
 
 // <CHECK>
 // Снипет (HTML): chk

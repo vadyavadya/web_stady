@@ -1,4 +1,105 @@
 //========================================================================================================================================================
-.page {
+.test {
+    height: 920px;
 }
+
+.page {
+    // .page__block
+    &__block {
+        &:not(:last-child) {
+            margin-bottom: rem(140);
+        }
+    }
+    // .page__container
+    &___container {
+    }
+    // .page__grid
+    &__grid {
+    }
+}
+
+.grid {
+    @media (min-width: $mobile) {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: rem(20);
+    }
+    // .grid_ai-c
+    &_ai-c {
+        align-items: center;
+    }
+    // .grid__column
+    &__column {
+        &_mw-490 {
+            max-width: rem(490);
+        }
+    }
+}
+.content {
+    &__title {
+        &:not(:last-child) {
+            margin-bottom: rem(23);
+        }
+    }
+    // .content__element
+    &__element {
+        // .content__element_mb-2
+        &_mb-2 {
+            &:not(:last-child) {
+                margin-bottom: rem(2);
+            }
+        }
+        // .content__element_mb-60
+        &_mb-60 {
+            &:not(:last-child) {
+                margin-bottom: rem(60);
+            }
+        }
+        // .content__element_mb-9
+        &_mb-9 {
+            &:not(:last-child) {
+                margin-bottom: rem(9);
+            }
+        }
+    }
+}
+.text {
+    &_color-second {
+        color: $secondColor;
+    }
+    // .text_bold
+    &_bold {
+        font-weight: 700;
+        color: $secondColor;
+    }
+    &_fz-18 {
+        font-size: rem(18);
+    }
+}
+.title-health {
+    font-weight: 900;
+    font-size: rem(100);
+    color: $secondColor;
+    line-height: 0.8;
+    // .title-health__first-word
+    &__first-word {
+    }
+    // .title-health__second-word
+    &__second-word {
+        padding-left: rem(64);
+        position: relative;
+        &::before {
+            content: "";
+            display: block;
+            width: rem(90);
+            height: rem(101);
+            background: url("@img/health-title/end.svg") no-repeat center / contain;
+            position: absolute;
+            left: rem(6);
+            bottom: 0;
+        }
+    }
+}
+
+
 //====================================================================================================
