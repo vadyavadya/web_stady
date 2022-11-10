@@ -17,6 +17,19 @@
 .get-started {
 	display: flex;
 }
+.form-sub {
+	display: flex;
+	gap: rem(20);
+	max-width: rem(600);
+	margin: 0 auto;
+	.input-sub {
+		flex: 1 1 auto;
+	}
+	@media (max-width: $mobileSmall) {
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+}
 
 //</FORM>
 

@@ -1,4 +1,93 @@
 //====================================================================================================
 .footer {
+    background: $secondColor;
+    // .footer__container
+    &__container {
+        // .footer__container_narrow
+        &_narrow {
+        }
+    }
+    // .footer__subscribe
+    &__subscribe {
+        @include adaptiveValue("padding-top", 176, 20);
+        @include adaptiveValue("padding-bottom", 176, 20);
+    }
+    // .footer__grid
+    &__grid {
+        @media (min-width: $mobileSmall) {
+            // display: grid;
+            // grid-template-columns: 1fr 1fr;
+            display: flex;
+            justify-content: space-between;
+            gap: rem(20);
+        }
+        @media (max-width: $tablet) {
+            flex-wrap: wrap;
+        }
+        @media (min-width: $tablet) {
+            // grid-template-columns: repeat(4, 1fr);
+        }
+        &:not(:last-child) {
+            @include adaptiveValue("margin-bottom", 72, 36);
+        }
+    }
+    // .footer__column
+    &__column {
+        max-width: rem(192);
+        @media (max-width: $mobileSmall) {
+            &:not(:last-child) {
+                margin-bottom: rem(36);
+            }
+        }
+    }
+
+    // .footer__sutitle
+    &__sutitle {
+        font-weight: 600;
+        font-size: rem(20);
+        color: $whiteColor;
+        &:not(:last-child) {
+            margin-bottom: rem(26);
+            font-size: rem(22);
+        }
+        // .footer__sutitle_icon
+        &_icon {
+            font-weight: 800;
+        }
+    }
+    // .footer__list
+    &__list {
+    }
+    // .footer__item
+    &__item {
+        font-size: rem(14);
+        color: $whiteColor;
+        &:not(:last-child) {
+            margin-bottom: rem(22);
+            @include adaptiveValue(" margin-bottom", 22, 14);
+        }
+    }
+    // .footer__copyright
+    &__copyright {
+        text-align: center;
+        padding-bottom: rem(22);
+        color: $whiteColor;
+        font-feature-settings: "liga" off;
+    }
 }
+.subscribe {
+    // .subscribe__title
+    &__title {
+        font-weight: 500;
+        @include adaptiveValue("font-size", 65, 32);
+        text-align: center;
+        color: $whiteColor;
+        max-width: rem(860);
+        margin: 0 auto;
+        &:not(:last-child) {
+            margin-bottom: rem(36);
+        }
+    }
+}
+
 //====================================================================================================

@@ -27,6 +27,7 @@
 	&_br-r {
 		border-radius: 0 5px 5px 0;
 	}
+	// .button_white
 }
 
 .button-link {
@@ -34,4 +35,11 @@
 	font-size: 17px;
 	color: $secondColor;
 	white-space: nowrap;
+}
+.button-white {
+	padding: rem(18) rem(46);
+	background: $whiteColor;
+	font-size: rem(17);
+	color: $secondColor;
+	border-radius: 5px;
 }

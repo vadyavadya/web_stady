@@ -26,10 +26,16 @@ textarea {
 	}
 	outline: none;
 	&:focus {
-		
 	}
 }
 textarea.input {
 	resize: none;
 	padding: 0px 0px;
+}
+.input-sub {
+	background: inherit;
+	color: #e0e0e0;
+	outline: none;
+	border-bottom: 1px solid #e0e0e0;
+	padding-left: rem(18);
 }

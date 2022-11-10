@@ -9,17 +9,17 @@
 		<!-- @@include('html/_preload.htm',{}) -->
 		@@include('html/_header.htm',{})
 		<main class="page">
-			<section class="page__block ">
+			<section data-watch class="page__block">
 				<div class="page__container ">
 					<div class="page__grid grid grid_ai-c">
-						<div class="grid__column grid__column_mw-490 content">
-							<div class="content__element content__element_mb-9 title-health">
+						<div class="grid__column grid__column_mw-490 content animation">
+							<div class="content__element animation__left content__element_mb-9 title-health">
 								<div class="title-health__first-word">Health</div>
 								<div class="title-health__second-word">Fitness</div>
 							</div>
-							<p class="content__element content__element_mb-2 text text_bold">Always get adieus nature day course for common.</p>
-							<p class="content__element content__element_mb-60 text">Why sir end believe uncivil respect. Always get adieus nature day course for common. My little garret repair to desire he esteem.</p>
-							<div class="content__element">
+							<p class="content__element animation__left animation__left_2 content__element_mb-2 text text_bold">Always get adieus nature day course for common.</p>
+							<p class="content__element animation__left animation__left_3 content__element_mb-60 text">Why sir end believe uncivil respect. Always get adieus nature day course for common. My little garret repair to desire he esteem.</p>
+							<div class="content__element animation__left animation__left_4">
 								<form action="files/sendmail/sendmail.php" method="POST">
 									<div class="get-started">
 										<input type="text" name="form[email]" data-error="Error" placeholder="Enter your email to get started" class="input input_br-r">
@@ -28,12 +28,61 @@
 								</form>
 							</div>
 						</div>
-						<div class="grid__column">
-							<div class="test"></div>
+						<div class="grid__column grid__column_mt-headr animation animation__scale">
+							<div class="decor">
+								<div class="decor__archs"></div>
+								<div class="decor__lines"></div>
+							</div>
+							<div class="grid__element image image__start-image">
+								<img src="@img/start-block/gerl-start.png" alt="">
+							</div>
+
 						</div>
 					</div>
 				</div>
 			</section>
+			<section data-watch data-watch-threshold="0.5" class="page__block">
+				<div class="page__container ">
+					<div class="grid page__dooter-decor">
+						<div class="grid__column grid__column_mw-490 content animation  animation__left">
+							<div class="content__element text text_title">Our Partners</div>
+							<div class="content__element text text_color-second">Why sir end believe uncivil respect. Always get adieus nature day course for common. My little garret repair to desire he esteem.</div>
+						</div>
+						<div class="grid__column">
+							<div class="company-card">
+								<div class="company-card__pading">
+									<div class="company-card__card animation animation__netbook">
+										<div class="company-card__image-ibg company-card__image-ibg_contain"><img src="@img/cards-company/lf.svg" alt=""></div>
+									</div>
+								</div>
+								<div class="company-card__pading">
+									<div class="company-card__card animation animation__netbook">
+										<div class="company-card__image-ibg company-card__image-ibg_contain"><img src="@img/cards-company/cybex.svg" alt=""></div>
+									</div>
+								</div>
+								<div class="company-card__pading">
+									<div class="company-card__card animation animation__netbook">
+										<div class="company-card__image-ibg company-card__image-ibg_contain"><img src="@img/cards-company/precor.svg" alt=""></div>
+									</div>
+								</div>
+								<div class="company-card__pading">
+									<div class="company-card__card animation animation__netbook">
+										<div class="company-card__image-ibg company-card__image-ibg_contain"><img src="@img/cards-company/true.svg" alt=""></div>
+									</div>
+								</div>
+								<div class="company-card__pading">
+									<div class="company-card__card animation animation__netbook">
+										<div class="company-card__image-ibg company-card__image-ibg_contain"><img src="@img/cards-company/octane-fitness.svg" alt=""></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<div class="page__block">
+				s
+			</div>
 
 		</main>
 		@@include('html/_footer.htm',{})
