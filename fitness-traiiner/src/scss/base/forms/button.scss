@@ -4,8 +4,7 @@
 .button {
 	// display: inline-flex;
 	padding: rem(18) rem(46);
-	font-size: 17px;
-	line-height: 23px;
+	font-size: rem(17);
 	color: $whiteColor;
 	background: #313131;
 	box-shadow: 0px 100px 80px rgba(49, 49, 49, 0.1), 0px 64.8148px 46.8519px rgba(49, 49, 49, 0.0759259),
@@ -29,6 +28,10 @@
 	}
 	// .button_white
 }
+.buttons {
+	display: flex;
+	gap: rem(30);
+}
 
 .button-link {
 	// display: inline-flex;
@@ -42,4 +45,23 @@
 	font-size: rem(17);
 	color: $secondColor;
 	border-radius: 5px;
+}
+.button-border {
+	padding: rem(18) rem(46);
+	font-size: rem(17);
+	color: $secondColor;
+	background: #fff;
+	border: 1px solid #313131;
+	box-shadow: 0px 100px 80px rgba(49, 49, 49, 0.1), 0px 64.8148px 46.8519px rgba(49, 49, 49, 0.0759259),
+		0px 38.5185px 25.4815px rgba(49, 49, 49, 0.0607407), 0px 20px 13px rgba(49, 49, 49, 0.05),
+		0px 8.14815px 6.51852px rgba(49, 49, 49, 0.0392593), 0px 1.85185px 3.14815px rgba(49, 49, 49, 0.0240741);
+	border-radius: 5px;
+	transition: all 0.3s ease 0s;
+	white-space: nowrap;
+	@media (any-hover: hover) {
+		&:hover {
+			transform: scale(1.02);
+			background: #f8f8f8;
+		}
+	}
 }

@@ -1,0 +1,102 @@
+//========================================================================================================================================================
+.animation {
+    &_scale {
+        ._watcher-view & {
+            animation: scale 1s ease-out forwards;
+        }
+    }
+    &_left {
+        opacity: 0;
+        ._watcher-view & {
+            animation: a-left 1s ease-out forwards;
+            &_2 {
+                // animation-delay: 1s;
+                animation-duration: 1.2s;
+            }
+            &_3 {
+                // animation-delay: 1.2s;
+                animation-duration: 1.4s;
+            }
+            &_4 {
+                // animation-delay: 1.3s;
+                animation-duration: 1.6s;
+            }
+        }
+    }
+    &_left-c {
+        opacity: 0;
+        &._watcher-view {
+            animation: a-left 1s ease-out forwards;
+        }
+    }
+    &_right-c {
+        opacity: 0;
+        &._watcher-view {
+            animation: a-right 1s ease-out forwards;
+        }
+    }
+    &_down-c {
+        opacity: 0;
+        &._watcher-view {
+            animation: a-down 1s ease-out forwards;
+        }
+    }
+    &_netbook {
+        opacity: 0;
+        ._watcher-view & {
+            animation: netbook 1s forwards linear;
+        }
+    }
+}
+
+@keyframes scale {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+@keyframes a-left {
+    0% {
+        transform: translate(-100%, 0px);
+        opacity: 0;
+    }
+    100% {
+        transform: translate(0px, 0px);
+        opacity: 1;
+    }
+}
+@keyframes a-right {
+    0% {
+        transform: translate(100%, 0px);
+        opacity: 0;
+    }
+    100% {
+        transform: translate(0px, 0px);
+        opacity: 1;
+    }
+}
+@keyframes a-down {
+    0% {
+        transform: translate(0, 100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translate(0px, 0px);
+        opacity: 1;
+    }
+}
+@keyframes netbook {
+    0% {
+        opacity: 0;
+        transform: rotateX(90deg);
+    }
+    100% {
+        opacity: 1;
+        transform: rotateX(0deg);
+    }
+}
+//====================================================================================================
