@@ -65,14 +65,9 @@ function initSliders() {
 			pagination: {
 				el: '.swiper-pagination',
 				clickable: true,
-				renderBullet: function (index, className) {
-					if (index < 10) {
-						return '<span class="' + className + '">' + '0' + (index + 1) + "</span>";
-					} else {
-						return '<span class="' + className + '">' + (index + 1) + "</span>";
-					}
-				},
+				type: 'bullets',
 			},
+
 
 
 			// Скроллбар

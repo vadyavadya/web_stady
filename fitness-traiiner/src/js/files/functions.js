@@ -258,6 +258,7 @@ export function spollers() {
 						hideSpollersBody(spollersBlock);
 					}
 					spollerTitle.classList.toggle('_spoller-active');
+					spollerTitle.parentNode.classList.toggle('_spoller-active'); // мои правки для родительского элемента
 					_slideToggle(spollerTitle.nextElementSibling, spollerSpeed);
 				}
 				e.preventDefault();
@@ -268,6 +269,7 @@ export function spollers() {
 			const spollerSpeed = spollersBlock.dataset.spollersSpeed ? parseInt(spollersBlock.dataset.spollersSpeed) : 500;
 			if (spollerActiveTitle && !spollersBlock.querySelectorAll('._slide').length) {
 				spollerActiveTitle.classList.remove('_spoller-active');
+				spollerActiveTitle.parentNode.classList.remove('_spoller-active');// мои правки для родительского элемента
 				_slideUp(spollerActiveTitle.nextElementSibling, spollerSpeed);
 			}
 		}
@@ -282,6 +284,7 @@ export function spollers() {
 						if (spollersBlock.classList.contains('_spoller-init')) {
 							const spollerSpeed = spollersBlock.dataset.spollersSpeed ? parseInt(spollersBlock.dataset.spollersSpeed) : 500;
 							spollerClose.classList.remove('_spoller-active');
+							spollerClose.parentNode.classList.remove('_spoller-active'); // мои правки для родительского элемента
 							_slideUp(spollerClose.nextElementSibling, spollerSpeed);
 						}
 					});

@@ -31,6 +31,8 @@
 .buttons {
 	display: flex;
 	gap: rem(30);
+	@include adaptiveValue("gap", 30, 12);
+	flex-wrap: wrap;
 }
 
 .button-link {

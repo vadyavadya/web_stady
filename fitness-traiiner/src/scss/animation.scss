@@ -5,6 +5,12 @@
             animation: scale 1s ease-out forwards;
         }
     }
+    &_scale-c {
+        opacity: 0;
+        &._watcher-view {
+            animation: scale 1s ease-out forwards;
+        }
+    }
     &_left {
         opacity: 0;
         ._watcher-view & {
@@ -39,6 +45,12 @@
         opacity: 0;
         &._watcher-view {
             animation: a-down 1s ease-out forwards;
+        }
+    }
+    &_up-c {
+        opacity: 0;
+        &._watcher-view {
+            animation: a-up 1s ease-out forwards;
         }
     }
     &_netbook {
@@ -82,6 +94,16 @@
 @keyframes a-down {
     0% {
         transform: translate(0, 100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translate(0px, 0px);
+        opacity: 1;
+    }
+}
+@keyframes a-up {
+    0% {
+        transform: translate(0, -100%);
         opacity: 0;
     }
     100% {
