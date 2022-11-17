@@ -3889,7 +3889,6 @@
             spaceBetween: 48,
             autoHeight: true,
             speed: 800,
-            loop: true,
             pagination: {
                 el: ".swiper-pagination",
                 clickable: true,
