@@ -407,6 +407,9 @@ textarea.input {
 
 .header {
   z-index: 10;
+  -webkit-transition: all 0.6s ease 0s;
+  -o-transition: all 0.6s ease 0s;
+  transition: all 0.6s ease 0s;
 }
 
 @supports (padding-top: clamp( 0.625rem , 0.1544117647rem  +  2.3529411765vw , 1.875rem )) {
@@ -502,6 +505,17 @@ textarea.input {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 auto;
           flex: 0 0 auto;
+}
+
+.header._header-scroll {
+  position: fixed;
+  top: -100%;
+}
+
+.header._header-show {
+  width: 100%;
+  background-color: #fff;
+  top: 0;
 }
 
 .menu__body {
