@@ -44,11 +44,11 @@
 	transition: all 0.6s ease 0s;
 	&._header-scroll {
 		position: fixed;
+		width: 100%;
 		top: -100%;
 	}
 	&._header-show {
-		width: 100%;
-		background-color: #fff;
+		background-color: rgba(255, 255, 255, 0.911);
 		top: 0;
 	}
 }

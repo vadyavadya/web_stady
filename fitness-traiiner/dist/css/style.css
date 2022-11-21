@@ -509,12 +509,12 @@ textarea.input {
 
 .header._header-scroll {
   position: fixed;
+  width: 100%;
   top: -100%;
 }
 
 .header._header-show {
-  width: 100%;
-  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.911);
   top: 0;
 }
 
