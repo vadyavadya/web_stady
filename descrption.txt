@@ -5,7 +5,7 @@
 = Оформление блоков = - lesson 6  - СВОЙСТВА ОФОРМЛЕНИЯ БЛОКОВ, BORDER, border-radius,outline,box-shadow, opacity, visibility.
 = background = - lesson 7  - background
 = Псевдоклассы и псевдоэлементы = - lesson 8  - Псевдоклассы и псевдоэлементы
-lesson 9  - формат изображений
+lesson 9  - формат изображений (clip обрезать изображение)
 = БЭМ = - lesson 10 - БЕМ
 = SCSS = - про SCSS
 = META = - мета теги
@@ -101,7 +101,7 @@ req - Добавляет атрибут к полю формы
 inp - input
 txta - textarea
 sel
-opt
+opt - radio button
 chk
 btn, bbtn, abtn
 formemail

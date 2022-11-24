@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Magic</title>
+</head>
+
+<body>
+    <div class="container">
+        <section class="sec">
+            <div class="sec__1">
+                <h2>Magic</h2>
+            </div>
+            <div class="sec__2">
+                <h2>Magic</h2>
+            </div>
+            <h2>Magic</h2>
+        </section>
+    </div>
+    <!-- <div class="container_a"></div> -->
+    <div class="container">
+        That's all, well done I went to study
+    </div>
+
+    <script>
+        let sec1 = document.querySelector(".sec__1")
+        let sec2 = document.querySelector(".sec__2")
+        let sec = document.querySelector(".sec");
+        let parentSecHeight = sec.parentElement.offsetHeight;
+        let flag = 1;
+
+        window.addEventListener("scroll", function () {
+            let value = window.scrollY / (parentSecHeight - sec.offsetHeight);
+            if (window.scrollY > parentSecHeight - sec.offsetHeight && flag) {
+                sec.style.position = "absolute";
+                sec.style.top = parentSecHeight - sec.offsetHeight + "px";
+                console.log(value);
+                flag = 0;
+            } else if (window.scrollY < parentSecHeight - sec.offsetHeight) {
+                sec1.style.clipPath = "circle(" + value * 75 + "% at 0 0)";
+                sec2.style.clipPath = "circle(" + value * 65 + "% at 100% 100%)";
+
+                if (!flag) {
+                    sec.style.position = "fixed"
+                    flag = 1;
+                    sec.style.top = "0px";
+                }
+            }
+        });
+
+
+    </script>
+</body>
+
+</html>
