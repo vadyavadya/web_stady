@@ -8,12 +8,12 @@
 // Получить в переменную элемент с атрибутом data-say-hi
 // и прочитать значение этого атрибута
 /* <div data-say-hi="yes">Привет!</div> */
-
+/*
 const elemZd1 = document.querySelector('[data-say-hi]');
 const textElemZd1 = elemZd1.innerHTML;
 console.log(elemZd1);
 console.log(textElemZd1);
-console.log(elemZd1.dataset.sayHi);
+console.log(elemZd1.dataset.sayHi); */
 
 
 
@@ -30,9 +30,9 @@ console.log(elemZd1.dataset.sayHi);
 </ul>
 */
 
-const listZd2 = document.querySelector('ul').children;
+/* const listZd2 = document.querySelector('ul').children;
 let textZd2 = listZd2[1].innerHTML;
-console.log(textZd2);
+console.log(textZd2); */
 
 
 // Задача №3.
@@ -43,20 +43,20 @@ console.log(textZd2);
 <div class="like subscribe"></div>
  */
 
-const listLike = document.querySelectorAll('.like');
+/* const listLike = document.querySelectorAll('.like');
 console.log(listLike);
-
+ */
 
 // Задача №4.
 // Куда добавится <li>Текст</li> ?
 
 // JS
 
-const list = document.querySelectorAll('ul');
+/* const list = document.querySelectorAll('ul');
 list[1].insertAdjacentHTML(
 	'beforeend',
 	'<li>Текст</li>'
-);
+); */
 
 
 // HTML
@@ -585,9 +585,9 @@ console.log(list);
 
 // Изменение документа
 
-/*
-// * Cодержимое элемента  innerHTML
 
+// * Cодержимое элемента  innerHTML
+/*
 // Получаем объект
 const textElement = document.querySelector('.lesson__text');
 
@@ -596,16 +596,18 @@ const textElementContent = textElement.innerHTML;
 console.log(textElementContent);
 
 // * Перезаписываем содержимое объекта
+
 textElement.innerHTML = `Живи, а работай в свободное время!`;
 
 // Дописываем содержимое объекта
+
 textElement.innerHTML =
 	`<p>${textElementContent}</p> <p>Живи, а работай в
 	<span class="yellow">свободное</span> время!</p>`;
 
 console.log(textElement.innerHTML);
-*/
 
+ */
 //====================
 
 /*
@@ -634,7 +636,7 @@ console.log(textElement.outerHTML);
 const textElement = document.querySelector('.lesson__text');
 const textElementContent = textElement.textContent;
 console.log(textElementContent);
-*/
+ */
 /*
 Полезная возможность textContent - записывать
 текст «безопасным способом».
@@ -668,7 +670,7 @@ console.log(getComment.data);
 // Изменение текстового узла/комментария
 getComment.data = 'Привет';
 console.log(getComment.data);
-*/
+ */
 
 //=====================
 
@@ -1152,45 +1154,53 @@ console.log(link.hidden);
 //========================================================================================================================================================
 
 
-// * Обратиться к элементу 
+// * Обратиться к элементу
 
 // querySelector('.block');
+/*
 const block = document.querySelector('.block');
-
+ */
 // * обратиться к предыдущему элементу
+/*
 const blockPrev = block.previousElementSibling;
 console.log(blockPrev);
-
+ */
 // * обращениие к следующему элементу
+/*
 const blockNext = block.nextElementSibling;
 console.log(blockNext);
-
+ */
 // * получеие родителчя данного блока непонятно какого уровня
+/*
 const blockParentN = block.closest('.page');
 console.log('Родитель N', blockParentN);
-
+ */
 // * получение непосредственного родителя
+/*
 const blockParent = block.parentElement;
 console.log('Родитель');
 console.log(blockParentN);
-
+ */
 // * получение потомков всех уровней
+/*
 const blocksChildren = block.querySelectorAll('*');
 console.log(blocksChildren);
 
 const blocksChildren2 = document.querySelectorAll('.block>*');
 console.log(blocksChildren2);
-
+ */
 // * Получение дочерних елементов только первого уровня
+/*
 const blocksChildrenFirst = block.children;
 console.log(blocksChildrenFirst);
-
+ */
 // * Первый и последний элемент внутри блока
+/*
 const blockFirstChild = block.firstElementChild;
 console.log(blockFirstChild);
 const blockLastChild = block.lastElementChild;
 console.log(blockLastChild);
-
+ */
 
 /* // * Получаем коллекцию объектов
 const listItems = document.querySelectorAll('.list__item');
