@@ -21,28 +21,39 @@
   </ul>
 
 
+
   <div class="page">
 
-    <div class="lesson">
-      <div class="lesson__text">Eiusmod id sint commodo dolor fugiat minim mollit elit non laborum culpa ullamco.</div>
-      <!-- <div class="lesson__text">Consequat amet veniam in reprehenderit cupidatat sunt occaecat.</div> -->
+    <div class="page__item lesson">
+
+      <div class="lesson__item lesson__text">Eiusmod id sint commodo dolor fugiat minim mollit elit non laborum culpa ullamco.</div>
+      <div class="lesson__item"><a class="yellow lesson__link" target="_blank" href="https://dzen.ru/">Yandex</a></div>
+      <input type="text" name="form[email]" data-error="Error" placeholder="E-mail" class="lesson__input">
+
     </div>
-    <div class="block">
+    <div class="page__item block">
       <button type="button" class="block__title">Заголовок</button>
       <p class="block__text">Ut proident quis magna exercitation consequat id officia anim in aliqua nulla cupidatat non. Magna ullamco ea excepteur consequat irure do eu. Irure anim exercitation esse duis cupidatat excepteur anim nostrud do occaecat. Nisi aliquip ullamco eiusmod voluptate ipsum excepteur do laboris sit proident aute Lorem Lorem cupidatat.</p>
 
       <div class="block_item-1">1</div>
       <div class="block_item-2"><span>2</span></div>
       <div class="block_item-3">3</div>
+
+      <ul class="lesson__item-list lesson__item-list_red list">
+        <li class="list__item">Item 1</li>
+        <li class="list__item">Item 2</li>
+        <li class="list__item">Item 3</li>
+        <li class="list__item">Item 4</li>
+      </ul>
+
     </div>
+    <div class="page__item like"></div>
+    <div class="page__item subscribe"></div>
+    <div class="page__item like subscribe"></div>
 
-    <div class="like"></div>
-    <div class="subscribe"></div>
-    <div class="like subscribe"></div>
-
-    <div data-say-hi="yes">Привет!</div>
-    <h3>Урок №13</h3>
-    <ul>
+    <div class="page__item " data-say-hi="yes">Привет!</div>
+    <h3 class="page__item ">Урок №13</h3>
+    <ul class="page__item ">
       <li>Пункт №1</li>
       <li>Пункт №2</li>
     </ul>

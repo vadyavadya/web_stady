@@ -854,7 +854,7 @@ textElement.remove();
 из наиболее часто используемых действий в JavaScript.
 */
 
-/*
+/* 
 // Свойство className
 
 // Получаем элемент
@@ -866,7 +866,7 @@ console.log(elementClassNames);
 
 // Перезаписываем имя класса
 element.className = "red";
-*/
+ */
 
 //-----------------------------
 
@@ -1039,25 +1039,25 @@ DOM-объекты для тегов, он распознаёт стандарт
 
 Каждый DOM-узел принадлежит соответствующему встроенному классу.
 */
-/*
+/* 
 const link = document.querySelector('.lesson__link');
 const input = document.querySelector('.lesson__input');
 
 console.log(link.href);
 console.log(input.href);
 
-console.log(input.value);
 console.log(link.value);
+console.log(input.value);
 
 // * Получить список доступных свойств!!!!
 console.dir(link);
-*/
+ */
 //---------------------------
 
 // * Произвольные атрибуты
 
 //Получаем элемент
-//const lessonText = document.querySelector('.lesson__text');
+// const lessonText = document.querySelector('.lesson__text');
 /*
 //Проверяем наличие атрибута.
 lessonText.hasAttribute('name');
@@ -1068,7 +1068,7 @@ lessonText.setAttribute('name', 'value');
 //Удаляем атрибут.
 lessonText.removeAttribute('name');
 */
-/*
+/* 
 // Пример
 // Устанавливаем значение атрибута
 lessonText.setAttribute('some-attribute', 'some-value');
@@ -1076,7 +1076,7 @@ lessonText.setAttribute('some-attribute', 'some-value');
 if (lessonText.hasAttribute('some-attribute')) {
 	console.log('some-attribute существует!');
 }
-*/
+ */
 
 //------------------------------
 
@@ -1091,14 +1091,14 @@ if (lessonText.hasAttribute('some-attribute')) {
 */
 
 //Получаем элемент
-//const input = document.querySelector('.lesson__input');
-/*
+const input = document.querySelector('.lesson__input');
+/* 
 input.setAttribute('id', '123');
 console.log(input.id);
 
 input.id = "321";
 console.log(input.getAttribute('id'));
-*/
+ */
 
 // НО
 /*

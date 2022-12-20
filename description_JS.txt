@@ -81,7 +81,51 @@
         data (непонятно)
         Создание элементов и узлов.
         Методы вставки
-        
+            Создание нового элемента (тега)
+            Вставляем новый элемент
+            Вставка нескольких фрагментов сразу
+            Можно вставлять строку
+            insertAdjacentHTML/Text/Element
+            insertAdjacentText и insertAdjacentElement
+        Перенос элемента
+        Клонирование узлов cloneNode
+        Удаление узлов
+    Стили и классы
+        Управление классами
+            Свойства className и classList
+        Свойство classList
+            Добавить класс
+            Удалить класс
+            Добавить класс, если его нет, а если есть удалить.
+            Проверка наличия класса, возвращает true/false.
+            Проверяем наличие класса
+        Управление стилями
+            element.style
+            Полная перезапись стилей
+                style.cssText
+            Вычисленные стили. getComputedStyle(element, [pseudo])
+                Получение значения свойства
+                Стиль элемента
+                Стиль псевдоэлемента
+            Лайвхаки
+                Получаем число
+                    parseInt
+    Атрибуты и свойства
+        Получить список доступных свойств
+        Произвольные атрибуты
+            Проверяем наличие атрибута.
+            Получаем значение атрибута.
+            Устанавливаем значение атрибута.
+            Удаляем атрибут.
+        Синхронизация между атрибутами и свойствами
+        Нестандартные атрибуты, dataset
+        Полезные свойства
+            Получаем тег элемента
+            Скрыть/показать элемент  
+    Общие примеры с DOM
+
+
+
 
 
 
@@ -835,7 +879,7 @@ childNodes похож на массив. На самом деле это не м
 
 Перебор коллекции
 for (let node of childNodes) {
-	console.log(node); // покажет все узлы из коллекции
+	console.log(node); покажет все узлы из коллекции
 }
 
 
@@ -1143,7 +1187,7 @@ const textElement = document.querySelector('.lesson__text');
 вместе с HTML, а также сам элемент
 const textElementContent = textElement.outerHTML;
 console.log(textElementContent); 
-// <div class="lesson__text">Eiusmod id sint commodo dolor fugiat minim mollit elit non laborum culpa ullamco.</div>
+<div class="lesson__text">Eiusmod id sint commodo dolor fugiat minim mollit elit non laborum culpa ullamco.</div>
 
 
 textElement.outerHTML = `<p>Живи, а работай в
@@ -1220,149 +1264,601 @@ console.log(newText);
 
 Методы вставки
 
-/*
-// Получаем объект
-const textElement = document.querySelector('.lesson__text');
 
-// Создание нового элемента (тега)
+Создание нового элемента (тега)
 const newElement = document.createElement('div');
-// Наполняем новый элемент
+Наполняем новый элемент
 newElement.innerHTML = `Живи, а работай в
 	<span class="yellow">свободное</span> время!`;
 
-*/
 
-// * Вставляем новый элемент...
 
-//...перед объектом
-//textElement.before(newElement);
-//...после объекта
-//textElement.after(newElement);
-//...внутрь и в начало объекта
-//textElement.prepend(newElement);
-//...внутрь и в конец объекта
-//textElement.append(newElement);
+Вставляем новый элемент...
 
-// Вставка нескольких фрагментов сразу
-//textElement.append(newElement, "Привет!");
+Получаем объект
+const textElement = document.querySelector('.lesson__text');
 
-/*
-// Можно вставлять строку
+...перед объектом
+textElement.before(newElement);
+
+...после объекта
+textElement.after(newElement);
+
+...внутрь и в начало объекта
+textElement.prepend(newElement);
+
+...внутрь и в конец объекта
+textElement.append(newElement);
+
+Вставка нескольких фрагментов сразу
+textElement.append(newElement, "Привет!");
+
+
+Можно вставлять строку
 textElement.append(`Живи, а работай в
 	<span class="yellow">свободное</span> время!`);
-*/
-/*
+
+
 Другими словами, строки вставляются безопасным способом,
 как делает это textContent. Поэтому эти методы могут
 использоваться только для вставки DOM-узлов или
 текстовых фрагментов. А что, если мы хотим вставить
 HTML именно "как HTML", со всеми тегами и прочим,
 как это делает innerHTML?
-*/
 
-//-------------------
 
-// * insertAdjacentHTML/Text/Element
-/*
-// Получаем объект
+
+
+insertAdjacentHTML/Text/Element
+
+Получаем объект
 const textElement = document.querySelector('.lesson__text');
 
-// Вставляем текст, HTML, элемент
+Вставляем текст, HTML, элемент
 textElement.insertAdjacentHTML(
 	'afterend',
 	`<p>Живи, а работай в
 	<span class="yellow">свободное</span> время!</p>`
 );
-*/
-/*
+
+
 "beforebegin" – вставить html непосредственно перед textElement,
 "afterbegin" – вставить html в начало textElement,
 "beforeend" – вставить html в конец textElement,
 "afterend" – вставить html непосредственно после textElement.
-*/
 
-//--------------
-/*
+
+
+
 Дополнительно существуют
 insertAdjacentText и insertAdjacentElement
-*/
-/*
-// Получаем объект
-// const textElement = document.querySelector('.lesson__text');
-// Вставляем текст
+
+
+Получаем объект
+const textElement = document.querySelector('.lesson__text');
+Вставляем текст
 textElement.insertAdjacentText(
 	'beforeend',
 	`Живи, а работай в
 	<span class="yellow">свободное</span> время!`
 )
-// Создание нового элемента (тега)
+Создание нового элемента (тега)
 const newElement = document.createElement('div');
-// Наполняем новый элемент
+Наполняем новый элемент
 newElement.innerHTML = `Живи, а работай в
 	<span class="yellow">свободное</span> время!`;
 
-// Вставляем элемент
+Вставляем элемент
 textElement.insertAdjacentElement(
 	'beforeend',
 	newElement
 );
-*/
-/*
+
+
 На практике часто используется только insertAdjacentHTML.
 Потому что для элементов и текста у нас есть методы
 append/prepend/before/after – их быстрее написать,
 и они могут вставлять как узлы, так и текст.
-*/
-//=========================================
 
-// * Перенос элемента
 
-/*
+
+
+Перенос элемента
+
 Мы можем вставлять не только новые узлы,
 но и переносить существующие.
 Все методы вставки автоматически
 удаляют узлы со старых мест.
-*/
-/*
-// Получаем объект
+
+Получаем объект
 const lessonBlock = document.querySelector('.lesson');
-// Получаем объект
+Получаем объект
 const title = document.querySelector('h3');
 
-// Переносим title в конец блока lessonBlock
+Переносим title в конец блока lessonBlock
 lessonBlock.append(title);
-*/
 
-//=========================================
 
-// * Клонирование узлов cloneNode
 
-/*
+
+Клонирование узлов cloneNode
+
 Если нужен не перенос а именно копия элемента
-*/
-/*
-// Получаем объект
-const textElement = document.querySelector('.lesson__text');
-// Клонирование без дочерних элементов
-//const cloneTextElement = textElement.cloneNode();
 
-// Глубокое клонирование вместе с содержимым
+Получаем объект
+const textElement = document.querySelector('.lesson__text');
+
+Клонирование без дочерних элементов
+const cloneTextElement = textElement.cloneNode();
+
+Глубокое клонирование вместе с содержимым
 const cloneTextElement = textElement.cloneNode(true);
 
 const lessonBlock = document.querySelector('.lesson');
 lessonBlock.append(cloneTextElement);
-*/
 
-//=========================================
 
-/*
-// * Удаление узлов
 
-// Получаем объект
+
+Удаление узлов
+
+Получаем объект
 const textElement = document.querySelector('.lesson__text');
-// Удаляем объект
+
+Удаляем объект
 textElement.remove();
-*/
+
+
+
+
+
+
+
+
+
+Стили и классы
+
+Управление классами
+Свойства className и classList
+
+Изменение класса является одним
+из наиболее часто используемых действий в JavaScript.
+
+Свойство className
+
+Получаем элемент
+const element = document.querySelector('.lesson__item-list_red');
+
+Получаем имена классов
+const elementClassNames = element.className;
+console.log(elementClassNames);
+
+Перезаписываем имя класса
+element.className = "red";
+
+
+
+
+Свойство classList
+
+Специальный объект с методами для добавления/удаления
+одного класса.
+
+
+Получаем элемент
+const element = document.querySelector('.lesson__item-list_red');
+
+
+Добавить класс
+element.classList.add('active');
+
+Удалить класс
+element.classList.remove('active');
+
+Добавить класс, если его нет, а если есть удалить.
+element.classList.toggle('active');
+
+Проверка наличия класса, возвращает true/false.
+element.classList.contains('active');
+
+
+
+Добавляем класс
+element.classList.add('active');
+Проверяем наличие класса
+if (element.classList.contains('active')) {
+	console.log(`У element есть класс active!`);
+}
+
+classList является перебираемым, поэтому можно
+перечислить все классы при помощи for..of
+
+for (let className of element.classList) {
+	console.log(className);
+}
+
+
+
+
+Управление стилями
+
+element.style
+
+
+Задаем стиль с помощью CSS свойства
+element.style.color = "red";
+
+Для свойства из нескольких слов используется camelCase:
+margin-bottom
+element.style.marginBottom = "30px";
+z-index
+element.style.zIndex = "10";
+и т.д.
+
+Каждое свойство пишется отдельно
+
+Получение значения свойства
+Только если оно записано в атрибуте style
+console.log(element.style.marginBottom);
+
+Сброс стиля
+element.style.marginBottom = "";
+
+
+
+
+Полная перезапись стилей
+style.cssText
+
+Получаем элемент
+const element = document.querySelector('.lesson__item-list_red');
+
+element.style.cssText = `
+	margin-bottom: 30px;
+	color:red;
+`;
+
+
+-----
+
+Вычисленные стили. getComputedStyle(element, [pseudo])
+
+Получение значения свойства
+Только если оно записано в атрибуте style
+console.log(element.style.fontSize);
+
+Стиль элемента
+const elementStyle = getComputedStyle(element);
+console.log(elementStyle.fontSize);
+
+Стиль псевдоэлемента
+const elementBeforeStyle = getComputedStyle(element, "::before");
+console.log(elementBeforeStyle.backgroundColor);
+
+
+
+
+Чтобы получить конкретное значение
+Следует писать точное (полное) свойство
+
+Получаем точное значение
+console.log(elementStyle.paddingLeft);
+Получаем не предсказуемую запись
+console.log(elementStyle.padding); В FF <empty string>
+
+
+
+
+Получаем элемент
+const element = document.querySelector('.lesson__item-list_red');
+
+Стиль элемента
+const elementStyle = getComputedStyle(element);
+
+Только для чтения
+elementStyle.paddingLeft = "50px";
+
+
+
+
+
+
+
+
+
+Лайвхаки
+
+Получаем элемент
+const element = document.querySelector('.lesson__item-list_red');
+
+Стиль элемента
+const elementStyle = getComputedStyle(element);
+console.log(elementStyle.paddingLeft);
+
+Получаем число
+const paddingLeft = parseInt(elementStyle.paddingLeft);
+console.log(paddingLeft);
+
+Помним про единицы измерения
+element.style.marginLeft = "20px";
+
+Как мы уже поняли, из JS мы можем управлять как классами
+так и стилями объекта.
+
+Управлять классами – более приоритетный вариант по
+сравнению со стилями.
+
+Манипулировать свойством style следует только в том случае,
+если классы нам помочь не могут. Например, при изменении
+координатов объекта на лету.
+
+Одним словом, если мы можем возложить решение
+той или иной задачи на плечи CSS путем манипуляции с классами,
+то так и следует сделать!
+
+
+
+
+
+
+
+
+
+Атрибуты и свойства
+
+
+У разных DOM-элементов могут быть разные свойства.
+Например, у тега <a>, есть свойства, связанные со ссылками,
+а у тега <input> – свойства, связанные с полем ввода и т.д.
+
+В HTML у тегов могут быть атрибуты.
+Когда браузер парсит HTML, чтобы создать
+DOM-объекты для тегов, он распознаёт стандартные
+атрибуты и создаёт DOM-свойства для них.
+
+Каждый DOM-узел принадлежит соответствующему встроенному классу.
+
+
+const link = document.querySelector('.lesson__link');
+const input = document.querySelector('.lesson__input');
+
+console.log(link.href);
+console.log(input.href);
+
+console.log(input.value);
+console.log(link.value);
+
+Получить список доступных свойств!!!!
+console.dir(link);
+
+
+
+
+Произвольные атрибуты
+
+Получаем элемент
+const lessonText = document.querySelector('.lesson__text');
+
+Проверяем наличие атрибута.
+lessonText.hasAttribute('name');
+
+Получаем значение атрибута.
+lessonText.getAttribute('name');
+
+Устанавливаем значение атрибута.
+lessonText.setAttribute('name', 'value');
+
+Удаляем атрибут.
+lessonText.removeAttribute('name');
+
+
+Пример
+Устанавливаем значение атрибута
+lessonText.setAttribute('some-attribute', 'some-value');
+Проверяем наличие атрибута
+if (lessonText.hasAttribute('some-attribute')) {
+	console.log('some-attribute существует!');
+}
+
+
+------------------------------
+
+Синхронизация между атрибутами и свойствами
+
+
+Мы можем обратиться к тому или иному свойству через
+методы доступа к атрибутам.
+Когда стандартный атрибут изменяется, соответствующее
+свойство автоматически обновляется.
+Это работает и в обратную сторону (за некоторыми исключениями).
+
+
+Получаем элемент
+const input = document.querySelector('.lesson__input');
+
+input.setAttribute('id', '123');
+console.log(input.id);
+
+input.id = "321";
+console.log(input.getAttribute('id'));
+
+
+НО
+
+input.setAttribute('value', 'Привет!');
+console.log(input.value);
+
+input.value = "Как дела?";
+console.log(input.getAttribute('value'));
+
+
+------------------------------
+
+Нестандартные атрибуты, dataset
+
+
+Мы уже использовали произвольные атрибуты,
+но это рискованно.
+
+Все атрибуты, начинающиеся с префикса «data-»,
+зарезервированы для использования программистами.
+Они доступны в свойстве dataset.
+
+
+Получаем элемент
+const lessonText = document.querySelector('.lesson__text');
+
+Получаем data-атрибут
+console.log(lessonText.dataset.size);
+
+Перезаписываем data-атрибут
+lessonText.dataset.size = "5810";
+console.log(lessonText.dataset.size);
+
+data-size-value
+console.log(lessonText.dataset.sizeValue);
+
+
+------------------------------
+
+Полезные свойства
+
+const link = document.querySelector('.lesson__link');
+
+Получаем тег элемента
+console.log(link.tagName);
+
+Скрыть/показать элемент
+link.hidden = true;
+console.log(link.hidden);
+
+
+//========================================================================================================================================================
+//========================================================================================================================================================
+
+Общее про DOM
+Обратиться к элементу
+
+querySelector('.block');
+
+const block = document.querySelector('.block');
+ 
+обратиться к предыдущему элементу
+
+const blockPrev = block.previousElementSibling;
+console.log(blockPrev);
+ 
+обращениие к следующему элементу
+
+const blockNext = block.nextElementSibling;
+console.log(blockNext);
+ 
+получеие родителчя данного блока непонятно какого уровня
+
+const blockParentN = block.closest('.page');
+console.log('Родитель N', blockParentN);
+ 
+получение непосредственного родителя
+
+const blockParent = block.parentElement;
+console.log('Родитель');
+console.log(blockParentN);
+ 
+получение потомков всех уровней
+
+const blocksChildren = block.querySelectorAll('*');
+console.log(blocksChildren);
+
+const blocksChildren2 = document.querySelectorAll('.block>*');
+console.log(blocksChildren2);
+ 
+Получение дочерних елементов только первого уровня
+
+const blocksChildrenFirst = block.children;
+console.log(blocksChildrenFirst);
+ 
+Первый и последний элемент внутри блока
+
+const blockFirstChild = block.firstElementChild;
+console.log(blockFirstChild);
+const blockLastChild = block.lastElementChild;
+console.log(blockLastChild);
+ 
+
+Получаем коллекцию объектов
+const listItems = document.querySelectorAll('.list__item');
+Пробежаться по объектам
+listItems.forEach(function (listItem) {
+	Работаем с каждым объектом
+});
+Проверяем колекцию
+if (listItems.length) {
+	console.log('Есть!');
+} 
+
+Получаем первый объект
+const list = document.querySelector('.list');
+Проверяем один объект
+ if (list) {
+
+} 
+
+
+Работа с классами
+const listElement = document.querySelector('.list');
+
+//listElement.classList.add('active');  НЕ СТАВИТЬ ТОЧКУ!!!!!
+//listElement.classList.remove('active');
+//listElement.classList.toggle('active');
+
+Проверяем есть ли класс у объекта, без ошибки если объекта нет
+
+if (listElement && listElement.classList.contains('list')) { НЕ СТАВИТЬ ТОЧКУ!!!!!
+	console.log('Юху!');
+}
+
+
+Делегирование событий
+Слушаем клик на всем документе
+ const listLinks = document.querySelectorAll('.list__link');
+document.addEventListener("click", function (e) {
+	Получаем объект на который кликнули
+	const targetElement = e.target;
+	Проверяем не наш ли это объект?
+	(ищем класс .list__link среди предков или у самого себя )
+	if (targetElement.closest('.list__link')) {
+		targetElement.closest('.list__link').classList.toggle('_open');
+		e.preventDefault();
+	} else {
+		removeClasses(listLinks, '_open');
+	}
+	if (targetElement.closest('.someButton')) {
+		removeClasses(listLinks, '_open');
+	}
+}); 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

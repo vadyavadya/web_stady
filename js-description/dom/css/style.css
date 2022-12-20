@@ -8,8 +8,6 @@
   box-sizing: border-box;
 }
 
-
-
 html,
 body {
   height: 100%;
@@ -30,13 +28,20 @@ h1 {
 h2 {
   margin: 0px 0px 15px 0px;
 }
-
+.page {
+}
+.page__item:not(:last-child) {
+  margin-bottom: 40px;
+}
 .yellow {
   color: rgb(231, 231, 0);
 }
 
 .lesson {
   padding: 30px 0px 50px 0px;
+}
+.lesson__item:not(:last-child) {
+  margin-bottom: 30px;
 }
 .lesson__text {
   font-size: 18px;
@@ -52,6 +57,12 @@ h2 {
   font-size: 18px;
   position: relative;
   padding: 0px 0px 0px 20px;
+}
+.lesson__item-list_red {
+  color: red;
+}
+.red {
+  color: red;
 }
 .lesson__item-list::before {
   content: "";
