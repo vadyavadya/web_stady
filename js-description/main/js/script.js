@@ -1,5 +1,5 @@
 'use strictr'
-// * Содержание:
+//* Содержание:
 /*
     Начало
     Создание переменной let
@@ -17,7 +17,7 @@
     Планирование setTimeout и setInterval
     Объекты
         Тип данных Symbol
-        Вложенность
+        Вложенность имен свойств
         Свойство из переменной
         обавление свойства
         Удаление свойства
@@ -145,9 +145,7 @@
 
 
 
-
-
-/* // * Начало
+/* //# Начало
 // Создание переменной let
 let num;
 
@@ -169,14 +167,12 @@ console.log(user.name)
 
 
 
-
-// * Вставить переменную в строку ${someNum}
+//* Вставить переменную в строку ${someNum}
 // let someString = `Мне ${someNum} лет`;
 
 
 
-
-/* // * Операторы
+/* //# Операторы
 "- + * / % **" оператор сложения "+" НЕ преобразовывает тип данных
 Взятие остатка от деления %,
 Возведение в степень **.
@@ -188,8 +184,7 @@ console.log(user.name)
 
 
 
-
-/* // * Типы данных
+/*//# Типы данных
 В JavaScript есть 8 основных типов данных.
 
 Семь из них называют «примитивными» типами данных:
@@ -221,30 +216,61 @@ object для более сложных структур данных.
 
 
 
+/* //# Условное ветвление
 
-/* // * Условное ветвление
+let numOne = 10;
+let numTwo = 30;
+// полная запись
 if (numOne > numTwo) {
-    //  Выполняем програму,
-        // если условие выполненно(true)
+    // Выполняем програму,
+    // если условие выполненно (true)
+    console.log('numOne больше чем numTwo');
 } else if (numTwo === 20) {
-} else { }
+    console.log('numTwo равно 20');
+} else {
+    console.log('Условия НЕ выполненны!');
+}
+*/
+
+/* //*  короткая запись условия (если требуется выполнить одно действие)
+let redult = numOne > numTwo ? console.log('numOne больше чем numTwo') : console.log('Условия НЕ выполненны!');
  */
 
-// * Короткая запись условия(если требуется выполнить одно действие)
-// let redult = numOne > numTwo ? console.log('numOne больше чем numTwo') : console.log('Условия НЕ выполненны!');
-/* // Несколко условий при короткой записи
+/* //*  более сложные кнострукции
+
+let message = "Привет";
+let messageEnd;
+if (5 > 50) {
+    messageEnd = ", Вася!";
+} else if (5 > 30) {
+    messageEnd = ", Оля!";
+} else if (5 > 20) {
+    messageEnd = ", Петя!";
+} else if (5 > 10) {
+    messageEnd = ", Андрей!";
+} else {
+    messageEnd = ", Инокентий!";
+}
+
 messageEnd = 5 > 50 ? ", Вася!" :
     5 > 30 ? ", Оля!" :
         5 > 20 ? ", Петя!" :
             5 > 10 ? ", Андрей!" : ", Инокентий"
-*/
+ */
 
-// ! Возвращают false: undefined, 0, "", NaN
+/* //!  Возвращают false: undefined, 0, "", NaN`
+let numOne
+if (numOne) {
+    console.log('numOne возвращает true');
+} else {
+    console.log('numOne возвращает FALSE');
+}
+ */
 
 
+//# Цыклы
 
-// * Цыклы
-/*
+/* //*  Цикл while
 let i = 0;
 while (i < 5) {
     console.log(i);
@@ -252,32 +278,48 @@ while (i < 5) {
 }
  */
 
-/* // если тело состоит из одной строки
-let i = 0;
-while (i < 5) console.log(i++);
- */
+/* //*  while из одной строки
+ let i = 0;
+while (i < 5) console.log(i++);  */
 
-/* // * Конструкция DO...while
-let i = 0;
+/* //*  Конструкция DO...while
+ let i = 0;
 do {
     console.log(i);
     i++
 } while (i < 5);
- */
+*/
 
-/* // * Цикл for
-
+/* //*  Цикл for
 // for (Начало; Условие; Шаг) {
-//     тело цикла
-//     }
+// 	тело цикла
+// }
+
+for (let i = 0; i < 5; i++) {
+    console.log(i);
+}
 
 // можно убрать любую часть цикла
+let num = 0;
+for (; num < 5; num++) {
+    console.log(num);
+} */
 
-// можно остановить выполнение цикла break
-// перейти на следущую итерацию continue
+/* //*   можно остановить выполнение цикла break
+for (let i = 0; i < 5; i++) {
+    console.log(i);
+    if (i == 2) break;
+}
+*/
 
-// метки  перейти на следующкю итерацию внешнего цикла
+/* //*   перейти на следущую итерацию continue
+for (let i = 0; i < 10; i++) {
+    // если true, пропустить оставшуюся часть тела цикла
+    if (i % 2 == 0) continue;
+    console.log(i); // 1, затем 3, 5, 7, 9
+} */
 
+/* //*   метки перейти на следующкю итерацию внешнего цикла
 firstFor: for (let num = 0; num < 2; num++) {
     for (let size = 0; size < 3; size++) {
         if (size == 2) {
@@ -286,103 +328,287 @@ firstFor: for (let num = 0; num < 2; num++) {
         console.log(size);
     }
 }
- */
-
-/* // *for( of )
-for (let node of childNodes) {
-}
-*/
-/* //* for( in )
-for (let node in childNodes) {
-}
 */
 
+/* //*  Итоги и домашка
+
+1.	while – Проверяет условие перед каждой итерацией.
+2.	do..while – Проверяет условие после каждой итерации.
+3.	for (;;) – Проверяет условие перед каждой итерацией,
+    есть возможность задать дополнительные настройки.
+
+Чтобы организовать бесконечный цикл, используют
+конструкцию while (true).
+При этом он, как и любой другой цикл, может быть
+прерван директивой break.
+
+Если на данной итерации цикла делать больше
+ничего не надо, но полностью прекращать цикл не
+следует – используют директиву continue.
+
+Обе этих директивы поддерживают метки, которые ставятся
+перед циклом. Метки – единственный способ для break/continue
+выйти за пределы текущего цикла, повлиять на выполнение внешнего.
+Помним, что метки не позволяют прыгнуть в произвольное место кода,
+в JavaScript нет такой возможности.
+
+Конечно же в JavaScript существуют и другие методы перебора.
+Например, перебор объектов или массивов. О них мы поговорим
+в отдельных уроках, а пока домашка.
+*/
 
 
 
-/* // * Функции
+//# Функции
 
-Объявление функции(Function Declaration)
+/* //*  Объявление функции (Function Declaration)
+function имя(параметры) {
+    ...тело...
+}
+*/
 
-* Создание функции
+/* //*  Создание функции
+
 function setConsole(someData) {
-     Выполняемый код
+    // Выполняемый код
+    console.log(someData);
 }
 
-* Вызов функции
-setConsole();
+// Вызов функции
+setConsole("Привет!");
 
-* Запуск функции
-Функцию можно вызывать и до и после обявления
+// Пример с параметрами
+function getSumm(numOne = 5, numTwo = 10) {
+    return numOne + numTwo;
+}
 
+let someNumber = 580;
 
-* Имя функции и её предназначение
+if (someNumber === 100) {
+    console.log(getSumm(80, 50));
+} else {
+    console.log(getSumm(10, 10));
+}
+*/
+
+/* //*  Имя функции и её предназначение
+
+Как правило, в имени используются опеределенные префиксы,
+обозначающие действие, после которых следует объект действия.
+
 Например, функции, начинающиеся с
-"show..." обычно что - то показывают,
+"show..." обычно что-то показывают,
 "get..." – возвращают значение,
-"calc..." – что - то вычисляют,
-"create..." – что - то создают,
-"check..." – что - то проверяют и возвращают логическое
+"calc..." – что-то вычисляют,
+"create..." – что-то создают,
+"check..." – что-то проверяют и возвращают логическое
 значение, и т.д.
 
+Примеры:
+showMessage - показать сообщение
+getOptions - получить параметры
+calcSum - посчитать сумму
+и т.д.
 
-* Параметры(аргументы)
-function calcSumm(numOne = 1, numTwo = 2) {
-    ...
-}
-calcSumm(5, 5);
-
-* Возврат результата
-return 
+Функция должна делать только то,
+что явно подразумевается её названием.
+И это должно быть одним действием.
+Два независимых действия обычно подразумевают две функции,
+даже если предполагается, что они будут вызываться вместе (в этом случае мы
+можем создать третью функцию, которая будет их вызывать).
 */
 
-/* // * Функции стрелки(arrow functions)
+/* //*   Функция вывода сообщения
+function showMessage() {
+    console.log('Сообщение');
+}
+*/
 
-Функциональное выражение(Function Expression)
+//*  Запуск функции
+
+/* //*   Функцию можно вызывать и до и после обявления
+
+showMessage();
+
+// Функция вывода сообщения
+function showMessage() {
+    console.log('Сообщение!');
+}
+
+showMessage();
+ */
+
+/* //*   Вложенность и видимость функций
+if (2 > 1) {
+    function getSumm() {
+        let numOne, numTwo;
+
+        function getNumOne() {
+            numOne = 1;
+        }
+        function getNumTwo() {
+            numTwo = 2;
+        }
+        getNumOne();
+        getNumTwo();
+
+        let numSumm = numOne + numTwo;
+        console.log(numSumm);
+    }
+}
+getSumm();
+*/
+
+//*  Локальные и внешние переменные
+
+/* //*   Локальная переменная
+function showMessage() {
+    // Локальная переменная
+    let message = "Сообщение";
+    console.log(message);
+}
+
+console.log(message);
+// Выдает ошибку потому что не видит переменную */
+
+/* //*   Внешняя переменная
+let message = "Сообщение №1";
+
+function showMessage() {
+    // Используется внешняя переменная
+    message = "Сообщение №2";
+}
+console.log("До вызова функции = ", message);
+showMessage();
+console.log("После вызова функции = ", message);
+ */
+
+/* //*   Глобальные переменные видны везде
+let globalVar = "Я глобальная переменная";
+
+function getSumm() {
+    let numOne, numTwo;
+
+    function getNumOne() {
+        numOne = 1;
+        console.log(globalVar);
+    }
+    function getNumTwo() {
+        numTwo = 2;
+    }
+    getNumOne();
+    getNumTwo();
+
+    let numSumm = numOne + numTwo;
+    console.log(globalVar);
+}
+console.log(globalVar);
+
+getSumm();
+ */
+
+/* //*  Параметры (аргументы)
+function calcSumm(numOne = 1, numTwo = 2) {
+    console.log(`Переменная numOne:${numOne}`);
+    console.log(`Переменная numTwo:${numTwo}`);
+
+    let numSumm = numOne + numTwo;
+
+    console.log(`Сумма:${numSumm}`);
+}
+
+calcSumm(5, 5);
+*/
+
+/* //*  Функции-колбэки
+function calcSumm(numOne, numTwo, more, less) {
+    let numSumm = numOne + numTwo;
+
+    if (numSumm > 3) {
+        more();
+    } else {
+        less();
+    }
+}
+
+function showMoreMessage() {
+    console.log('Больше чем 3');
+}
+function showLessMessage() {
+    console.log('Меньше чем 3');
+}
+calcSumm(1, 1, showMoreMessage, showLessMessage);
+*/
+
+/* //*  Возврат результата
+function calcSumm(numOne, numTwo) {
+
+    let numSumm = numOne + numTwo;
+
+    // Возврат
+    return numSumm;
+
+    // Дальше код не выполняется
+
+}
+let funcRezult = calcSumm(1, 2);
+
+console.log(`Сумма: ${funcRezult}`);
+*/
+
+//*  Рекурсия
+
+/* //*   1.Итеративный способ: цикл for
+function pow(x, n) {
+    let result = 1;
+
+    // умножаем result на x n раз в цикле
+    for (let i = 0; i < n; i++) {
+        result *= x;
+    }
+
+    return result;
+}
+
+console.log(pow(2, 3)); // 8
+ */
+
+/* //*   2.Рекурсивный способ
+function pow(x, n) {
+    if (n == 1) {
+        return x;
+    } else {
+        return x * pow(x, n - 1);
+    }
+}
+console.log(pow(2, 3)); // 8
+ */
+
+/* //*  Функциональное выражение (Function Expression)
 let имя переменной = function (параметр, ...параметр) {
     return выражение;
 };
+*/
 
-Cтрелочная функция(arrow function)
+/* //*  Cтрелочная функция (arrow function)
 let имя переменной = (параметр, ...параметр) => выражение
-let имя переменной = (параметр, ...параметр) => {
-    выражение
-}
+ */
 
+/* //*   Однострочная стрелочная функция
 
-* Однострочная стрелочная функция
 let getMessage = (text, name) => text + ', ' + name + '!';
+console.log(getMessage('Привет', 'Вася'));
+*/
+
+/* //*   Многострочная стрелочная функция
+let getMessage = (text, name) => {
+    let message = text + ', ' + name + '!';
+    return message;
+};
+console.log(getMessage('Привет', 'Вася'));
  */
 
-/* // * Рекурсия
-
-1. Итеративный способ: цикл for:
-    function calcSumm(numOne, numTwo) {
-        let result = 1;
-    умножаем result на numOne numTwo раз в цикле
-        for (let i = 0; i < numTwo; i++) {
-            result *= numOne;
-        }
-        return result;
-    }
-console.log(calcSumm(2, 3));
-
-
-2. Рекурсивный способ: упрощение задачи и вызов функцией самой себя:
-function calcSumm(numOne, numTwo) {
-    if (numTwo === 1) {
-        return numOne;
-    } else {
-        return numOne * calcSumm(numOne, numTwo - 1);
-    }
-}
-console.log(calcSumm(2, 3));
- */
-
-
-
-
-/* // * Планирование setTimeout и setInterval
+/* //# Планирование setTimeout и setInterval
 
 // Что бы реализовать планирование существуют два метода:
 // 1.	setTimeout позволяет вызвать функцию один раз
@@ -390,45 +616,56 @@ console.log(calcSumm(2, 3));
 // 2.	setInterval позволяет вызывать функцию регулярно,
 //     повторяя вызов через определённый интервал времени.
 
-
 // setTimeout(функция или код, задержка, параметр, ...параметр);
 // setInterval(функция или код, задержка, параметр, ...параметр);
+
+
 function showMessage(text, name) {
     console.log(`${text}, ${name}!`);
-    setTimeout(showMessage, 500, text, name);
 }
-showMessage('Добрый день', 'Иван')
+setInterval(showMessage, 1000, 'Привет', 'Вася');
+setTimeout(showMessage, 2000, 'Привет от таймаута', 'Вася'); */
+
+/* //*  Краткая тело функции внутри
+setTimeout(function () {
+    console.log('Привет!');
+}, 1000);
+
+setTimeout(() => {
+    console.log('Привет!');
+}, 1000);
+*/
+
+//# Объекты СИНТАКСИС
+
+/* //*  Создание объекта
+
+let userInfo = new Object(); // синтаксис "конструктор объекта"
+let userInfo = {};  // синтаксис "литерал объекта"
+*/
+
+/* //*  Свойства объектов. Ключ + значение
+
+//У каждого свойства есть ключ
+//(также называемый «имя» или «идентификатор»).
+//После имени свойства следует двоеточие ":",
+//и затем указывается значение свойства.
+//Если в объекте несколько свойств,
+//то они перечисляются через запятую.
+
+
+let userInfo = {
+    name: "Вася", // Свойство объекта
+    age: 30, // Последняя (висячая) запятая
+};
+
+console.log(userInfo);
+console.log(userInfo.name);
  */
 
+//*  Имена свойств объекта
 
-
-
-
-/*
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Объекты
-let userInfo = new Object();  синтаксис "конструктор объекта"
-let userInfo = {};   синтаксис "литерал объекта"
-
-Имена свойств объекта
-
-Имя из двух и больше слов
+/* //*   Имя из двух и больше слов
 let userInfo = {
     name: "Вася",
     age: 30,
@@ -437,8 +674,11 @@ let userInfo = {
 console.log(userInfo.name);
 console.log(userInfo['name']);
 console.log(userInfo["likes javascript"]);
+ */
 
-Вычисляем имя
+//*   Вычисляемое либо передаваемое имя
+
+/*//*    Вычисляем имя
 let firstPart = "likes";
 let userInfo = {
     name: "Вася",
@@ -446,8 +686,10 @@ let userInfo = {
     [firstPart + " javascript"]: true,
 };
 console.log(userInfo["likes javascript"]);
+*/
 
-Передаем имя
+
+/* //*    Передаем имя
 let firstPart = "likes";
 let userInfo = {
     name: "Вася",
@@ -455,19 +697,30 @@ let userInfo = {
     [firstPart]: true,
 };
 console.log(userInfo[firstPart]);
+ */
 
-Преимущество квадратных скобок
-let key = "name";
-console.log(userInfo[key]);
+/* //*   ограничений названия свойств нет let for return
+let userInfo = {
+    let: "Вася",
+    for: 30,
+};
+console.log(userInfo.let);
+console.log(userInfo.for);
+ */
 
-Зарезервированные слова в именах let for 
 
+/* //*   Имена = строки либо символы
 
+let userInfo = {
+    0: "Вася", // 0 тоже самое что "0"
+};
+console.log(userInfo[0]);
+console.log(userInfo["0"]);
+ */
 
+/* //*   Тип данных Symbol
 
-Тип данных Symbol
-
-Создаём символ id с описанием(именем) "id"
+//*    Создаём символ id с описанием (именем) "id"
 let id = Symbol("id");
 let userInfo = {
     name: "Вася",
@@ -476,16 +729,15 @@ let userInfo = {
 };
 console.log(userInfo);
 
-Основное применение символов:
-1.«Скрытые» свойства объектов
-        Символьное свойство не появится в for..in
-2. Использование системных символов
-Symbol.iterator, Symbol.toPrimitive и т.д.
+// Основное применение символов:
+// 1.«Скрытые» свойства объектов
+//		Символьное свойство не появится в for..in
+// 2. Использование системных символов
+// 	Symbol.iterator, Symbol.toPrimitive и т.д.
+ */
 
+/* //*   Вложенность имен
 
-
-
-    Вложенность
 let userInfo = {
     name: "Вася",
     age: 30,
@@ -494,142 +746,194 @@ let userInfo = {
         street: "Freedom",
     }
 }
+console.log(userInfo);
+console.log(userInfo.address);
+console.log(userInfo.address.city);
+ */
 
+//*   Свойство из переменной
 
-
-
-Свойство из переменной
-
+/* //*    обычнай запись
 function makeUserInfo(name, age) {
     return {
         name: name,
         age: age,
-        ...другие свойства
+        // ...другие свойства
     };
 }
+let user = makeUserInfo("Вася", 30);
+console.log(user);
+ */
 
+/* //*    Краткая запись
 function makeUserInfo(name, age) {
     return {
-        name, Тоже самое что и  name: name,
-        age, Тоже самое что и  age: age,
+        name, // Тоже самое что и  name: name,
+        age,// Тоже самое что и  age: age,
         "likes javascript": true,
-        ...другие свойства
+        // ...другие свойства
     };
 }
+let user = makeUserInfo("Вася", 30);
+console.log(user);
+ */
 
+//*  Изменение объекта
 
+/* //*   Добавление свойства
 
-обавление свойства
 let userInfo = {
     name: "Вася",
 }
+
+console.log(userInfo);
+
 userInfo.age = 30;
 
+console.log(userInfo);
 
+userInfo['likes javascript'] = true;
 
+console.log(userInfo);
 
-Удаление свойства
+userInfo.address = {
+    city: "Uzhhorod",
+    street: "Freedom",
+};
+
+console.log(userInfo);
+*/
+
+/* //*   Удаление свойства
+
 let userInfo = {
     name: "Вася",
     age: 30,
     "likes javascript": true
 }
+console.log(userInfo);
+
 delete userInfo.age;
 
+console.log(userInfo);
 
+delete userInfo["likes javascript"];
 
+console.log(userInfo); */
 
-Изменение свойства
+/* //*   Изменение свойства
+
 let userInfo = {
     name: "Вася",
     age: 30,
 }
+console.log(userInfo);
+
 userInfo.age = 18;
 
+console.log(userInfo);
+*/
 
+/* //*   Изменение свойства даже в константе
 
+const userInfo = {
+    name: "Вася",
+    age: 30,
+}
+console.log(userInfo);
 
-Копирование объектов
-При копировании объекта в другую переменную
-сам объект не дублируется, а копируется только ссылка на него
+userInfo.age = 18;
+
+console.log(userInfo);
+ */
+
+/* //*  Копирование объектов
+//   При копировании объекта в другую переменную
+//   сам объект не дублируется, а копируется только ссылка на него
+
 let userInfo = {
     name: "Вася",
     age: 30,
 }
+
+console.log(userInfo);
+
 let user = userInfo;
+
+console.log(user);
+
 user.age = 18;
 
+console.log(userInfo);
+ */
+
+/* //*  Дублирование объектов (Object.assign)
+
+// Синтаксис
+//Object.assign(куда(объект), что(свойство #1), что(свойство #2), ...);
 
 
-
-Дублирование объектов(Object.assign)
-Синтаксис
-Object.assign(куда(объект), что(свойство #1), что(свойство #2), ...);
-let userInfo = {
+ let userInfo = {
     name: "Вася",
     age: 30,
 }
 
-
-
-
-Клонирование
 let user = Object.assign({}, userInfo);
 
-Пример: слияние объектов
+user.age = 18;
+
+console.log(userInfo);
+console.log(user);
+ */
+
+/* //*   Пример: слияние объектов
 let o1 = { a: 1 };
 let o2 = { b: 2 };
 let o3 = { c: 3 };
+
 let obj = Object.assign({}, o1, o2, o3);
-console.log(obj); { a: 1, b: 2, c: 3 }
+console.log(obj); // { a: 1, b: 2, c: 3 }
+ */
 
+/* //*   Добавление свойств через Object.assign
 
-
-
-Добавление свойств
 let userInfo = {
     name: "Вася",
     age: 30,
 }
 Object.assign(userInfo, { ['likes javascript']: true, city: "Uzhhorod" });
 console.log(userInfo);
+ */
 
-
-
-
-Проверка существования свойства
-if (userInfo.age) { true или false }
-
-
-
-Опциональная цепочка
+/* //*  Проверка существования свойства
 let userInfo = {
     name: "Вася",
     age: 30,
-    address: {
-        city: "Uzhhorod",
-        street: "Freedom",
-    }
 }
-console.log(userInfo.address.street); !получим ошибку если нет!
-console.log(userInfo?.address?.street); использовать
 
+if (userInfo.age) { // true или false
+    console.log(userInfo.age);
+}
+ */
 
+/* //*  Опциональная цепочка когда не уверен что свойство есть
 
-
-
-
-
-
-
-Оператор "in".
-В большинстве случаев сработает сравнение с undefined.
-либо опциональная цепочка?.
-Но есть особый случай, когда свойство существует,
-    но содержит значение undefined.
-В этом случае необходимо использовать "in".
 let userInfo = {
     name: "Вася",
+    age: 30,
+    //address: {
+    //	city: "Uzhhorod",
+    //	street: "Freedom",
+    //}
+}
+// console.log(userInfo.address.street); // ! получим ошибку если нет!
+console.log(userInfo?.address?.street); //*   использовать
+ */
+
+/* //*  Оператор "in"
+
+let userInfo = {
+    // name: "Вася",
     age: 30,
     address: {
         city: "Uzhhorod",
@@ -640,30 +944,61 @@ if ("name" in userInfo) {
     console.log(userInfo.name);
 }
 
+//В большинстве случаев сработает сравнение с undefined.
+//либо опциональная цепочка ?.*/
+/* //*   Но есть особый случай, когда свойство существует,
+//но содержит значение undefined.
+//В этом случае необходимо использовать "in".
 
 
 
+let userInfo = {
+    name: undefined,
+    // ...следующие свойства
+}
+if (userInfo.name) { // false
+    console.log(userInfo.name);
+}
+if ("name" in userInfo) { //true
+    console.log(userInfo.name);
+}
+*/
 
+/* //*  Цикл «for…in»
 
+// Для перебора всех свойств объекта используется цикл for..in.
+// Этот цикл отличается от изученного ранее цикла for(;;).
 
+// for (let key in object) {
+    // тело цикла выполняется для каждого свойства объекта
+// }
 
-
-Цикл «for…in»
-Для перебора всех свойств объекта используется цикл for..in.
-Этот цикл отличается от изученного ранее цикла for (; ;).
-    for(let key in object) {
-     тело цикла выполняется для каждого свойства объекта
+let userInfo = {
+    name: "Вася",
+    age: 30,
+    address: {
+        city: "Uzhhorod",
+        street: "Freedom",
+    }
 }
 
+for (let key in userInfo) {
+    // ключи
+    console.log(key); // name, age, address
+    // значения ключей
+    console.log(userInfo[key]); // Вася, 30, Object {}
+}
 
+for (let key in userInfo.address) {
+    // ключи
+    console.log(key); // city, street
+    // значения ключей
+    console.log(userInfo.address[key]); // Uzhhorod, Freedom
+}
+ */
 
+/* //*  Методы объекта
 
-
-
-
-
-
-Использование "this"
 let userInfo = {
     name: "Вася",
     age: 30,
@@ -671,57 +1006,91 @@ let userInfo = {
         city: "Uzhhorod",
         street: "Freedom",
     },
+    //showInfo: function () {
+    //	console.log(`${userInfo.name}, ${userInfo.age} лет. Адрес: г.${userInfo.address.city}, ул.${userInfo.address.street}`);
+    //}
     showInfo() {
         console.log(`${userInfo.name}, ${userInfo.age} лет. Адрес: г.${userInfo.address.city}, ул.${userInfo.address.street}`);
-        console.log(`${this.name}, ${this.age} лет. Адрес: г.${this.address.city}, ул.${this.address.street}`);
     }
 }
 userInfo.showInfo();
+ */
 
+/* //*  Использование "this"
 
+let user = { name: "John" };
+let admin = { name: "Admin" };
 
+function sayHi() {
+    console.log(this.name);
+}
 
+// используем одну и ту же функцию в двух объектах
+user.f = sayHi;
+admin.f = sayHi;
 
+// эти вызовы имеют  разное значение this
+// "this" внутри функции - это объект "перед точкой"
+user.f(); // John  (this == user)
+admin.f(); // Admin  (this == admin)
 
+admin['f'](); // Admin (нет разницы между использованием точки или квадратных скобок для доступа к объекту)
+ */
 
+/* //*   У стрелочных функций нет «this»
+let user = {
+    firstName: "Ilya",
+    sayHi() {
+        let arrow = () => console.log(this.firstName);
+        arrow();
+    }
+};
 
+user.sayHi(); // Ilya
+ */
 
-Функция - конструктор
+//*   Функция-конструктор
 
+/*
 Обычный синтаксис создания объекта{... } позволяет создать
-только один объект.Но зачастую нам нужно создать множество
+только один объект. Но зачастую нам нужно создать множество
 однотипных объектов, таких как пользователи, элементы меню и т.д.
 Это можно сделать при помощи функции - конструктора и оператора "new".
-    Функции - конструкторы являются обычными функциями.
+*/
+/*
+Функции - конструкторы являются обычными функциями.
 Но есть два правила:
 1. Имя функции - конструктора должно начинаться с большой буквы.
-2. Функция - конструктор должна вызываться при помощи оператора "new".
-
-
+2. Функция - конструктор должна вызываться при помощи
+    оператора "new".
+*/
+/*
 function UserInfo(name) {
 
-    this = {}; Создается пустой объект(неявно)
+    // this = {}; Создается пустой объект (неявно)
 
     this.name = name;
     this.age = 30;
 
-    return this; Возвращается объект(неявно)
+    // return this; Возвращается объект (неявно)
 }
 
 console.log(new UserInfo('Вася'));
 console.log(new UserInfo('Лена'));
+*/
 
-
+/*
 Когда мы пишем наш код, используя объекты для представления сущностей реального мира,
 – это называется объектно - ориентированное программирование или сокращённо: «ООП».
 
 ООП является большой предметной областью и интересной наукой само по себе.
 Как выбрать правильные сущности ? Как организовать взаимодействие между ними ?
-    Это – создание архитектуры, и есть хорошие книги по этой теме,
-        такие как «Приёмы объектно - ориентированного проектирования.
+Это – создание архитектуры, и есть хорошие книги по этой теме,
+такие как «Приёмы объектно - ориентированного проектирования.
 Паттерны проектирования» авторов Эрих Гамма, Ричард Хелм, Ральф Джонсон,
-    Джон Влиссидес или «Объектно - ориентированный анализ и проектирование с примерами приложений»
+Джон Влиссидес или «Объектно - ориентированный анализ и проектирование с примерами приложений»
 Гради Буча, а также ещё множество других книг.
+*/
 
 
 
@@ -739,7 +1108,7 @@ console.log(new UserInfo('Лена'));
 
 
 
-
+/*
     Number
 
 Итак, простое число в JS можно записать следующим образом.

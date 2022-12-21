@@ -10,26 +10,22 @@
 
 html,
 body {
-    height: 100%;
+    /* height: 100%; */
     background-color: #333;
     font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
     color: #fff;
     font-size: 16px;
-    padding: 30px;
 }
 li {
     list-style: none;
 }
-
 h1 {
-    margin: 0px 0px 20px 0px;
     line-height: 150%;
 }
-h2 {
-    margin: 0px 0px 15px 0px;
-}
 .page {
+    padding: 30px;
 }
+
 .page__item:not(:last-child) {
     margin-bottom: 40px;
 }
@@ -38,38 +34,36 @@ h2 {
 }
 
 .lesson {
-    padding: 30px 0px 50px 0px;
 }
 .lesson__item:not(:last-child) {
-    margin-bottom: 30px;
+    margin-bottom: 20px;
+}
+.lesson__title {
+    margin: 0px 0px 40px 0px;
 }
 .lesson__text {
     font-size: 18px;
     line-height: 150%;
-    margin: 0px 0px 20px 0px;
 }
 .lesson__list {
     list-style: none;
-    margin: 0px 0px 50px 0px;
-}
-.lesson__item-list {
     line-height: 150%;
     font-size: 18px;
     position: relative;
     padding: 0px 0px 0px 20px;
 }
-.lesson__item-list_red {
-    color: red;
+.lesson__list_blue {
+    color: blue;
 }
 .red {
-    color: red;
+   color: red;
 }
-.lesson__item-list::before {
+.lesson__list::before {
     content: "";
     width: 8px;
     height: 8px;
     border-radius: 50%;
-    background-color: rgb(231, 231, 0);
+    background-color: #e7e700;
     position: absolute;
     left: 0;
     top: 9px;
@@ -99,20 +93,6 @@ h2 {
     background-color: #794f45;
     overflow: auto;
 }
-.lesson__content {
-    font-size: 20px;
-    line-height: 150%;
-}
-.lesson__content p:not(:last-child) {
-    margin: 0px 0px 20px 0px;
-}
-
-.lesson__dom-search {
-}
-
-.lesson__section {
-    margin: 0px 0px 20px 0px;
-}
 .lesson__link {
     color: #7a956b;
     font-size: 18px;
@@ -126,23 +106,4 @@ h2 {
     color: #fff;
     border: 1px solid rgb(44, 44, 44);
     background-color: rgb(75, 74, 74);
-}
-
-.dom-search {
-    display: grid;
-    grid-template-columns: repeat(5, auto);
-    gap: 1px;
-}
-.dom-search__title {
-    font-size: 16px;
-    line-height: 150%;
-    padding: 15px;
-    display: flex;
-    align-items: flex-end;
-    background-color: #7a956b;
-}
-.dom-search__item {
-    white-space: nowrap;
-    background-color: rgba(145, 145, 145, 0.473);
-    padding: 15px;
 }
