@@ -10,29 +10,57 @@
 
 <body>
 
-
-
-
-
     <div class="page">
-
         <div class="page__item lesson">
             <h1 class="lesson__title">
                 <span class="yellow">JavaScript.</span>
                 Браузерное окружение. Работа с
                 <span class="yellow">DOM.</span>
             </h1>
-            <div class="lesson__item lesson__text">Eiusmod id sint commodo dolor fugiat minim mollit elit non laborum culpa ullamco.</div>
+            <div class="lesson__item lesson__text">
+                Eiusmod id sint commodo dolor fugiat minim mollit elit non laborum culpa ullamco.
+            </div>
             <div class="lesson__item"><a class="yellow lesson__link" target="_blank" href="https://dzen.ru/">Yandex</a></div>
             <input type="text" name="form[email]" data-error="Error" placeholder="E-mail" class="lesson__item lesson__input lesson__item">
             <ul class="lesson__list lesson__list_blue list">
                 <li class="list__item">Item 1</li>
-                <li class="list__item">Item 2</li>
-                <li class="list__item">Item 3</li>
-                <li class="list__item">Item 4</li>
+                <li class="list__item">Item 2
+                    <ul class="list__sub-list">
+                        <li id="listItem" class="list__item-sub-list">sulist item1</li>
+                        <li class="list__item-sub-list">sulist item2</li>
+                        <li class="list__item-sub-list">sulist item3</li>
+                        <li class="list__item-sub-list">sulist item4</li>
+                    </ul>
+                </li>
+                <li class="list__item list__item_red">Item 3</li>
+                <li class="list__item ">Item 4</li>
             </ul>
         </div>
     </div>
+
+    <ul>
+        <li>Имя 1</li>
+        <li>Имя 2</li>
+        <li>Имя 3</li>
+        <li>Имя 4</li>
+    </ul>
+    <table id="table">
+        <tr>
+            <td>Ваш возраст:</td>
+
+            <td>
+                <label>
+                    <input type="radio" name="age" value="young" checked> младше 18
+                </label>
+                <label>
+                    <input type="radio" name="age" value="mature"> от 18 до 50
+                </label>
+                <label>
+                    <input type="radio" name="age" value="senior"> старше 60
+                </label>
+            </td>
+        </tr>
+    </table>
 
     <script src="js/script.js"></script>
 </body>
