@@ -3117,3 +3117,72 @@ font-size = 40px :
 font-size: calc( 3.125vw + 10px );
 в REM
 font-size: calc( 3.125vw + 0.625rem );
+
+
+
+
+====================== Создание переменной в CSS ======================
+:root {
+    --main-color: #ffffff;
+}
+
+h1 {
+    font-family: Cormorant;
+    color: var(--main-color);
+}
+
+
+
+
+
+
+
+
+====================== Проверка если браузер не поддерживает свойство CSS ======================
+.navigation__list {
+    display: flex;
+    gap: 50px;
+}
+
+@supports not (gap: 1px) {
+    .navigation__item:not(:last-child) {
+        margin-right: 50px;
+    }
+}
+
+
+====================== каринка не на всю высоту======================
+надо задать любое свойство 
+line-height:0;
+или
+font-size:0;
+или
+display:block;
+
+
+
+
+
+====================== Испольование @mixin для медия ======================
+в миксинах 
+@mixin laptop {
+	@media (max-width:1024px) {
+    	@content;	
+	}
+}
+
+в файле
+.block{
+	@include laptop{
+		display:block
+	}
+}
+
+
+
+
+
+
+====================== script подождал загрузку страницы ======================
+добавить defer
+ <script src="js/christmass.js" defer></script>

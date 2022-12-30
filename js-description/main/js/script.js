@@ -70,9 +70,9 @@ string для строк.Строка может содержать ноль и�
 
 boolean для true / false.
 
-null для неизвестных значений – отдельный тип, имеющий одно значение null.
+null для неизвестных значений – отдельный тип, имеющий одно значение null. Этот тип используют разработчики что бы обнулить что то.
 
-undefined для неприсвоенных значений – отдельный тип, имеющий одно значение undefined.
+undefined для неприсвоенных значений – отдельный тип, имеющий одно значение undefined. Его пишет js 
 
 symbol для уникальных идентификаторов.
 
@@ -2170,12 +2170,12 @@ console.log(lastChildNode);
  */
 
 /*
-* В документе, возможено, есть ещё «какой-то HTML-код»,
-* но на момент выполнения скрипта браузер ещё
-* до него не дошёл.
-* Поэтому следует размещать скрипт в самом конце
-* документа
-*/
+ * В документе, возможено, есть ещё «какой-то HTML-код»,
+ * но на момент выполнения скрипта браузер ещё
+ * до него не дошёл.
+ * Поэтому следует размещать скрипт в самом конце
+ * документа
+ */
 
 
 /* //*  Коллекция childNodes содержит список всех детей,
@@ -3479,13 +3479,13 @@ blockForMouse.addEventListener("mouseleave", function (event) {
 /* //*  Делегирование событий наведения мыши
 
 const blockForMouse = document.querySelector('.block-for-mouse');
-blockForMouse.addEventListener("mouseover", function (event) {
+blockForMouse.addEventListener("mouseover", function(event) {
     let target = event.target.closest('span');
     // переход не на <span> - игнорировать
     if (!target) return;
     target.style.cssText = `background-color: #77608d;`;
 });
-blockForMouse.addEventListener("mouseout", function (event) {
+blockForMouse.addEventListener("mouseout", function(event) {
     let target = event.target.closest('span');
     // переход не на <span> - игнорировать
     if (!target) return;
@@ -3498,7 +3498,7 @@ blockForMouse.addEventListener("mouseout", function (event) {
 const gragField = document.querySelector('.drag-field');
 const gragItem = document.querySelector('.drag-field__item');
 
-gragItem.addEventListener("mousedown", function (event) {
+gragItem.addEventListener("mousedown", function(event) {
 
     let coordsItemX = event.clientX - gragItem.getBoundingClientRect().left;
     let coordsItemY = event.clientY - gragItem.getBoundingClientRect().top;
@@ -3578,20 +3578,14 @@ gragItem.addEventListener("mousedown", function (event) {
     }
     document.addEventListener('mousemove', onDragItem);
 
-    document.addEventListener("mouseup", function (event) {
+    document.addEventListener("mouseup", function(event) {
         document.removeEventListener('mousemove', onDragItem);
     }, { "once": true });
 });
-gragItem.addEventListener("dragstart", function (event) {
+gragItem.addEventListener("dragstart", function(event) {
     event.preventDefault();
 });
-
  */
-
-
-
-
-
 
 //===================================================
 
