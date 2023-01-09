@@ -9,8 +9,8 @@
     6.  number      v
     7.  string      v
     8.  array       v
-    9.  dom         
-    10. events      
+    9.  dom         v
+    10. events      v
     11. scroll      
     12. js-forms    
  */
@@ -3086,7 +3086,7 @@ document.addEventListener("click", function (e) {
 
 
 
-/* //*  Введение в JS события
+/* //#  Введение в JS события
 
 
 Отлавливать возникновение события мы будем с помощью
@@ -3587,63 +3587,56 @@ gragItem.addEventListener("dragstart", function(event) {
 });
  */
 
-//===================================================
-
 //*  Клавиатура
 
-/*
-* Основные события при работе с клавиатурой это:
+/* //* Основные события при работе с клавиатурой это:
     keydown – происходит при нажатии клавиши
     keyup – при отпускании клавиши
 */
 
-//*  event.code и event.key
+/* //*  event.code и event.key
 
-/*
+
 document.addEventListener("keydown", function (event) {
-    console.log(`Нажата клавиша ${event.code} (${event.key})`);
+   console.log(`Нажата клавиша ${event.code} (${event.key})`);
 });
 document.addEventListener("keyup", function (event) {
-    console.log(`Отжата клавиша ${event.code} (${event.key})`);
+   console.log(`Отжата клавиша ${event.code} (${event.key})`);
 });
-*/
 
-/*
-Если пользователь работает с разными языками, то при переключении
-на другой язык символ изменится с "G" на совершенно другой.
-Получившееся станет новым значением event.key,
-тогда как event.code останется тем же: "KeyG".
-*/
 
-/*
+// Если пользователь работает с разными языками, то при переключении
+// на другой язык символ изменится с "G" на совершенно другой.
+// Получившееся станет новым значением event.key,
+// тогда как event.code останется тем же: "KeyG".
+
+
+
 document.addEventListener('keydown', function (event) {
-    if (event.code == 'KeyZ' && (event.ctrlKey || event.metaKey)) {
-        console.log('Отмена действия!');
-    }
+   if (event.code == 'KeyZ' && (event.ctrlKey || event.metaKey)) {
+       console.log('Отмена действия!');
+   }
 });
 */
 
 
-/*
-* Автоповтор
-При долгом нажатии клавиши возникает автоповтор: keydown срабатывает
-снова и снова, и когда клавишу отпускают, то отрабатывает keyup.
-Так что ситуация, когда много keydown и один keyup, абсолютно нормальна.
-Для событий, вызванных автоповтором, у объекта события
-свойство event.repeat равно true.
-*/
-/*
+/* //* Автоповтор
+// При долгом нажатии клавиши возникает автоповтор: keydown срабатывает
+// снова и снова, и когда клавишу отпускают, то отрабатывает keyup.
+// Так что ситуация, когда много keydown и один keyup, абсолютно нормальна.
+// Для событий, вызванных автоповтором, у объекта события
+// свойство event.repeat равно true.
+
 document.addEventListener("keydown", function (event) {
     console.log(`Нажата клавиша ${event.code} (${event.key})`);
     console.log(event.repeat);
-});
-*/
+}); */
 
-/*
-// Пример
-const txtItem = document.querySelector('.textarea__item');
+/* // Пример
+const txtItem = document.querySelector('.textarea-counter__textarea');
 const txtItemLimit = txtItem.getAttribute('maxlength');
-const txtCounter = document.querySelector('.textarea__counter span');
+const txtCounter = document.querySelector('.textarea-counte__counter');
+
 txtCounter.innerHTML = txtItemLimit;
 
 txtItem.addEventListener("keyup", txtSetCounter);
@@ -3655,9 +3648,9 @@ function txtSetCounter() {
     const txtCounterResult = txtItemLimit - txtItem.value.length;
     txtCounter.innerHTML = txtCounterResult;
 }
-*/
+ */
 
-/*
+/* // При нажатии escape e,bhfnm класс у меню
 document.addEventListener('keyup', function (event) {
     if (event.code === 'Escape') {
         menuBody.classList.remove('_active');
@@ -3665,10 +3658,10 @@ document.addEventListener('keyup', function (event) {
 });
 */
 
-//===================================================
 
-//*  Прокрутка (скролл)
-/*
+
+/* //*  Прокрутка (скролл)
+
 window.addEventListener('scroll', function (event) {
     //*  кол-во прокрученных пикселей по вертикали
     //*  scrollY или pageYOffset (устарел)
@@ -3677,9 +3670,10 @@ window.addEventListener('scroll', function (event) {
 
     console.log(`${scrollY}px`);
 });
-*/
-// Предотвращение прокрутки
-/*
+ */
+
+/* //* Предотвращение прокрутки
+
 Нельзя предотвратить прокрутку, используя event.preventDefault()
 в обработчике scroll,  потому что он срабатывает после того,
 как прокрутка уже произошла.
@@ -3692,9 +3686,7 @@ window.addEventListener('scroll', function (event) {
 способ – использовать CSS, свойство overflow: hidden;.
 */
 
-
-/*
-Использование
+/* //*  Использование
 
 Событие прокрутки scroll позволяет реагировать на прокрутку страницы
 или элемента. Есть много хороших вещей, которые при этом можно сделать.
@@ -3715,30 +3707,27 @@ window.addEventListener('scroll', function (event) {
 
 */
 
-//===================================================
 
-//*  События загрузки страницы
-/*
+
+/* //*  События загрузки страницы
+
 * 1) DOMContentLoaded – браузер полностью загрузил HTML,
     было построено DOM - дерево, но внешние ресурсы,
     такие как картинки <img> и стили, могут быть ещё не загружены.
 * 2) load – браузер загрузил HTML и внешние ресурсы (картинки, стили и т.д.)
 * 3) beforeunload / unload – пользователь покидает страницу.
-*/
 
-/*
 * document.readyState - состояние загрузки
 
-Есть три возможных значения:
+* Есть три возможных значения:
 * "loading" – документ загружается.
-* "interactive" – документ был полностью прочитан.
-* "complete" – документ был полностью прочитан
-* и все ресурсы(такие как изображения) были тоже загружены.
+* "interactive" – DOM был полностью загружен, Подресурсы, такие как скрипты, изображения, таблицы стилей и фреймы, все еще загружаются.
+* "complete" – документ был полностью прочитан.
 */
 
 
-/*
-//*  Событие DOMContentLoaded срабатывает на объекте document
+/* //*  Событие DOMContentLoaded срабатывает на объекте document
+
 document.addEventListener("DOMContentLoaded", readyDom);
 
 // Событие load срабатывает на объекте window
@@ -3755,12 +3744,10 @@ function readyLoad() {
     const image = document.querySelector('.image');
     console.log('Страница загружена!');
     console.log(image.offsetWidth);
-}
-*/
+} */
 
+/* //*  Событие beforeunload срабатывает на объекте window
 
-/*
-//*  Событие beforeunload срабатывает на объекте window
 window.addEventListener("beforeunload", beforeUnLoad);
 
 function beforeUnLoad(event) {
@@ -3777,9 +3764,344 @@ window.addEventListener("unload", function (e) {
     // navigator.sendBeacon(url, data)
     // https://w3c.github.io/beacon/.
 });
+ */
+
+
+
+// # Прокурутка
+
+//*  Размеры окна браузера
+// clientWidth и clientHeight
+
+/* //* Доступная ширина и высота окна
+
+const mainElement = document.documentElement;
+const mainElementWidth = mainElement.clientWidth;
+const mainElementHeight = mainElement.clientHeight;
+
+console.log('mainElementWidth: ', mainElementWidth);
+console.log('mainElementHeight: ', mainElementHeight);
+
+
+//*  Ширина и высота окна вместе с полосами прокрутки
+const windowWidth = window.innerWidth;
+const windowHeight = window.innerHeight;
+
+console.log('windowWidth: ', windowWidth);
+console.log('windowHeight: ', windowHeight);
+ */
+
+/* //* Ширина и высота документа
+
+// включая прокрученную часть
+
+let scrollWidth = Math.max(
+document.body.scrollWidth, document.documentElement.scrollWidth,
+document.body.offsetWidth, document.documentElement.offsetWidth,
+document.body.clientWidth, document.documentElement.clientWidth
+);
+let scrollHeight = Math.max(
+document.body.scrollHeight, document.documentElement.scrollHeight,
+document.body.offsetHeight, document.documentElement.offsetHeight,
+document.body.clientHeight, document.documentElement.clientHeight
+);
+console.log(scrollWidth);
+console.log(scrollHeight);
+ */
+
+/* //* Получить кол-во прокрученных пикселей
+// Только для чтения
+const windowScrollTop = window.pageYOffset;
+const windowScrollLeft = window.pageXOffset;
+
+console.log('windowScrollTop: ', windowScrollTop);
+console.log('windowScrollLeft: ', windowScrollLeft);
+ */
+
+//* Управление прокруткой страницы
+
+/* //* Метод scrollBy(x,y) прокручивает страницу относительно её текущего положения.
+
+function setScrollBy() {
+    window.scrollBy(0, 50);
+    const windowScrollTop = window.pageYOffset;
+    console.log(windowScrollTop);
+}
+
+const buttonScroll = document.querySelector('.button');
+
+buttonScroll.innerHTML = 'прокрутить на 100 пикселей';
+// buttonScroll.addEventListener("click", setScrollBy);
+buttonScroll.onclick = setScrollBy;
+ */
+
+/* //*  Плавная прокрутка через стили
+document.documentElement.style.cssText = `
+    scroll-behavior: smooth;
+`; */
+
+/* //* Метод scrollTo(pageX, pageY) прокручивает страницу (+ плавная прокрутка)
+// на абсолютные координаты(pageX, pageY).
+// тоже самое что и window.scroll()
+
+function setScrollToOptions() {
+    window.scrollTo({
+        top: 500,
+        left: 0,
+        // smooth, instant,
+        // либо auto; по умолчанию auto
+        behavior: "smooth"
+    });
+}
+// Опции не работают в Safari
+
+
+setScrollToOptions();
+ */
+
+/* //* Вызов elem.scrollIntoView(top) прокручивает страницу,
+// чтобы elem оказался вверху.У него есть один аргумент:
+
+// - если top = true(по умолчанию), то страница будет прокручена,
+// чтобы elem появился в верхней части окна.
+// Верхний край элемента совмещён с верхней частью окна.
+// - если top = false, то страница будет прокручена, чтобы elem
+// появился внизу.Нижний край элемента будет совмещён с нижним краем окна.
+
+function setScrollIntoView(top) {
+    const lessonSelected = document.querySelector('.lesson__block');
+    lessonSelected.scrollIntoView(top);
+}
+
+function setScrollIntoViewOptions(top) {
+    const lessonSelected = document.querySelector('.lesson__block');
+    lessonSelected.scrollIntoView({
+        //"start", "center", "end" или "nearest". По умолчанию "center".
+        block: "center",
+        //"start", "center", "end" или "nearest". По умолчанию "nearest".
+        inline: "nearest",
+        // "auto" или "smooth". По умолчанию "auto".
+        behavior: "smooth"
+    });
+}
+// Опции не работают в Safari
+
+
+const buttonScroll = document.querySelector('.button');
+buttonScroll.innerHTML = `Прокрутить к блоку`;
+
+document.addEventListener("click", function (e) {
+
+    // setScrollIntoView();
+
+    setScrollIntoViewOptions();
+});
+ */
+
+/* //* Запретить прокрутку
+function setEnableDisableScroll() {
+    document.body.style.overflow = "hidden";
+    // document.body.classList.toggle('scroll-lock');
+}
+
+setEnableDisableScroll();
+
+// Для прокрутки страницы из JavaScript её DOM должен
+// быть полностью построен.
+// Например, если мы попытаемся прокрутить страницу
+// из скрипта в <head>, это не сработает.
+ */
+
+
+/* //* Метрики элементов на странице
+
+// Получаем объект
+const block = document.querySelector('.lesson__block');
+
+//*  Позиция объекта
+// Свойства offsetParent, offsetLeft и offsetTop
+
+// Получаем родительский элемент
+// относительно которого позицианирован наш объект
+const elementOffsetParent = block.offsetParent;
+
+// Это будет ближайший предок, который
+// удовлетворяет следующим условиям:
+
+// 1. Является CSS-позиционированным
+//     (CSS-свойство position равно absolute, relative, fixed или sticky)
+// 2. или теги <td>, <th>, <table>,
+// 3. или <body>.
+
+console.log(elementOffsetParent);
+
+
+//* Cитуации, в которых offsetParent равно null:
+// 1. Для скрытых элементов
+//     (с CSS - свойством display: none или когда его нет в документе).
+// 2. Для элементов <body> и <html>.
+// 3. Для элементов с position: fixed.
+
+
+
+
+// Получаем позицию объекта относительно предка (offsetParent)
+const elementOffsetLeft = block.offsetLeft;
+const elementOffsetTop = block.offsetTop;
+
+console.log('elementOffsetLeft: ', elementOffsetLeft);
+console.log('elementOffsetTop: ', elementOffsetTop);
+ */
+
+/* //*  Общие размеры объекта
+// offsetWidth и offsetHeight
+
+const block = document.querySelector('.lesson__block');
+
+// Получаем размеры объекта
+const elementOffsetWidth = block.offsetWidth;
+const elementOffsetHeight = block.offsetHeight;
+
+console.log(elementOffsetWidth);
+console.log(elementOffsetHeight);
+
+// Метрики для не показываемых элементов равны нулю.
+ */
+
+/* //*  Отступы внутренней части элемента от внешней.
+// clientTop и clientLeft
+
+// Получаем объект
+const block = document.querySelector('.lesson__block');
+
+const elementClientTop = block.clientTop;
+const elementClientLeft = block.clientLeft;
+
+console.log(elementClientTop);
+console.log(elementClientLeft);
+ */
+
+/* //*  Размеры объекта без рамок и полосы прокрутки
+// clientWidth и clientHeight
+
+// Получаем объект
+const block = document.querySelector('.lesson__block');
+
+const elementClientWidth = block.clientWidth;
+const elementClientHeight = block.clientHeight;
+
+console.log(elementClientWidth);
+console.log(elementClientHeight);
+
+// общая ширина (offsetWidth) - рамка слева - рамка справа - скролл
+// 500 - 20 - 20 - 17 = 443
+ */
+
+/* //*  Размеры объекта включающие в себя прокрученную (которую не видно) часть.
+// В остальном работают как clientWidth/clientHeight,
+// scrollWidth и scrollHeight
+
+// Получаем объект
+const block = document.querySelector('.lesson__block');
+
+const elementScrollWidth = block.scrollWidth;
+const elementScrollHeight = block.scrollHeight;
+
+console.log(elementScrollWidth);
+console.log(elementScrollHeight);
+ */
+
+/* //*  Размеры прокрученной области
+// scrollLeft и scrollTop
+
+// Получаем объект
+const block = document.querySelector('.lesson__block');
+
+block.scrollTop = 150;
+
+const elementScrollLeft = block.scrollLeft;
+const elementScrollTop = block.scrollTop;
+
+console.log(elementScrollLeft);
+console.log(elementScrollTop);
+
+ */
+
+/* //*  Методы управления прокруткой
+// scrollBy, scrollTo и scrollIntoView
+// работают и для объекта
+
+function setElementScrollBy() {
+    block.scrollBy({
+        top: 20,
+        left: 0,
+        behavior: "smooth"
+    })
+}
+ */
+
+
+/* //*  Координаты
+
+Большинство соответствующих методов JavaScript работают в
+одной из двух указанных ниже систем координат:
+
+1. Относительно окна браузера.
+    (как position: fixed, отсчёт идёт от верхнего левого угла окна.)
+    Принято обозначать clientX/clientY.
+2. Относительно документа.
+    (как position: absolute относительно <body>, отсчёт идёт от
+    верхнего левого угла документа.)
+    Принято обозначать pageX/pageY.
+
+Когда страница полностью прокручена в самое начало,
+то верхний левый угол окна совпадает с левым верхним
+углом документа, при этом обе этих системы координат тоже совпадают.
+Но если происходит прокрутка, то координаты элементов в
+контексте окна меняются, так как они двигаются,
+но в то же время их координаты относительно
+документа остаются такими же.
 */
 
+//*  Координаты относительно окна браузера
+/* //*  getBoundingClientRect
 
+// Получаем объект
+const item = document.querySelector('.lesson__block');
+
+// Получаем координаты относительно окна браузера
+const getItemCoords = item.getBoundingClientRect();
+
+console.log(getItemCoords);
+
+// Получаем конкретную координату относительно окна браузера
+const getItemLeftCoord = item.getBoundingClientRect().left;
+
+console.log(getItemLeftCoord);
+ */
+
+//*  Координаты относительно документа
+/* //* getBoundingClientRect
+
+// Получаем объект
+const item = document.querySelector('.lesson__block');
+
+// Получаем конкретную координату относительно окна браузера
+const getItemTopCoord = item.getBoundingClientRect().top;
+
+// Получаем конкретную координату относительно документа
+const getItemTopDocumentCoord = getItemTopCoord + window.pageYOffset;
+
+console.log(getItemTopCoord);
+console.log(getItemTopDocumentCoord);
+ */
+
+/* //*  Получение объекта по координатам
+// document.elementFromPoint(x, y);
+
+const elem = document.elementFromPoint(100, 100);
+console.log(elem);
+ */
 
 
 
